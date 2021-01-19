@@ -13,7 +13,7 @@ class CreateObligationsTable extends Migration
      */
     public function up()
     {
-        Schema::table('obligations', function (Blueprint $table) {
+        Schema::create('obligations', function (Blueprint $table) {
           $table->increments('id');
           $table->string('title');
           $table->string('start');
@@ -21,7 +21,7 @@ class CreateObligationsTable extends Migration
           $table->string('profil');
           $table->string('organisme');
           $table->string('lien');
-          $table->string('contact'); 
+          $table->string('contact');
           $table->timestamps();
         });
     }
@@ -33,6 +33,6 @@ class CreateObligationsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('obligations');
+        Schema::dropIfExists('obligations');
     }
 }
