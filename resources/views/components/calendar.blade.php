@@ -21,21 +21,6 @@
         calendar.render();
         var removedEvents = [];
 
-        $("input.filter-profil").each(function (index, element) {
-            $(element).click(function(){
-              var events = calendar.getEvents();
-              if (!this.checked) {
-                events.forEach((item,index)=> {
-                  if(item.extendedProps.profil == element.value) { item.remove();removedEvents.push(item)}
-                })
-              }
-              else{
-                  removedEvents.forEach((removed,index)=>{
-                    if (removed.extendedProps.profil == element.value) {calendar.addEvent(removed);removedEvents.pop(removed);}
-                  })
-                };
-            })
-          })
           $("#btn-TimelineView").click(function(){calendar.changeView('listWeek');})
           $("#btn-DayGrid").click(function(){calendar.changeView('dayGridMonth');})
         });
