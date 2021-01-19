@@ -12,7 +12,7 @@
     </head>
     <body>
         @section('header')
-            @include('components.header')
+            @include('header')
         @show
 
         <div class="main-container main">
