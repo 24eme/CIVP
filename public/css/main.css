@@ -1,23 +1,30 @@
 body,html{margin:0;padding: 0;width: 100%;height: 100%;background: #F3F5F9;scroll-behavior: smooth;overflow-y: hidden;}
 *{font-size: 15px;font-family: 'Montserrat' ;}
 
+a:hover{text-decoration: none}
 h2{font-size: 1.5em;display: inline-block; margin-left: 20px !important;margin-right: 20px!important;vertical-align: middle;}
 
-#upper_navigation{height: 60px;width: 100%;background-color: ;padding:5px;}
-#side_navigation {height: 100%;width: 20%;background-color: #F3F5F9;border-right: .4px solid #E8E8E8;display: table-cell;;}
-#calendar{height: 60%; width: 50%;background-color: white;display: table-cell;vertical-align: middle;-webkit-box-shadow: -6px 1px 10px 0px rgba(237,237,237,1);-moz-box-shadow: -6px 1px 10px 0px rgba(237,237,237,1);box-shadow: -6px 1px 10px 0px rgba(237,237,237,1);}
+#upper_nav{height: 70px;width: 100%;padding: 10px;padding-left:30px;}
+#side_navigation {height: 100%;width: 23%;background-color: inherit;;border-right: .4px solid #E8E8E8;display: table-cell;;}
+#calendar{background-color: inherit;;display: table-cell;vertical-align: middle;}
 
-.fc-toolbar-title{text-transform: capitalize;font-family: 'Montserrat'}
+.circle-separator{ background: #b3b3b3;border-radius: 50%;width: 5px;height: 5px;display: inline-block;margin-left: 5px;}
+.upper-title:before {content: '';width: 0px;height: 0px;border-style: solid;border-width: 4px 6px 4px 0;border-color: transparent grey transparent transparent;display: inline-block;vertical-align: middle;margin-right: 10px;margin-left: 40px;transform: rotate(180deg);}
+.upper-title{margin-top: 10px;color:black;text-decoration: none;}
+.upper-wrapper{vertical-align: middle;display: inline-block;font-weight: bold; }
+
+.fc-toolbar-title{text-transform: capitalize;font-family: 'Montserrat';}
 .fc .fc-toolbar.fc-header-toolbar{margin-bottom: 10px;margin-top: 5px;}
 .fc .fc-daygrid-day.fc-day-today{background-color: rgba(31, 36, 61,0.2);}
 
-.btn-wrapper{margin-left: 400px;}
+.btn-wrapper{margin-left: 300px;}
+.btn-wrapper button{font-size: 0.7em;}
 .btn-custom{background-color: white;border:none;width: 150px; height: 50px;}
 .btn-primary{font-weight: 400;background-color: #223745 !important;border-color: #223745; }
-.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle{border-color: grey;}
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle{border-color: #223745;}
 .btn-primary.disabled, .btn-primary:disabled{border-color:grey;}
 
-.filter-label{font-family: 'RalewayL';color:#404040}
+.filter-label{font-family: 'Montserrat';color:#404040}
 .filter-profil:checked + .filter-label {color: black;}
 .filter-div{min-width: 60%;float: left;background-color: ;display: inline-flex; margin-top: 10px;padding: 10px;padding-top: 0px;}
 .filter-wrapper{margin-top: 300px;}
@@ -26,9 +33,9 @@ h2{font-size: 1.5em;display: inline-block; margin-left: 20px !important;margin-r
 .switch input { opacity: 0;width: 0;height: 0;}
 .slider {position: absolute;cursor: pointer;top: 0;left: 0;right: 0;bottom: 0;background-color: #ccc;-webkit-transition: .4s;transition: .4s;}
 .slider:before {position: absolute;content: "";height: 16px;width: 16px;left: 4px;bottom: 4px;background-color: white;-webkit-transition: .4s;transition: .4s;}
-input:checked + #sliderProd {background-color: #FFA45E;}
-input:checked + #sliderNego {background-color: #658B6F;}
-input:checked + #sliderVini {background-color: #457B9D;}
+input:checked + #sliderProd {background-color: #f1d600;}
+input:checked + #sliderNego {background-color: #96b5aa;}
+input:checked + #sliderVini {background-color: #517fbe;}
 input:checked + #sliderViti {background-color: #621940;}
 
 input:focus + .slider {box-shadow: 0 0 1px #2196F3;}
@@ -38,5 +45,9 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
 
 @font-face {
   font-family: "Montserrat";
+  src: url("fonts/Montserrat/Montserrat-Regular.ttf");
+}
+@font-face {
+  font-family: "Montserrat-Light";
   src: url("fonts/Montserrat/Montserrat-ExtraLight.ttf");
 }
