@@ -11,6 +11,7 @@
         <button id="btn-DayGrid"class="btn" type="button" name="button">CALENDRIER</button>
         <div class="circle-separator"></div>
         <button id="btn-TimelineView"class="btn" type="button" name="button">TIMELINE</button>
+        <button class="btn-primary" type="button" name="button" onclick="openNav()"><i class="fas fa-filter"></i></button>
 
   </div>
 </div>
