@@ -1,51 +1,77 @@
-
-<div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="ModalCObligation" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Ajouter une obligation</h5>
-        <h5 class="modal-title" id="exampleModalLabel">Saisissez les détails de l'évenement</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-md-4">
-            <input type="text" name="" value="">
-          </div>
+        <div class="modal-header">
+          <h4 class="modal-title" id="" style="font-weight:bold;padding:5px">Ajouter une obligation</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <div class="modal-body">
+        <p class="" id="">Saisissez les détails de l'évenement</p>
         <form method="POST" id="" action="{{route('createObligation')}}">
-          <div class="">
-            <label for="title" class="content-title">Nom de l'obligation</label>
-            <input id="inputTitle" type="text" placeholder="Déclaration Annuelle d'Inventaire (DAI)" name="title" class="input" value="" required>
-            <select id="inputType" name="type">
-              <option value="volvo">Type 1</option>
-              <option value="saab">Type 2</option>
-              <option value="fiat">Type 3</option>
-              <option value="audi">Type 4</option>
-            </select>
+        @csrf
+          <div class="row input-wrapper">
+            <div class="col input-group">
+              <label class="input-underlined">
+              <input id="inputTitle" class="input" type="text" name="title" value="" required>
+              <span class="input-label">Titre de l'obligation</span></label>
+            </div>
+          </div>
+          <div class="row input-wrapper">
+            <div class="col">
+              <select id="inputType" class="select-btn" name="profil" required>
+                <option value="Producteur-Recoltant">Producteur - Récoltant</option>
+                <option value="Negociant">Négociant</option>
+                <option value="Negociant-Vinificateur">Négociant - Vinificateur</option>
+                <option value="Viticulteur">Viticulteur ou exploitant agricole</option>
+              </select>
+            </div>
           </div>
 
-          <label for="organisme">Organisme rattaché</label>
-          <input id="inputOrganisme" type="text" placeholder="Organisme rattaché" name="organisme" class="input" value="" required><br>
+          <div class="row input-wrapper" style="margin-top:50px;">
+            <div class="col-md-6 input-group">
+              <label class="input-underlined">
+              <input id="inputStart" class="input" type="date" name="start" value="" >
+              <span class="input-label" style="top:0;">Date d'ouverture</span></label>
+            </div>
+            <div class="col-md-6 input-group">
+              <label class="input-underlined">
+              <input id="inputEnd" class="input" type="date" name="end" value="" required>
+              <span class="input-label" style="top:0;">Date de fin</span></label>
+            </div>
+          </div>
 
-          <label for="equipment">Date d'ouverture</label>
-          <input id="inputEquipment" type="text" name="start" class="input" value="" required><br>
+          <div class="row input-wrapper">
+            <div class="col input-group">
+              <label class="input-underlined">
+              <input id="inputOrganisme" class="input" type="text" name="organisme" value="">
+              <span class="input-label">Organisme</span></label>
+            </div>
+          </div>
 
-          <label for="equipment">Deadline</label><label id="roomEquipment"></label>
-          <input class="" type="text" id="inputDeadline" name="deadline" value=""><span class="focus-border"></span><br>
+          <div class="row input-wrapper">
+            <div class="col input-group">
+              <label class="input-underlined">
+              <input id="inputLien" class="input" type="text" name="lien" value="">
+              <span class="input-label">Lien</span></label>
+            </div>
+          </div>
 
-          <label for="equipment">Lien vers la plateforme déclarative</label>
-          <input class="" type="text" id="inputLien" name="lien" value=""><span class="focus-border"></span><br>
-
-          <label for="equipment">Contact</label><label id="roomEquipment"></label>
-          <input class="" type="text" id="inputContact" name="contact" value=""><span class="focus-border"></span><br>
+          <div class="row input-wrapper">
+            <div class="col input-group">
+              <label class="input-underlined">
+              <input id="inputContact" class="input" type="text" name="contact" value="">
+              <span class="input-label">Contact</span></label>
+            </div>
+          </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Sauvegarder</button>
+            <button type="submit" class="btn btn-secondary">Sauvegarder</button>
           </div>
+
         </form>
+        </div>
     </div>
   </div>
 </div>
