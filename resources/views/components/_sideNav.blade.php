@@ -1,4 +1,4 @@
-<div id="side_navigation">
+<div id="side_navigation" class="side_navigation">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <div class="filter-wrapper">
     <h4>Filtrer par famille </h4>
