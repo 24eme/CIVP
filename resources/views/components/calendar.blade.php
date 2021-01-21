@@ -32,31 +32,35 @@
           }
         });
         calendar.render();
-        var removedEvents = [];
+
+        var removedEvents = new Array()
+        var removed = new Array()
+
         $("input.filter-profil").each(function (index, element) {
             $(element).click(function(){
               var events = calendar.getEvents();
               if (!this.checked) {
-                $.each(events,function(i,eve){
+                events.forEach(function(eve,i){
                   if (eve.extendedProps.profil == element.value) { eve.remove();removedEvents.push(eve); }
                 })
-              }
-              else{
+              } else{
                   removedEvents.forEach(function(removedEve,i){
-                    console.log(removedEvents)
                     if (removedEve.extendedProps.profil == element.value) {
-                      console.log(removedEve.title)
-                      var item = removedEve;
-                      removedEvents.pop(removedEve);
-
-                    calendar.addEvent(item); 
+                      console.log(removedEve.extendedProps.profil)
+                      calendar.addEvent(removedEve);
+                    } else{
+                      if (removed.includes(removedEve) == false) {
+                        removed.push(removedEve)
+                      }
                     }
                   })
-                };
+                  console.log(removed)
+                  removedEvents = removed
+              }
             })
           })
 
-          $("#btn-TimelineView").click(function(){calendar.changeView('listWeek');})
+          $("#btn-ListView").click(function(){calendar.changeView('listWeek');})
           $("#btn-DayGrid").click(function(){calendar.changeView('dayGridMonth');})
         });
 
