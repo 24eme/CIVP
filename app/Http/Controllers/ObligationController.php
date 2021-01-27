@@ -36,10 +36,30 @@ class ObligationController extends Controller
       $obligation->title = $request->title;
       $obligation->start = $request->start;
       $obligation->end = $request->end;
+      $obligation->description = $request->description;
       $obligation->profil = $request->profil;
       $obligation->organisme = $request->organisme;
       $obligation->lien= $request->lien;
       $obligation->contact= $request->contact;
+
+      switch ($obligation->profil) {
+        case 'Producteur-Recoltant':
+          $obligation->color = '#f1d600';
+          break;
+        case 'Negociant':
+          $obligation->color = '#96b5aa';
+          break;
+        case 'Negociant-Vinificateur':
+          $obligation->color = '#517fbe';
+          break;
+        case 'Viticulteur':
+          $obligation->color = '#621940';
+          break;
+        default:
+          $obligation->color = 'blue';
+          break;
+      }
+
 
       if ($obligation->InvalidDate()){
         return redirect()->back()->with('error', 'Impossible de créer une obligation dans le passé');
@@ -52,9 +72,7 @@ class ObligationController extends Controller
 
   public function update(Request $request){
 
-   $id = $request->input('inputId');
-
-   $obligation = Obligation::find($id);
+   $obligation = Obligation::find($request->id);
    $obligation->title = $request->title;
    $obligation->start = $request->start;
    $obligation->end = $request->end;
@@ -63,19 +81,23 @@ class ObligationController extends Controller
    $obligation->lien = $request->lien;
    $obligation->contact = $request->contact;
 
-    if($id != null){
-      if ($this->obligation->InvalidDate()){
-          return redirect()->back()->with('error', 'Impossible de créer une obligation dans le passé');
-      }
-      else{
+    if($request->id != null){
         $obligation->save();
-      }
      return redirect()->back()->with('success', 'Votre obligation a bien été modfié');
     }
-}
+  }
 
   public function delete(Request $request,$id){
     $obligation = Obligation::find($id)->delete();
     return redirect()->back()->with('success', 'Votre obligation a été supprimé de la base de données');
-    }
+  }
+
+  public function manageObligation(Request $request){
+    $obligations = Obligation::all();
+
+
+    return view('manage',['obligations'=>$obligations]);
+  }
+
+
 }
