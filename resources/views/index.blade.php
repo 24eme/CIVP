@@ -1,11 +1,12 @@
 @extends('layout')
 @include('components/calendar')
 @section('content')
-      @include('components/_admin-dash')
+      @include('components/partials/_sideNav')
+      @include('components/partials/_list_events')
     <div id="main">
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalCObligation"></button>
       <div id='calendar'></div>
       @include('components/_create_obligation')
+      @include('components/_update_obligation')
     </div>
 @endsection
 @include('components/timeline')
