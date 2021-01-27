@@ -100,6 +100,7 @@ var months = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août'
         var y = e.clientY;
         var newposX = x - 60;
         var newposY = y - 60;
+    $("#modalPopUp").css("display","block")
     $("#modalPopUp").css("transform","translate3d("+newposX+"px,"+newposY+"px,0px)").show();
     }, function() {
         $("#modalPopUp").hide();
@@ -117,7 +118,6 @@ var months = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août'
     $("#inputOrganisme").val(info.event.extendedProps.organisme)
     $("#inputLien").val(info.event.extendedProps.lien)
     $("#inputContact").val(info.event.extendedProps.contact)
-    console.log(info.event.eventColor)
     $(".color-block").css('background-color',info.event.color)
 
     if (info.event.allDay) {
@@ -168,8 +168,7 @@ var months = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août'
     var q = $("#inputSearch").val()
     events = calendar.getEvents()
     for (i = 0; i < events.length; i++) {
-      if ((events[i].title).indexOf(q) > -1 && !(searched.includes(events[i]))) {
-        console.log("here")
+      if ((events[i].title).indexOf(q) > -1 && !(searched.includes(events[i]))) { 
         searched.push(events[i])
         var li = $("<li class='event_item'></li>").text(events[i].title)
         $("#events_list").append(li)
