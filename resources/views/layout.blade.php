@@ -16,7 +16,7 @@
     <body>
         @section('header')
             @include('header')
-            @include('components/_flash-message')
+            @include('components/partials/_flash-message')
         @show
 
         <div class="main-container main">
