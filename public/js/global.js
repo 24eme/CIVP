@@ -94,8 +94,17 @@ var months = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août'
     $("#event-lien").val(info.event.extendedProps.lien)
     $("#event-contact").val(info.event.extendedProps.contact)
     $("#triangle-color").css('background-color',info.event.color)
-    var popup = $("#modalPopUp") 
-    $('#modalPopUp').css('visibility','visible');
+    var popup = $("#modalPopUp")
+    $(".fc-daygrid-event").hover(function(e) {
+        var x = e.clientX;
+        var y = e.clientY;
+        var newposX = x - 60;
+        var newposY = y - 60;
+    $("#modalPopUp").css("transform","translate3d("+newposX+"px,"+newposY+"px,0px)").show();
+    }, function() {
+        $("#modalPopUp").hide();
+    });
+
   }
 
   function modalInfo(info){
