@@ -11,12 +11,34 @@
             right: 'dayGridMonth,YearViewCustom'
           },
           locale: 'fr',
+          contentHeight:580,
+          eventDisplay:'list-item',
+          titleFormat:{month:'long'},
+          dayMaxEvents: true,
           themeSystem: 'bootstrap',
+          displayEventEnd: true,
           events:'showObligations',
           buttonText:{ today:'Aujourd\'hui',month: 'Mois', week: 'Semaine', day: 'Jour'},
           allDayText:'Journée',
+          eventDidMount: function(info){
+            if (true) {
+              // modal(info)
+              modalPopUp(info)
+              console.log('here')
+            }
+            else {
+              modalPopUp(info)
+            }
+          },
           bootstrapFontAwesome:{ month: 'fa-calendar-alt',week: 'fa-calendar-week' ,day:'fa-calendar-day' },
           initialView: 'dayGridMonth',
+          eventMouseEnter: function(info){
+            if (true) {
+              modalPopUp(info)
+            }else{
+
+            }
+          },
           views: {
             YearViewCustom: {
             type: 'dayGrid',
@@ -33,6 +55,7 @@
         });
         calendar.render();
 
+        window.value = calendar;
         var removedEvents = new Array()
         var removed = new Array()
 
