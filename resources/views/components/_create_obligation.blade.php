@@ -8,19 +8,19 @@
           </button>
         </div>
         <div class="modal-body">
-        <p class="" id="">Saisissez les détails de l'évenement</p>
-        <form method="POST" id="" action="{{route('createObligation')}}">
+          <p class="" id="">Saisissez les détails de l'évenement</p>
+        <form method="POST" id="form_create" action="{{route('createObligation')}}">
         @csrf
           <div class="row input-wrapper">
             <div class="col input-group">
               <label class="input-underlined">
-              <input id="inputTitle" class="input" type="text" name="title" value="" required>
+              <input id="inputTitleC" class="input" type="text" name="title" value="" required>
               <span class="input-label">Titre de l'obligation</span></label>
             </div>
           </div>
           <div class="row input-wrapper">
             <div class="col">
-              <select id="inputType" class="select-btn" name="profil" required>
+              <select id="inputProfilC" class="select-btn" name="profil" onchange="setColor()" required>
                 <option value="Producteur-Recoltant">Producteur - Récoltant</option>
                 <option value="Negociant">Négociant</option>
                 <option value="Negociant-Vinificateur">Négociant - Vinificateur</option>
@@ -32,20 +32,28 @@
           <div class="row input-wrapper" style="margin-top:50px;">
             <div class="col-md-6 input-group">
               <label class="input-underlined">
-              <input id="inputStart" class="input" type="date" name="start" value="" >
-              <span class="input-label" style="top:0;">Date d'ouverture</span></label>
+              <input id="inputStartC" class="input" type="date" name="start" value="" >
+              <span class="input-label" style="top:5">Date d'ouverture</span></label>
             </div>
             <div class="col-md-6 input-group">
               <label class="input-underlined">
-              <input id="inputEnd" class="input" type="date" name="end" value="" required>
-              <span class="input-label" style="top:0;">Date de fin</span></label>
+              <input id="inputEndC" class="input" type="date" name="end" value="" required>
+              <span class="input-label" style="top:5;">Date de fin</span></label>
             </div>
           </div>
 
           <div class="row input-wrapper">
             <div class="col input-group">
               <label class="input-underlined">
-              <input id="inputOrganisme" class="input" type="text" name="organisme" value="">
+              <input id="inputDescriptionC" class="input" type="text" name="description" value="">
+              <span class="input-label">Description</span></label>
+            </div>
+          </div>
+
+          <div class="row input-wrapper">
+            <div class="col input-group">
+              <label class="input-underlined">
+              <input id="inputOrganismeC" class="input" type="text" name="organisme" value="">
               <span class="input-label">Organisme</span></label>
             </div>
           </div>
