@@ -62,7 +62,7 @@
 	<i style="font-size:10px" class="fas fa-question"></i>
 </div> -->
 
-<div id="modalPopUp" class="popup" hidden>
+<div id="modalPopUp" class="popup">
 	<div class="popup-header"><span class="triangle-color"></span></div>
 	<div class="popup-body">
 		<div class="popup-content inline-block">
