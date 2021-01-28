@@ -22,12 +22,13 @@
             @include('components/partials/_list_obligations')
           </div>
           <div class="page" id="p3">
-            @include('components/partials/_list_events')
+            @include('components/partials/_filtering')
           </div>
           <div class="page" id="p4">
             @include('components/partials/_contact')
           </div>
-          <div class="page" id="p5"> 
+          <div class="page" id="p5">
+            @include('components/partials/_list_events')
           </div>
         </div>
       </div>
