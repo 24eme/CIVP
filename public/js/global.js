@@ -1,4 +1,51 @@
 var months = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre']
+var removedEvents = new Array()
+var removed = new Array()
+
+$("#btn-ListView").click(function(){calendar.changeView('listWeek');})
+$("#btn-DayGrid").click(function(){calendar.changeView('dayGridMonth');})
+
+
+$(document).ready(function(){
+  if (getCookie('FilterProdRec') == "false") {
+    $('#FilterProdRec').prop('checked',false)
+  }else{
+    $('#FilterProdRec').prop('checked',true)
+  }
+})
+
+function setCookie(name,value,days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value)  + expires + "; path=/";
+}
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+
+  // function cookiesMaster() {
+  //   if (cookie != null) {
+  //   $("input.filter-profil").each(function (index, element) {
+  //     if (element.id) {
+  //       events.forEach(function(eve,i){
+  //         if (eve.extendedProps.profil == element.value) { eve.remove();removedEvents.push(eve); }
+  //       })
+  //     }
+  //   })
+  //   }
+  // }
 
   function openNav() {
     if (document.getElementById('side_nav') != null && document.getElementById('side_nav').style.width == "350px") {closeNav();return 0
@@ -79,6 +126,26 @@ var months = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août'
 //   }
 // });
 
+  // function filterCalendar(){
+  //   var events = calendar.getEvents();
+  //   if (!this.checked) {
+  //     events.forEach(function(eve,i){
+  //       if (eve.extendedProps.profil == element.value) { eve.remove();removedEvents.push(eve); }
+  //     })
+  //   } else{
+  //       removedEvents.forEach(function(removedEve,i){
+  //         if (removedEve.extendedProps.profil == element.value) {
+  //           calendar.addEvent(removedEve);
+  //         } else{
+  //           if (removed.includes(removedEve) == false) {
+  //             removed.push(removedEve)
+  //           }
+  //         }
+  //       })
+  //       removedEvents = removed
+  //   }
+  // }
+
   function modalPopUp(info){
 
     var date = new Date(info.event.startStr)
@@ -153,22 +220,24 @@ var months = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août'
 
   function deactivateObligation(){
     var obligation = calendar.getEventById($("#inputID").val())
+    deactivated.push(obligation)
     obligation.remove()
   }
   function activateObligation(){
-    var obligation = calendar.getEventById($("#inputID").val())
-    obligation.addEvent()
+    var obligationAct = calendar.getEventById($("#inputID").val())
+    deactivated.pop(obligationAct)
+    obligationAct.addEvent()
   }
 
   var searched = []
   function searchEvents(){
     // var url = 'showEvents/' + $("#inputSearch").val()
     // window.location = url
-    var calendar = window.value
     var q = $("#inputSearch").val()
+    var calendar = window.value
     events = calendar.getEvents()
     for (i = 0; i < events.length; i++) {
-      if ((events[i].title).indexOf(q) > -1 && !(searched.includes(events[i]))) { 
+      if ((events[i].title).indexOf(q) > -1 && !(searched.includes(events[i]))) {
         searched.push(events[i])
         var li = $("<li class='event_item'></li>").text(events[i].title)
         $("#events_list").append(li)
@@ -189,10 +258,3 @@ var months = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août'
     document.getElementById(section).style.display = "block";
     evt.currentTarget.className += " active";
   }
-// jQuery(document).ready(function(){
-//   $(document).click(function(e){
-//     var num = Math.floor((Math.random()*10)+1);
-//     var img = $('<div>Image '+num+':<img src="image' + num + '.png" /></div>');
-//     $("#img_container").html(img).offset({ top: e.pageY, left: e.pageX});
-//   });
-// })

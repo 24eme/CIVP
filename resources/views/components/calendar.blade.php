@@ -24,7 +24,6 @@
             if (true) {
               // modal(info)
               modalPopUp(info)
-              console.log('here')
             }
             else {
               modalPopUp(info)
@@ -61,6 +60,8 @@
 
         $("input.filter-profil").each(function (index, element) {
             $(element).click(function(){
+              // filterCalendar() 
+              setCookie(this.id,this.checked)
               var events = calendar.getEvents();
               if (!this.checked) {
                 events.forEach(function(eve,i){
@@ -69,7 +70,6 @@
               } else{
                   removedEvents.forEach(function(removedEve,i){
                     if (removedEve.extendedProps.profil == element.value) {
-                      console.log(removedEve.extendedProps.profil)
                       calendar.addEvent(removedEve);
                     } else{
                       if (removed.includes(removedEve) == false) {
@@ -77,7 +77,6 @@
                       }
                     }
                   })
-                  console.log(removed)
                   removedEvents = removed
               }
             })
