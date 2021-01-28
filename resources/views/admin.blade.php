@@ -3,11 +3,13 @@
 @section('content')
 @include('components/partials/_admin-nav')
 <div id="main">
-<div class="ct" id="calendrier">
-  <div class="ct" id="obligations">
-    <div class="ct" id="filtres">
-      <div class="ct" id="contact"> 
+<div class="ct" id="dashboard">
+  <div class="ct" id="calendrier">
+    <div class="ct" id="obligations">
+      <div class="ct" id="filtres">
+        <div class="ct" id="contact">
            <ul class="subnav">
+             <a class="section-tab" href="#dashboard"><li class="subnav-item" id="cinco">DASHBOARD</li></a>
              <a class="section-tab" href="#calendrier"><li class="subnav-item" id="uno">CALENDRIER</li></a>
              <a class="section-tab" href="#obligations"><li class="subnav-item" id="dos">OBLIGATIONS</li></a>
              <a class="section-tab" href="#filtres"><li class="subnav-item" id="tres">FILTRES</li></a>
@@ -25,6 +27,9 @@
           <div class="page" id="p4">
             @include('components/partials/_contact')
           </div>
+          <div class="page" id="p5"> 
+          </div>
+        </div>
       </div>
     </div>
   </div>
