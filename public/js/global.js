@@ -7,11 +7,14 @@ $("#btn-DayGrid").click(function(){calendar.changeView('dayGridMonth');})
 
 
 $(document).ready(function(){
-  if (getCookie('FilterProdRec') == "false") {
-    $('#FilterProdRec').prop('checked',false)
-  }else{
-    $('#FilterProdRec').prop('checked',true)
-  }
+  $("input.filter-profil").each(function (index, element) { 
+    if (getCookie(element.id) == "false") {
+      $(element).prop('checked',false)
+    }else{
+      $(element).prop('checked',true)
+    }
+  })
+
 })
 
 function setCookie(name,value,days) {
@@ -231,7 +234,7 @@ function getCookie(name) {
 
   var searched = []
   function searchEvents(){
-    $("#events_list").empty() 
+    $("#events_list").empty()
     var q = $("#inputSearch").val()
     var calendar = window.value
     events = calendar.getEvents()
