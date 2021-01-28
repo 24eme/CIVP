@@ -1,18 +1,36 @@
 @extends('layout')
 @include('components/calendar')
 @section('content')
-      @include('components/partials/_admin-nav')
-      @include('components/partials/_list_events')
-    <div id="main">
-      <ul class="subnav">
-        <li class="subnav-item"><a class="section-tab" href="#obligations" onclick="openSection(event,'LObligation')">OBLIGATIONS</a></li>
-        <li class="subnav-item active"><a class="section-tab" href="#calendrier" onclick="openSection(event,'calendar')">CALENDRIER</a></li>
-        <li class="subnav-item"><a class="section-tab" href="#filtres" onclick="openSection(event,'Filtres')">FILTRES</a></li>
-        <li class="subnav-item"><a class="section-tab" href="#contact" onclick="openSection(event,'Contact')">CONTACT</a></li>
-      </ul>
-      <div id='calendar'></div>
-      @include('components/_create_obligation')
-      @include('components/_update_obligation')
+@include('components/partials/_admin-nav')
+<div id="main">
+<div class="ct" id="calendrier">
+  <div class="ct" id="obligations">
+    <div class="ct" id="filtres">
+      <div class="ct" id="contact"> 
+           <ul class="subnav">
+             <a class="section-tab" href="#calendrier"><li class="subnav-item" id="uno">CALENDRIER</li></a>
+             <a class="section-tab" href="#obligations"><li class="subnav-item" id="dos">OBLIGATIONS</li></a>
+             <a class="section-tab" href="#filtres"><li class="subnav-item" id="tres">FILTRES</li></a>
+             <a class="section-tab" href="#contact"><li class="subnav-item" id="cuatro">CONTACT</li></a>
+           </ul>
+          <div class="page" id="p1">
+            <div id='calendar'></div>
+          </div>
+          <div class="page" id="p2">
+            @include('components/partials/_list_obligations')
+          </div>
+          <div class="page" id="p3">
+            @include('components/partials/_list_events')
+          </div>
+          <div class="page" id="p4">
+            @include('components/partials/_contact')
+          </div>
+      </div>
     </div>
+  </div>
+</div>
+</div>
+@include('components/_create_obligation')
+@include('components/_update_obligation')
 @endsection
 @include('components/timeline')
