@@ -231,8 +231,7 @@ function getCookie(name) {
 
   var searched = []
   function searchEvents(){
-    // var url = 'showEvents/' + $("#inputSearch").val()
-    // window.location = url
+    $("#events_list").empty() 
     var q = $("#inputSearch").val()
     var calendar = window.value
     events = calendar.getEvents()
