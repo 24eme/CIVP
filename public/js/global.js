@@ -7,7 +7,7 @@ $("#btn-DayGrid").click(function(){calendar.changeView('dayGridMonth');})
 
 
 $(document).ready(function(){
-  $("input.filter-profil").each(function (index, element) { 
+  $("input.filter-profil").each(function (index, element) {
     if (getCookie(element.id) == "false") {
       $(element).prop('checked',false)
     }else{
@@ -162,8 +162,8 @@ function getCookie(name) {
     $("#event-profil").html(info.event.extendedProps.profil)
     $("#event-organisme").val(info.event.extendedProps.organisme)
     $("#event-lien").val(info.event.extendedProps.lien)
-    $("#event-contact").val(info.event.extendedProps.contact)
-    $("#triangle-color").css('background-color',info.event.color)
+    $("#event-contact").val(info.event.extendedProps.contact) 
+    $(".triangle-color").css('border-top-color',info.event.backgroundColor)
     var popup = $("#modalPopUp")
     $(".fc-daygrid-event").hover(function(e) {
         var x = e.clientX;
