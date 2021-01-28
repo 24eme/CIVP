@@ -8,10 +8,11 @@
 <div id="LObligations" class="section-content listed-container">
 <ul class="">
   <div class="download_csv">
-    <form class="" action="{{route('importCSV')}}" method="post">
-      <h2></i>Importer via fichier CSV</h2>
-      <label id="csv_label" for="csv_file"><i class="fas fa-cloud-download-alt"></i></label>
-      <input id="csv_input" type="file" name="" value="">
+    <form class="" action="{{route('importCSV')}}" method="post" enctype="multipart/form-data">
+      @csrf
+      <h2>Importer via fichier CSV</h2>
+      <label id="csv_label" for="csv_input"><i class="fas fa-cloud-download-alt"></i></label>
+      <input id="csv_input" type="file"  name="csv_file" onchange="form.submit()">
     </form>
   </div>
   <h3>Les obligations activés</h3>

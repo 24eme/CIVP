@@ -76,6 +76,7 @@ class ObligationController extends Controller
    $obligation->title = $request->title;
    $obligation->start = $request->start;
    $obligation->end = $request->end;
+   $obligation->description = $request->description;
    $obligation->profil = $request->profil;
    $obligation->organisme = $request->organisme;
    $obligation->lien = $request->lien;
