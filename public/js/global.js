@@ -242,7 +242,7 @@ function getCookie(name) {
     var calendar = window.value
     events = calendar.getEvents()
     for (i = 0; i < events.length; i++) {
-      if ((events[i].title).indexOf(q) > -1 && !(searched.includes(events[i]))) {
+      if ((events[i].title.toUpperCase()).indexOf(q.toUpperCase()) > -1 && !(searched.includes(events[i]))) {
         searched.push(events[i])
         var li = $("<li class='event_item'></li>").text(events[i].title)
         $("#events_list").append(li)
