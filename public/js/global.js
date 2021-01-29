@@ -2,8 +2,6 @@ var months = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août'
 var removedEvents = new Array()
 var removed = new Array()
 
-$("#btn-ListView").click(function(){calendar.changeView('listWeek');})
-$("#btn-DayGrid").click(function(){calendar.changeView('dayGridMonth');})
 
 
 $(document).ready(function(){
@@ -163,7 +161,6 @@ function getCookie(name) {
     $("#event-organisme").val(info.event.extendedProps.organisme)
     $("#event-lien").val(info.event.extendedProps.lien)
     $("#event-contact").val(info.event.extendedProps.contact)
-    console.log(info.event.backgroundColor)
     if (info.event.backgroundColor !== "null") {
       $(".triangle-color").css('border-top-color',info.event.backgroundColor)
     }
