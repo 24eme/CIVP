@@ -36,28 +36,16 @@ function getCookie(name) {
 }
 
 
-  // function cookiesMaster() {
-  //   if (cookie != null) {
-  //   $("input.filter-profil").each(function (index, element) {
-  //     if (element.id) {
-  //       events.forEach(function(eve,i){
-  //         if (eve.extendedProps.profil == element.value) { eve.remove();removedEvents.push(eve); }
-  //       })
-  //     }
-  //   })
-  //   }
-  // }
-
   function openNav() {
-    if (document.getElementById('side_nav') != null && document.getElementById('side_nav').style.width == "350px") {closeNav();return 0
+    if (document.getElementById('admin_nav') != null && document.getElementById('admin_nav').style.width == "350px") {closeNav();return 0
     }
     if (document.getElementById('side_navigation') != null && document.getElementById('side_navigation').style.width == "350px") {closeNav();return 0
     }
     if (document.getElementById('side_navigation') != null) {
         document.getElementById('side_navigation').style.width = "350px";
     }
-    if (document.getElementById('side_nav') != null) {
-        document.getElementById('side_nav').style.width = "350px";
+    if (document.getElementById('admin_nav') != null) {
+        document.getElementById('admin_nav').style.width = "350px";
     }
     document.getElementById('main').style.marginLeft = "350px";
 
@@ -67,30 +55,12 @@ function getCookie(name) {
     if (document.getElementById('side_navigation') != null) {
         document.getElementById('side_navigation').style.width = "0";
     }
-    if (document.getElementById('side_nav') != null) {
-        document.getElementById('side_nav').style.width = "0";
+    if (document.getElementById('admin_nav') != null) {
+        document.getElementById('admin_nav').style.width = "0";
     }
     document.getElementById('main').style.marginLeft= "0";
   }
 
-  function setColor(value) {
-    switch (value) {
-      case "Producteur":
-
-      break;
-      case "Negociant":
-
-      break;
-      case "Vinificateur":
-
-      break;
-      case "Viticulteur":
-
-      break;
-      default:
-
-    }
-  }
   function modalUpdate(info){
       $("#head_title").html(info.event.title)
       $("#inputID").val(info.event.id)
@@ -120,32 +90,6 @@ function getCookie(name) {
       var url = 'deleteObligation/'+ $('#inputID').val();
       window.location = url;
   };
-// $(".fc-").each(function(index,element) {
-//   element.hover(function(e)){
-//     var btn = $('<button type="button" class="btn-primary" onclick="openNav()"><i class="fas fa-trash-alt"></i></button>') ;
-//     $("#main").html(btn).offset({ top: e.pageY, left: e.pageX });
-//   }
-// });
-
-  // function filterCalendar(){
-  //   var events = calendar.getEvents();
-  //   if (!this.checked) {
-  //     events.forEach(function(eve,i){
-  //       if (eve.extendedProps.profil == element.value) { eve.remove();removedEvents.push(eve); }
-  //     })
-  //   } else{
-  //       removedEvents.forEach(function(removedEve,i){
-  //         if (removedEve.extendedProps.profil == element.value) {
-  //           calendar.addEvent(removedEve);
-  //         } else{
-  //           if (removed.includes(removedEve) == false) {
-  //             removed.push(removedEve)
-  //           }
-  //         }
-  //       })
-  //       removedEvents = removed
-  //   }
-  // }
 
   function modalPopUp(info){
 
