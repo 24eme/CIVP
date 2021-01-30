@@ -1,7 +1,7 @@
 <div id="side_navigation" class="side_navigation">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a>
+    <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fas fa-times"></i></a> -->
     <h4 class="side_nav_h">FILTRER PAR </h4><br>
-    <h5 class="side_nav_h">FAMILLE </h5>
+    <h6 class="side_nav_h">FAMILLE </h5>
   <div class="filter-wrapper">
     <div class="filter-div"><label class="filter-label" for="FilterProdRec">Producteur - Récoltant</label></div><label class="switch"><input class="filter-profil" id="FilterProdRec" name="producteur" value="Producteur-Recoltant" type="checkbox" checked><span id="sliderProd" class="slider round"></span></label>
     <div class="filter-div"><label class="filter-label" for="FilterNegociant">Négociant</label></div><label class="switch"><input class="filter-profil" id="FilterNegociant" name="nego" value="Negociant" type="checkbox" checked><span id="sliderNego" class="slider round"></span></label>
@@ -11,5 +11,7 @@
     <h5 class="side_nav_h">TAG</h5>
     <ul>
       <li><a href="#" class="tag">CIVP</a></li>
+      <li><a href="#" class="tag">IGP</a></li>
+      <li><a href="#" class="tag">AIDES</a></li>
     </ul>
 </div>

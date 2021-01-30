@@ -1,4 +1,4 @@
-<div class="modal fade" id="ModalSObligation" aria-hidden="true">
+<div class="modal fade modalPopUp" id="ModalSObligation" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
         <div class="modal-header">

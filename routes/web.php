@@ -19,7 +19,7 @@ Route::get('/', function () {
   return view('index');
 });
 
-Route::get('/showObligations', [ObligationController::class,'show']);
+Route::get('/showObligations', [ObligationController::class,'show'])->name('createObligation');
 Route::post('/createObligation', [ObligationController::class,'create'])->name('createObligation');
 Route::post('/updateObligation', [ObligationController::class,'update'])->name('updateObligation');
 Route::get('/deleteObligation/{id}', [ObligationController::class,'delete'])->name('deleteObligation');
@@ -32,9 +32,6 @@ Route::get('/showEvents', [EventController::class,'show']);
 Route::prefix('admin')->group(function () {
     Route::get('/', [CalendarController::class,'manage']);
     Route::get('/contact', function () {return view('admin');});
-
-    Route::get('/manage', [ObligationController::class,'manageObligation']);
-    Route::get('/manageCalendar', [ObligationController::class,'manageObligation']);
     Route::get('/filters', function () {return view('components/partials/_filtering');});
 
     Route::post('/importCSV', [CalendarController::class,'importCSV'])->name('importCSV');

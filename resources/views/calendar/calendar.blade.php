@@ -1,6 +1,3 @@
-<link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/main.min.css' rel='stylesheet' />
-<script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/main.min.js'></script>
-
   <script>
       document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
@@ -11,7 +8,7 @@
             right: 'dayGridMonth,YearViewCustom'
           },
           locale: 'fr',
-          contentHeight:580,
+          contentHeight:630,
           eventDisplay:'list-item',
           titleFormat:{month:'long'},
           dayMaxEvents: true,
@@ -31,6 +28,9 @@
           },
           bootstrapFontAwesome:{ month: 'fa-calendar-alt',week: 'fa-calendar-week' ,day:'fa-calendar-day' },
           initialView: 'dayGridMonth',
+          eventClick: function(info){
+            modalUpdate(info)
+          },
           eventMouseEnter: function(info){
             if (true) {
               modalPopUp(info)
@@ -60,7 +60,7 @@
 
         $("input.filter-profil").each(function (index, element) {
             $(element).click(function(){
-              // filterCalendar() 
+              // filterCalendar()
               setCookie(this.id,this.checked)
               var events = calendar.getEvents();
               if (!this.checked) {

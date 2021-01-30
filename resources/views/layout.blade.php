@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Calendrier - CIVP</title>
         <link rel="shortcut icon" href="{{ asset('images/logos/logo-P.svg') }}" >
+        <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/main.min.css' rel='stylesheet' />
+        <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/main.min.js'></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <link href='https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.css' rel='stylesheet' />
@@ -14,9 +16,9 @@
         <link rel="stylesheet" href="/css/main.css" />
     </head>
     <body>
-        @section('header')
-            @include('header')
-            @include('components/partials/_flash-message')
+        @section('layout/header')
+            @include('layout/header')
+            @include('components/flash-message')
         @show
 
         <div class="main-container main">
@@ -28,7 +30,7 @@
              <script>AOS.init();</script>
          @show
     <footer>
-        @include("footer")
+        @include("layout/footer")
     </footer>
     </body>
 </html>

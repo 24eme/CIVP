@@ -1,12 +1,13 @@
 @extends('layout')
-@include('components/calendar')
+@include('calendar/calendar')
 @section('content')
-      @include('components/partials/_sideNav')
-      @include('components/partials/_list_events')
+      @include('partials/_sideNav') 
     <div id="main">
       <div id='calendar'></div>
-      @include('components/_create_obligation')
-      @include('components/_update_obligation')
+      <div class="obligation_non_dates" style="display:none;">
+        <h3>Obligations non-daté</h3>
+
+      </div>
     </div>
 @endsection
-@include('components/timeline')
+@include('timeline/timeline')

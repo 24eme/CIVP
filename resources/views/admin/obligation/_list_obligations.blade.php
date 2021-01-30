@@ -6,30 +6,30 @@
   </ul>
 </div>
 <div id="LObligations" class="section-content listed-container">
-<ul class="">
   <div class="download_csv">
     <form class="" action="{{route('importCSV')}}" method="post" enctype="multipart/form-data">
       @csrf
-      <h2>Importer via fichier CSV</h2>
-      <label id="csv_label" for="csv_input"><i class="fas fa-cloud-download-alt"></i></label>
-      <input id="csv_input" type="file"  name="csv_file" onchange="form.submit()">
+      <div class="btn-import">
+        <label id="csv_label" for="csv_input">Importer <i class="fas fa-cloud-download-alt"></i></label>
+        <input id="csv_input" type="file"  name="csv_file" onchange="form.submit()">
+      </div>
     </form>
   </div>
-  <h3>Les obligations activés</h3>
-    <hr>
   <div class="obligations-container">
+  <ul class="">
   @foreach($obligations as $obligation)
     <li class="obligation-content">
       <span class="vertical-line">{{ date('j M Y', strtotime($obligation->start)) }}</span>
       <div class="wrapper">
-        <span>{{$obligation->title}}</span>
-        <span>{{$obligation->start}}</span>
+        <span class="obligation_title">{{$obligation->title}}  <span class="active_dot"></span><p class="active_text">active</p></span>
+        <span id="obligation_start" class="obligation_date">Date de début : {{$obligation->start}}</span>
+        <span id="obligation_end" class="obligation_date">Date de fin : {{$obligation->end}}</span>
       </div>
+
     </li>
   @endforeach
+  </ul>
   </div>
-  <h3>Les obligations désactivés</h3>
-    <hr>
   @foreach($obligations as $obligation)
     @if($obligation->color =='blue')
     @endif
