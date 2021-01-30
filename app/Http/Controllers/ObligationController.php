@@ -73,7 +73,7 @@ class ObligationController extends Controller
 
   public function delete(Request $request,$id){
     $request->validate([
-      'id' => 'nullable',
+      'id' => 'required',
     ]);
     $obligation = Obligation::find($id)->delete();
     return redirect()->back()->with('success', 'Votre obligation a été supprimé de la base de données');
