@@ -24,4 +24,23 @@ class Obligation extends Model
         }
       return False;
     }
+    public function setColor($profil){
+      switch ($profil) {
+        case 'Producteur-Recoltant':
+          $this->color = '#f1d600';
+          break;
+        case 'Negociant':
+          $this->color = '#96b5aa';
+          break;
+        case 'Negociant-Vinificateur':
+          $this->color = '#517fbe';
+          break;
+        case 'Viticulteur':
+          $this->color = '#621940';
+          break;
+        default:
+          $this->color = '#3788d8';
+          break;
+      }
+    }
 }

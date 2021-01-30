@@ -42,23 +42,7 @@ class ObligationController extends Controller
       $obligation->lien= $request->lien;
       $obligation->contact= $request->contact;
 
-      switch ($obligation->profil) {
-        case 'Producteur-Recoltant':
-          $obligation->color = '#f1d600';
-          break;
-        case 'Negociant':
-          $obligation->color = '#96b5aa';
-          break;
-        case 'Negociant-Vinificateur':
-          $obligation->color = '#517fbe';
-          break;
-        case 'Viticulteur':
-          $obligation->color = '#621940';
-          break;
-        default:
-          $obligation->color = '#3788d8';
-          break;
-      }
+      $obligation->setColor($obligation->profil);
 
       if ($obligation->InvalidDate()){
         return redirect()->back()->with('error', 'Impossible de créer une obligation dans le passé');
