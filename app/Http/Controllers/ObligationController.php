@@ -56,10 +56,9 @@ class ObligationController extends Controller
           $obligation->color = '#621940';
           break;
         default:
-          $obligation->color = 'blue';
+          $obligation->color = '#3788d8';
           break;
       }
-
 
       if ($obligation->InvalidDate()){
         return redirect()->back()->with('error', 'Impossible de créer une obligation dans le passé');
@@ -89,15 +88,11 @@ class ObligationController extends Controller
   }
 
   public function delete(Request $request,$id){
+    $request->validate([
+      'id' => 'nullable',
+    ]);
     $obligation = Obligation::find($id)->delete();
     return redirect()->back()->with('success', 'Votre obligation a été supprimé de la base de données');
-  }
-
-  public function manageObligation(Request $request){
-    $obligations = Obligation::all();
-
-
-    return view('manage',['obligations'=>$obligations]);
   }
 
 
