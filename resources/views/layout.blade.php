@@ -17,11 +17,11 @@
     </head>
     <body>
         @section('layout/header')
-            @include('layout/header')
-            @include('components/flash-message')
+
         @show
 
         <div class="main-container main">
+          @include('components/flash-message')
             @yield('content')
         </div>
 
