@@ -80,10 +80,15 @@ function modalUpdate(info){
     $('#ModalUObligation').modal('show');
 }
 
-  function deleteObligation(){
-      var url = 'deleteObligation/'+ $('#inputID').val();
-      window.location = url;
-  };
+function deleteObligation(){
+    var url = 'deleteObligation/'+ $('#inputID').val();
+    window.location = url;
+}
+
+function exportObligation(){
+    var url = 'exportObligation/'+ $('#inputIDshow').val();
+    window.location = url;
+}
 
   function modalPopUp(info){
 
