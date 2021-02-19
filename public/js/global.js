@@ -153,30 +153,30 @@ function closePopUp() {
     $("#modalPopUp").modal('hide')
 }
 
-  function modalInfo(info){
-    $("#head_title").html(info.event.title)
-    $("#inputID").val(info.event.id)
-    $("#inputTitle").val(info.event.title)
-    $("#inputStart").val(info.event.startStr)
-    $("#inputDescription").val(info.event.extendedProps.description)
-    $("#inputProfil").val(info.event.extendedProps.profil)
-    $("#inputOrganisme").val(info.event.extendedProps.organisme)
-    $("#inputLien").val(info.event.extendedProps.lien)
-    $("#inputContact").val(info.event.extendedProps.contact)
-    $(".color-block").css('background-color',info.event.color)
+function modalInfo(info){
+  $("#head_title").html(info.event.title)
+  $("#inputID").val(info.event.id)
+  $("#inputTitle").val(info.event.title)
+  $("#inputStart").val(info.event.startStr)
+  $("#inputDescription").val(info.event.extendedProps.description)
+  $("#inputProfil").val(info.event.extendedProps.profil)
+  $("#inputOrganisme").val(info.event.extendedProps.organisme)
+  $("#inputLien").val(info.event.extendedProps.lien)
+  $("#inputContact").val(info.event.extendedProps.contact)
+  $(".color-block").css('background-color',info.event.color)
 
-    if (info.event.allDay) {
-      var date = new Date(info.event.startStr)
-      date.setDate(date.getDate()+1)
-      date = date.getFullYear() + "-"+date.getMonth()+1 + "-" + (date.getDate()<=9 ? "0" + date.getDate() : date.getDate())
-      $("#inputEnd").val(date)
-    }
-    else{
-      $("#inputEnd").val(info.event.endStr)
-    }
-
-    $('#ModalSObligation').modal('show');
+  if (info.event.allDay) {
+    var date = new Date(info.event.startStr)
+    date.setDate(date.getDate()+1)
+    date = date.getFullYear() + "-"+date.getMonth()+1 + "-" + (date.getDate()<=9 ? "0" + date.getDate() : date.getDate())
+    $("#inputEnd").val(date)
   }
+  else{
+    $("#inputEnd").val(info.event.endStr)
+  }
+
+  $('#ModalSObligation').modal('show');
+}
 
   function openEvents() {
     if (document.getElementById('events_side') != null && document.getElementById('events_side').style.width == "350px") {
