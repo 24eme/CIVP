@@ -194,41 +194,49 @@ function closeEvents() {
   document.getElementById('main').style.marginRight= "0";
 }
 
-  function deactivateObligation(){
-    var obligation = calendar.getEventById($("#inputID").val())
-    deactivated.push(obligation)
-    obligation.remove()
-  }
-  function activateObligation(){
-    var obligationAct = calendar.getEventById($("#inputID").val())
-    deactivated.pop(obligationAct)
-    obligationAct.addEvent()
-  }
- 
-  function searchEvents(){
-    $("#events_list").empty()
-    var q = $("#inputSearch").val()
-    var calendar = window.value
-    events = calendar.getEvents()
-    for (i = 0; i < events.length; i++) {
-      if ((events[i].title.toUpperCase()).indexOf(q.toUpperCase()) > -1 && !(searched.includes(events[i]))) {
-        searched.push(events[i])
-        var li = $("<li class='event_item'></li>").text(events[i].title)
-        $("#events_list").append(li)
-      }
-    }
-  }
+// function deactivateObligation(){
+//   var obligation = calendar.getEventById($("#inputID").val())
+//   deactivated.push(obligation)
+//   obligation.remove()
+// }
+// function activateObligation(){
+//   var obligationAct = calendar.getEventById($("#inputID").val())
+//   deactivated.pop(obligationAct)
+//   obligationAct.addEvent()
+// }
 
-  function openSection(evt, section) {
-    var i, tabcontent, tablinks;
-    contents = document.getElementsByClassName("section-contents");
-    for (i = 0; i < contents.length; i++) {
-      contents[i].style.display = "none";
+function searchEvents(){
+  $("#eventList").empty()
+  var q = $("#inputSearch").val()
+  var calendar = window.value
+  events = calendar.getEvents()
+  for (i = 0; i < events.length; i++) {
+    if ((events[i].title.toUpperCase()).indexOf(q.toUpperCase()) > -1 && !(searched.includes(events[i]))) {
+      searched.push(events[i])
+      var li = $("<li class='card-body'></li>").text(events[i].title)
+      $("#eventList").append(li)
     }
-    tabs = document.getElementsByClassName("section-tab");
-    for (i = 0; i < tabs.length; i++) {
-      tabs[i].className = tabs[i].className.replace(" active", "");
-    }
-    document.getElementById(section).style.display = "block";
-    evt.currentTarget.className += " active";
   }
+}
+
+// function setDate(){
+//       var url = new URL(window.location)
+//       var calendar = window.value
+//       var date = calendar.currentData.dateProfileGenerator.nowDate.toISOString()
+//       date = date.slice(0,-14)
+//       url.searchParams.set('date', date)
+// };
+
+function openSection(evt, section) {
+  var i, tabcontent, tablinks;
+  contents = document.getElementsByClassName("section-contents");
+  for (i = 0; i < contents.length; i++) {
+    contents[i].style.display = "none";
+  }
+  tabs = document.getElementsByClassName("section-tab");
+  for (i = 0; i < tabs.length; i++) {
+    tabs[i].className = tabs[i].className.replace(" active", "");
+  }
+  document.getElementById(section).style.display = "block";
+  evt.currentTarget.className += " active";
+}
