@@ -178,24 +178,21 @@ function modalInfo(info){
   $('#ModalSObligation').modal('show');
 }
 
-  function openEvents() {
-    if (document.getElementById('events_side') != null && document.getElementById('events_side').style.width == "350px") {
-      closeEvents();return 0
-    }
-    if (document.getElementById('events_side') != null) {
-        document.getElementById('events_side').style.width = "350px";
-    }
-    document.getElementById('main').style.marginRight = "350px";
+function openEvents() {
+  if (document.getElementById('eventNavigation') != null && document.getElementById('eventNavigation').style.width == "350px") {
+    closeEvents();return 0
   }
-
-  function closeEvents() {
-    if (document.getElementById('events_side') != null) {
-        document.getElementById('events_side').style.width = "0";
-    }
-    document.getElementById('main').style.marginRight= "0";
+  if (document.getElementById('eventNavigation') != null) {
+      document.getElementById('eventNavigation').style.width = "320px";
   }
-
-  var deactivated = []
+  document.getElementById('main').style.marginRight = "270px";
+}
+function closeEvents() {
+  if (document.getElementById('eventNavigation') != null) {
+      document.getElementById('eventNavigation').style.width = "0";
+  }
+  document.getElementById('main').style.marginRight= "0";
+}
 
   function deactivateObligation(){
     var obligation = calendar.getEventById($("#inputID").val())
@@ -207,8 +204,7 @@ function modalInfo(info){
     deactivated.pop(obligationAct)
     obligationAct.addEvent()
   }
-
-  var searched = []
+ 
   function searchEvents(){
     $("#events_list").empty()
     var q = $("#inputSearch").val()
