@@ -55,30 +55,30 @@ function closeNav() {
   document.getElementById('main').style.marginLeft= "0";
 }
 
-  function modalUpdate(info){
-      $("#head_title").html(info.event.title)
-      $("#inputID").val(info.event.id)
-      $("#inputTitleU").val(info.event.title)
-      $("#inputStartU").val(info.event.startStr)
-      $("#inputDescriptionU").val(info.event.extendedProps.description)
-      $("#inputProfilU").val(info.event.extendedProps.profil)
-      $("#inputOrganismeU").val(info.event.extendedProps.organisme)
-      $("#inputLienU").val(info.event.extendedProps.lien)
-      $("#inputContactU").val(info.event.extendedProps.contact)
-      $(".color-block").css('background-color',info.event.color)
+function modalUpdate(info){
+    $("#head_title").html(info.event.title)
+    $("#inputID").val(info.event.id)
+    $("#inputTitleU").val(info.event.title)
+    $("#inputStartU").val(info.event.startStr)
+    $("#inputDescriptionU").val(info.event.extendedProps.description)
+    $("#inputProfilU").val(info.event.extendedProps.profil)
+    $("#inputOrganismeU").val(info.event.extendedProps.organisme)
+    $("#inputLienU").val(info.event.extendedProps.lien)
+    $("#inputContactU").val(info.event.extendedProps.contact)
+    $(".color-block").css('background-color',info.event.color)
 
-      if (info.event.allDay) {
-        var date = new Date(info.event.startStr)
-        date.setDate(date.getDate()+1)
-        date = date.getFullYear() + "-"+date.getMonth()+1 + "-" + (date.getDate()<=9 ? "0" + date.getDate() : date.getDate())
-        $("#inputEndU").val(date)
-      }
-      else{
-        $("#inputEndU").val(info.event.endStr)
-      }
+    if (info.event.allDay) {
+      var date = new Date(info.event.startStr)
+      date.setDate(date.getDate()+1)
+      date = date.getFullYear() + "-"+date.getMonth()+1 + "-" + (date.getDate()<=9 ? "0" + date.getDate() : date.getDate())
+      $("#inputEndU").val(date)
+    }
+    else{
+      $("#inputEndU").val(info.event.endStr)
+    }
 
-      $('#ModalUObligation').modal('show');
-  }
+    $('#ModalUObligation').modal('show');
+}
 
   function deleteObligation(){
       var url = 'deleteObligation/'+ $('#inputID').val();
