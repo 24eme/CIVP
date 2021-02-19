@@ -90,39 +90,52 @@ function exportObligation(){
     window.location = url;
 }
 
-  function modalPopUp(info){
+// function shareObligation(){
+//     var copyText = document.getElementById("shareIcon");
+//     copyText.select();
+//     copyText.setSelectionRange(0, 99999);
+//     document.execCommand("copy");
+//     alert("Lien copié");
+// }
+function modalPopUp(info){
 
-    var date = new Date(info.event.startStr)
-    var month = months[date.getMonth()]
-    var day = date.getDate()
-    $("#event-title").html(info.event.title)
-    $("#event-month").text(month)
-    $("#event-day").text(day)
-    $("#event-endDate").html(info.event.endStr)
-    $("#event-description").html(info.event.extendedProps.description)
-    $("#event-profil").html(info.event.extendedProps.profil)
-    $("#event-organisme").val(info.event.extendedProps.organisme)
-    $("#event-lien").val(info.event.extendedProps.lien)
-    $("#event-contact").val(info.event.extendedProps.contact)
-    if (info.event.backgroundColor !== "null") {
-      $(".triangle-color").css('border-top-color',info.event.backgroundColor)
-    }
-    else {
-      $(".triangle-color").css('border-top-color','#3788d8')
-    }
-    var popup = $("#modalPopUp")
-    $(".fc-daygrid-event").hover(function(e) {
-        var x = e.clientX;
-        var y = e.clientY;
-        var newposX = x - 60;
-        var newposY = y - 60;
-    $("#modalPopUp").css("display","block")
-    $("#modalPopUp").css("transform","translate3d("+newposX+"px,"+newposY+"px,0px)").show();
-    }, function() {
-        $("#modalPopUp").hide();
-    });
-
+  var date = new Date(info.event.startStr)
+  var month = months[date.getMonth()]
+  var day = date.getDate()
+  $("#inputIDshow").val(info.event.id)
+  $("#event-title").html(info.event.title)
+  $("#event-month").text(month)
+  $("#event-day").text(day)
+  $("#event-endDate").html(info.event.endStr)
+  $("#event-description").html(info.event.extendedProps.description)
+  $("#event-profil").html(info.event.extendedProps.profil)
+  $("#event-organisme").val(info.event.extendedProps.organisme)
+  $("#event-lien").val(info.event.extendedProps.lien)
+  $("#event-contact").val(info.event.extendedProps.contact)
+  if (info.event.backgroundColor !== "null") {
+    $(".triangle-color").css('border-top-color',info.event.backgroundColor)
   }
+  else {
+    $(".triangle-color").css('border-top-color','#3788d8')
+  }
+  var popup = $("#modalPopUp")
+  $(".fc-daygrid-event,.modalPopUp").hover(function(e) {
+      var x = e.clientX;
+      var y = e.clientY;
+      var newposX = x - 60;
+      var newposY = y + 10;
+  $("#modalPopUp").css("display","block")
+  $("#modalPopUp").css("transform","translate3d("+newposX+"px,"+newposY+"px,0px)").show();
+  }, function() {
+      $("#modalPopUp").hover(function(e) {
+        $("#modalPopUp").show();
+      })
+      if ($("#modalPopUp").css('box-shadow') != 'none') {
+        $("#modalPopUp").hide(1);
+      }
+  });
+
+}
 
   function modalInfo(info){
     $("#head_title").html(info.event.title)
