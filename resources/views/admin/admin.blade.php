@@ -1,8 +1,10 @@
 @extends('layout')
 @include('calendar/calendar')
 @include('partials/_admin-nav')
+      @include('admin/event/_list_events')
 @section('content')
-<div id="main" style="position=sticky">
+<div id="main">
+@include('layout/header')
 <div class="ct" id="dashboard">
   <div class="ct" id="calendrier">
     <div class="ct" id="obligations">
