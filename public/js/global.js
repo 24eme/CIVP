@@ -1,8 +1,8 @@
 var months = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre']
 var removedEvents = new Array()
 var removed = new Array()
-
-
+var deactivated = []
+var searched = []
 
 $(document).ready(function(){
   $("input.filter-profil").each(function (index, element) {
@@ -30,22 +30,21 @@ function getCookie(name) {
     }
     return null;
 }
+function openNav() {
 
-
-  function openNav() {
-    if (document.getElementById('admin_nav') != null && document.getElementById('admin_nav').style.width == "350px") {closeNav();return 0
-    }
-    if (document.getElementById('side_navigation') != null && document.getElementById('side_navigation').style.width == "350px") {closeNav();return 0
-    }
-    if (document.getElementById('side_navigation') != null) {
-        document.getElementById('side_navigation').style.width = "350px";
-    }
-    if (document.getElementById('admin_nav') != null) {
-        document.getElementById('admin_nav').style.width = "350px";
-    }
-    document.getElementById('main').style.marginLeft = "350px";
-
+  if (document.getElementById('adminNavigation') != null && document.getElementById('adminNavigation').style.width == "290px") {closeNav();return 0
   }
+  if (document.getElementById('sideNavigation') != null && document.getElementById('sideNavigation').style.width == "290px") {closeNav();return 0
+  }
+  if (document.getElementById('sideNavigation') != null) {
+      document.getElementById('sideNavigation').style.width = "290px";
+  }
+  if (document.getElementById('adminNavigation') != null) {
+      document.getElementById('adminNavigation').style.width = "290px";
+  }
+  document.getElementById('main').style.marginLeft = "290px";
+
+}
 
   function closeNav() {
     if (document.getElementById('side_navigation') != null) {
