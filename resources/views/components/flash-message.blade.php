@@ -76,6 +76,7 @@
 </div> -->
 
 <div id="modalPopUp" class="popup">
+	<a href="javascript:void(0)" style="position:absolute;top:5;right:10;color:grey" onclick="closePopUp()"><i class="fas fa-times"></i></a>
 	<div class="popup-header"><span class="triangle-color"></span></div>
 	<div class="popup-body">
 		<div class="popup-content inline-block">
@@ -91,11 +92,14 @@
 			</div>
 		</div>
 		<div class="popup-info">
-			<label for="">Description</label>
-			<label id="event-description" for=""></label>
+			<input id="inputIDshow" class="input" type="text" name="id" value="" hidden>
+			<label for="">Description :</label>
+			<label id="event-description" for=""></label></br>
 			<span><a id="event-link" href="#"><label for=""><i class="fas fa-globe-europe"></i> Lien</label></a></span>
 		</div>
 		<div class="">
+			<button type="button" class="btn btn-primary" onclick="exportObligation()"><i class="fas fa-external-link-alt"></i></button>
+			<button type="button" class="btn btn-primary" onclick="shareObligation()"><i class="fas fa-share"></i></button>
 
 		</div>
 	</div>
