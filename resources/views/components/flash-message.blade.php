@@ -69,11 +69,7 @@
       </div>
     </div>
   </div>
-</div>
-
-<!-- <div class="whatisopen?">
-	<i style="font-size:10px" class="fas fa-question"></i>
-</div> -->
+</div> 
 
 <div id="modalPopUp" class="popup">
 	<a href="javascript:void(0)" style="position:absolute;top:5;right:10;color:grey" onclick="closePopUp()"><i class="fas fa-times"></i></a>
@@ -87,26 +83,26 @@
 		</div>
 		<div class="popup-info inline-block">
 			<label style="width:100%;" id="event-title" for="">Event</label>
-			<div class="">
-				<i style="margin-left:10px;margin-right:10px;" class="far fa-bell"></i><label for="">8:30</label>
-			</div>
 		</div>
 		<div class="popup-info">
 			<input id="inputIDshow" class="input" type="text" name="id" value="" hidden>
 			<label for="">Description :</label>
 			<label id="event-description" for=""></label></br>
-			<span><a id="event-link" href="#"><label for=""><i class="fas fa-globe-europe"></i> Lien</label></a></span>
-		</div>
-		<div class="">
-			<button type="button" class="btn btn-primary" onclick="exportObligation()"><i class="fas fa-external-link-alt"></i></button>
-			<button type="button" class="btn btn-primary" onclick="shareObligation()"><i class="fas fa-share"></i></button>
-
+						<label for="">Fin de l'évenement</label>
+						<label id="event-endDate" for=""></label>
 		</div>
 	</div>
 	<div class="popup-footer">
 		<div class="popup-info">
-			<label for="">Fin de l'évenement</label>
-			<label id="event-endDate" for=""></label>
+			<span><a id="event-link" href="#"><label for="">Lien :</label></a></span>
+		</div>
+		<div class="row mb-2">
+			<div class="col-md-auto ml-auto">
+				<button type="button" class="btn btn-secondary" onclick="exportObligation()">Exporter</button>
+			</div>
+			<div class="col-md-auto mr-auto">
+				<button type="button" class="btn btn-secondary" onclick="shareObligation()">Partager</button>
+			</div>
 		</div>
 	</div>
 </div>
