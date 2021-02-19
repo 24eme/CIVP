@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -9,6 +8,8 @@ use Carbon\Carbon;
 use Auth;
 use Validator;
 use DateTime;
+use Sabre\VObject;
+use Illuminate\Support\Facades\File;
 
 class ObligationController extends Controller
 {
@@ -52,9 +53,7 @@ class ObligationController extends Controller
     return redirect()->back()->with('success', 'Votre obligation a été ajouté');
   }
 
-
   public function update(Request $request){
-
    $obligation = Obligation::find($request->id);
    $obligation->title = $request->title;
    $obligation->start = $request->start;
@@ -72,11 +71,24 @@ class ObligationController extends Controller
   }
 
   public function delete(Request $request,$id){
-    $request->validate([
-      'id' => 'required',
+    if ($id != null) {
+      $obligation = Obligation::find($id)->delete();
+      return redirect()->back()->with('success', 'Votre obligation a été supprimé de la base de données');
+    }
+  }
+
+  public function export($info){
+
+    $obligation = Obligation::find($info);
+    $vcalendar = new VObject\Component\VCalendar([
+    'VEVENT' => [
+        'SUMMARY' => $obligation->title,
+        'DTSTART' => new \DateTime($obligation->start),
+        'DTEND'   => new \DateTime($obligation->end)
+    ]
     ]);
-    $obligation = Obligation::find($id)->delete();
-    return redirect()->back()->with('success', 'Votre obligation a été supprimé de la base de données');
+    File::put('event.ics',$vcalendar->serialize());
+    return response()->download('event.ics');
   }
 
 
