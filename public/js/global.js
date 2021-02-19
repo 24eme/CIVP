@@ -6,13 +6,9 @@ var removed = new Array()
 
 $(document).ready(function(){
   $("input.filter-profil").each(function (index, element) {
-    if (getCookie(element.id) == "false") {
-      $(element).prop('checked',false)
-    }else{
-      $(element).prop('checked',true)
-    }
+    if (getCookie(element.id) == "false") {$(element).prop('checked',false)}else{$(element).prop('checked',true)}
   })
-
+  // setDate()
 })
 
 function setCookie(name,value,days) {
