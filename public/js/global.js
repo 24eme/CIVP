@@ -45,16 +45,15 @@ function openNav() {
   document.getElementById('main').style.marginLeft = "290px";
 
 }
-
-  function closeNav() {
-    if (document.getElementById('side_navigation') != null) {
-        document.getElementById('side_navigation').style.width = "0";
-    }
-    if (document.getElementById('admin_nav') != null) {
-        document.getElementById('admin_nav').style.width = "0";
-    }
-    document.getElementById('main').style.marginLeft= "0";
+function closeNav() {
+  if (document.getElementById('sideNavigation') != null) {
+      document.getElementById('sideNavigation').style.width = "0";
   }
+  if (document.getElementById('adminNavigation') != null) {
+      document.getElementById('adminNavigation').style.width = "0";
+  }
+  document.getElementById('main').style.marginLeft= "0";
+}
 
   function modalUpdate(info){
       $("#head_title").html(info.event.title)
