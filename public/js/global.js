@@ -89,7 +89,6 @@ function exportObligation(){
     var url = 'exportObligation/'+ $('#inputIDshow').val();
     window.location = url;
 }
-
 // function shareObligation(){
 //     var copyText = document.getElementById("shareIcon");
 //     copyText.select();
@@ -97,6 +96,7 @@ function exportObligation(){
 //     document.execCommand("copy");
 //     alert("Lien copié");
 // }
+
 function modalPopUp(info){
 
   var date = new Date(info.event.startStr)
@@ -136,6 +136,22 @@ function modalPopUp(info){
   });
 
 }
+function scalemodalPopUp() {
+  $("#modalPopUp").css("top","30%")
+  $("#modalPopUp").css("left","40%")
+  $("#modalPopUp").css('z-index','1050')
+  $("#modalPopUp").css('box-shadow','none')
+  $("#modalPopUp").css('transform','scale(1.7)')
+
+  $("#modalPopUp").hover(function(e) {
+    $("#modalPopUp").show();
+  })
+  $("#modalPopUp").modal('show')
+}
+function closePopUp() {
+  $("#modalPopUp").css('z-index','0')
+    $("#modalPopUp").modal('hide')
+}
 
   function modalInfo(info){
     $("#head_title").html(info.event.title)
@@ -161,6 +177,7 @@ function modalPopUp(info){
 
     $('#ModalSObligation').modal('show');
   }
+
   function openEvents() {
     if (document.getElementById('events_side') != null && document.getElementById('events_side').style.width == "350px") {
       closeEvents();return 0
