@@ -7,7 +7,7 @@
     </div>
     <div class="col-md-8">
       <div class="upper_wrapper" style="margin-left:15%">
-        <i class="fas fa-search" style="color:grey;position:absolute;margin:10px;margin-top:8px;"></i><input class="input-search" type="text" placeholder="Recherche..." name="" value="" onkeyup="openEvents()" onclick="openEvents()">
+        <i class="fas fa-search" style="color:grey;position:absolute;margin:10px;margin-top:8px;"></i><input class="input-search" type="text" placeholder="Recherche..." name="" value="" >
       </div>
     </div>
     <div class="col-md-2">
