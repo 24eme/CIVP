@@ -123,9 +123,10 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
 .btn-import>label{cursor: pointer;}
 
 
+.active_dot{display: inline-block;margin-left: 10px;margin-right: 5px;background-color:#E8E8E8;width: 10px;height: 10px;border-radius: 50%}
+.active_text{display: inline-block;color:#E8E8E8;font-family: "Montserrat-Bold";margin: 0px;}
 .disabled_dot{display: inline-block;margin-left: 10px;margin-right: 5px;background-color:red;width: 10px;height: 10px;border-radius: 50%}
 .disabled_text{display: inline-block;color:red;font-family: "Montserrat-Bold";margin: 0px;}
-.deactivated_dot{background-color:green;width: 10px;height: 10px;border-radius: 50%}
 
 .tags {list-style: none;margin: 0;overflow: hidden;padding: 0;}
 .tags li {float: left; }
