@@ -147,6 +147,7 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
 .alert{}
 
 .address-info{text-align: left;font-style: italic;}
+.number-wrapper{font-weight: bold;background-color: #F8F8F8;padding: 5px;border-radius: 10px;}
 .contact-container{display: inline-block;margin: 30px;background-color: #FFF;width: 28.5%;padding: 50px;text-align: center;}
 
 
