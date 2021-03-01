@@ -16,21 +16,27 @@
         <link rel="stylesheet" href="/css/main.css" />
     </head>
     <body>
-        @section('layout/header')
 
-        @show
 
-        <div class="main-container main">
-          @include('components/flash-message')
-            @yield('content')
+
+
+        @include('layout/header')
+
+        <div class="container-fluid">
+          <div class="row">
+              @include('partials/_sideNav')
+              <main role="main" class="col-md-9 ml-sm-auto px-md-4 pb-4">
+                @yield('content')
+              </main>
+          </div>
         </div>
+
 
          @section('script_js')
              <script src="/js/global.js"></script>
              <script>AOS.init();</script>
          @show
-    <footer>
-        @include("layout/footer")
-    </footer>
+
+         @include('layout/footer')
     </body>
 </html>
