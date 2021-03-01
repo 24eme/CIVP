@@ -4,7 +4,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ObligationController;
 use App\Http\Controllers\EventController;
-use App\Http\Controllers\CalendarController;
+
+use App\Http\Controllers\EvenementsController;
+use App\Http\Controllers\OrganismesController;
+use App\Http\Controllers\ProfilsController;
+use App\Http\Controllers\ContactsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,14 +34,24 @@ Route::get('/creation/evenement', function () {return view('pass-accessible-page
 
 /* Admin Routes*/
 Route::prefix('admin')->group(function () {
-    Route::get('/', [CalendarController::class,'manage']);
-    Route::post('/createObligation', [ObligationController::class,'create'])->name('createObligation');
-    Route::post('/updateObligation', [ObligationController::class,'update'])->name('updateObligation');
-    Route::get('/deleteObligation/{id}', [ObligationController::class,'delete'])->name('deleteObligation');
+  Route::get('evenements', [EvenementsController::class,'index'])->name('evenements');
+  Route::get('evenements/create', [EvenementsController::class,'create'])->name('evenements_create');
+  Route::post('evenements/create', [EvenementsController::class,'store']);
+  Route::get('evenements/edit/{evenement}', [EvenementsController::class,'edit'])->name('evenements_edit');
+  Route::post('evenements/edit/{evenement}', [EvenementsController::class,'update']);
 
-    Route::get('/contact', function () {return view('admin');});
-    Route::get('/filters', function () {return view('components/partials/_filtering');});
 
-    Route::post('/importCSV', [CalendarController::class,'importCSV'])->name('importCSV');
-    Route::get('/showObligations', [ObligationController::class,'show']);
+  Route::get('organismes', [OrganismesController::class,'index'])->name('organismes');
+  Route::get('organismes/create', [OrganismesController::class,'create'])->name('organismes_create');
+  Route::post('organismes/create', [OrganismesController::class,'store']);
+  Route::get('organismes/edit/{organisme}', [OrganismesController::class,'edit'])->name('organismes_edit');
+  Route::post('organismes/edit/{organisme}', [OrganismesController::class,'update']);
+
+  Route::get('profils', [ProfilsController::class,'index'])->name('profils');
+  Route::get('profils/create', [ProfilsController::class,'create'])->name('profils_create');
+  Route::post('profils/create', [ProfilsController::class,'store']);
+  Route::get('profils/edit/{profil}', [ProfilsController::class,'edit'])->name('profils_edit');
+  Route::post('profils/edit/{profil}', [ProfilsController::class,'update']);
+
+
 });
