@@ -3,13 +3,13 @@
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
           headerToolbar: {
-            left:'prev,today,next',
-            center: 'title',
+            left: '',
+            center:'prev,title,next',
             right: 'dayGridMonth,YearViewCustom'
           },
           locale: 'fr',
-          contentHeight:630,
-          eventDisplay:'list-item',
+          contentHeight:650,
+          eventDisplay:'background',
           titleFormat:{year: 'numeric',month:'long'},
           dayMaxEvents: true,
           themeSystem: 'bootstrap',
@@ -17,28 +17,16 @@
           events:'showObligations',
           buttonText:{ today:'Aujourd\'hui',month: 'Mois', week: 'Semaine', day: 'Jour'},
           allDayText:'Journée',
-          // eventDataTransform: function( eventData ) {
-          //     eventData.url = window.location.origin + window.location.pathname + eventData.url;
-          //     return eventData;
-          // },
+          firstDay: 1,
+          fixedWeekCount: false,
           bootstrapFontAwesome:{ month: 'fa-calendar-alt',week: 'fa-calendar-week' ,day:'fa-calendar-day' },
           initialView: 'dayGridMonth',
-          eventClick: function(info){
-            modalUpdate(info)
+          eventClick: function(item){
+            $.get("obligation/"+item.event.id, function(response) {
+              $('#popupEvenement').html(response);
+              $('#popupEvenement').modal('show');
+            });
           },
-          eventMouseEnter: function(info){
-              modalPopUp(info)
-          },
-          eventClick: function(info){
-            scalemodalPopUp()
-          },
-          // datesSet:function(dateInfo){
-          //     Currentdate = calendar.getDate().toISOString().slice(0,-14)
-          //     var url = new URL(window.location);
-          //     url.searchParams.set('date', Currentdate);
-          //     // window.location = url:
-          //     history.pushState(null,null, url);
-          // },
           views: {
             YearViewCustom: {
             type: 'dayGrid',
@@ -53,19 +41,7 @@
             }
           }
         });
-        // var parameters = window.location.search;
-        // var url = new URL(window.location);
-        // const urlParams = new URLSearchParams(parameters);
-        // var date = urlParams.get('date');
-        // if(date!=null){
-        //   calendar.gotoDate(date);
-        //   url.searchParams.set('date', date);
-        // }
-        // else {
-        //   CalendarDate = calendar.getDate().toISOString().slice(0,-14)
-        //   history.pushState(null,null, "?date="+CalendarDate);
-        //   // history.pushState = url.searchParams.append('date',CalendarDate)
-        // }
+
 
 
         calendar.render();
