@@ -41,7 +41,7 @@ li.tag-item{display: inline-block;}
 .fc-view-harness{}
 
 .circle-separator{ background: #b3b3b3;border-radius: 50%;width: 5px;height: 5px;display: inline-block;margin-left: 5px;}
-.upper-title:before {content: '';width: 0px;height: 0px;border-style: solid;border-width: 4px 6px 4px 0;border-color: transparent grey transparent transparent;display: inline-block;vertical-align: middle;margin-right: 10px;margin-left: 40px;transform: rotate(180deg);}
+.upper-title:before {content: '';width: 0px;height: 0px;border-style: solid;border-width: 4px 6px 4px 0;border-color: transparent grey transparent transparent;display: inline-block;vertical-align: middle;margin-right: 5px;margin-left: 10px;transform: rotate(180deg);}
 .upper-title{width: 300px;margin-top: 15px;color:black;text-decoration: none;display: inline}
 .upper_wrapper{vertical-align: middle;display: inline-block;font-weight: bold; }
 .btn-upper{background-color: transparent;border:none;}
