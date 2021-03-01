@@ -28,7 +28,7 @@ li.tag-item{display: inline-block;}
 #eventNavigation {height: 100%;width: 0; position: fixed;top: 0;right: -50;background-color: #FFF;overflow-x: hidden;transition: 0.3s;z-index: 100;}
 .input-search{width: 80%;height: 30px;border-radius: 5px;border:1px solid #f8fafb;color:grey;outline: none;padding: 1px;padding-left:25px;width:400px;background-color: #f8fafb;transition: background 1s}
 .input-search:hover{background-color: #E8E8E8}
-ul.list-group-custom{position: fixed;width: 400px;visibility: hidden;z-index: 200;}
+ul.list-group-custom{position: fixed;width: 400px;visibility: hidden;z-index: 200;max-height: 190px;overflow: hidden;}
 li.list-group-item:hover{background-color: #0081ff;color:white;cursor: pointer}
 
 .admin-navbar{padding: 0px;}

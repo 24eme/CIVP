@@ -9,11 +9,9 @@
       <div class="upper_wrapper" style="margin-left:15%">
         <i class="fas fa-search" style="color:grey;position:absolute;margin:10px;margin-top:8px;"></i><input class="input-search" type="text" placeholder="Recherche..." onkeypress="openListGroup()" name="" value="" >
         <ul id="ListGroupSearch" class="list-group list-group-custom">
-          <li class="list-group-item">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Morbi leo risus</li>
-          <li class="list-group-item">Porta ac consectetur ac</li>
-          <li class="list-group-item">Vestibulum at eros</li>
+          @foreach($obligations as $obligation)
+          <li class="list-group-item">{{$obligation->title}}</li>
+          @endforeach
         </ul>
       </div>
     </div>
