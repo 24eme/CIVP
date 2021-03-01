@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Route::get('/showObligations', [ObligationController::class,'show'])->name('showObligation');
 Route::get('/exportObligation/{id}', [ObligationController::class,'export'])->name('exportObligation');
+Route::get('/obligation/{id}', [ObligationController::class, 'getForPopup'])->name('getForPopup');
 
 Route::get('/exterieur', [EventController::class,'strangers']);
 Route::get('/showEvents', [EventController::class,'show']);

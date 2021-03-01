@@ -91,5 +91,11 @@ class ObligationController extends Controller
     return response()->download('event.ics');
   }
 
+  public function getForPopup($id)
+  {
+    $obligation = Obligation::find($id);
+    return view('calendar/popup', ['obligation'=>$obligation]);
+  }
+
 
 }
