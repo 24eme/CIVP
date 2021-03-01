@@ -43,3 +43,9 @@ Route::prefix('admin')->group(function () {
     Route::post('/importCSV', [CalendarController::class,'importCSV'])->name('importCSV');
     Route::get('/showObligations', [ObligationController::class,'show']);
 });
+Route::prefix('administration')->group(function () {
+  Route::get('/', [AdminController::class,'index'])->name('administration');
+  Route::match(['get', 'post'], '/create', [AdminController::class,'addObligation'])->name('addObligation');
+
+
+});
