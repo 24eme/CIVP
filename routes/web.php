@@ -18,10 +18,10 @@ use App\Http\Controllers\ContactsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-  return view('index');
-});
-
+// Route::get('/', function () {
+//   return view('index');
+// });
+Route::get('/', [CalendarController::class,'indexAll']);
 Route::get('/showObligations', [ObligationController::class,'show'])->name('showObligation');
 Route::get('/exportObligation/{id}', [ObligationController::class,'export'])->name('exportObligation');
 

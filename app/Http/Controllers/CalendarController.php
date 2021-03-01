@@ -9,11 +9,16 @@ use Illuminate\Http\UploadedFile;
 
 class CalendarController extends Controller
 {
+    public function indexAll()
+    {
+      $obligations = Obligation::all();
+      return view('index',['obligations'=>$obligations]);
+    }
+
     public function manage(){
       $obligations = Obligation::all();
       return view('admin/admin',['obligations'=>$obligations]);
     }
-
 
     public function importCSV(Request $request){
 

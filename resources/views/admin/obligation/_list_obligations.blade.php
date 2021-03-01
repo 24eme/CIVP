@@ -52,7 +52,11 @@
           {{$obligation->end}}
         </div>
         <div class="col-md-2 ml-5">
-          <span class="active_dot"></span><p class="active_text">active</p>
+          @if($obligation->title == "blue")
+          <span class="disabled_dot"></span><p class="disabled_text">désactivé</p>
+          @else
+          <span class="active_dot"></span><p class="active_text">visible</p>
+          @endif
         </div>
       </div>
     </li>

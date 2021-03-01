@@ -2,7 +2,7 @@
   <div class="row upper_wrapper">
     <div class="col-md-12">
       <a href="/"><span style="display: inline-block;margin-left:20px;"> <img src="{{asset('images/logos/logo-C.png')}}" width=50  alt=""></span></a>
-      <a href="/"><p style="font-size:0.9em" class="upper-title">LE CALENDRIER</p></a>
+      <a href="/"><p style="font-size:0.9em" class="upper-title">Calendrier des obligations viticoles</p></a>
     </div>
   </div>
   <div class="row p-4 mt-5 FiltrerPar">

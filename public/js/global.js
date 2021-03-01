@@ -97,6 +97,13 @@ function exportObligation(){
 //     alert("Lien copié");
 // }
 
+function openListGroup(){
+  $("#ListGroupSearch").css('visibility','visible')
+  $("#main").click(function(evt){
+    $("#ListGroupSearch").css('visibility','hidden')
+  })
+}
+
 function modalPopUp(info){
 
   var date = new Date(info.event.startStr)
