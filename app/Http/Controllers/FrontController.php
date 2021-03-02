@@ -16,7 +16,7 @@ class FrontController extends Controller
 
     public function evenements()
     {
-      $evenements = Evenement::get()->all();
+      $evenements = Evenement::get();
       return $evenements->toJson();
     }
 

@@ -8,7 +8,7 @@
 
       <div id='calendar'></div>
 
-        @include('evenements/_list_events')
+        @include('evenement/_list_events')
         <div class="row">
           <div class="col-md-12 mt-3">
             <center><button type="button" class="fc-dayGridMonth-button btn btn-primary active" name="button" onclick="showEventList()">Vue Liste</button></center>

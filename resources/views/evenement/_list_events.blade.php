@@ -14,32 +14,29 @@
         </div>
       </div>
     </li>
-  @foreach($obligations as $obligation)
+  @foreach($evenements as $evenement)
     <li class="obligation-content" >
       <div class="row">
         <div class="col-md-4">
-          {{$obligation->title}}
+          {{$evenement->titre}}
         </div>
         <div class="col-md-auto p-0">
           <i class="far fa-clock"></i>
         </div>
         <div class="col-md-3 p-0">
-          {{$obligation->start}}
+          {{$evenement->start}}
         </div>
         <div class="col-md-auto p-0">
           <i class="far fa-clock"></i>
         </div>
         <div class="col-md-2 p-0">
-          {{$obligation->end}}
+          {{$evenement->end}}
         </div>
       </div>
     </li>
   @endforeach
   </ul>
   </div>
-  @foreach($obligations as $obligation)
-    @if($obligation->color =='blue')
-    @endif
-  @endforeach
+
 </ul>
 </div>
