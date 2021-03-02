@@ -73,7 +73,7 @@ function modalUpdate(info){
       date = date.getFullYear() + "-"+date.getMonth()+1 + "-" + (date.getDate()<=9 ? "0" + date.getDate() : date.getDate())
       $("#inputEndU").val(date)
     }
-    if($("#inputEndU").val()== ""){ 
+    if($("#inputEndU").val()== ""){
       $("#inputEndU").val(info.event.endStr)
     }
 
@@ -217,6 +217,17 @@ function closeEvents() {
 //   deactivated.pop(obligationAct)
 //   obligationAct.addEvent()
 // }
+
+function showEventList() {
+  if ($("#ListEvents").css('display') === 'block') {
+    $("#ListEvents").css('display','none')
+    $("#calendar").css('display','block')
+  }
+  else {
+    $("#ListEvents").css('display','block')
+    $("#calendar").css('display','none')
+  }
+}
 
 function searchEvents(){
   $("#eventList").empty()

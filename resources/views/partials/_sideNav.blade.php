@@ -28,7 +28,7 @@
   <div class="row ml-0">
     <div class="col-md-12">
         <div class="filter-wrapper">
-          <div class="filter-div"><label class="filter-label" for="FilterProdRec">Producteur - Récoltant</label></div><label class="switch"><input class="filter-profil" id="FilterProdRec" name="producteur" value="Producteur-Recoltant" type="checkbox" checked><span id="sliderProd" class="slider round"></span></label>
+          <div class="filter-div"><label class="filter-label" for="FilterProdRec">Obligation</label></div><label class="switch"><input class="filter-profil" id="FilterProdRec" name="producteur" value="Producteur-Recoltant" type="checkbox" checked><span id="sliderProd" class="slider round"></span></label>
           <div class="filter-div"><label class="filter-label" for="FilterNegociant">Négociant</label></div><label class="switch"><input class="filter-profil" id="FilterNegociant" name="nego" value="Negociant" type="checkbox" checked><span id="sliderNego" class="slider round"></span></label>
           <div class="filter-div"><label class="filter-label" for="FilterNegociantVini">Négociant - Vinificateur</label></div><label class="switch"><input class="filter-profil" id="FilterNegociantVini" name="nego" value="Negociant-Vinificateur" type="checkbox" checked><span id="sliderVini" class="slider round"></span></label>
           <div class="filter-div"><label class="filter-label" for="FilterViticulteur">Viticulteur (Exploitant agricole)</label></div><label class="switch"><input class="filter-profil" id="FilterViticulteur" name="viti" value="Viticulteur" type="checkbox" checked><span id="sliderViti" class="slider round"></span></label>
@@ -41,10 +41,10 @@
     </div>
   </div>
   <div class="row ml-4 mt-1">
-    <div class="filter-wrapper">
-      <div class="filter-div"><label class="filter-label" for="">Obligations</label></div><label class="switch"><input class="filter-profil" id="" name="obligation" value="obligation" type="checkbox" checked><span id="" class="slider round"></span></label>
-      <div class="filter-div"><label class="filter-label" for="FilterNegociant">Aides</label></div><label class="switch"><input class="filter-profil" id="FilterNegociant" name="aide" value="aide" type="checkbox" checked><span id="" class="slider round"></span></label>
-      <div class="filter-div"><label class="filter-label" for="FilterNegociantVini">Evenements</label></div><label class="switch"><input class="filter-profil" id="FilterNegociantVini" name="evenement" value="evenement" type="checkbox" checked><span id="" class="slider round"></span></label>
+    <div class="filter-wrapper type-filters">
+      <div class="filter-div"><label class="filter-label" for="FilterObligation">Obligations</label></div><label class="switch"><input class="filter-type" id="FilterObligation" name="obligation" value="obligation" type="checkbox" checked><span id="sliderObligation" class="slider round"></span></label>
+      <div class="filter-div"><label class="filter-label" for="FilterAide">Aides</label></div><label class="switch"><input class="filter-type" id="FilterAide" name="aide" value="aide" type="checkbox" checked><span id="sliderAide" class="slider round"></span></label>
+      <div class="filter-div"><label class="filter-label" for="FilterEvenement">Evenements</label></div><label class="switch"><input class="filter-type" id="FilterEvenement" name="evenement" value="evenement" type="checkbox" checked><span id="sliderEvenement" class="slider round"></span></label>
     </div>
   </div>
   <div class="row ml-4 mt-5">

@@ -28,8 +28,10 @@ li.tag-item{display: inline-block;}
 #eventNavigation {height: 100%;width: 0; position: fixed;top: 0;right: -50;background-color: #FFF;overflow-x: hidden;transition: 0.3s;z-index: 100;}
 .input-search{width: 80%;height: 30px;border-radius: 5px;border:1px solid #f8fafb;color:grey;outline: none;padding: 1px;padding-left:25px;width:400px;background-color: #f8fafb;transition: background 1s}
 .input-search:hover{background-color: #E8E8E8}
-ul.list-group-custom{position: fixed;width: 400px;visibility: hidden;z-index: 200;max-height: 190px;overflow: hidden;}
+ul.list-group-custom{position: fixed;width: 300px;visibility: hidden;z-index: 200;max-height: 190px;overflow: hidden;}
 li.list-group-item:hover{background-color: #0081ff;color:white;cursor: pointer}
+
+#ListEvents{display:none;}
 
 .admin-navbar{padding: 0px;}
 #eventList{padding: 0px;box-shadow: inset 0px 0px 18px -7px rgba(181,181,181,1);}
@@ -86,6 +88,7 @@ li.list-group-item:hover{background-color: #0081ff;color:white;cursor: pointer}
 .filter-div{min-width: 60%;background-color: ;display: inline-block; margin-top: 10px;padding: 10px;padding-top: 0px;}
 .filter-wrapper{}
 
+
 .switch {position: relative; width: 50px; height: 24px; float: right;margin-right: 15px;margin-top: 10px;}
 .switch input { opacity: 0;width: 0;height: 0;}
 .slider {position: absolute;cursor: pointer;top: 0;left: 0;right: 0;bottom: 0;background-color: #ccc;-webkit-transition: .4s;transition: .4s;}
@@ -94,6 +97,10 @@ input:checked + #sliderProd {background-color: #fdbf5e;}
 input:checked + #sliderNego {background-color: #09b66d;}
 input:checked + #sliderVini {background-color: #0081ff;}
 input:checked + #sliderViti {background-color: #ff3d57;}
+input:checked + #sliderObligation {background-color: grey;}
+input:checked + #sliderAide {background-color: #8a65ad;}
+input:checked + #sliderEvenement {background-color: #e8dae2;}
+.type-filters > .switch{margin-right: 30px;}
 
 input:focus + .slider {box-shadow: 0 0 1px #2196F3;}
 input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transform: translateX(26px);transform: translateX(26px);}

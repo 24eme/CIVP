@@ -96,6 +96,29 @@
             })
           })
 
+          $("input.filter-type").each(function (index, element) {
+              $(element).click(function(){
+                setCookie(this.id,this.checked)
+                var events = calendar.getEvents();
+                if (!this.checked) {
+                  events.forEach(function(eve,i){
+                    if (eve.extendedProps.type == element.value) { eve.remove();removedEvents.push(eve); }
+                  })
+                } else{
+                    removedEvents.forEach(function(removedEve,i){
+                      if (removedEve.extendedProps.type == element.value) {
+                        calendar.addEvent(removedEve);
+                      } else{
+                        if (removed.includes(removedEve) == false) {
+                          removed.push(removedEve)
+                        }
+                      }
+                    })
+                    removedEvents = removed
+                }
+              })
+            })
+
           $("#btn-ListView").click(function(){calendar.changeView('listWeek');})
           $("#btn-DayGrid").click(function(){calendar.changeView('dayGridMonth');})
         });
