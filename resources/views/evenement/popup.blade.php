@@ -18,12 +18,25 @@
       </div>
     </div>
     <div class="modal-body">
+      <p class="text-right">
+        <button class="btn" style="background-color: {{$evenement->profil->couleur}}">{{ $evenement->profil->nom }}</button>
+      </p>
+      <p>
+        Public : {{ $evenement->strFamilles() }}
+      </p>
       <p>
         {{ $evenement->description }}
       </p>
-      Famille : {{$evenement->profil}}<br />
-      Organisme : {{$evenement->organisme}}<br />
-      Contact : {{$evenement->contact}}
+      <p>
+        Tags : {{ $evenement->strTags() }}
+      </p>
+      <p>
+        Organisme : {{$evenement->organisme->nom}}<br />
+        Adresse : {{$evenement->organisme->adresse}} {{$evenement->organisme->code_postal}} {{$evenement->organisme->ville}}<br /><br />
+        Contact : {{$evenement->organisme->contact}}<br />
+        <span class="fas fa-phone-square-alt"></span>&nbsp;{{$evenement->organisme->telephone}}<br />
+        <span class="fas fa-envelope-square"></span>&nbsp;{{$evenement->organisme->email}}
+      </p>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-warning" data-dismiss="modal">Accéder à la déclaration</button>

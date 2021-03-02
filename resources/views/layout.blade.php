@@ -18,14 +18,13 @@
         <link rel="stylesheet" href="/css/main.css" />
     </head>
     <body>
-        @section('layout/header')
+        @include('layout/header')
 
-        @show
-
-        <div class="main-container main">
-          @include('components/flash-message')
+        <div class="container-fluid">
+          <div class="row">
             @yield('content')
         </div>
+      </div>
 
          @section('script_js')
              <script src="/js/global.js"></script>

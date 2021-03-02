@@ -51,7 +51,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="titre">Description</label>
+          <label for="description">Description</label>
           <textarea class="form-control" rows="3" name="description"></textarea>
           @error('description')
           <div class="invalid-feedback">{{ $message }}</div>

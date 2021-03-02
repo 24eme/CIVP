@@ -30,14 +30,14 @@
           @enderror
         </div>
         <div class="form-group">
-          <label for="titre">Titre</label>
-          <input type="text" class="form-control @error('titre') is-invalid @enderror" name="titre" value="{{ $evenement->titre }}" />
-          @error('titre')
+          <label for="title">Titre</label>
+          <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ $evenement->title }}" />
+          @error('title')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
         <div class="form-group">
-          <label for="titre">Description</label>
+          <label for="description">Description</label>
           <textarea class="form-control" rows="3" name="description">{{ $evenement->description }}</textarea>
           @error('description')
           <div class="invalid-feedback">{{ $message }}</div>
