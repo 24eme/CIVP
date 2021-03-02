@@ -102,6 +102,12 @@ function openListGroup(){
   $("#main").click(function(evt){
     $("#ListGroupSearch").css('visibility','hidden')
   })
+  $("#searchInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#ListGroupSearch li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
 }
 
 function modalPopUp(info){
