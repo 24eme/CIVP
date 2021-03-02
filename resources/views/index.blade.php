@@ -24,10 +24,17 @@
         </div>
       </div> -->
       <div id='calendar'></div>
-      <div class="obligation_non_dates" style="display:none;">
+      <!-- <div class="obligation_non_dates" style="display:none;">
         <h3>Obligations non-daté</h3>
 
-      </div>
+      </div> -->
+        @include('evenements/_list_events')
+        <div class="row">
+          <div class="col-md-12 mt-3">
+            <center><button type="button" class="fc-dayGridMonth-button btn btn-primary active" name="button" onclick="showEventList()">Vue Liste</button></center>
+          </div>
+        </div>
+
     </div>
 @endsection
 @include('timeline/timeline')

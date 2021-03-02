@@ -25,12 +25,10 @@
           initialView: 'dayGridMonth',
           eventClick: function(info){
             modalUpdate(info)
+            // scalemodalPopUp()
           },
           eventMouseEnter: function(info){
               modalPopUp(info)
-          },
-          eventClick: function(info){
-            scalemodalPopUp()
           },
           // datesSet:function(dateInfo){
           //     Currentdate = calendar.getDate().toISOString().slice(0,-14)
@@ -97,6 +95,30 @@
               }
             })
           })
+
+          $("input.filter-type").each(function (index, element) {
+              $(element).click(function(){
+                setCookie(this.id,this.checked)
+                var events = calendar.getEvents();
+                if (!this.checked) {
+                  events.forEach(function(eve,i){
+                    console.log(eve.extendedProps.profil_id )
+                    if (eve.extendedProps.profil_id == element.value) { eve.remove();removedEvents.push(eve); }
+                  })
+                } else{
+                    removedEvents.forEach(function(removedEve,i){
+                      if (removedEve.extendedProps.profil_id == element.value) {
+                        calendar.addEvent(removedEve);
+                      } else{
+                        if (removed.includes(removedEve) == false) {
+                          removed.push(removedEve)
+                        }
+                      }
+                    })
+                    removedEvents = removed
+                }
+              })
+            })
 
           $("#btn-ListView").click(function(){calendar.changeView('listWeek');})
           $("#btn-DayGrid").click(function(){calendar.changeView('dayGridMonth');})

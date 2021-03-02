@@ -73,7 +73,7 @@ function modalUpdate(info){
       date = date.getFullYear() + "-"+date.getMonth()+1 + "-" + (date.getDate()<=9 ? "0" + date.getDate() : date.getDate())
       $("#inputEndU").val(date)
     }
-    else{
+    if($("#inputEndU").val()== ""){
       $("#inputEndU").val(info.event.endStr)
     }
 
@@ -102,6 +102,12 @@ function openListGroup(){
   $("#main").click(function(evt){
     $("#ListGroupSearch").css('visibility','hidden')
   })
+  $("#searchInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#ListGroupSearch li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
 }
 
 function modalPopUp(info){
@@ -211,6 +217,17 @@ function closeEvents() {
 //   deactivated.pop(obligationAct)
 //   obligationAct.addEvent()
 // }
+
+function showEventList() {
+  if ($("#ListEvents").css('display') === 'block') {
+    $("#ListEvents").css('display','none')
+    $("#calendar").css('display','block')
+  }
+  else {
+    $("#ListEvents").css('display','block')
+    $("#calendar").css('display','none')
+  }
+}
 
 function searchEvents(){
   $("#eventList").empty()

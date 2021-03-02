@@ -8,8 +8,8 @@
     <div class="">
       <p class="address-info">MAISON DES VINS</p>
       <p class="address-info">RN 7 - 83460 LES ARCS SUR ARGENS</p>
-      <p>Tél : <a href="tel:0634789201">0634789201</a></p>
-      <p>Tél : <a href="fax:0134789201">0134789201</a></p>
+      <p>Portable : <a class="number-wrapper" href="tel:0634789201">0634789201</a></p>
+      <p>Fixe : <a class="number-wrapper" href="fax:0134789201">0134789201</a></p>
       <p>Mail : <a href="mailto:">vins@provence.fr</a></p>
     </div>
   </div>
@@ -20,8 +20,8 @@
     <div class="">
       <p class="address-info">MAISON DES VINS</p>
       <p class="address-info">RN 7 - 83460 LES ARCS SUR ARGENS</p>
-      <p>Tél : <a class="number-wrapper" href="tel:0634789201">0634789201</a></p>
-      <p>Tél : <a class="number-wrapper" href="fax:0134789201">0134789201</a></p>
+      <p>Portable : <a class="number-wrapper" href="tel:0634789201">0634789201</a></p>
+      <p>Fixe : <a class="number-wrapper" href="fax:0134789201">0134789201</a></p>
       <p>Mail : <a href="mailto:">vins@provence.fr</a></p>
     </div>
   </div>
@@ -32,8 +32,8 @@
     <div class="">
       <p class="address-info">MAISON DES VINS</p>
       <p class="address-info">RN 7 - 83460 LES ARCS SUR ARGENS</p>
-      <p>Tél : <a class="number-wrapper" href="tel:0634789201">0634789201</a></p>
-      <p>Tél : <a class="number-wrapper" href="fax:0134789201">0134789201</a></p>
+      <p>Portable : <a class="number-wrapper" href="tel:0634789201">0634789201</a></p>
+      <p>Fixe : <a class="number-wrapper" href="fax:0134789201">0134789201</a></p>
       <p>Mail : <a href="mailto:">vins@provence.fr</a></p>
     </div>
   </div>

@@ -1,6 +1,5 @@
 <?php
 
-// to do bootstrap,web route,calendar.js,show id,front,constante
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EvenementController;
 use App\Http\Controllers\OrganismeController;
@@ -20,7 +19,7 @@ use App\Http\Controllers\TagController;
 //   return view('index');
 // });
 Route::get('/', [CalendarController::class,'indexAll']);
-Route::get('/showObligations', [ObligationController::class,'show'])->name('showObligation');
+Route::get('/showObligations', [EvenementsController::class,'show'])->name('showObligation');
 Route::get('/exportObligation/{id}', [ObligationController::class,'export'])->name('exportObligation');
 
 Route::get('/exterieur', [EventController::class,'strangers']);
