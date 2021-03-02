@@ -107,7 +107,7 @@ function exportObligation(){
 
 function openListGroup(){
   $("#ListGroupSearch").css('visibility','visible')
-  $("#main").click(function(evt){
+  $("body").click(function(evt){
     $("#ListGroupSearch").css('visibility','hidden')
   })
   $("#searchInput").on("keyup", function() {
