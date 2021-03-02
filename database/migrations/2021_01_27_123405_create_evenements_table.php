@@ -15,9 +15,9 @@ class CreateEvenementsTable extends Migration
     {
         Schema::create('evenements', function (Blueprint $table) {
           $table->increments('id');
-          $table->integer('profil_id')->unsigned();
+          $table->integer('profil_id')->unsigned()->index();
           $table->foreign('profil_id')->references('id')->on('profils')->onDelete('cascade');
-          $table->integer('organisme_id')->unsigned();
+          $table->integer('organisme_id')->unsigned()->index();
           $table->foreign('organisme_id')->references('id')->on('organismes')->onDelete('cascade');
           $table->string('titre')->index();
           $table->longText('description')->index();
