@@ -10,7 +10,7 @@
         <i class="fas fa-search" style="color:grey;position:absolute;margin:10px;margin-top:8px;"></i><input id="searchInput" class="input-search" type="text" placeholder="Recherche..." onkeypress="openListGroup()" name="" value="" >
         <ul id="ListGroupSearch" class="list-group list-group-custom">
           @foreach($obligations as $obligation)
-          <li class="list-group-item">{{$obligation->title}}</li>
+          <li class="list-group-item"><a href="/obligation/{{$obligation->id}}">{{$obligation->title}}</a></li>
           @endforeach
         </ul>
       </div>

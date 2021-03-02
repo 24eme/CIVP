@@ -1,6 +1,5 @@
 <?php
 
-// to do bootstrap,web route,calendar.js,show id,front,constante
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ObligationController;
 use App\Http\Controllers\EventController;
