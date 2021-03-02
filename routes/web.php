@@ -8,6 +8,7 @@ use App\Http\Controllers\EvenementsController;
 use App\Http\Controllers\OrganismesController;
 use App\Http\Controllers\ProfilsController;
 use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\CalendarController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
