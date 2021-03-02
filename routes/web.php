@@ -22,7 +22,7 @@ use App\Http\Controllers\CalendarController;
 //   return view('index');
 // });
 Route::get('/', [CalendarController::class,'indexAll']);
-Route::get('/showObligations', [ObligationController::class,'show'])->name('showObligation');
+Route::get('/showObligations', [EvenementsController::class,'show'])->name('showObligation');
 Route::get('/exportObligation/{id}', [ObligationController::class,'export'])->name('exportObligation');
 
 Route::get('/exterieur', [EventController::class,'strangers']);

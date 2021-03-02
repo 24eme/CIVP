@@ -20,6 +20,11 @@ class EvenementsController extends Controller
         return view('evenements/index', compact('evenements'));
     }
 
+    public function show(){
+      $evenements = Evenements::all();
+      return $evenements;
+
+    }
     /**
      * Show the form for creating a new resource.
      *

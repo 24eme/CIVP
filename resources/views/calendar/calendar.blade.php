@@ -102,11 +102,12 @@
                 var events = calendar.getEvents();
                 if (!this.checked) {
                   events.forEach(function(eve,i){
-                    if (eve.extendedProps.type == element.value) { eve.remove();removedEvents.push(eve); }
+                    console.log(eve.extendedProps.profil_id )
+                    if (eve.extendedProps.profil_id == element.value) { eve.remove();removedEvents.push(eve); }
                   })
                 } else{
                     removedEvents.forEach(function(removedEve,i){
-                      if (removedEve.extendedProps.type == element.value) {
+                      if (removedEve.extendedProps.profil_id == element.value) {
                         calendar.addEvent(removedEve);
                       } else{
                         if (removed.includes(removedEve) == false) {

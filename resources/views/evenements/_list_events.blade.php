@@ -12,9 +12,6 @@
         <div class="col-md-3">
           <h5>DATE DE FIN</h5>
         </div>
-        <div class="col-md-2">
-          <h5>STATUT</h5>
-        </div>
       </div>
     </li>
   @foreach($obligations as $obligation)
@@ -34,13 +31,6 @@
         </div>
         <div class="col-md-2 p-0">
           {{$obligation->end}}
-        </div>
-        <div class="col-md-2 ml-5">
-          @if($obligation->title == "blue")
-          <span class="disabled_dot"></span><p class="disabled_text">désactivé</p>
-          @else
-          <span class="active_dot"></span><p class="active_text">visible</p>
-          @endif
         </div>
       </div>
     </li>
