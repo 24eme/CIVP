@@ -19,16 +19,7 @@ use App\Http\Controllers\TagController;
 //   return view('index');
 // });
 Route::get('/', [CalendarController::class,'indexAll']);
-Route::get('/showObligations', [EvenementsController::class,'show'])->name('showObligation');
-Route::get('/exportObligation/{id}', [ObligationController::class,'export'])->name('exportObligation');
-
-Route::get('/exterieur', [EventController::class,'strangers']);
-Route::get('/showEvents', [EventController::class,'show']);
-Route::get('/creation/evenement', function () {return view('pass-accessible-page');});
-
-/*implementer resources route*/
-
-
+Route::get('/evenement/{id}', [EvenementController::class, 'popup'])->name('evenement_popup');
 /* Admin Routes*/
 Route::prefix('admin')->group(function () {
   Route::get('/', function () { return redirect()->route('evenements');; });

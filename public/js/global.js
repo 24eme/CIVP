@@ -8,6 +8,14 @@ $(document).ready(function(){
   $("input.filter-profil").each(function (index, element) {
     if (getCookie(element.id) == "false") {$(element).prop('checked',false)}else{$(element).prop('checked',true)}
   })
+
+  $(".popupEvent").click(function() {
+    var url = $(this).data('url');
+    $.get(url, function(response) {
+      $('#popupEvenement').html(response);
+      $('#popupEvenement').modal('show');
+    });
+  });
   // setDate()
 })
 

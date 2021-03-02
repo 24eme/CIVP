@@ -40,20 +40,21 @@
         <strong>{{$evenement->titre}}</strong>
       </td>
       <td>
-        {{$evenement->date_debut}}
+        {{$evenement->start}}
       </td>
       <td>
-        {{$evenement->date_fin}}
+        {{$evenement->end}}
       </td>
       <td>
-        <a href="{{ route('evenement_edit', $evenements) }}"><i class="far fa-edit">&nbsp;</i></a>
+        <a href="{{ route('evenement_edit', $evenement) }}"><i class="far fa-edit">&nbsp;</i></a>
       </td>
       <td>
-        <a href="{{ route('evenement_edit', $evenements) }}"><i class="far fa-edit">&nbsp;</i></a>
+        <a href="javascript:void(0)" class="popupEvent" data-url="{{ route('evenement_popup', $evenement) }}"><i class="far fa-eye">&nbsp;</i></a>
       </td>
       </tr>
       @endforeach
   </tbody>
 </table>
+@include('layout/popup')
 @endif
 @endsection
