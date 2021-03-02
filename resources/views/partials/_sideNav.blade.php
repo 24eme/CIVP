@@ -5,6 +5,16 @@
       <a href="/"><p style="font-size:0.9em" class="upper-title">Calendrier des obligations viticoles</p></a>
     </div>
   </div>
+  <div class="row p-0 mt-5">
+    <div class="upper_wrapper" style="margin-left:10px">
+      <i class="fas fa-search" style="color:grey;position:absolute;margin:10px;margin-top:8px;"></i><input id="searchInput" class="input-search" type="text" placeholder="Recherche..." onkeypress="openListGroup()" name="" value="" >
+      <ul id="ListGroupSearch" class="list-group list-group-custom">
+        @foreach($obligations as $obligation)
+        <li class="list-group-item"><a href="/obligation/{{$obligation->id}}">{{$obligation->title}}</a></li>
+        @endforeach
+      </ul>
+    </div>
+  </div>
   <div class="row p-4 mt-5 FiltrerPar">
     <div class="col-md-12 p-0">
       <h4>Filtrer par</h4>
@@ -25,7 +35,19 @@
         </div>
     </div>
   </div>
-  <div class="row ml-5 mt-5">
+  <div class="row ml-4 mt-5">
+    <div class="col-md-12">
+      <h5>TYPE</h5>
+    </div>
+  </div>
+  <div class="row ml-4 mt-1">
+    <div class="filter-wrapper">
+      <div class="filter-div"><label class="filter-label" for="">Obligations</label></div><label class="switch"><input class="filter-profil" id="" name="obligation" value="obligation" type="checkbox" checked><span id="" class="slider round"></span></label>
+      <div class="filter-div"><label class="filter-label" for="FilterNegociant">Aides</label></div><label class="switch"><input class="filter-profil" id="FilterNegociant" name="aide" value="aide" type="checkbox" checked><span id="" class="slider round"></span></label>
+      <div class="filter-div"><label class="filter-label" for="FilterNegociantVini">Evenements</label></div><label class="switch"><input class="filter-profil" id="FilterNegociantVini" name="evenement" value="evenement" type="checkbox" checked><span id="" class="slider round"></span></label>
+    </div>
+  </div>
+  <div class="row ml-4 mt-5">
     <div class="col-md-12">
       <h5>TAG</h5>
     </div>
