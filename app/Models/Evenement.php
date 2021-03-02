@@ -36,7 +36,15 @@ class Evenement extends Model
         foreach($this->tags as $tag) {
           $tags[] = $tag->nom;
         }
-        return implode(',', $tags);
+        return implode(', ', $tags);
+    }
+
+    public function strFamilles() {
+        $familles = [];
+        foreach($this->familles as $famille) {
+          $familles[] = $famille->nom;
+        }
+        return implode(', ', $familles);
     }
 
     public function saveFamilles($familles) {
