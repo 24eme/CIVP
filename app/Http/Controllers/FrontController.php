@@ -14,4 +14,10 @@ class FrontController extends Controller
       return view('index', ['evenements' => $evenements]);
     }
 
+    public function evenements()
+    {
+      $evenements = Evenement::get()->all();
+      return view('index', ['evenements' => $evenements]);
+    }
+
 }

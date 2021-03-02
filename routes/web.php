@@ -20,6 +20,7 @@ use App\Http\Controllers\FrontController;
 //   return view('index');
 // });
 Route::get('/', [FrontController::class, 'index'])->name('index');
+Route::get('/evenements', [FrontController::class, 'evenements'])->name('evenements');
 Route::get('/evenement/{id}', [EvenementController::class, 'popup'])->name('evenement_popup');
 /* Admin Routes*/
 Route::prefix('admin')->group(function () {
