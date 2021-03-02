@@ -6,6 +6,7 @@ use App\Http\Controllers\OrganismeController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\FamilleController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\FrontController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +19,7 @@ use App\Http\Controllers\TagController;
 // Route::get('/', function () {
 //   return view('index');
 // });
-Route::get('/', [CalendarController::class,'indexAll']);
+Route::get('/', [FrontController::class, 'index'])->name('index');
 Route::get('/evenement/{id}', [EvenementController::class, 'popup'])->name('evenement_popup');
 /* Admin Routes*/
 Route::prefix('admin')->group(function () {
