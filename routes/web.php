@@ -2,13 +2,11 @@
 
 // to do bootstrap,web route,calendar.js,show id,front,constante
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ObligationController;
-use App\Http\Controllers\EventController;
-
-use App\Http\Controllers\EvenementsController;
-use App\Http\Controllers\OrganismesController;
-use App\Http\Controllers\ProfilsController;
-use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\EvenementController;
+use App\Http\Controllers\OrganismeController;
+use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\FamilleController;
+use App\Http\Controllers\TagController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,24 +32,31 @@ Route::get('/creation/evenement', function () {return view('pass-accessible-page
 
 /* Admin Routes*/
 Route::prefix('admin')->group(function () {
-  Route::get('evenements', [EvenementsController::class,'index'])->name('evenements');
-  Route::get('evenements/create', [EvenementsController::class,'create'])->name('evenements_create');
-  Route::post('evenements/create', [EvenementsController::class,'store']);
-  Route::get('evenements/edit/{evenement}', [EvenementsController::class,'edit'])->name('evenements_edit');
-  Route::post('evenements/edit/{evenement}', [EvenementsController::class,'update']);
+  Route::get('/', function () { return redirect()->route('evenements');; });
+  Route::get('evenements', [EvenementController::class,'index'])->name('evenements');
+  Route::get('evenement/create', [EvenementController::class,'create'])->name('evenement_create');
+  Route::post('evenement/create', [EvenementController::class,'store']);
+  Route::get('evenement/edit/{evenement}', [EvenementController::class,'edit'])->name('evenement_edit');
+  Route::post('evenement/edit/{evenement}', [EvenementController::class,'update']);
 
 
-  Route::get('organismes', [OrganismesController::class,'index'])->name('organismes');
-  Route::get('organismes/create', [OrganismesController::class,'create'])->name('organismes_create');
-  Route::post('organismes/create', [OrganismesController::class,'store']);
-  Route::get('organismes/edit/{organisme}', [OrganismesController::class,'edit'])->name('organismes_edit');
-  Route::post('organismes/edit/{organisme}', [OrganismesController::class,'update']);
+  Route::get('organismes', [OrganismeController::class,'index'])->name('organismes');
+  Route::get('organisme/create', [OrganismeController::class,'create'])->name('organisme_create');
+  Route::post('organisme/create', [OrganismeController::class,'store']);
+  Route::get('organisme/edit/{organisme}', [OrganismeController::class,'edit'])->name('organisme_edit');
+  Route::post('organisme/edit/{organisme}', [OrganismeController::class,'update']);
 
-  Route::get('profils', [ProfilsController::class,'index'])->name('profils');
-  Route::get('profils/create', [ProfilsController::class,'create'])->name('profils_create');
-  Route::post('profils/create', [ProfilsController::class,'store']);
-  Route::get('profils/edit/{profil}', [ProfilsController::class,'edit'])->name('profils_edit');
-  Route::post('profils/edit/{profil}', [ProfilsController::class,'update']);
+  Route::get('profils', [ProfilController::class,'index'])->name('profils');
+  Route::get('profil/create', [ProfilController::class,'create'])->name('profil_create');
+  Route::post('profil/create', [ProfilController::class,'store']);
+  Route::get('profil/edit/{profil}', [ProfilController::class,'edit'])->name('profil_edit');
+  Route::post('profil/edit/{profil}', [ProfilController::class,'update']);
+
+  Route::get('familles', [FamilleController::class,'index'])->name('familles');
+  Route::get('famille/create', [FamilleController::class,'create'])->name('famille_create');
+  Route::post('famille/create', [FamilleController::class,'store']);
+  Route::get('famille/edit/{famille}', [FamilleController::class,'edit'])->name('famille_edit');
+  Route::post('famille/edit/{famille}', [FamilleController::class,'update']);
 
 
 });
