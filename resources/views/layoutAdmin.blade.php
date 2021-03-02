@@ -57,8 +57,5 @@
              <script src="/js/global.js"></script>
              <script>AOS.init();</script>
          @show
-    <footer>
-        @include("layout/footer")
-    </footer>
     </body>
 </html>
