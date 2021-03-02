@@ -58,21 +58,35 @@
           @enderror
         </div>
         <div class="form-group">
-          <label for="date_debut">Date début</label>
-          <input type="text" class="form-control @error('date_debut') is-invalid @enderror" name="date_debut" />
-          @error('date_debut')
+          <label for="start">Date début</label>
+          <input type="text" class="form-control @error('start') is-invalid @enderror" name="start" />
+          @error('start')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
         <div class="form-group">
-          <label for="date_fin">Date de fin</label>
-          <input type="text" class="form-control @error('date_fin') is-invalid @enderror" name="date_fin" />
-          @error('date_fin')
+          <label for="end">Date de fin</label>
+          <input type="text" class="form-control @error('end') is-invalid @enderror" name="end" />
+          @error('end')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
         <div class="form-group">
-          <label for="date_fin">Tags</label>
+          <label for="textdeloi">Texte de loi</label>
+          <input type="text" class="form-control @error('textdeloi') is-invalid @enderror" name="textdeloi" />
+          @error('textdeloi')
+          <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+        </div>
+        <div class="form-group">
+          <label for="liendeclaration">Lien de télédéclaration</label>
+          <input type="text" class="form-control @error('liendeclaration') is-invalid @enderror" name="liendeclaration" />
+          @error('liendeclaration')
+          <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+        </div>
+        <div class="form-group">
+          <label for="tags">Tags</label>
           <input type="text" class="form-control @error('tags') is-invalid @enderror" name="tags" />
           @error('tags')
           <div class="invalid-feedback">{{ $message }}</div>

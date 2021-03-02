@@ -47,8 +47,11 @@ class EvenementController extends Controller
             'organisme_id'=>'required',
             'titre'=>'required',
             'description'=>'required',
-            'date_debut'=>'required|date',
-            'date_fin'=>'required|date',
+            'start'=>'required|date',
+            'end'=>'required|date',
+            'textedeloi'=>'',
+            'liendeclaration'=>'',
+            'rrule'=>''
         ]);
         $evenement = Evenement::create($attributes);
         $evenement->saveTags($request->get('tags'));
@@ -84,13 +87,21 @@ class EvenementController extends Controller
           'organisme_id'=>'required',
           'titre'=>'required',
           'description'=>'required',
-          'date_debut'=>'required|date',
-          'date_fin'=>'required|date',
+          'start'=>'required|date',
+          'end'=>'required|date',
+          'textedeloi'=>'',
+          'liendeclaration'=>'',
+          'rrule'=>''
       ]);
       $evenement->update($attributes);
       $evenement->saveTags($request->get('tags'));
       $evenement->saveFamilles($request->get('familles'));
       return redirect()->route('evenements');
+    }
+
+    public function popup($id) {
+      $evenement = Evenement::find($id);
+      return view('evenement/popup', ['evenement' => $evenement]);
     }
 
 }
