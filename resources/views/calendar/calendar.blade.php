@@ -25,12 +25,10 @@
           initialView: 'dayGridMonth',
           eventClick: function(info){
             modalUpdate(info)
+            // scalemodalPopUp()
           },
           eventMouseEnter: function(info){
               modalPopUp(info)
-          },
-          eventClick: function(info){
-            scalemodalPopUp()
           },
           // datesSet:function(dateInfo){
           //     Currentdate = calendar.getDate().toISOString().slice(0,-14)
