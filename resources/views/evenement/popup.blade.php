@@ -9,7 +9,7 @@
           </p>
       </div>
       <div class="col-8 text-center">
-        <h2 class="modal-title" id="staticBackdropLabel" style="line-height: 2;">{{ $evenement->titre }}</h2>
+        <h2 class="modal-title" id="staticBackdropLabel" style="line-height: 2;">{{ $evenement->title }}</h2>
       </div>
       <div class="col-2 p-0">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">

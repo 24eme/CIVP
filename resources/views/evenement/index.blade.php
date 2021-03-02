@@ -37,7 +37,7 @@
         {{$evenement->organisme->nom}}
       </td>
       <td>
-        <strong>{{$evenement->titre}}</strong>
+        <strong>{{$evenement->title}}</strong>
       </td>
       <td>
         {{$evenement->start}}

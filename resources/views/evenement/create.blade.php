@@ -30,9 +30,9 @@
           @enderror
         </div>
         <div class="form-group">
-          <label for="titre">Titre</label>
-          <input type="text" class="form-control @error('titre') is-invalid @enderror" name="titre" />
-          @error('titre')
+          <label for="title">Titre</label>
+          <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" />
+          @error('title')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>

@@ -13,7 +13,7 @@ use Illuminate\Support\Str;
 class Evenement extends Model
 {
     use HasFactory;
-    protected $fillable = ['profil_id', 'organisme_id', 'familles', 'tags', 'titre', 'description', 'start', 'end', 'textedeloi', 'liendeclaration', 'rrule'];
+    protected $fillable = ['profil_id', 'organisme_id', 'familles', 'tags', 'title', 'description', 'start', 'end', 'textedeloi', 'liendeclaration', 'rrule'];
 
     public function profil() {
         return $this->belongsTo(Profil::class, 'profil_id');

@@ -45,7 +45,7 @@ class EvenementController extends Controller
         $attributes = request()->validate([
             'profil_id'=>'required',
             'organisme_id'=>'required',
-            'titre'=>'required',
+            'title'=>'required',
             'description'=>'required',
             'start'=>'required|date',
             'end'=>'required|date',
@@ -85,7 +85,7 @@ class EvenementController extends Controller
       $attributes = request()->validate([
           'profil_id'=>'required',
           'organisme_id'=>'required',
-          'titre'=>'required',
+          'title'=>'required',
           'description'=>'required',
           'start'=>'required|date',
           'end'=>'required|date',
