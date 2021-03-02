@@ -39,9 +39,8 @@ class ObligationController extends Controller
       $obligation->end = $request->end;
       $obligation->description = $request->description;
       $obligation->profil = $request->profil;
-      $obligation->organisme = $request->organisme;
-      $obligation->lien= $request->lien;
-      $obligation->contact= $request->contact;
+      $obligation->organismedestinataire = $request->organisme;
+      $obligation->textedeloi= $request->lien;
 
       $obligation->setColor($obligation->profil);
 
@@ -60,9 +59,8 @@ class ObligationController extends Controller
    $obligation->end = $request->end;
    $obligation->description = $request->description;
    $obligation->profil = $request->profil;
-   $obligation->organisme = $request->organisme;
-   $obligation->lien = $request->lien;
-   $obligation->contact = $request->contact;
+   $obligation->organismedestinataire = $request->organisme;
+   $obligation->textedeloi = $request->lien; 
 
     if($request->id != null){
         $obligation->save();

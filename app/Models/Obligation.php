@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Obligation extends Model
 {
     use HasFactory;
-    protected $fillable = ['id','title','start','end','description','profil','color'];
+    protected $fillable = ['id','title','start','end','description','profil','organismedestinataire','textedeloi','rrule','color'];
 
     protected function convertDate($date){
       $date = str_replace('T', '', $date);

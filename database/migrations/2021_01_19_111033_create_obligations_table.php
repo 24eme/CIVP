@@ -20,9 +20,9 @@ class CreateObligationsTable extends Migration
           $table->string('end');
           $table->string('description')->nullable();
           $table->string('profil');
-          $table->string('organisme')->nullable();
-          $table->string('lien')->nullable();
-          $table->string('contact')->nullable();
+          $table->string('organismedestinataire')->nullable();
+          $table->string('textedeloi')->nullable();
+          $table->string('rrule')->nullable();
           $table->string('color')->nullable();
           $table->timestamps();
         });
