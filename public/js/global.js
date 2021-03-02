@@ -73,7 +73,7 @@ function modalUpdate(info){
       date = date.getFullYear() + "-"+date.getMonth()+1 + "-" + (date.getDate()<=9 ? "0" + date.getDate() : date.getDate())
       $("#inputEndU").val(date)
     }
-    else{
+    if($("#inputEndU").val()== ""){ 
       $("#inputEndU").val(info.event.endStr)
     }
 
