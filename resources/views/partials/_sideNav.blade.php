@@ -37,6 +37,18 @@
   </div>
   <div class="row ml-4 mt-5">
     <div class="col-md-12">
+      <h5>ORGANISMES</h5>
+    </div>
+  </div>
+  <div class="row ml-4 mt-1">
+      <ul class="tagList p-2">
+        <li class="tag-item"><a href="#" class="tag"><i></i>CIVP</a></li>
+        <li class="tag-item"><a href="#" class="tag">IGP</a></li>
+        <li class="tag-item"><a href="#" class="tag">AIDES</a></li>
+      </ul>
+  </div>
+  <div class="row ml-4 mt-5">
+    <div class="col-md-12">
       <h5>TYPE</h5>
     </div>
   </div>
