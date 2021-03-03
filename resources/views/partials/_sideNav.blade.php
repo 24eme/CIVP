@@ -1,7 +1,9 @@
 <div id="sideNavigation" class="sideNavigation">
   <div class="row upper_wrapper">
-    <div class="col-md-12">
-      <a href="/"><span style="display: inline-block;margin-left:20px;"> <img src="{{asset('images/logos/logo-C.png')}}" width=50  alt=""></span></a>
+    <div class="col-md-3 ml-2 pr-0" style="display:inline-block">
+      <a href="/"><img src="{{asset('images/logos/logo-C.png')}}" width=50  alt=""></a>
+    </div>
+    <div class="col-md-8 p-0" style="display:inline-block">
       <a href="/"><p style="font-size:0.9em" class="upper-title">Calendrier des déclarations viti/vinicoles</p></a>
     </div>
   </div>
