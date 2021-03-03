@@ -1,8 +1,11 @@
 @extends('layoutAdmin')
 
 @section('content')
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h4">Modification d'un organisme</h1>
+</div>
 <div class="container mt-5">
-    <form method="post" action="{{ route('organismes_edit', $organisme) }}">
+    <form method="post" action="{{ route('organisme_edit', $organisme) }}">
       @csrf
         <div class="form-group">
           <label for="nom">Nom de l'organisme</label>
@@ -37,6 +40,13 @@
                     @enderror
                   </div>
             </div>
+          </div>
+          <div class="form-group">
+            <label for="telephone">Contact</label>
+            <input type="text" class="form-control @error('contact') is-invalid @enderror" name="contact" value="{{ $organisme->contact }}" />
+            @error('contact')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
           </div>
           <div class="form-group">
             <label for="telephone">Téléphone</label>

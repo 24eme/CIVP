@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Profils;
+use App\Models\Profil;
 use Illuminate\Http\Request;
 
-class ProfilsController extends Controller
+class ProfilController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class ProfilsController extends Controller
      */
      public function index()
      {
-           $profils = Profils::get()->all();
-           return view('profils/index', compact('profils'));
+           $profils = Profil::get()->all();
+           return view('profil/index', compact('profils'));
      }
 
      /**
@@ -25,7 +25,7 @@ class ProfilsController extends Controller
       */
      public function create()
      {
-         return view('profils/create');
+         return view('profil/create');
      }
 
      /**
@@ -37,49 +37,38 @@ class ProfilsController extends Controller
      public function store(Request $request)
      {
        $attributes = request()->validate([
-               'nom'=>'required',
-               'couleur'=>'required',
-           ]);
-           $profils = Profils::create($attributes);
-           return redirect()->route('profils');
+           'nom'=>'required',
+           'couleur'=>'required',
+       ]);
+       Profil::create($attributes);
+       return redirect()->route('profils');
      }
 
      /**
       * Show the form for editing the specified resource.
       *
-      * @param  \App\Models\Profils  $profil
+      * @param  \App\Models\Profil  $profil
       * @return \Illuminate\Http\Response
       */
-     public function edit(Profils $profil)
+     public function edit(Profil $profil)
      {
-         return view('profils/edit', compact('profil'));
+         return view('profil/edit', compact('profil'));
      }
 
      /**
       * Update the specified resource in storage.
       *
       * @param  \Illuminate\Http\Request  $request
-      * @param  \App\Models\Profils  $profils
+      * @param  \App\Models\Profil  $profil
       * @return \Illuminate\Http\Response
       */
-     public function update(Request $request, Profils $profil)
+     public function update(Request $request, Profil $profil)
      {
        $attributes = request()->validate([
-               'nom'=>'required',
-               'couleur'=>'required',
-           ]);
+           'nom'=>'required',
+           'couleur'=>'required',
+       ]);
        $profil->update($attributes);
        return redirect()->route('profils');
-     }
-
-     /**
-      * Remove the specified resource from storage.
-      *
-      * @param  \App\Models\Profils  $profils
-      * @return \Illuminate\Http\Response
-      */
-     public function destroy(Profils $profils)
-     {
-         //
      }
 }

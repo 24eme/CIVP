@@ -4,14 +4,18 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
-class Profils extends Model
+class Profil extends Model
 {
     use HasFactory;
     public $timestamps = false;
+
     protected $fillable = ['nom', 'couleur'];
 
-    public function __toString() {
-      return $this->nom;
+    public function setNomAttribute($value)
+    {
+        $this->attributes['nom'] = $value;
+        $this->attributes['slug'] = Str::slug($value);
     }
 }

@@ -1,7 +1,15 @@
 @extends('layoutAdmin')
 
 @section('content')
-<a href="{{ route('organismes_create') }}" class="btn btn-warning float-right"><i class="fas fa-plus">&nbsp;Nouvel organisme</i></a>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h1 class="h3">Organisme</h1>
+  <a href="{{ route('organisme_create') }}" class="btn btn-warning float-right"><i class="fas fa-plus">&nbsp;Nouveau</i></a>
+</div>
+@if (count($organismes) === 0)
+<p>
+  <i>Aucun organisme créé</i>
+</p>
+@else
 <table class="table table-hover">
   <thead>
     <tr>
@@ -14,6 +22,7 @@
   </thead>
   <tbody>
       @foreach($organismes as $organisme)
+      <tr>
       <td>
         {{$organisme->id}}
       </td>
@@ -24,12 +33,14 @@
         {{$organisme->adresse}}<br />{{$organisme->code_postal}}&nbsp;{{$organisme->ville}}
       </td>
       <td>
-        <i class="fas fa-phone-square-alt">&nbsp;{{$organisme->telephone}}</i><br /><i class="fas fa-envelope-square">&nbsp;{{$organisme->email}}</i>
+        <span class="fas fa-phone-square-alt"></span>&nbsp;{{$organisme->telephone}}<br /><span class="fas fa-envelope-square"></span>&nbsp;{{$organisme->email}}
       </td>
       <td>
-        <a href="{{ route('organismes_edit', $organisme) }}"><i class="far fa-edit">&nbsp;</i></a>
+        <a href="{{ route('organisme_edit', $organisme) }}"><i class="far fa-edit">&nbsp;</i></a>
       </td>
+      </tr>
       @endforeach
   </tbody>
 </table>
+@endif
 @endsection

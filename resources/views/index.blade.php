@@ -1,40 +1,31 @@
 @extends('layout')
 @include('calendar/calendar')
+
 @section('content')
 
       @include('partials/_sideNav')
-      @include('admin/event/_list_events')
-    <div id="main">
-      @include('layout/header')
-      <!-- <div class="row mt-1">
-        <div class="col-md-auto ml-auto p-0">
-          <button id="btn-ListView"class="btn-upper" type="button" name="button"><a href="/#liste">LISTE</a></button>
-        </div>
-        <div class="col-md-auto p-0 mt-auto mb-auto">
-          <div class="circle-separator"></div>
-        </div>
-        <div class="col-md-auto p-0">
-          <button id="btn-DayGrid"class="btn-upper" type="button" name="button"><a href="/#calendrier">CALENDRIER</a></button>
-        </div>
-        <div class="col-md-auto p-0 mt-auto mb-auto">
-          <div class="circle-separator"></div>
-        </div>
-        <div class="col-md-auto mr-auto p-0">
-          <button id="btn-TimelineView"class="btn-upper" type="button" name="button"><a href="/#timeline">TIMELINE</a></button>
-        </div>
-      </div> -->
-      <div id='calendar'></div>
-      <!-- <div class="obligation_non_dates" style="display:none;">
-        <h3>Obligations non-daté</h3>
 
-      </div> -->
-        @include('evenements/_list_events')
-        <div class="row">
-          <div class="col-md-12 mt-3">
-            <center><button type="button" class="fc-dayGridMonth-button btn btn-primary active" name="button" onclick="showEventList()">Vue Liste</button></center>
-          </div>
-        </div>
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 
-    </div>
+
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Calendrier</a>
+          <a class="nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Liste</a>
+          <a class="nav-link disabled" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-disabled="true">Timeline</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"><div id='calendar'></div></div>
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">@include('evenement/_list_events')</div>
+        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"></div>
+      </div>
+
+
+
+
+
+    </main>
+    @include('layout/popup')
 @endsection
 @include('timeline/timeline')

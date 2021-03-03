@@ -16,32 +16,46 @@
         <link rel="stylesheet" href="/css/main.css" />
     </head>
     <body>
-        @section('layout/header')
 
-        @show
+      <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-lg-2 me-0 px-3 py-3" href="#"><strong class="h3">Administration</strong> Calendrier des obligations viticoles</a>
+        <button class="navbar-toggler float-right d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </header>
 
         <div class="container-fluid">
           <div class="row">
-            <div class="col-4">
-              <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
-                <a class="nav-link active" href="{{ route('organismes') }}" role="tab">Organismes</a>
-                <a class="nav-link" href="{{ route('profils') }}" role="tab">Profils</a>
-                <a class="nav-link" href="{{ route('evenements') }}" role="tab">Evénements</a>
-              </div>
-            </div>
-            <div class="col-8">
-              @include('components/flash-message')
-              @yield('content')
-            </div>
-          </div>
-        </div>
 
+
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+              <div class="position-sticky pt-3">
+                <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 my-4 mb-1 text-muted">
+                  <span>MENU</span>
+                </h6>
+                <ul class="nav flex-column mb-2">
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('evenements') }}">
+                      <span class="far fa-calendar-alt"></span>&nbsp;Evenements
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('organismes') }}">
+                      <span class="fas fa-university"></span>&nbsp;Organismes
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+              @yield('content')
+            </main>
+        </div>
+      </div>
          @section('script_js')
              <script src="/js/global.js"></script>
              <script>AOS.init();</script>
          @show
-    <footer>
-        @include("layout/footer")
-    </footer>
     </body>
 </html>

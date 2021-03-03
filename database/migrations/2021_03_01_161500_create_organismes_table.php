@@ -19,8 +19,10 @@ class CreateOrganismesTable extends Migration
           $table->string('adresse');
           $table->string('code_postal');
           $table->string('ville');
+          $table->string('contact');
           $table->string('telephone');
           $table->string('email');
+          $table->string('slug');
         });
     }
 

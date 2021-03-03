@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Contacts;
+use App\Models\Famille;
 use Illuminate\Http\Request;
 
-class ContactsController extends Controller
+class FamilleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class ContactsController extends Controller
      */
     public function index()
     {
-        //
+          $familles = Famille::get()->all();
+          return view('famille/index', compact('familles'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ContactsController extends Controller
      */
     public function create()
     {
-        //
+        return view('famille/create');
     }
 
     /**
@@ -35,51 +36,41 @@ class ContactsController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Contacts  $contacts
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Contacts $contacts)
-    {
-        //
+        $attributes = request()->validate([
+            'nom'=>'required',
+            'couleur'=>'required',
+        ]);
+        Famille::create($attributes);
+        return redirect()->route('familles');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Contacts  $contacts
+     * @param  \App\Models\Famille  $famille
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contacts $contacts)
+    public function edit(Famille $famille)
     {
-        //
+        return view('famille/edit', compact('famille'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Contacts  $contacts
+     * @param  \App\Models\Famille  $famille
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contacts $contacts)
+    public function update(Request $request, Famille $famille)
     {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Contacts  $contacts
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Contacts $contacts)
-    {
-        //
+        $attributes = request()->validate([
+            'nom'=>'required',
+            'couleur'=>'required',
+        ]);
+        $famille->update($attributes);
+        return redirect()->route('familles');
     }
 }

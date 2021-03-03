@@ -17,6 +17,7 @@ class CreateProfilsTable extends Migration
           $table->increments('id');
           $table->string('nom')->unique();
           $table->string('couleur');
+          $table->string('slug');
         });
     }
 

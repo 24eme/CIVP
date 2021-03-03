@@ -58,24 +58,36 @@
     <div class="col-md-12">
       <h5>TYPE</h5>
     </div>
-  </div>
-  <div class="row ml-4 mt-1">
-    <div class="filter-wrapper type-filters">
-      <div class="filter-div"><label class="filter-label" for="FilterObligation">Obligations</label></div><label class="switch"><input class="filter-type" id="FilterObligation" name="obligation" value="obligation" type="checkbox" checked><span id="sliderObligation" class="slider round"></span></label>
-      <div class="filter-div"><label class="filter-label" for="FilterAide">Aides</label></div><label class="switch"><input class="filter-type" id="FilterAide" name="aide" value="aide" type="checkbox" checked><span id="sliderAide" class="slider round"></span></label>
-      <div class="filter-div"><label class="filter-label" for="FilterEvenement">Evenements</label></div><label class="switch"><input class="filter-type" id="FilterEvenement" name="evenement" value="evenement" type="checkbox" checked><span id="sliderEvenement" class="slider round"></span></label>
+
+    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 my-4 mb-1">
+      Types
+    </h6>
+    <div class="row ml-4 mt-1">
+      <div class="filter-wrapper type-filters">
+          @foreach($profils as $profil)
+          <div class="filter-div"><label class="filter-label" for="profil-{{$profil->id}}">{{$profil->nom}}</label></div><label class="switch"><input class="filter-profil" id="profil-{{$profil->id}}" name="producteur" value="{{$profil->slug}}" type="checkbox" checked><span class="slider round" style="background-color:{{$profil->couleur}}"></span></label>
+          @endforeach
+      </div>
     </div>
-  </div>
-  <div class="row ml-4 mt-5">
-    <div class="col-md-12">
-      <h5>TAG</h5>
+
+    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 my-4 mb-1">
+      Organismes
+    </h6>
+    <div class="row ml-4 mt-1">
+      <div class="filter-wrapper type-filters">
+          @foreach($organismes as $organisme)
+          <div class="filter-div"><label class="filter-label" for="profil-{{$profil->id}}">{{$organisme->nom}}</label></div><label class="switch"><input class="filter-profil" id="organisme-{{$organisme->id}}" name="producteur" value="{{$organisme->slug}}" type="checkbox" checked><span class="slider round" style="background-color:{{$organisme->couleur}}"></span></label>
+          @endforeach
+      </div>
     </div>
+
+    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 my-4 mb-1">
+      Tags
+    </h6>
+    <ul class="tagList p-2">
+      @foreach($tags as $tag)
+      <li class="tag-item"><a href="#" class="tag">{{$tag->nom}}</a></li>
+      @endforeach
+    </ul>
   </div>
-  <div class="row ml-4 mt-1">
-      <ul class="tagList p-2">
-        <li class="tag-item"><a href="#" class="tag">CIVP</a></li>
-        <li class="tag-item"><a href="#" class="tag">IGP</a></li>
-        <li class="tag-item"><a href="#" class="tag">AIDES</a></li>
-      </ul>
-  </div>
-</div>
+</nav>
