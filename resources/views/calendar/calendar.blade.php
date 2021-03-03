@@ -5,7 +5,7 @@
           headerToolbar: {
             left:'prev,today,next',
             center: 'title',
-            right: 'dayGridMonth,YearViewCustom'
+            right: 'YearViewCustom,dayGridMonth'
           },
           locale: 'fr',
           contentHeight:630,
@@ -22,7 +22,7 @@
           //     return eventData;
           // },
           bootstrapFontAwesome:{ month: 'fa-calendar-alt',week: 'fa-calendar-week' ,day:'fa-calendar-day' },
-          initialView: 'dayGridMonth',
+          initialView: 'YearViewCustom',
           eventClick: function(info){
             modalUpdate(info)
             // scalemodalPopUp()
