@@ -26,7 +26,7 @@
       <div class="col-md-12">
           <div class="filter-wrapper">
             @foreach($familles as $famille)
-            <div class="filter-div"><label class="filter-label" for="famille-{{$famille->id}}">{{$famille->nom}}</label></div><label class="switch"><input class="filter-profil" id="famille-{{$famille->id}}" name="producteur" value="{{$famille->slug}}" type="checkbox" checked><span class="slider round" style="background-color:{{$famille->couleur}}"></span></label>
+            <div class="filter-div"><label class="filter-label" for="famille-{{$famille->id}}">{{$famille->nom}}</label></div><label class="switch"><input class="filter-profil" id="famille-{{$famille->id}}" name="producteur" value="{{$famille->slug}}" type="checkbox" checked><span class="slider round"></span></label>
             @endforeach
           </div>
       </div>

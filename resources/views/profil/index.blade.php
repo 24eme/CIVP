@@ -29,7 +29,7 @@
         <strong>{{$profil->nom}}</strong>
       </td>
       <td>
-        {{$profil->couleur}}
+        <i class="fas fa-circle" style="color: {{$profil->couleur}}"></i>&nbsp;{{$profil->couleur}}
       </td>
       <td>
         <a href="{{ route('profil_edit', $profil) }}"><i class="far fa-edit">&nbsp;</i></a>

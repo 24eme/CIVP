@@ -31,7 +31,7 @@
         {{$evenement->id}}
       </td>
       <td>
-        {{$evenement->profil->nom}}
+        <i class="fas fa-circle" style="color: {{$evenement->profil->couleur}}"></i>&nbsp;{{$evenement->profil->nom}}
       </td>
       <td>
         {{$evenement->organisme->nom}}
