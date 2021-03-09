@@ -10,20 +10,21 @@ class Obligation extends Model
     use HasFactory;
     protected $fillable = ['id','title','start','end','description','profil','organismedestinataire','textedeloi','rrule','color'];
 
+    const TYPE_AIDE => "AIDES";
+    const TYPE_EVENEMENT => "EVENEMENT";
+    const TYPE_OBLIGATION => "OBLIGATION";
+    
+    const PROFIL_PRODUCTEUR_RECOLTANT => "Producteur-Recoltant";
+    const PROFIL_NEGOCIANT => "Négociant";
+    const PROFIL_NEGOCIANT_VINIFICATEUR => "Négociant-Vinificateur";
+    const PROFIL_VITICULTEUR => "Viticulteur (Exploitant Agricole)";
+
     protected function convertDate($date){
       $date = str_replace('T', '', $date);
       $date = str_replace('Z','',$date);
       return $date;
     }
 
-    public function InvalidDate(){
-      $end = $this->convertDate($this->end);
-      $currentDate = Carbon::now('Europe/Paris')->format('Y-m-d');
-        if($currentDate > $end) {
-          return True;
-        }
-      return False;
-    }
     public function setColor($profil){
       switch ($profil) {
         case 'Producteur-Recoltant':
