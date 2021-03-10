@@ -1,8 +1,6 @@
-@extends('layout')
-@include('calendar/calendar')
+@extends('layout') 
+@include('partials/_sideNav')
 @section('content')
-      @include('partials/_sideNav')
-      @include('admin/event/_list_events')
     <div id="main">
       <form method="POST">
         <?php if( $_SERVER['REQUEST_METHOD'] == 'POST' ) { ?>
