@@ -1,4 +1,4 @@
-@extends('layoutAdmin')
+@extends('admin/layout')
 
 @section('content')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 my-3 border-bottom">
@@ -11,7 +11,7 @@
           <label for="profil_id">Profil</label>
           <select class="form-control @error('profil_id') is-invalid @enderror" name="profil_id">
             @foreach($profils as $profil)
-              <option value="{{$profil->id}}" @if($profil->id == $evenement->profil_id) selected="selected" @endif>{{$profil->nom}}</option>
+              <option value="{{$profil->id}}" @if($profil->id == $evenement->profil_id) selected="selected" @endif>{{$profil->name}}</option>
             @endforeach
           </select>
           @error('profil_id')

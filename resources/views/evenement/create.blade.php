@@ -1,5 +1,4 @@
-@extends('layoutAdmin')
-
+@extends('admin/layout')
 @section('content')
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 my-3 border-bottom">
   <h1 class="h4">Ajout d'un événement</h1>
@@ -11,7 +10,7 @@
           <label for="profil_id">Profil</label>
           <select class="form-control @error('profil_id') is-invalid @enderror" name="profil_id">
             @foreach($profils as $profil)
-              <option value="{{$profil->id}}">{{$profil->nom}}</option>
+              <option value="{{$profil->id}}">{{$profil->name}}</option>
             @endforeach
           </select>
           @error('profil_id')
