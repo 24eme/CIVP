@@ -73,7 +73,7 @@ function modalUpdate(info){
     $("#inputOrganismeU").val(info.event.extendedProps.organisme)
     $("#inputLienU").val(info.event.extendedProps.lien)
     $("#inputContactU").val(info.event.extendedProps.contact)
-    $(".color-block").css('background-color',info.event.color)
+    $(".popup-color-block").css('background-color',info.event.color)
 
     if (info.event.allDay) {
       var date = new Date(info.event.startStr)
@@ -184,7 +184,7 @@ function modalInfo(info){
   $("#inputOrganisme").val(info.event.extendedProps.organisme)
   $("#inputLien").val(info.event.extendedProps.lien)
   $("#inputContact").val(info.event.extendedProps.contact)
-  $(".color-block").css('background-color',info.event.color)
+  $(".popup-color-block").css('background-color',info.event.color)
 
   if (info.event.allDay) {
     var date = new Date(info.event.startStr)
