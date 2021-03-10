@@ -14,8 +14,8 @@ class OrganismeController extends Controller
      */
     public function index()
     {
-          $organismes = Organisme::get()->all();
-          return view('organisme/index', compact('organismes'));
+          $organismes = Organisme::all();
+          return view('organisme/list', compact('organismes'));
     }
 
     /**
