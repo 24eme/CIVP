@@ -7,6 +7,8 @@ use App\Models\Organisme;
 use App\Models\Profil;
 use App\Models\Famille;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Sabre\VObject;
 
 class EvenementController extends Controller
 {
@@ -17,8 +19,8 @@ class EvenementController extends Controller
      */
     public function index()
     {
-        $evenements = Evenement::get()->all();
-        return view('evenement/index', compact('evenements'));
+        $evenements = Evenement::all();
+        return view('evenement/list', compact('evenements'));
     }
 
     /**
@@ -28,9 +30,9 @@ class EvenementController extends Controller
      */
     public function create()
     {
-      $organismes = Organisme::get()->all();
-      $profils = Profil::get()->all();
-      $familles = Famille::get()->all();
+      $organismes = Organisme::all();
+      $profils = Profil::all();
+      $familles = Famille::all();
       return view('evenement/create', ['organismes' => $organismes, 'profils' => $profils, 'familles' => $familles]);
     }
 
@@ -67,9 +69,9 @@ class EvenementController extends Controller
      */
     public function edit(Evenement $evenement)
     {
-        $organismes = Organisme::get()->all();
-        $profils = Profil::get()->all();
-        $familles = Famille::get()->all();
+        $organismes = Organisme::all();
+        $profils = Profil::all();
+        $familles = Famille::all();
         return view ('evenement/edit', ['organismes' => $organismes, 'profils' => $profils, 'evenement' => $evenement, 'familles' => $familles]);
     }
 
@@ -101,7 +103,25 @@ class EvenementController extends Controller
 
     public function popup($id) {
       $evenement = Evenement::find($id);
-      return view('evenement/popup', ['evenement' => $evenement]);
+      return view('components/popup', ['evenement' => $evenement]);
     }
 
+    public function destroy(Evenements $evenements)
+    {
+        //
+    }
+
+    public function export($info){
+
+      $obligation = Obligation::find($info);
+      $vcalendar = new VObject\Component\VCalendar([
+      'VEVENT' => [
+          'SUMMARY' => $obligation->title,
+          'DTSTART' => new \DateTime($obligation->start),
+          'DTEND'   => new \DateTime($obligation->end)
+      ]
+      ]);
+      File::put('event.ics',$vcalendar->serialize());
+      return response()->download('event.ics');
+    }
 }
