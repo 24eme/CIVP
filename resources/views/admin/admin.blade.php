@@ -1,7 +1,6 @@
 @extends('layout')
 @include('calendar/calendar')
-@include('partials/_admin-nav')
-      @include('admin/event/_list_events')
+@include('partials/_admin-nav') 
 @section('content')
 <div id="main">
 @include('layout/header')
