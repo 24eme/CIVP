@@ -6,31 +6,24 @@ use App\Http\Controllers\OrganismeController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\FamilleController;
 use App\Http\Controllers\TagController;
-use App\Http\Controllers\FrontController;
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-// Route::get('/', function () {
-//   return view('index');
-// });
-Route::get('/', [FrontController::class, 'index'])->name('index');
-Route::get('/evenements', [FrontController::class, 'evenements'])->name('front_evenements');
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\CalendarController;
+
+
+Route::get('/', [IndexController::class, 'index'])->name('index');
+Route::get('/evenement/list', [IndexController::class, 'listEvenements']);
 Route::get('/evenement/{id}', [EvenementController::class, 'popup'])->name('evenement_popup');
-/* Admin Routes*/
+
 Route::prefix('admin')->group(function () {
   Route::get('/', function () { return redirect()->route('evenements');; });
+
+  Route::post('/importCSV', [CalendarController::class,'importCSV'])->name('importCSV');
+
   Route::get('evenements', [EvenementController::class,'index'])->name('evenements');
   Route::get('evenement/create', [EvenementController::class,'create'])->name('evenement_create');
   Route::post('evenement/create', [EvenementController::class,'store']);
   Route::get('evenement/edit/{evenement}', [EvenementController::class,'edit'])->name('evenement_edit');
   Route::post('evenement/edit/{evenement}', [EvenementController::class,'update']);
-
 
   Route::get('organismes', [OrganismeController::class,'index'])->name('organismes');
   Route::get('organisme/create', [OrganismeController::class,'create'])->name('organisme_create');
@@ -49,6 +42,5 @@ Route::prefix('admin')->group(function () {
   Route::post('famille/create', [FamilleController::class,'store']);
   Route::get('famille/edit/{famille}', [FamilleController::class,'edit'])->name('famille_edit');
   Route::post('famille/edit/{famille}', [FamilleController::class,'update']);
-
 
 });
