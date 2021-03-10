@@ -14,12 +14,7 @@
         @foreach($evenements as $evenement)
         <li class="list-group-item"><a href="/evenement/{{$evenement->id}}">{{$evenement->title}}</a></li>
         @endforeach
-      </ul>
-      <datalist id="events-list">
-        @foreach($evenements as $evenement)
-        <option>{{$evenement->title}}</option>
-        @endforeach
-      </datalist>
+      </ul> 
     </div>
   </div>
   <div class="row p-2 mt-1 FiltrerPar">
