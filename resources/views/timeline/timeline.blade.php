@@ -8,7 +8,7 @@
         <p>{{$evenement->description}}</p>
       </div>
       <div class="left_content" data-aos="fade-left">
-        <h5>{{($evenement->start)}}</h5>
+        <h5>{{ date('d F Y', strtotime($evenement->start)) }}</h5>
       </div>
     </li>
     @endforeach
