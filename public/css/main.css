@@ -18,6 +18,7 @@ li.tag-item{display: inline-block;}
 .container-fluid{height: 100%}
 #adminNavigation{background-color: rgb(255, 255, 255);}
 #ModalSafety{z-index: 2000}
+.closebtn{background-color: transparent;border:none;position: absolute;top: 0;right: 0}
 .closebtn > i {top: 0px;left: 0px;color:#d9dcde;font-size: 2em;margin: 10px;transition:all 1s}
 .closebtn > i:hover {color:#424242}
 .input-search{width: 80%;height: 30px;border-radius: 5px;border:1px solid #f8fafb;color:grey;outline: none;padding: 1px;padding-left:25px;width:400px;background-color: #f8fafb;transition: background 1s}
@@ -190,7 +191,6 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
   .waves {height:40px;min-height:40px;}
   .content {height:30vh;}
 }
-
 @media screen and (max-width: 450px) {
   .navbar-custom {padding-top: 15px;}
   .navbar-custom a {font-size: 18px;}
