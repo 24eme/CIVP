@@ -27,32 +27,39 @@
         Calendrier des déclarations viti/vinicoles</a>
       </div>
 </header>
-<div class="container-fluid">
-<div class="row">
-  <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-    <div class="position-sticky pt-3">
-      <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 my-4 mb-1 text-muted">
-        <span>MENU</span>
-      </h6>
-      <ul class="nav flex-column mb-2">
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('evenements') }}">
-            <i class="far fa-calendar-alt"></i>&nbsp;Evenements
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('organismes') }}">
-            <i class="fas fa-university"></i>&nbsp;Organismes
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-    @yield('content')
-  </main>
-</div>
-</div>
-
+  <div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-3">
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 my-4 mb-1 text-muted">
+          <span>MENU</span>
+        </h6>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('evenements') }}">
+              <i class="far fa-calendar-alt"></i>&nbsp;Evenements
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('organismes') }}">
+              <i class="fas fa-university"></i>&nbsp;Organismes
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      @yield('content')
+    </main>
+  </div>
+  </div>
+<footer>
+@include("layout/footer")
+</footer>
+<script src="/js/global.js"></script>
+<script src="/js/calendar.js"></script>
+<script src="/js/calendar-list.js"></script>
+<script>AOS.init();</script>
+@include('layout/popup')
 </body>
 </html>

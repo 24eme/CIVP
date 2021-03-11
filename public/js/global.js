@@ -9,14 +9,13 @@ $(document).ready(function(){
     if (getCookie(element.id) == "false") {$(element).prop('checked',false)}else{$(element).prop('checked',true)}
   })
 
-  $(".popupEvent").click(function() {
+  $(".popupEvent").click(function() { 
     var url = $(this).data('url');
     $.get(url, function(response) {
       $('#popupEvenement').html(response);
       $('#popupEvenement').modal('show');
     });
   });
-  // setDate()
 })
 
 function setCookie(name,value,days) {
