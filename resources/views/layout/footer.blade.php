@@ -1,4 +1,4 @@
-<footer class="bg-dark text-center text-white">
+<footer id="footer" class="bg-dark text-center text-white">
   <div class="container p-4">
     <section class="mb-4">
       <p>Les Vins de Provence sont fiers de vous présenter un Calendrier destinés aux différents familles viticules mais également particuliers amateurs de Vins</p>
@@ -20,7 +20,7 @@
       </div>
     </section>
   </div>
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+  <div class="text-center p-3 bg-dark"  >
     © 2021 Vins de Provence:
     <a class="text-white" href="https://www.vinsdeprovence.com/">vinsdeprovence.com</a>
   </div>
