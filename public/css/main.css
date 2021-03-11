@@ -61,26 +61,16 @@ li.list-group-item:hover{background-color: #0081ff;color:white;cursor: pointer}
 .fc-h-event{box-shadow: 0px 0px 5px 0px rgba(191,191,191,0.48)}
 
 
-.select-btn{width: 90% !important;color:grey;background-color: white;border:0;width: 180px;height: 40px;vertical-align: middle;border-bottom: 1.5px solid #E4E4E4;}
-.btn-openFilter{color:black !important;font-weight: 400;background-color: inherit !important;border-color: transparent;}
-.btn-custom{background-color: white;border:none;width: 150px; height: 50px;}
 .btn-primary{color:black !important;font-weight: 400;background-color: white !important;outline:none !important;border:transparent;border-color: #ebeef0;border-spacing: 1px;transition: all 0s !important;}
 .btn-primary:hover{background-color: #E8E8E8 !important;border:none !important;}
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabledbtn-wrapper).active, .show > .btn-primary.dropdown-toggle{color:white !important;background-color: #0081ff !important;border-color: grey;border-radius:5px;}
 .btn-primary.disabled, .btn-primary:disabled{color:white !important;background-color: #223745 !important;border-color: inherit;}
-.btn-add{border:0;margin-left: 150px;margin-bottom: 10px;color:white;width: 50px;height: 50px;border-radius: 50%;border-color: transparent;background-color: #c9d6e0 ;position: sticky;outline: none;z-index: 100;-webkit-box-shadow: -5px 2px 48px -28px rgba(161,161,161,1);-moz-box-shadow: -5px 2px 48px -28px rgba(161,161,161,1);box-shadow: -5px 2px 48px -28px rgba(161,161,161,1);}
-.btn-add:hover{background-color:#223745 }
-.btn-add:active{background-color: black ;border:0;}
-.btnEvents{float: right;margin-right: 400px}
-.btn-search{margin-top:12px}
 .btn-Sidedropdown{font-family: "Montserrat-Bold";font-size: 1.25em;background-color: white;border:none;height: 40px;color:grey;text-align: left;}
 .btn-admin{text-align: left;width: 100%;background-color: transparent;border:none;height:60px;}
 .btn-admin:hover{background-color: rgba(150, 150, 150,.5);border-left: 3px solid crimson}
 .btn-admin:hover{color:white}
 .btn-admin{font-size: 1.2em;color:grey}
 .btn-admin i{margin-left: 20px;margin-right: 10px;font-size: 1.5em;}
-.btn-upper{background-color: transparent;border:none;}
-.btn-upper a:hover,a:active{color:red}
 
 .filter-label{font-family: 'Montserrat';color:#404040}
 .filter-profil:checked + .filter-label {color: black;}
@@ -102,7 +92,6 @@ input:checked + #sliderViti {background-color: #621940;}
 input:focus + .slider {box-shadow: 0 0 1px #2196F3;}
 input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transform: translateX(26px);transform: translateX(26px);}
 
-.popup-color-block{height: 40px;width: 100px;}
 .input-wrapper{}
 .input-group{margin-bottom:20px;margin-top: -10px;}
 .input-underlined{width: 90%}
@@ -112,7 +101,6 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
 .input-underlined > input:focus + .input-label{top: 5;font-size: 0.9375rem;margin-bottom: 32px;;}
 .input-underlined:not(.input-danger) > input:focus + .input-label{color: blue;}
 .input-underlined:not(.input-danger) > input:focus{border-color: blue;}
-
 
 .modal-header{background-color: transparent ;border-bottom: none}
 .modal-body{padding-left: 2em;}
@@ -138,15 +126,16 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
 .tag:hover {background-color: crimson;color: white;}
 .tag:hover::after {border-left-color: crimson; }
 
-.triangle-color{display: block;height : 0;width : 0;border-top : 30px solid #3788d8;border-right : 30px solid transparent;}
+.color-block{display: inline-block;height : 30px;width :50px;}
 .popup{display: none;position: absolute;width: 300px;background-color: #FFF;border-radius: 10px;box-shadow: 0px 0px 31px 0px rgba(212,212,212,1);overflow: hidden;z-index: 1000}
+.popup-label{font-weight: bold;}
 .calendar-month{display: table-cell;text-align: center;font-size: .7em;font-family: "Montserrat-Bold";height: 20px;min-width: 50px;background-color: #44566c;color:#FFF;padding: 5px;border-top-left-radius: 10px;border-top-right-radius: 10px}
 .calendar-day{display: block;text-align: center;font-family: "Montserrat-Bold";color:#44566c;min-height: 25px;min-width: 50px;background-color: #FFF;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;padding-top: 4px}
 .calendar-icon{display: block;color:#44566c;height: 40px;background-color: #FFF;margin-left: 30px;margin-top: -10px;box-shadow: 0px 0px 33px -7px rgba(141,141,141,1);border-top-left-radius: 10px;border-top-right-radius: 10px}
 .popup-info > label{font-size: 1em;font-family: "Montserrat-Bold";padding-left: 10px}
-.popup-info{padding: 10px;}
 .popup-footer{background-color: #f8fafb;border-top: .5px solid #E8E8E8}
-.alert{}
+.organisme-card{background-color: #E8E8E8;border-radius: 10px}
+
 
 .address-info{text-align: left;font-style: italic;}
 .number-wrapper{font-weight: bold;color:#0081ff;background-color: #F8F8F8;padding: 5px;border-radius: 10px;letter-spacing: 1px;}
@@ -185,18 +174,18 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
 
 #footer{height: 100px;background-color: rgba(27, 26, 55,0.95);}
 
-.timeline:before { content: '';position:absolute;height:100%;left:50%;width:2px;top:-20px;background:#fff;z-index:1;}
-.timeline{position:relative;margin: 50px auto;height: 100%;padding:50px 0;overflow: scroll;}
+.timeline:before { content: '';position:absolute;height:100%;left:50%;width:2px;top:-20px;background:#000;z-index:1;}
+.timeline{position:relative;margin: 50px auto;height: 90%;padding:50px 0;overflow: scroll;}
 .timeline ul{ margin:0;padding:0 ;}
 .timeline ul li{list-style:none;box-sizing:border-box;line-height:normal;position:relative;width:50%;padding: 40px 70px;}
 .timeline ul li .right_content h2{color:rgba(59, 59, 59,1);padding:0px 2px 18px 0px;}
 .timeline ul li:nth-child(odd){float:left;text-align:right;clear:both;}
 .timeline ul li:nth-child(even){float:right;text-align:left;clear:both;}
 .left_content{padding-bottom:20px;}
-.timeline ul li:nth-child(odd):before{content: '';position:absolute;width:10px;height:10px;background:rgba(59, 59, 59,1);border-radius:50%;box-shadow: 0 0 0 3px rgba(59, 59, 59,0.2);right:-6px;top:24px;z-index:1;}
-.timeline ul li:nth-child(even):before{content: '';position:absolute;width:10px;height:10px;background:rgba(59, 59, 59,1);border-radius:50%;box-shadow: 0 0 0 3px rgba(59, 59, 59,0.2);left:-6px;top:24px;}
-.timeline ul li:nth-child(odd) .left_content{position:absolute;top:12px;right:-255px;margin:0;padding:8px 16px;color:#424242;box-shadow:0 0 0 3px rgba(59, 59, 59,0.3);border-radius:18px;}
-.timeline ul li:nth-child(even) .left_content{position:absolute;top:12px;left:-255px;margin:0;padding:8px 16px;color:#424242;box-shadow:0 0 0 3px rgba(59, 59, 59,0.3);border-radius:18px;}
+.timeline ul li:nth-child(odd):before{content: '';position:absolute;width:10px;height:10px;background:rgba(59, 59, 59,1);border-radius:50%;box-shadow: 0 0 0 3px rgba(58,112,239,0.2);;right:-6px;top:24px;z-index:1;}
+.timeline ul li:nth-child(even):before{content: '';position:absolute;width:10px;height:10px;background:rgba(59, 59, 59,1);border-radius:50%;box-shadow: 0 0 0 3px rgba(58,112,239,0.2);left:-6px;top:24px;z-index:1;}
+.timeline ul li:nth-child(odd) .left_content{position:absolute;top:12px;right:-255px;margin:0;padding:8px 16px;color:#424242;box-shadow:0 0 0 3px rgba(59,59,59,0.3);border-radius:18px;}
+.timeline ul li:nth-child(even) .left_content{position:absolute;top:12px;left:-255px;margin:0;padding:8px 16px;color:#424242;box-shadow:0 0 0 3px rgba(59,59,59,0.3);border-radius:18px;}
 
 
 @media (max-width: 1000px){

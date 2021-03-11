@@ -2,7 +2,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
         <div class="modal-header">
-          <span id="triangle-color" class="triangle-color"></span>
+          <span id="color-block" class="color-block"></span>
           <div class="">
           </div>
           <div class=""><i class="far fa-bell"></i>
