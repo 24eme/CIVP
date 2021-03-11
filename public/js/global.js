@@ -3,8 +3,8 @@ var removedEvents = new Array()
 var removed = new Array()
 var deactivated = []
 var searched = []
-
 AOS.init();
+
 
 $(document).ready(function(){
   $("input.filter-type").each(function (index, element) {
@@ -41,27 +41,21 @@ function getCookie(name) {
 }
 function openNav() {
 
-  if (document.getElementById('adminNavigation') != null && document.getElementById('adminNavigation').style.width == "290px") {closeNav();return 0
+  if ($("#sideNavigation") != null && $("#sideNavigation").css('width') == "290px") {
+    closeNav();return 0
   }
-  if (document.getElementById('sideNavigation') != null && document.getElementById('sideNavigation').style.width == "290px") {closeNav();return 0
+  if ($("#sideNavigation") != null) {
+      $("#sideNavigation").css('width',"290px")
   }
-  if (document.getElementById('sideNavigation') != null) {
-      document.getElementById('sideNavigation').style.width = "290px";
-  }
-  if (document.getElementById('adminNavigation') != null) {
-      document.getElementById('adminNavigation').style.width = "290px";
-  }
-  document.getElementById('main').style.marginLeft = "290px";
+  $("#main").css("marginLeft","290")
 
 }
 function closeNav() {
-  if (document.getElementById('sideNavigation') != null) {
-      document.getElementById('sideNavigation').style.width = "0";
+  if ($("#sideNavigation") != null) {
+      $("#sideNavigation").css('width',"0")
+      $("#sideNavigation").css('padding','0')
   }
-  if (document.getElementById('adminNavigation') != null) {
-      document.getElementById('adminNavigation').style.width = "0";
-  }
-  document.getElementById('main').style.marginLeft= "0";
+  $("#main").css('marginLeft',"0")
 }
 
 function modalUpdate(info){
@@ -158,48 +152,31 @@ function modalPopUp(info){
   });
 
 }
-function scalemodalPopUp() {
-  $("#modalPopUp").css("top","30%")
-  $("#modalPopUp").css("left","40%")
-  $("#modalPopUp").css('z-index','1050')
-  $("#modalPopUp").css('box-shadow','none')
-  $("#modalPopUp").css('transform','scale(1.7)')
-
-  $("#modalPopUp").hover(function(e) {
-    $("#modalPopUp").show();
-  })
-  $("#modalPopUp").modal('show')
-}
-function closePopUp() {
-  $("#modalPopUp").css('z-index','0')
-    $("#modalPopUp").modal('hide')
-}
-
-function modalInfo(info){
-  $("#head_title").html(info.event.title)
-  $("#inputID").val(info.event.id)
-  $("#inputTitle").val(info.event.title)
-  $("#inputStart").val(info.event.startStr)
-  $("#inputDescription").val(info.event.extendedProps.description)
-  $("#inputType").val(info.event.extendedProps.type)
-  $("#inputOrganisme").val(info.event.extendedProps.organisme)
-  $("#inputLien").val(info.event.extendedProps.lien)
-  $("#inputContact").val(info.event.extendedProps.contact)
-  $(".popup-color-block").css('background-color',info.event.color)
-
-  if (info.event.allDay) {
-    var date = new Date(info.event.startStr)
-    date.setDate(date.getDate()+1)
-    date = date.getFullYear() + "-"+date.getMonth()+1 + "-" + (date.getDate()<=9 ? "0" + date.getDate() : date.getDate())
-    $("#inputEnd").val(date)
+function filterEvenement(value,name){
+  var id = "#"+value+"checkbox"
+  var calendrier = window.value
+  var eventSource = calendrier.getEventSources()
+  if ($(id)[0].checked) {
+    console.log(eventSource)
+    if (eventSource[0].internalEventSource["_raw"] == "evenement/list") {
+      eventSource[0].remove()
+    }
+    calendrier.addEventSource('/filter/'+ name +'/'+value)
   }
-  else{
-    $("#inputEnd").val(info.event.endStr)
+  else {
+    if (eventSource.length == 1) {
+      eventSource[0].remove()
+      calendrier.addEventSource('evenement/list')
+    }
+    else {
+      for (var i = 0; i < eventSource.length; i++) {
+        if (eventSource[i].internalEventSource["_raw"] == "/filter/"+ name +'/'+value) {
+          eventSource[i].remove()
+        }
+      }
+    }
   }
-
-  $('#ModalSObligation').modal('show');
 }
-
 
 // function deactivateObligation(){
 //   var obligation = calendar.getEventById($("#inputID").val())
