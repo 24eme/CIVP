@@ -1,7 +1,7 @@
 <footer id="footer" class="bg-dark text-center text-white">
   <div class="container p-4">
     <section class="mb-4">
-      <p>Les Vins de Provence sont fiers de vous présenter un Calendrier destinés aux différents familles viticules mais également particuliers amateurs de Vins</p>
+      <p>Les Vins de Provence sont fiers de vous présenter un Calendrier destiné aux différents familles viticules mais également aux particuliers amateurs de Vins</p>
     </section>
     <section class="">
       <div class="row">
