@@ -39,7 +39,7 @@
       </div>
       <div class="row">
         <div class="col-md-4">
-          <label class="popup-label" for="">Famille : </label>
+          <label class="popup-label" for="">Type : </label>
         </div>
         <div class="col-md-8">
           <p><button class="btn" style="background-color: {{$evenement->type->color}}">{{ $evenement->type->name }}</button></p>
@@ -47,7 +47,7 @@
       </div>
       <div class="row">
         <div class="col-md-4">
-          <label class="popup-label" for="">Public : </label>
+          <label class="popup-label" for="">Famille : </label>
         </div>
         <div class="col-md-8">
           <p>{{ $evenement->strFamilles() }}</p>
