@@ -198,21 +198,6 @@ function modalInfo(info){
   $('#ModalSObligation').modal('show');
 }
 
-function openEvents() {
-  if (document.getElementById('eventNavigation') != null && document.getElementById('eventNavigation').style.width == "350px") {
-    closeEvents();return 0
-  }
-  if (document.getElementById('eventNavigation') != null) {
-      document.getElementById('eventNavigation').style.width = "320px";
-  }
-  document.getElementById('main').style.marginRight = "270px";
-}
-function closeEvents() {
-  if (document.getElementById('eventNavigation') != null) {
-      document.getElementById('eventNavigation').style.width = "0";
-  }
-  document.getElementById('main').style.marginRight= "0";
-}
 
 // function deactivateObligation(){
 //   var obligation = calendar.getEventById($("#inputID").val())
@@ -235,28 +220,6 @@ function showEventList() {
     $("#calendar").css('display','none')
   }
 }
-
-function searchEvents(){
-  $("#eventList").empty()
-  var q = $("#inputSearch").val()
-  var calendar = window.value
-  events = calendar.getEvents()
-  for (i = 0; i < events.length; i++) {
-    if ((events[i].title.toUpperCase()).indexOf(q.toUpperCase()) > -1 && !(searched.includes(events[i]))) {
-      searched.push(events[i])
-      var li = $("<li class='card-body'></li>").text(events[i].title)
-      $("#eventList").append(li)
-    }
-  }
-}
-
-// function setDate(){
-//       var url = new URL(window.location)
-//       var calendar = window.value
-//       var date = calendar.currentData.dateTypeeGenerator.nowDate.toISOString()
-//       date = date.slice(0,-14)
-//       url.searchParams.set('date', date)
-// };
 
 function openSection(evt, section) {
   var i, tabcontent, tablinks;
