@@ -4,6 +4,8 @@ var removed = new Array()
 var deactivated = []
 var searched = []
 
+AOS.init();
+
 $(document).ready(function(){
   $("input.filter-type").each(function (index, element) {
     if (getCookie(element.id) == "false") {$(element).prop('checked',false)}else{$(element).prop('checked',true)}
