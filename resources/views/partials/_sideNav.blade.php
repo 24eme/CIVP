@@ -74,7 +74,7 @@
   </div>
   <div class="row ml-2 mt-1">
       <ul class="tagList p-2">
-        <li class="tag-item"><a href="#" class="tag"><i></i>Déclarations</a></li>
+        <li class="tag-item"><a href="#" class="tag">Déclarations</a></li>
         <li class="tag-item"><a href="#" class="tag">DRM</a></li>
         <li class="tag-item"><a href="#" class="tag">Bleu</a></li>
       </ul>
