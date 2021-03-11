@@ -33,4 +33,24 @@ class IndexController extends Controller
       return $evenements->toJson();
     }
 
+    public function filterEvenementsByType($filter)
+    {
+      $evenements = DB::table('evenements')
+      ->select('evenements.id', 'evenements.title', 'evenements.start', 'evenements.end', 'types.color as color')
+      ->where('types.name','like', $filter)
+      ->join('types', 'types.id', '=', 'evenements.type_id')
+      ->get();
+      return $evenements->toJson();
+    }
+
+    public function filterEvenementsByOrganisme($filter)
+    {
+      $evenements = DB::table('evenements')
+      ->select('evenements.id', 'evenements.title', 'evenements.start', 'evenements.end', 'types.color as color')
+      ->where('organismes.nom','like', $filter)
+      ->join('types', 'types.id', '=', 'evenements.type_id')
+      ->join('organismes', 'organismes.id', '=', 'evenements.organisme_id')
+      ->get();
+      return $evenements->toJson();
+    }
 }
