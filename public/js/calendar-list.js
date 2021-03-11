@@ -31,8 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
       listMonth: { buttonText: 'Mois' },
       listYear: { buttonText: 'Année',duration:{months:12} }
     },
-  });
-  window.value = calendar;
+  }); 
   calendar.render();
 
   var removedEvents = new Array()
