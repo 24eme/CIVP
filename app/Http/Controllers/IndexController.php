@@ -28,6 +28,7 @@ class IndexController extends Controller
     {
       $evenements = DB::table('evenements')
       ->select('evenements.id', 'evenements.title', 'evenements.start', 'evenements.end', 'types.color as color')
+      ->where('evenements.active','=', true)
       ->join('types', 'types.id', '=', 'evenements.type_id')
       ->get();
       return $evenements->toJson();
@@ -37,6 +38,7 @@ class IndexController extends Controller
     {
       $evenements = DB::table('evenements')
       ->select('evenements.id', 'evenements.title', 'evenements.start', 'evenements.end', 'types.color as color')
+      ->where('evenements.active','=', true)
       ->where('types.name','like', $filter)
       ->join('types', 'types.id', '=', 'evenements.type_id')
       ->get();
@@ -47,9 +49,10 @@ class IndexController extends Controller
     {
       $evenements = DB::table('evenements')
       ->select('evenements.id', 'evenements.title', 'evenements.start', 'evenements.end', 'types.color as color')
+      ->where('evenements.active','=', true)
       ->where('organismes.nom','like', $filter)
-      ->join('types', 'types.id', '=', 'evenements.type_id')
       ->join('organismes', 'organismes.id', '=', 'evenements.organisme_id')
+      ->join('types', 'types.id', '=', 'evenements.type_id')
       ->get();
       return $evenements->toJson();
     }

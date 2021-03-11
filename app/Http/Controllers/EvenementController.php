@@ -53,6 +53,7 @@ class EvenementController extends Controller
             'end'=>'required|date',
             'textedeloi'=>'',
             'liendeclaration'=>'',
+            'active'=>'required|boolean',
             'rrule'=>''
         ]);
         $evenement = Evenement::create($attributes);
@@ -93,6 +94,7 @@ class EvenementController extends Controller
           'end'=>'required|date',
           'textedeloi'=>'',
           'liendeclaration'=>'',
+          'active'=>'required|boolean',
           'rrule'=>''
       ]);
       $evenement->update($attributes);

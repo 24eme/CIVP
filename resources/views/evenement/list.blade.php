@@ -21,7 +21,7 @@
 </p>
 @else
 <table class="table table-hover evenements-container">
-  <thead>
+  <thead style="text-align:center">
     <tr class="evenement-content">
       <th class="col-md-auto">Identifiant</th>
       <th class="col-md-auto">Type</th>
@@ -34,11 +34,11 @@
   </thead>
   <tbody>
       @foreach($evenements as $evenement)
-      <tr class="evenement-content">
-      <td style="text-align:center">
+      <tr class="evenement-content" style="text-align:center">
+      <td>
         {{$evenement->id}}
       </td>
-      <td style="text-align:center">
+      <td>
         <i class="fas fa-circle" style="color:{{$evenement->type->color}}"></i>&nbsp;{{$evenement->type->nom}}
       </td>
       <td>
@@ -47,11 +47,11 @@
       <td>
         <a href="javascript:void(0)" class="popupEvent" data-url="{{ route('evenement_popup', $evenement) }}"><strong>{{$evenement->title}}</strong></a>
       </td>
-      <td>
-        {{$evenement->start}}
+      <td> 
+        {{ date('d F Y', strtotime($evenement->start)) }}
       </td>
       <td>
-        {{$evenement->end}}
+        {{ date('d F Y', strtotime($evenement->end)) }}
       </td>
       <td>
         <a href="{{ route('evenement_edit', $evenement) }}"><i class="far fa-edit">&nbsp;</i></a>

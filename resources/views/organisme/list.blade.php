@@ -22,18 +22,18 @@
   </thead>
   <tbody>
       @foreach($organismes as $organisme)
-      <tr class="evenement-content">
-      <td style="text-align:center">
+      <tr class="evenement-content" style="text-align:center">
+      <td>
         {{$organisme->id}}
       </td>
-      <td style="text-align:center">
+      <td>
         <strong>{{$organisme->nom}}</strong>
       </td>
       <td>
-        {{$organisme->adresse}}<br />{{$organisme->code_postal}}&nbsp;{{$organisme->ville}}
+        {{$organisme->adresse}} - {{$organisme->code_postal}}&nbsp;{{$organisme->ville}}
       </td>
       <td>
-        <span class="fas fa-phone-square-alt"></span>&nbsp;{{$organisme->telephone}}<br /><span class="fas fa-envelope-square"></span>&nbsp;{{$organisme->email}}
+        <span class="fas fa-phone-square-alt"></span>&nbsp;{{$organisme->telephone}} - <span class="fas fa-envelope-square"></span>&nbsp;{{$organisme->email}}
       </td>
       <td>
         <a href="{{ route('organisme_edit', $organisme) }}"><i class="far fa-edit">&nbsp;</i></a>

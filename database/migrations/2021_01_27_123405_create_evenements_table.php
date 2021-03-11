@@ -25,6 +25,7 @@ class CreateEvenementsTable extends Migration
           $table->foreign('organisme_id')->references('id')->on('organismes')->onDelete('cascade');
           $table->string('textedeloi')->nullable();
           $table->string('liendeclaration')->nullable();
+          $table->boolean('active');
           $table->string('rrule')->nullable();
           $table->timestamps();
         });

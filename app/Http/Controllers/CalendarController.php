@@ -39,7 +39,8 @@ class CalendarController extends Controller
                              'organisme_id' => $value[5],
                              'textedeloi' => $value[6],
                              'liendeclaration' => $value[7],
-                             'rrule' => $value[8],
+                             'active' => $value[8],
+                             'rrule' => $value[9],
                             );
         Evenement::create($inserted_data);
         }
