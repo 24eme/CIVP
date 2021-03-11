@@ -1,6 +1,6 @@
 @extends('layout')
-@include('partials/_sideNav')
 @section('content')
+@include('partials/_sideNav')
 <div id="main" class="main">
   <nav class="mt-4">
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
