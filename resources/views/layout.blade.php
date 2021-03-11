@@ -23,13 +23,10 @@
   <div class="container-fluid">
       @yield('content')
   </div>
-  <footer>
   @include("layout/footer")
-  </footer>
   <script src="/js/global.js"></script>
   <script src="/js/calendar.js"></script>
   <script src="/js/calendar-list.js"></script>
-  <script>AOS.init();</script>
   @include('layout/popup')
 </body>
 </html>
