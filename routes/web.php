@@ -10,7 +10,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\CalendarController;
 
 
-Route::get('/', [IndexController::class, 'index'])->name('index');
+Route::get('/index', [IndexController::class, 'index'])->name('index');
 Route::get('/evenement/list', [IndexController::class, 'listEvenements']);
 Route::get('/evenement/{id}', [EvenementController::class,'popup'])->name('evenement_popup');
 
