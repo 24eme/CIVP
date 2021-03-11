@@ -15,6 +15,16 @@ document.addEventListener('DOMContentLoaded', function() {
     displayEventEnd: true,
     events:'evenement/list',
     firstDay: 1,
+    datesSet:function(info){
+        Currentdate = calendar.getDate().toISOString();
+        DateTab = (Currentdate).split("T", 2);
+        Currentdate = DateTab[0];
+        var url = new URL(window.location);
+        url.searchParams.set('date', Currentdate);
+        if(window.location.href.includes('index')){
+          history.pushState(null,null, "index?date="+Currentdate);
+        };
+    },
     fixedWeekCount: false,
     buttonText:{ today:'Aujourd\'hui',month: 'Mois', week: 'Semaine', day: 'Jour'},
     allDayText:'Journée',
@@ -73,49 +83,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       })
     })
-
-});
-document.addEventListener('DOMContentLoaded', function() {
-
-  const { sliceEvents, createPlugin, Calendar } = FullCalendar
-
-  const CustomViewConfig = {
-
-    classNames: [ 'custom-view' ],
-
-    content: function(props) {
-      console.log(props.dateTypee)
-      let segs = sliceEvents(props, true); // allDay=true
-      let html =
-        '<div class="view-title">' +
-          props.dateTypee.currentRange.start.toUTCString() +
-        '</div>' +
-        '<div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">' +
-          segs.length + ' events:' +
-          '<ul>' +
-            segs.map(function(seg) {
-              return seg.def.title + ' (' + seg.range.start.toUTCString() + ')'
-            }).join('') +
-          '</ul>' +
-        '</div>'
-
-      return { html: html }
-    }
-
-  }
-
-  const CustomViewPlugin = createPlugin({
-    views: {
-      custom: CustomViewConfig
-    }
-  })
-
-  let calendarEl = document.getElementById('calendar');
-  let calendar = new FullCalendar.Calendar(calendarEl, {
-    plugins: [ CustomViewPlugin ],
-    initialView: 'custom',
-    events: 'https://fullcalendar.io/demo-events.json'
-  })
-
 
 });
