@@ -1,5 +1,8 @@
 <div id="sideNavigation" class="container navbar-custom">
   <div class="row upper_wrapper">
+    <button type="button" class="closebtn" onclick="openNav()" aria-label="Close">
+      <span aria-hidden="true"class="h2">&times;</span>
+    </button>
     <div class="col-md-3 ml-2 pr-0" style="display:inline-block">
       <a href="/"><img src="{{asset('images/logos/logo-C.png')}}" width=50  alt=""></a>
     </div>
@@ -37,34 +40,42 @@
         </div>
     </div>
   </div>
-  <div class="row ml-3 mt-1">
-    <div class="dropdown">
-    <button class="btn-Sidedropdown dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Types
-    </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Aide</a>
-        <a class="dropdown-item" href="#">Obligation</a>
-        <a class="dropdown-item" href="#">Evenement</a>
-      </div>
+  <div class="row ml-4">
+    <div class="col-md-12 mt-2 p-0">
+      <h5>Type</h5>
     </div>
   </div>
-  <div class="row ml-3 mt-1">
-    <div class="dropdown">
-    <button class="btn-Sidedropdown dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Organismes
-    </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">IGP</a>
-        <a class="dropdown-item" href="#">CIVP</a>
-      </div>
+  <div class="row ml-0">
+    <div class="col-md-12 mb-0 p-0">
+          @foreach($types as $type)
+          <a class="dropdown-item" href="javascript:void(0)" data-url="{{ route('filterType',$type->name)}}" onchange="filterEvenement('{{$type->name}}','type')">
+            <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="{{$type->name}}checkbox">
+            <label class="form-check-label ml-2 mt-1" for="flexCheckDefault">
+              {{$type->name}}
+            </label>
+          </div>
+          </a>
+          @endforeach
     </div>
   </div>
-  <div class="row ml-1 mt-1">
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#">Aide</a>
-      <a class="dropdown-item" href="#">Obligation</a>
-      <a class="dropdown-item" href="#">Evenement</a>
+  <div class="row ml-4">
+    <div class="col-md-12 mt-2 p-0">
+      <h5>Organisme</h5>
+    </div>
+  </div>
+  <div class="row ml-0">
+    <div class="col-md-12 mb-0 p-0">
+          @foreach($organismes as $organisme)
+          <a class="dropdown-item" href="javascript:void(0)" data-url="{{ route('filterOrganisme',$organisme->nom)}}" onchange="filterEvenement('{{$organisme->nom}}','organisme')">
+            <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="{{$organisme->nom}}checkbox">
+            <label class="form-check-label ml-2 mt-1" for="flexCheckDefault">
+              {{$organisme->nom}}
+            </label>
+          </div>
+          </a>
+          @endforeach
     </div>
   </div>
   <div class="row ml-1 mt-2">
