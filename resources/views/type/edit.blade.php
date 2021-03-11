@@ -2,19 +2,19 @@
 
 @section('content')
 <div class="container mt-5">
-    <form method="post" action="{{ route('profil_create') }}">
+    <form method="post" action="{{ route('type_edit', $type) }}">
       @csrf
         <div class="form-group">
-          <label for="nom">Nom du profil</label>
-          <input type="text" class="form-control @error('nom') is-invalid @enderror" name="nom" />
+          <label for="nom">Nom du type</label>
+          <input type="text" class="form-control @error('nom') is-invalid @enderror" name="nom" value="{{ $type->nom }}" />
           @error('nom')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
           <div class="form-group">
             <label for="couleur">Couleur</label>
-            <input type="text" class="form-control @error('couleur') is-invalid @enderror" name="couleur" />
-            @error('couleur')
+            <input type="text" class="form-control @error('couleur') is-invalid @enderror" name="couleur" value="{{ $type->couleur }}" />
+            @error('type')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>

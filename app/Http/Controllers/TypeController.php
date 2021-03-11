@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Profil;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
-class ProfilController extends Controller
+class TypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class ProfilController extends Controller
      */
      public function index()
      {
-           $profils = Profil::get()->all();
-           return view('profil/index', compact('profils'));
+           $types = Type::get()->all();
+           return view('type/index', compact('types'));
      }
 
      /**
@@ -25,7 +25,7 @@ class ProfilController extends Controller
       */
      public function create()
      {
-         return view('profil/create');
+         return view('type/create');
      }
 
      /**
@@ -40,35 +40,35 @@ class ProfilController extends Controller
            'nom'=>'required',
            'couleur'=>'required',
        ]);
-       Profil::create($attributes);
-       return redirect()->route('profils');
+       Type::create($attributes);
+       return redirect()->route('types');
      }
 
      /**
       * Show the form for editing the specified resource.
       *
-      * @param  \App\Models\Profil  $profil
+      * @param  \App\Models\Type  $type
       * @return \Illuminate\Http\Response
       */
-     public function edit(Profil $profil)
+     public function edit(Type $type)
      {
-         return view('profil/edit', compact('profil'));
+         return view('type/edit', compact('type'));
      }
 
      /**
       * Update the specified resource in storage.
       *
       * @param  \Illuminate\Http\Request  $request
-      * @param  \App\Models\Profil  $profil
+      * @param  \App\Models\Type  $type
       * @return \Illuminate\Http\Response
       */
-     public function update(Request $request, Profil $profil)
+     public function update(Request $request, Type $type)
      {
        $attributes = request()->validate([
            'nom'=>'required',
            'couleur'=>'required',
        ]);
-       $profil->update($attributes);
-       return redirect()->route('profils');
+       $type->update($attributes);
+       return redirect()->route('types');
      }
 }

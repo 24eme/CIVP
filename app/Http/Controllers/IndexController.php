@@ -8,7 +8,7 @@ use App\Models\Evenement;
 use App\Models\Tag;
 use App\Models\Famille;
 use App\Models\Organisme;
-use App\Models\Profil;
+use App\Models\Type;
 use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
@@ -19,16 +19,16 @@ class IndexController extends Controller
       $evenements = Evenement::get()->all();
       $familles = Famille::all();
       $organismes = Organisme::all();
-      $profils = Profil::all();
+      $types = Type::all();
       $tags = Tag::all();
-      return view('index', ['evenements' => $evenements,'tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'profils' => $profils]);
+      return view('index', ['evenements' => $evenements,'tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'types' => $types]);
     }
 
     public function listEvenements()
     {
       $evenements = DB::table('evenements')
-      ->select('evenements.id', 'evenements.title', 'evenements.start', 'evenements.end', 'profils.color as color')
-      ->join('profils', 'profils.id', '=', 'evenements.profil_id')
+      ->select('evenements.id', 'evenements.title', 'evenements.start', 'evenements.end', 'types.color as color')
+      ->join('types', 'types.id', '=', 'evenements.type_id')
       ->get();
       return $evenements->toJson();
     }

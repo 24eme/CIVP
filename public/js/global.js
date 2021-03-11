@@ -5,11 +5,11 @@ var deactivated = []
 var searched = []
 
 $(document).ready(function(){
-  $("input.filter-profil").each(function (index, element) {
+  $("input.filter-type").each(function (index, element) {
     if (getCookie(element.id) == "false") {$(element).prop('checked',false)}else{$(element).prop('checked',true)}
   })
 
-  $(".popupEvent").click(function() { 
+  $(".popupEvent").click(function() {
     var url = $(this).data('url');
     $.get(url, function(response) {
       $('#popupEvenement').html(response);
@@ -68,11 +68,11 @@ function modalUpdate(info){
     $("#inputTitleU").val(info.event.title)
     $("#inputStartU").val(info.event.startStr)
     $("#inputDescriptionU").val(info.event.extendedProps.description)
-    $("#inputProfilU").val(info.event.extendedProps.profil)
+    $("#inputTypeU").val(info.event.extendedProps.type)
     $("#inputOrganismeU").val(info.event.extendedProps.organisme)
     $("#inputLienU").val(info.event.extendedProps.lien)
     $("#inputContactU").val(info.event.extendedProps.contact)
-    $(".popup-color-block").css('background-color',info.event.color)
+    $(".color-block").css('background-color',info.event.color)
 
     if (info.event.allDay) {
       var date = new Date(info.event.startStr)
@@ -128,15 +128,15 @@ function modalPopUp(info){
   $("#event-day").text(day)
   $("#event-endDate").html(info.event.endStr)
   $("#event-description").html(info.event.extendedProps.description)
-  $("#event-profil").html(info.event.extendedProps.profil)
+  $("#event-type").html(info.event.extendedProps.type)
   $("#event-organisme").val(info.event.extendedProps.organisme)
   $("#event-lien").val(info.event.extendedProps.lien)
   $("#event-contact").val(info.event.extendedProps.contact)
   if (info.event.backgroundColor !== "null") {
-    $(".triangle-color").css('border-top-color',info.event.backgroundColor)
+    $(".color-block").css('border-top-color',info.event.backgroundColor)
   }
   else {
-    $(".triangle-color").css('border-top-color','#3788d8')
+    $(".color-block").css('border-top-color','#3788d8')
   }
   var popup = $("#modalPopUp")
   $(".fc-daygrid-event,.modalPopUp").hover(function(e) {
@@ -179,7 +179,7 @@ function modalInfo(info){
   $("#inputTitle").val(info.event.title)
   $("#inputStart").val(info.event.startStr)
   $("#inputDescription").val(info.event.extendedProps.description)
-  $("#inputProfil").val(info.event.extendedProps.profil)
+  $("#inputType").val(info.event.extendedProps.type)
   $("#inputOrganisme").val(info.event.extendedProps.organisme)
   $("#inputLien").val(info.event.extendedProps.lien)
   $("#inputContact").val(info.event.extendedProps.contact)
@@ -253,7 +253,7 @@ function searchEvents(){
 // function setDate(){
 //       var url = new URL(window.location)
 //       var calendar = window.value
-//       var date = calendar.currentData.dateProfileGenerator.nowDate.toISOString()
+//       var date = calendar.currentData.dateTypeeGenerator.nowDate.toISOString()
 //       date = date.slice(0,-14)
 //       url.searchParams.set('date', date)
 // };

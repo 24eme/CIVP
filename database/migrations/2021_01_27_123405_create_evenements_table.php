@@ -19,8 +19,8 @@ class CreateEvenementsTable extends Migration
           $table->date('start');
           $table->date('end');
           $table->longText('description')->index();
-          $table->integer('profil_id')->unsigned()->index();
-          $table->foreign('profil_id')->references('id')->on('profils')->onDelete('cascade');
+          $table->integer('type_id')->unsigned()->index();
+          $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
           $table->integer('organisme_id')->unsigned()->index();
           $table->foreign('organisme_id')->references('id')->on('organismes')->onDelete('cascade');
           $table->string('textedeloi')->nullable();

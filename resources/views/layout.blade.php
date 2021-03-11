@@ -30,5 +30,6 @@
   <script src="/js/calendar.js"></script>
   <script src="/js/calendar-list.js"></script>
   <script>AOS.init();</script>
+  @include('layout/popup')
 </body>
 </html>

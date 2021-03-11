@@ -51,17 +51,17 @@ document.addEventListener('DOMContentLoaded', function() {
   var removedEvents = new Array()
   var removed = new Array()
 
-  $("input.filter-profil").each(function (index, element) {
+  $("input.filter-type").each(function (index, element) {
       $(element).click(function(){
         setCookie(this.id,this.checked)
         var events = calendar.getEvents();
         if (!this.checked) {
           events.forEach(function(eve,i){
-            if (eve.extendedProps.profil == element.value) { eve.remove();removedEvents.push(eve); }
+            if (eve.extendedProps.type == element.value) { eve.remove();removedEvents.push(eve); }
           })
         } else{
             removedEvents.forEach(function(removedEve,i){
-              if (removedEve.extendedProps.profil == element.value) {
+              if (removedEve.extendedProps.type == element.value) {
                 calendar.addEvent(removedEve);
               } else{
                 if (removed.includes(removedEve) == false) {
@@ -84,11 +84,11 @@ document.addEventListener('DOMContentLoaded', function() {
     classNames: [ 'custom-view' ],
 
     content: function(props) {
-      console.log(props.dateProfile)
+      console.log(props.dateTypee)
       let segs = sliceEvents(props, true); // allDay=true
       let html =
         '<div class="view-title">' +
-          props.dateProfile.currentRange.start.toUTCString() +
+          props.dateTypee.currentRange.start.toUTCString() +
         '</div>' +
         '<div class="fc-daygrid-day-frame fc-scrollgrid-sync-inner">' +
           segs.length + ' events:' +

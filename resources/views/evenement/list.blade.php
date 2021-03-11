@@ -24,7 +24,7 @@
   <thead>
     <tr class="evenement-content">
       <th class="col-md-auto">Identifiant</th>
-      <th class="col-md-auto">Profil</th>
+      <th class="col-md-auto">Type</th>
       <th class="col-md-auto">Organisme</th>
       <th class="col-md-auto">Titre</th>
       <th class="col-md-auto"><i class="far fa-clock"></i> Date début</th>
@@ -39,7 +39,7 @@
         {{$evenement->id}}
       </td>
       <td style="text-align:center">
-        <i class="fas fa-circle" style="color:{{$evenement->profil->color}}"></i>&nbsp;{{$evenement->profil->nom}}
+        <i class="fas fa-circle" style="color:{{$evenement->type->color}}"></i>&nbsp;{{$evenement->type->nom}}
       </td>
       <td>
         {{$evenement->organisme->nom}}

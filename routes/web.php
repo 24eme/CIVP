@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EvenementController;
 use App\Http\Controllers\OrganismeController;
-use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\TypeController;
 use App\Http\Controllers\FamilleController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\IndexController;
@@ -12,11 +12,10 @@ use App\Http\Controllers\CalendarController;
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/evenement/list', [IndexController::class, 'listEvenements']);
-Route::get('/evenement/{id}', [EvenementController::class, 'popup'])->name('evenement_popup');
+Route::get('/evenement/{id}', [EvenementController::class,'popup'])->name('evenement_popup');
 
 Route::prefix('admin')->group(function () {
   Route::get('/', function () { return redirect()->route('evenements');; });
-
   Route::post('/importCSV', [CalendarController::class,'importCSV'])->name('importCSV');
 
   Route::get('evenements', [EvenementController::class,'index'])->name('evenements');
@@ -31,11 +30,11 @@ Route::prefix('admin')->group(function () {
   Route::get('organisme/edit/{organisme}', [OrganismeController::class,'edit'])->name('organisme_edit');
   Route::post('organisme/edit/{organisme}', [OrganismeController::class,'update']);
 
-  Route::get('profils', [ProfilController::class,'index'])->name('profils');
-  Route::get('profil/create', [ProfilController::class,'create'])->name('profil_create');
-  Route::post('profil/create', [ProfilController::class,'store']);
-  Route::get('profil/edit/{profil}', [ProfilController::class,'edit'])->name('profil_edit');
-  Route::post('profil/edit/{profil}', [ProfilController::class,'update']);
+  Route::get('types', [TypeController::class,'index'])->name('types');
+  Route::get('type/create', [TypeController::class,'create'])->name('type_create');
+  Route::post('type/create', [TypeController::class,'store']);
+  Route::get('type/edit/{type}', [TypeController::class,'edit'])->name('type_edit');
+  Route::post('type/edit/{type}', [TypeController::class,'update']);
 
   Route::get('familles', [FamilleController::class,'index'])->name('familles');
   Route::get('famille/create', [FamilleController::class,'create'])->name('famille_create');

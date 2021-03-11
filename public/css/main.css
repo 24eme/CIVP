@@ -32,7 +32,7 @@ li.tag-item{display: inline-block;}
 .closebtn > i:hover {color:#424242}
 .input-search{width: 80%;height: 30px;border-radius: 5px;border:1px solid #f8fafb;color:grey;outline: none;padding: 1px;padding-left:25px;width:400px;background-color: #f8fafb;transition: background 1s}
 .input-search:hover{background-color: #E8E8E8}
-ul.list-group-custom{position: fixed;width: 300px;visibility: hidden;z-index: 200;max-height: 190px;overflow: hidden;}
+ul.list-group-custom{position: fixed;width: 280px;visibility: hidden;z-index: 200;max-height: 190px;overflow: hidden;}
 li.list-group-item:hover{background-color: #0081ff;color:white;cursor: pointer}
 
 .nav-link:active{color:grey}
@@ -73,7 +73,7 @@ li.list-group-item:hover{background-color: #0081ff;color:white;cursor: pointer}
 .btn-admin i{margin-left: 20px;margin-right: 10px;font-size: 1.5em;}
 
 .filter-label{font-family: 'Montserrat';color:#404040}
-.filter-profil:checked + .filter-label {color: black;}
+.filter-type:checked + .filter-label {color: black;}
 .filter-div{min-width: 60%;background-color: ;display: inline-block; margin-top: 10px;padding: 10px;padding-top: 0px;}
 .filter-wrapper{}
 
@@ -85,10 +85,10 @@ li.list-group-item:hover{background-color: #0081ff;color:white;cursor: pointer}
 .slider.round {border-radius: 34px;}
 .slider.round:before {border-radius: 50%;}
 
-input:checked + #sliderProd {background-color: #f1d600;}
+input:checked + #sliderProd {background-color: #fad046;}
 input:checked + #sliderNego {background-color: #96b5aa;}
-input:checked + #sliderVini {background-color: #517fbe;}
-input:checked + #sliderViti {background-color: #621940;}
+input:checked + #sliderVini {background-color: #4287f5;}
+input:checked + #sliderViti {background-color: #e35646;}
 input:focus + .slider {box-shadow: 0 0 1px #2196F3;}
 input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transform: translateX(26px);transform: translateX(26px);}
 
@@ -126,7 +126,7 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
 .tag:hover {background-color: crimson;color: white;}
 .tag:hover::after {border-left-color: crimson; }
 
-.color-block{display: inline-block;height : 30px;width :50px;}
+.color-block{display: inline-block;height : 30px;width :40px;}
 .popup{display: none;position: absolute;width: 300px;background-color: #FFF;border-radius: 10px;box-shadow: 0px 0px 31px 0px rgba(212,212,212,1);overflow: hidden;z-index: 1000}
 .popup-label{font-weight: bold;}
 .calendar-month{display: table-cell;text-align: center;font-size: .7em;font-family: "Montserrat-Bold";height: 20px;min-width: 50px;background-color: #44566c;color:#FFF;padding: 5px;border-top-left-radius: 10px;border-top-right-radius: 10px}

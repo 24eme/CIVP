@@ -1,9 +1,9 @@
-<div class="modal-dialog modal-lg modal-dialog-scrollable">
+<div class="modal-dialog modal-md modal-dialog-scrollable">
   <div class="modal-content">
     <div class="modal-header pb-0">
       <div class="row">
         <div class="col-md-2 mt-2 p-0">
-          <span class="color-block" style="background-color:{{$evenement->profil->color}}"></span>
+          <span class="color-block" style="background-color:{{$evenement->type->color}}"></span>
         </div>
         <div class="col-md-10 m-0">
           <h4 class="modal-title" id="staticBackdropLabel" style="line-height: 2;">{{ $evenement->title }}</h4>
@@ -42,7 +42,7 @@
           <label class="popup-label" for="">Famille : </label>
         </div>
         <div class="col-md-8">
-          <p><button class="btn" style="background-color: {{$evenement->profil->color}}">{{ $evenement->profil->name }}</button></p>
+          <p><button class="btn" style="background-color: {{$evenement->type->color}}">{{ $evenement->type->name }}</button></p>
         </div>
       </div>
       <div class="row">

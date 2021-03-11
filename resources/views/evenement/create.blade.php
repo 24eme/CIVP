@@ -7,13 +7,13 @@
     <form method="post" action="{{ route('evenement_create') }}">
       @csrf
         <div class="form-group">
-          <label for="profil_id">Profil</label>
-          <select class="form-control @error('profil_id') is-invalid @enderror" name="profil_id">
-            @foreach($profils as $profil)
-              <option value="{{$profil->id}}">{{$profil->name}}</option>
+          <label for="type_id">Type</label>
+          <select class="form-control @error('type_id') is-invalid @enderror" name="type_id">
+            @foreach($types as $type)
+              <option value="{{$type->id}}">{{$type->name}}</option>
             @endforeach
           </select>
-          @error('profil_id')
+          @error('type_id')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>

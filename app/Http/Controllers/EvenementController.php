@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Evenement;
 use App\Models\Organisme;
-use App\Models\Profil;
+use App\Models\Type;
 use App\Models\Famille;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -31,9 +31,9 @@ class EvenementController extends Controller
     public function create()
     {
       $organismes = Organisme::all();
-      $profils = Profil::all();
+      $types = Type::all();
       $familles = Famille::all();
-      return view('evenement/create', ['organismes' => $organismes, 'profils' => $profils, 'familles' => $familles]);
+      return view('evenement/create', ['organismes' => $organismes, 'types' => $types, 'familles' => $familles]);
     }
 
     /**
@@ -45,7 +45,7 @@ class EvenementController extends Controller
     public function store(Request $request)
     {
         $attributes = request()->validate([
-            'profil_id'=>'required',
+            'type_id'=>'required',
             'organisme_id'=>'required',
             'title'=>'required',
             'description'=>'required',
@@ -70,9 +70,9 @@ class EvenementController extends Controller
     public function edit(Evenement $evenement)
     {
         $organismes = Organisme::all();
-        $profils = Profil::all();
+        $types = Type::all();
         $familles = Famille::all();
-        return view ('evenement/edit', ['organismes' => $organismes, 'profils' => $profils, 'evenement' => $evenement, 'familles' => $familles]);
+        return view ('evenement/edit', ['organismes' => $organismes, 'types' => $types, 'evenement' => $evenement, 'familles' => $familles]);
     }
 
     /**
@@ -85,7 +85,7 @@ class EvenementController extends Controller
     public function update(Request $request, Evenement $evenement)
     {
       $attributes = request()->validate([
-          'profil_id'=>'required',
+          'type_id'=>'required',
           'organisme_id'=>'required',
           'title'=>'required',
           'description'=>'required',

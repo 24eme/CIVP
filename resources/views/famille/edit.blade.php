@@ -14,7 +14,7 @@
           <div class="form-group">
             <label for="couleur">Couleur</label>
             <input type="text" class="form-control @error('couleur') is-invalid @enderror" name="couleur" value="{{ $famille->couleur }}" />
-            @error('profil')
+            @error('type')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>

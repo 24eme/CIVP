@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProfilsTable extends Migration
+class CreateTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateProfilsTable extends Migration
      */
     public function up()
     {
-        Schema::create('profils', function (Blueprint $table) {
+        Schema::create('types', function (Blueprint $table) {
           $table->increments('id');
           $table->string('name')->unique();
           $table->string('color');
@@ -28,6 +28,6 @@ class CreateProfilsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profils');
+        Schema::dropIfExists('types');
     }
 }

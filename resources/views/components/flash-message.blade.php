@@ -73,7 +73,7 @@
 
 <div id="modalPopUp" class="popup">
 	<a href="javascript:void(0)" style="position:absolute;top:5;right:10;color:grey" onclick="closePopUp()"><i class="fas fa-times"></i></a>
-	<div class="popup-header"><span class="triangle-color"></span></div>
+	<div class="popup-header"><span class="color-block"></span></div>
 	<div class="popup-body">
 		<div class="popup-content inline-block">
 			<div class="calendar-icon">

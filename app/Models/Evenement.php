@@ -2,7 +2,7 @@
 
 namespace App\Models;
 use App\Models\Organisme;
-use App\Models\Profil;
+use App\Models\Type;
 use App\Models\Tag;
 use App\Models\Famille;
 
@@ -13,10 +13,10 @@ use Illuminate\Support\Str;
 class Evenement extends Model
 {
     use HasFactory;
-    protected $fillable = ['profil_id', 'organisme_id', 'familles', 'tags', 'title', 'description', 'start', 'end', 'textedeloi', 'liendeclaration', 'rrule'];
+    protected $fillable = ['type_id', 'organisme_id', 'familles', 'tags', 'title', 'description', 'start', 'end', 'textedeloi', 'liendeclaration', 'rrule'];
 
-    public function profil() {
-        return $this->belongsTo(Profil::class, 'profil_id');
+    public function type() {
+        return $this->belongsTo(Type::class, 'type_id');
     }
 
     public function organisme() {
