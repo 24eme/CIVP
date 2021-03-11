@@ -12,7 +12,7 @@
       <i class="fas fa-search" style="color:grey;position:absolute;margin:10px;margin-top:8px;"></i><input id="searchInput" class="input-search" type="text" placeholder="Recherche..." onkeypress="openListGroup()" autocomplete="off" list="events-list" name="" value="" >
       <ul id="ListGroupSearch" class="list-group list-group-custom">
         @foreach($evenements as $evenement)
-        <li class="list-group-item"><a href="/evenement/{{$evenement->id}}">{{$evenement->title}}</a></li>
+        <a href="/evenement/{{$evenement->id}}"><li class="list-group-item">{{$evenement->title}}</li></a>
         @endforeach
       </ul>
     </div>
