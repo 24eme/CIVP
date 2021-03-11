@@ -4,6 +4,17 @@
   <h1 class="h3">Evènements</h1>
   <a href="{{ route('evenement_create') }}" class="btn btn-warning float-right"><i class="fas fa-plus">&nbsp;Nouveau</i></a>
 </div>
+<div id="LObligations" class="row section-content listed-container mb-3">
+  <div class="col-md-3 mx-auto download_csv">
+    <form class="" action="{{route('importCSV')}}" method="post" enctype="multipart/form-data">
+      @csrf
+      <div class="mx-auto btn-import">
+        <label id="csv_label" for="csv_input">Importer un fichier CSV<i class="fas fa-cloud-download-alt"></i></label>
+        <input id="csv_input" type="file"  name="csv_file" onchange="form.submit()">
+      </div>
+    </form>
+  </div>
+</div>
 @if (count($evenements) === 0)
 <p>
   <i>Aucun événements créé</i>
@@ -18,7 +29,6 @@
       <th class="col-md-auto">Titre</th>
       <th class="col-md-auto"><i class="far fa-clock"></i> Date début</th>
       <th class="col-md-auto"><i class="far fa-clock"></i> Date fin</th>
-      <th class="col-md-auto">&nbsp;</th>
       <th class="col-md-auto">&nbsp;</th>
     </tr>
   </thead>
@@ -35,7 +45,7 @@
         {{$evenement->organisme->nom}}
       </td>
       <td>
-        <strong>{{$evenement->title}}</strong>
+        <a href="javascript:void(0)" class="popupEvent" data-url="{{ route('evenement_popup', $evenement) }}"><strong>{{$evenement->title}}</strong></a>
       </td>
       <td>
         {{$evenement->start}}
@@ -46,13 +56,9 @@
       <td>
         <a href="{{ route('evenement_edit', $evenement) }}"><i class="far fa-edit">&nbsp;</i></a>
       </td>
-      <td>
-        <a href="javascript:void(0)" class="popupEvent" data-url="{{ route('evenement_popup', $evenement) }}"><i class="far fa-eye">&nbsp;</i></a>
-      </td>
       </tr>
       @endforeach
   </tbody>
 </table>
-@include('components/popup')
-@endif 
+@endif
 @endsection
