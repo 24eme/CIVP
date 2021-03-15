@@ -2,9 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar-list');
   var calendar = new FullCalendar.Calendar(calendarEl, {
     headerToolbar: {
-      left:'prev,today,next',
+      left:'',
       center: 'title',
-      right: 'listDay,listWeek,listMonth,listYear'
+      right: ''
     },
     locale: 'fr',
     contentHeight:650,
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     buttonText:{ today:'Aujourd\'hui',month: 'Mois', week: 'Semaine', day: 'Jour'},
     allDayText:'Journée',
     bootstrapFontAwesome:{ month: 'fa-calendar-alt',week: 'fa-calendar-week' ,day:'fa-calendar-day' },
-    initialView: 'listWeek',
+    initialView: 'listYear',
     eventClick: function(item){
       $.get("evenement/"+item.event.id, function(response) {
         $('#popupEvenement').html(response);
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
       listMonth: { buttonText: 'Mois' },
       listYear: { buttonText: 'Année',duration:{months:12} }
     },
-  }); 
+  });
   calendar.render();
 
   var removedEvents = new Array()

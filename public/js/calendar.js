@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     headerToolbar: {
       left:'prev,today,next',
       center: 'title',
-      right: 'dayGridDay,dayGridWeek,dayGridMonth,YearViewCustom'
+      right: 'dayGridMonth,YearViewCustom'
     },
     locale: 'fr',
     contentHeight:650,
