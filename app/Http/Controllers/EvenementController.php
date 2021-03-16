@@ -19,8 +19,11 @@ class EvenementController extends Controller
      */
     public function index()
     {
-        $evenements = Evenement::all();
-        return view('evenement/list', compact('evenements'));
+      $evenements = Evenement::all();
+      $organismes = Organisme::all();
+      $types = Type::all();
+      $familles = Famille::all();
+        return view('evenement/list',['evenements' => $evenements,'organismes' => $organismes, 'types' => $types, 'familles' => $familles]);
     }
 
     /**
