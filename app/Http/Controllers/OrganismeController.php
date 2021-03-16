@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Evenement; 
+use App\Models\Type;
+use App\Models\Famille;
 use App\Models\Organisme;
 use Illuminate\Http\Request;
 
@@ -14,8 +17,11 @@ class OrganismeController extends Controller
      */
     public function index()
     {
+          $evenements = Evenement::all();
           $organismes = Organisme::all();
-          return view('organisme/list', compact('organismes'));
+          $types = Type::all();
+          $familles = Famille::all();
+          return view('organisme/list', ['evenements' => $evenements,'organismes' => $organismes, 'types' => $types, 'familles' => $familles]);
     }
 
     /**
