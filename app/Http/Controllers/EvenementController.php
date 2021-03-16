@@ -116,17 +116,33 @@ class EvenementController extends Controller
         //
     }
 
-    public function export($info){
+    public function exportEvenement($id){
 
-      $obligation = Obligation::find($info);
+      $evenement = Evenement::find($id);
       $vcalendar = new VObject\Component\VCalendar([
       'VEVENT' => [
-          'SUMMARY' => $obligation->title,
-          'DTSTART' => new \DateTime($obligation->start),
-          'DTEND'   => new \DateTime($obligation->end)
+          'SUMMARY' => $evenement->title,
+          'DTSTART' => new \DateTime($evenement->start),
+          'DTEND'   => new \DateTime($evenement->end)
       ]
       ]);
       File::put('event.ics',$vcalendar->serialize());
       return response()->download('event.ics');
+    }
+
+    public function export(){
+
+      $evenements = Evenement::all();
+      $vcalendar = new VObject\Component\VCalendar();
+      foreach ($evenements as $evenement) {
+        $vevent = $vcalendar->add('VEVENT', [
+            'SUMMARY' => $evenement->title,
+            'DTSTART' => new \DateTime($evenement->start),
+            'DTEND' => new \DateTime($evenement->end),
+        ]);
+        $vcalendar->add($vevent);
+      }
+      File::put('calendar.ics',$vcalendar->serialize());
+      return response()->download('calendar.ics');
     }
 }
