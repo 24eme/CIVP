@@ -9,16 +9,18 @@ use App\Http\Controllers\TagController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\CalendarController;
 
-Route::get('/', function () { return redirect()->route('index');; });
+Route::get('/', function () { return redirect()->route('index'); });
 Route::get('/index', [IndexController::class, 'index'])->name('index');
 Route::get('/evenement/list', [IndexController::class, 'listEvenements']);
 Route::get('/evenement/{id}', [EvenementController::class,'popup'])->name('evenement_popup');
+Route::get('/evenement/export/{id}', [EvenementController::class,'export'])->name('export');
+Route::get('/export', [EvenementController::class,'export'])->name('export');
 
 Route::get('/filter/type/{type}', [IndexController::class,'filterEvenementsByType'])->name('filterType');
 Route::get('/filter/organisme/{organisme}', [IndexController::class,'filterEvenementsByOrganisme'])->name('filterOrganisme');
 
 Route::prefix('admin')->group(function () {
-  Route::get('/', function () { return redirect()->route('evenements');; });
+  Route::get('/', function () { return redirect()->route('evenements'); });
   Route::post('/importCSV', [CalendarController::class,'importCSV'])->name('importCSV');
 
   Route::get('evenements', [EvenementController::class,'index'])->name('evenements');
@@ -26,6 +28,7 @@ Route::prefix('admin')->group(function () {
   Route::post('evenement/create', [EvenementController::class,'store']);
   Route::get('evenement/edit/{evenement}', [EvenementController::class,'edit'])->name('evenement_edit');
   Route::post('evenement/edit/{evenement}', [EvenementController::class,'update']);
+  Route::get('evenement/export/{id}', [Evenement::class,'exportEvenement'])->name('evenement_export');
 
   Route::get('organismes', [OrganismeController::class,'index'])->name('organismes');
   Route::get('organisme/create', [OrganismeController::class,'create'])->name('organisme_create');
