@@ -13,7 +13,7 @@
       <div id='calendar'></div>
     </div>
     <div class="tab-pane fade" id="nav-liste" role="tabpanel" aria-labelledby="nav-liste-tab">
-      @include('evenement/list')
+      @include('partials/_list')
     </div>
   </div>
 </div>

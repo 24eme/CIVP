@@ -20,9 +20,12 @@
       </ul>
     </div>
   </div>
+  @if(Request()->route()->getPrefix())
+    @include('partials/_adminNav')
+    @else
   <div class="row p-2 mt-1 FiltrerPar">
-    <div class="col-md-12 p-2">
-      <h4>Filtrer par</h4>
+    <div class="col-md-12 pt-1">
+      <h5>Filtrer par</h5>
     </div>
   </div>
   <div class="row ml-4">
@@ -90,4 +93,5 @@
         <li class="tag-item"><a href="#" class="tag">Bleu</a></li>
       </ul>
   </div>
+    @endif
 </div>

@@ -1,6 +1,7 @@
-@extends('admin/layout')
-
+@extends('layout')
 @section('content')
+@include('partials/_sideNav')
+<div id="main" class="main">
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 my-3 border-bottom">
   <h1 class="h4">Edition d'un événement</h1>
 </div>
@@ -95,5 +96,5 @@
         <button type="submit" class="btn btn-primary float-right">Submit</button>
     </form>
 </div>
-
+</div>
 @endsection
