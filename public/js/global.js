@@ -88,8 +88,8 @@ function deleteObligation(){
     window.location = url;
 }
 
-function exportObligation(){
-    var url = 'exportObligation/'+ $('#inputIDshow').val();
+function exportICS(id){
+    var url = 'evenement/export/'+ id;
     window.location = url;
 }
 // function shareObligation(){
