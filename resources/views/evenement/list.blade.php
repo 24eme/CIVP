@@ -1,22 +1,22 @@
-<h2 class="fc-toolbar-title"></h2>
-<div class="list-events">
-  <table class="fc-list-table table-bordered">
-    <tbody>
-    @foreach($evenements as $evenement)
-    <tr class="fc-list-day fc-day fc-day-tue fc-day-past">
-      <td class="fc-list-event-time"><a>{{ date('d F Y', strtotime($evenement->start)) }}</a></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr class="fc-list-event  fc-event fc-event-start fc-event-end fc-event-past">
-      <td class="fc-list-event-time" style="width: 150px">En cours</td>
-      <td class="fc-list-event-title"><span class="fc-list-dot col-md-auto"><i class="fas fa-circle" style="color:{{$evenement->type->color}}"></i></span>{{$evenement->title}}</td>
-      <td class="fc-list-event-title">{{$evenement->type->nom}}</td>
-      <td class="fc-list-event-title" style="width: 300px">{{$evenement->organisme->nom}}</td>
-    </tr>
-    @endforeach
-    </tbody>
-  </table>
+@extends('layout')
+@section('content')
+@include('partials/_sideNav')
+<div id="main" class="main">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 my-3">
+    <h1 class="h3">Evènements</h1>
+    <a href="{{ route('evenement_create') }}" class="btn btn-warning float-right"><i class="fas fa-plus">&nbsp;Nouveau</i></a>
+  </div>
+  <div id="LObligations" class="row section-content listed-container mb-3">
+    <div class="col-md-3 mx-auto download_csv">
+      <form class="" action="{{route('importCSV')}}" method="post" enctype="multipart/form-data">
+        @csrf
+        <div class="mx-auto btn-import">
+          <label id="csv_label" for="csv_input">Importer un fichier CSV<i class="fas fa-cloud-download-alt"></i></label>
+          <input id="csv_input" type="file"  name="csv_file" onchange="form.submit()">
+        </div>
+      </form>
+    </div>
+  </div>
+  @include('partials/_list')
 </div>
+@endsection
