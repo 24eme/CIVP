@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     headerToolbar: {
       left:'prev,today,next',
       center: 'title',
-      right: 'dayGridMonth,YearViewCustom'
+      right: 'dayGridMonth,YearViewCustom,exportButton'
     },
     locale: 'fr',
     contentHeight:650,
@@ -42,16 +42,15 @@ document.addEventListener('DOMContentLoaded', function() {
       buttonText: 'Année',
       duration:{months:12},
       dayMaxEventRows: 6
-      },
-      timeGridWeek: {
-      type: 'timeGrid',
-      buttonText: 'Semaine',
-      duration:{days: 7},
-      },
-      timeGridDay: {
-      type: 'timeGrid',
-      duration: { days: 1 },
-      buttonText: 'Jour'
+      }
+    },
+    customButtons: {
+      exportButton: {
+        text: '',
+        bootstrapFontAwesome:'fa-file-export',
+        click: function() {
+          window.location = 'export'
+        }
       }
     }
   });
