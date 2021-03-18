@@ -21,6 +21,7 @@
 <body>
   @include('layout/header')
   <div class="container-fluid">
+      @include('components/flash-message')
       @yield('content')
   </div>
   @include("layout/footer")
