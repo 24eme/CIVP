@@ -6,6 +6,7 @@ var searched = []
 AOS.init();
 
 
+
 $(document).ready(function(){
   $("input.filter-type").each(function (index, element) {
     if (getCookie(element.id) == "false") {$(element).prop('checked',false)}else{$(element).prop('checked',true)}
@@ -47,7 +48,7 @@ function openNav() {
   if ($("#sideNavigation") != null) {
       $("#sideNavigation").css('width',"290px")
   }
-  $("#main").css("marginLeft","290")
+  $("#main").css("marginLeft","290px")
 
 }
 function closeNav() {
@@ -92,6 +93,7 @@ function exportICS(id){
     var url = 'evenement/export/'+ id;
     window.location = url;
 }
+
 // function shareObligation(){
 //     var copyText = document.getElementById("shareIcon");
 //     copyText.select();
@@ -188,7 +190,21 @@ function filterEvenement(value,name){
 //   deactivated.pop(obligationAct)
 //   obligationAct.addEvent()
 // }
-
+function showHint(str) {
+  if (str.length == 0) {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("txtHint").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET", "gethint.php?q=" + str, true);
+    xmlhttp.send();
+  }
+}
 function showEventList() {
   if ($("#ListEvents").css('display') === 'block') {
     $("#ListEvents").css('display','none')
