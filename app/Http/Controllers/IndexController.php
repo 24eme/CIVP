@@ -27,9 +27,10 @@ class IndexController extends Controller
     public function listEvenements()
     {
       $evenements = DB::table('evenements')
-      ->select('evenements.id', 'evenements.title', 'evenements.start', 'evenements.end', 'types.color as color')
+      ->select('evenements.id', 'evenements.title', 'evenements.start', 'evenements.end','types.name as type','organismes.nom as organisme', 'types.color as color')
       ->where('evenements.active','=', true)
       ->join('types', 'types.id', '=', 'evenements.type_id')
+      ->join('organismes', 'organismes.id', '=', 'evenements.organisme_id')
       ->get();
       return $evenements->toJson();
     }
@@ -37,10 +38,11 @@ class IndexController extends Controller
     public function filterEvenementsByType($filter)
     {
       $evenements = DB::table('evenements')
-      ->select('evenements.id', 'evenements.title', 'evenements.start', 'evenements.end', 'types.color as color')
+      ->select('evenements.id', 'evenements.title', 'evenements.start', 'evenements.end','types.name as type','organismes.nom as organisme', 'types.color as color')
       ->where('evenements.active','=', true)
       ->where('types.name','like', $filter)
       ->join('types', 'types.id', '=', 'evenements.type_id')
+      ->join('organismes', 'organismes.id', '=', 'evenements.organisme_id')
       ->get();
       return $evenements->toJson();
     }
@@ -48,7 +50,7 @@ class IndexController extends Controller
     public function filterEvenementsByOrganisme($filter)
     {
       $evenements = DB::table('evenements')
-      ->select('evenements.id', 'evenements.title', 'evenements.start', 'evenements.end', 'types.color as color')
+      ->select('evenements.id', 'evenements.title', 'evenements.start', 'evenements.end','types.name as type','organismes.nom as organisme', 'types.color as color')
       ->where('evenements.active','=', true)
       ->where('organismes.nom','like', $filter)
       ->join('organismes', 'organismes.id', '=', 'evenements.organisme_id')
