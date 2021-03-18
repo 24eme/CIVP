@@ -24,28 +24,28 @@ class CalendarController extends Controller
     }
 
     public function importCSV(Request $request){
-
+// famille tags tableau
     $csv = fopen($request->file('csv_file'),"r");
     while(!feof($csv)){
       $rowData[]=fgetcsv($csv,3000,";");
     }
       foreach ($rowData as $key => $value ) {
-        if ($value !==false) {
-        $inserted_data=array('title'=> $value[0],
+        if ($value !== false) {
+        $inserted_data = array('title'=> $value[0],
                              'start'=> $value[1],
                              'end'=> $value[2],
                              'description'=> $value[3],
-                             'type_id'=> $value[4],
-                             'organisme_id' => $value[5],
+                             'type_id'=> Type::findByLibelle($value[4]),
+                             'organisme_id' => Organisme::findByLibelle($value[5]),
                              'textedeloi' => $value[6],
                              'liendeclaration' => $value[7],
-                             'active' => $value[8],
-                             'rrule' => $value[9],
+                             'active' => true,
+                             'rrule' => Evenement::setRrule($value[9])
                             );
         Evenement::create($inserted_data);
         }
       }
-      return redirect()->back()->with('success', 'Votre obligation a été ajouté');
+      return redirect()->back()->with('success', 'Votre evenement a été ajouté');
 
     }
 
