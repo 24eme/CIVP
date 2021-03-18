@@ -38,7 +38,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 mt-2">
           <label class="popup-label" for="">Type : </label>
         </div>
         <div class="col-md-8">
@@ -54,7 +54,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 mt-2">
           <label class="popup-label" for="">Tags : </label>
         </div>
         <div class="col-md-auto">
@@ -107,6 +107,7 @@
       </div>
     </div>
     <div class="modal-footer">
+      <button style="background-color:{{$evenement->type->color}};border-color:{{$evenement->type->color}}" type="button" class="btn btn-warning" data-dismiss="modal"><a href="evenement/export/{{$evenement->id}}">Exporter</a></button>
       <button type="button" class="btn btn-warning" data-dismiss="modal">Accéder à la déclaration</button>
     </div>
   </div>
