@@ -79,4 +79,10 @@ class Evenement extends Model
       }
       $this->tags()->sync(array_unique($toSync));
     }
+
+    public function setRrule($dstart,$freq,$interval)
+    {
+      // DTSTART:20210301T103000Z\nRRULE:FREQ=MONTHLY;INTERVAL=2;UNTIL=20220601
+      // $$rrule = "DSTART".$dstart."T103000Z\n".$freq...$interval;
+    }
 }
