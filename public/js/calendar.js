@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     headerToolbar: {
       left:'prev,today,next',
       center: 'title',
-      right: 'dayGridMonth,YearViewCustom,exportButton'
+      right: 'dayGridMonth,YearViewCustom'
     },
     locale: 'fr',
     contentHeight:650,
@@ -42,15 +42,6 @@ document.addEventListener('DOMContentLoaded', function() {
       buttonText: 'Année',
       duration:{months:12},
       dayMaxEventRows: 6
-      }
-    },
-    customButtons: {
-      exportButton: {
-        text: '',
-        bootstrapFontAwesome:'fa-file-export',
-        click: function() {
-          window.location = 'export'
-        }
       }
     }
   });
