@@ -158,9 +158,8 @@ function filterEvenement(value,name){
   var id = "#"+value+"checkbox"
   var calendrier = window.value
   var eventSource = calendrier.getEventSources()
-  if ($(id)[0].checked) {
-    console.log(eventSource)
-    if (eventSource[0].internalEventSource["_raw"] == "evenement/list") {
+  if ($(id)[0].checked) { 
+    if (eventSource[0].internalEventSource["_raw"] == "evenement/list?output=json") {
       eventSource[0].remove()
     }
     calendrier.addEventSource('/filter/'+ name +'/'+value)
@@ -168,7 +167,7 @@ function filterEvenement(value,name){
   else {
     if (eventSource.length == 1) {
       eventSource[0].remove()
-      calendrier.addEventSource('evenement/list')
+      calendrier.addEventSource('evenement/list?output=json')
     }
     else {
       for (var i = 0; i < eventSource.length; i++) {
@@ -178,6 +177,7 @@ function filterEvenement(value,name){
       }
     }
   }
+  feedList()
 }
 
 // function deactivateObligation(){
@@ -190,20 +190,19 @@ function filterEvenement(value,name){
 //   deactivated.pop(obligationAct)
 //   obligationAct.addEvent()
 // }
-function showHint(str) {
-  if (str.length == 0) {
-    document.getElementById("txtHint").innerHTML = "";
-    return;
-  } else {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("txtHint").innerHTML = this.responseText;
-      }
-    };
-    xmlhttp.open("GET", "gethint.php?q=" + str, true);
-    xmlhttp.send();
-  }
+function feedList() {
+  var calendrier = window.value
+  var eventSource = calendrier.getEventSources()
+      $.ajax({
+         url : calendrier.getEventSources()[0].internalEventSource["_raw"]+'?output=html',
+         type : 'GET',
+         dataType : 'json',
+         success: function(data){
+           $.each(data,function(index,element){
+
+           })
+         },
+      });
 }
 function showEventList() {
   if ($("#ListEvents").css('display') === 'block') {
