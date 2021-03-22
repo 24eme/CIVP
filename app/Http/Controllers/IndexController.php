@@ -16,7 +16,7 @@ class IndexController extends Controller
 
     public function index()
     {
-      $evenements = Evenement::get()->all();
+      $evenements = Evenement::all()->sortBy('start');
       $familles = Famille::all();
       $organismes = Organisme::all();
       $types = Type::all();
@@ -24,15 +24,23 @@ class IndexController extends Controller
       return view('index', ['evenements' => $evenements,'tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'types' => $types]);
     }
 
-    public function listEvenements()
+    public function listEvenements(Request $request)
     {
+
       $evenements = DB::table('evenements')
       ->select('evenements.id', 'evenements.title', 'evenements.start', 'evenements.end','types.name as type','organismes.nom as organisme', 'types.color as color')
       ->where('evenements.active','=', true)
       ->join('types', 'types.id', '=', 'evenements.type_id')
       ->join('organismes', 'organismes.id', '=', 'evenements.organisme_id')
+      ->orderBy('evenements.start', 'desc')
       ->get();
-      return $evenements->toJson();
+      if ($request->output == "json") {
+          return $evenements->toJson();
+      }
+      else if ($request->output == "html"){
+        return view('partials/_list',['evenements'=>$evenements]);
+      }
+
     }
 
     public function filterEvenementsByType($filter)
@@ -43,6 +51,7 @@ class IndexController extends Controller
       ->where('types.name','like', $filter)
       ->join('types', 'types.id', '=', 'evenements.type_id')
       ->join('organismes', 'organismes.id', '=', 'evenements.organisme_id')
+      ->orderBy('evenements.start', 'desc')
       ->get();
       return $evenements->toJson();
     }
@@ -55,6 +64,7 @@ class IndexController extends Controller
       ->where('organismes.nom','like', $filter)
       ->join('organismes', 'organismes.id', '=', 'evenements.organisme_id')
       ->join('types', 'types.id', '=', 'evenements.type_id')
+      ->orderBy('evenements.start', 'desc')
       ->get();
       return $evenements->toJson();
     }

@@ -15,7 +15,7 @@ class CalendarController extends Controller
 {
     public function index()
     {
-      $evenements = Evenement::get()->all();
+      $evenements = Evenement::all()->sortBy('start');
       $familles = Famille::all();
       $organismes = Organisme::all();
       $types = Type::all();
