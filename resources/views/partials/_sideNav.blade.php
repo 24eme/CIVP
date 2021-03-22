@@ -43,9 +43,9 @@
     <li class="sidelist-item col-md-auto mx-1 pl-2 ml-2 "><a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Organisme</a>
       <ul class="sublist-item collapse list-unstyled ml-2" id="pageSubmenu">
         @foreach($organismes as $organisme)
-        <li><a class="dropdown-item" href="javascript:void(0)" data-url="{{ route('filterType',$type->name)}}" onchange="filterEvenement('{{$type->name}}','type')">
+        <li><a class="dropdown-item" href="javascript:void(0)" data-url="{{ route('filterOrganisme',$organisme->nom)}}" onchange="filterEvenement('{{$organisme->nom}}','organisme')">
           <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="{{$type->name}}checkbox">
+          <input class="form-check-input" type="checkbox" value="" id="{{$organisme->nom}}checkbox">
           <label class="form-check-label ml-2 mt-1" for="flexCheckDefault">{{$organisme->nom}}</label></div>
         </a></li>
         @endforeach
