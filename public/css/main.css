@@ -158,39 +158,9 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
 
 #footer{position: relative;min-height: 100px;background-color: rgba(27, 26, 55,0.95);z-index: 1000}
 
-.timeline:before { content: '';position:absolute;height:100%;left:50%;width:2px;top:-20px;background:#000;z-index:1;}
-.timeline{position:relative;margin: 50px auto;padding:50px 0;overflow-x: hidden;overflow-y: scroll;height: 80vh}
-.timeline ul{ margin:0;padding:0 ;}
-.timeline ul li{list-style:none;box-sizing:border-box;line-height:normal;position:relative;width:50%;padding: 40px 70px;}
-.timeline ul li .right_content h2{color:rgba(59, 59, 59,1);padding:0px 2px 18px 0px;}
-.timeline ul li:nth-child(odd){float:left;text-align:right;clear:both;}
-.timeline ul li:nth-child(even){float:right;text-align:left;clear:both;}
-.left_content{padding-bottom:20px;}
-.timeline ul li:nth-child(odd):before{content: '';position:absolute;width:10px;height:10px;background:rgba(59, 59, 59,1);border-radius:50%;box-shadow: 0 0 0 3px rgba(58,112,239,0.2);;right:-6px;top:24px;z-index:1;}
-.timeline ul li:nth-child(even):before{content: '';position:absolute;width:10px;height:10px;background:rgba(59, 59, 59,1);border-radius:50%;box-shadow: 0 0 0 3px rgba(58,112,239,0.2);left:-6px;top:24px;z-index:1;}
-.timeline ul li:nth-child(odd) .left_content{position:absolute;top:12px;right:-255px;margin:0;padding:8px 16px;color:#424242;box-shadow:0 0 0 3px rgba(59,59,59,0.3);border-radius:18px;}
-.timeline ul li:nth-child(even) .left_content{position:absolute;top:12px;left:-255px;margin:0;padding:8px 16px;color:#424242;box-shadow:0 0 0 3px rgba(59,59,59,0.3);border-radius:18px;}
 
-::-webkit-scrollbar {width: 10px;}
-::-webkit-scrollbar-track {background: #f1f1f1; }
-::-webkit-scrollbar-thumb {background: #888; }
-::-webkit-scrollbar-thumb:hover {background: #555; }
-
-@media (max-width: 1000px){
-  .timeline{
-    width:100%;
-  }
-}
-
+::-webkit-scrollbar {width: 0; background: transparent; }
 @media (max-width: 767px){
-  .timeline{width:100%;}
-  .timeline:before{left:20px;}
-  .timeline ul li:nth-child(odd),
-  .timeline ul li:nth-child(even){width:100%;text-align:left;padding-left:50px;}
-  .timeline ul li:nth-child(odd):before{top:-18px;left:16px;}
-  .timeline ul li:nth-child(even):before{top:-18px;left:16px;}
-  .timeline ul li:nth-child(odd) .left_content,
-  .timeline ul li:nth-child(even) .left_content{top:-30px;left:50px;right:inherit;}
   .waves {height:40px;min-height:40px;}
   .content {height:30vh;}
 }
