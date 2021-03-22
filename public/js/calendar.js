@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     dayMaxEvents: true,
     themeSystem: 'bootstrap',
     displayEventEnd: true,
-    events:'evenement/list',
+    events:'evenement/list?output=json',
     firstDay: 1,
     datesSet:function(info){
         Currentdate = calendar.getDate().toISOString();
