@@ -164,14 +164,14 @@ function filterEvenement(value,name){
       $("#tbody-events").empty()
     }
     calendrier.addEventSource('/filter/'+ name +'/'+value)
-    feedList()
+    feedList('/filter/'+ name +'/'+value)
   }
   else {
     if (eventSource.length == 1) {
       eventSource[0].remove()
       $("#tbody-events").empty()
       calendrier.addEventSource('evenement/list?output=json')
-      feedList()
+      feedList('evenement/list?output=json')
     }
     else {
       for (var i = 0; i < eventSource.length; i++) {
@@ -194,16 +194,12 @@ function filterEvenement(value,name){
 //   deactivated.pop(obligationAct)
 //   obligationAct.addEvent()
 // }
-function feedList() {
-  var calendrier = window.value
-  var eventSource = calendrier.getEventSources()
-  // var events = $('.')
+function feedList(url) { 
       $.ajax({
-         url : calendrier.getEventSources()[0].internalEventSource["_raw"]+'?output=html',
+         url : url,
          type : 'GET',
          dataType : 'json',
          success: function(data){
-
            $.each(data,function(index,element){
              element.start = new Date(element.start).toLocaleDateString('fr-FR',{weekday:'long',year:'numeric',month:'long',day:'numeric'})
              $("#tbody-events").append("<tr class='fc-list-day fc-day fc-day-tue fc-day-past'><td class='fc-list-event-time col-md-auto'><a>"+element.start+"</a></td><td class='col-md-auto'>&nbsp;</td><td class='col-md-auto'>&nbsp;</td><td class='col-md-auto'>&nbsp;</td></tr>")

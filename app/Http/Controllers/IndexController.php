@@ -32,7 +32,7 @@ class IndexController extends Controller
       ->where('evenements.active','=', true)
       ->join('types', 'types.id', '=', 'evenements.type_id')
       ->join('organismes', 'organismes.id', '=', 'evenements.organisme_id')
-      ->orderBy('evenements.start', 'desc')
+      ->orderBy('evenements.start', 'asc')
       ->get();
       if ($request->output == "json") {
           return $evenements->toJson();
@@ -51,7 +51,7 @@ class IndexController extends Controller
       ->where('types.name','like', $filter)
       ->join('types', 'types.id', '=', 'evenements.type_id')
       ->join('organismes', 'organismes.id', '=', 'evenements.organisme_id')
-      ->orderBy('evenements.start', 'desc')
+      ->orderBy('evenements.start', 'asc')
       ->get();
       return $evenements->toJson();
     }
@@ -64,7 +64,7 @@ class IndexController extends Controller
       ->where('organismes.nom','like', $filter)
       ->join('organismes', 'organismes.id', '=', 'evenements.organisme_id')
       ->join('types', 'types.id', '=', 'evenements.type_id')
-      ->orderBy('evenements.start', 'desc')
+      ->orderBy('evenements.start', 'asc')
       ->get();
       return $evenements->toJson();
     }
