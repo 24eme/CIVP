@@ -7,7 +7,7 @@
 <h2 class="fc-toolbar-title"></h2>
 <div class="list-events">
   <table class="fc-list-table table-bordered">
-    <tbody>
+    <tbody id="tbody-events">
       @foreach($evenements as $evenement)
       @if(in_array($evenement->id, $done) == False)
       <tr class="fc-list-day fc-day fc-day-tue fc-day-past">

@@ -158,26 +158,30 @@ function filterEvenement(value,name){
   var id = "#"+value+"checkbox"
   var calendrier = window.value
   var eventSource = calendrier.getEventSources()
-  if ($(id)[0].checked) { 
+  if ($(id)[0].checked) {
     if (eventSource[0].internalEventSource["_raw"] == "evenement/list?output=json") {
       eventSource[0].remove()
+      $("#tbody-events").empty()
     }
     calendrier.addEventSource('/filter/'+ name +'/'+value)
+    feedList()
   }
   else {
     if (eventSource.length == 1) {
       eventSource[0].remove()
+      $("#tbody-events").empty()
       calendrier.addEventSource('evenement/list?output=json')
+      feedList()
     }
     else {
       for (var i = 0; i < eventSource.length; i++) {
         if (eventSource[i].internalEventSource["_raw"] == "/filter/"+ name +'/'+value) {
           eventSource[i].remove()
+          $("#tbody-events").empty()
         }
       }
     }
   }
-  feedList()
 }
 
 // function deactivateObligation(){
@@ -193,12 +197,18 @@ function filterEvenement(value,name){
 function feedList() {
   var calendrier = window.value
   var eventSource = calendrier.getEventSources()
+  // var events = $('.')
       $.ajax({
          url : calendrier.getEventSources()[0].internalEventSource["_raw"]+'?output=html',
          type : 'GET',
          dataType : 'json',
          success: function(data){
+
            $.each(data,function(index,element){
+             element.start = new Date(element.start).toLocaleDateString('fr-FR',{weekday:'long',year:'numeric',month:'long',day:'numeric'})
+             $("#tbody-events").append("<tr class='fc-list-day fc-day fc-day-tue fc-day-past'><td class='fc-list-event-time col-md-auto'><a>"+element.start+"</a></td><td class='col-md-auto'>&nbsp;</td><td class='col-md-auto'>&nbsp;</td><td class='col-md-auto'>&nbsp;</td></tr>")
+             $("#tbody-events").append(
+               "<tr class='fc-list-event  fc-event fc-event-start fc-event-end fc-event-past'><td class='fc-list-event-time col-md-auto'><a>"+element.type+"</a></td><td class='fc-list-event-title col-md-6'><span class='fc-list-dot col-md-auto'><i class='fas fa-circle' style='color:"+element.color+"'></i></span><a href='javascript:void(0)' class='popupEvent' data-url='{{ route('evenement_popup', $evenement) }}'><strong>"+element.title+"</strong><a></td><td class='fc-list-event-title col-md-auto'>"+element.organisme+"</td><td class='fc-list-event-title col-md-auto'><button type='button' class='btn btn-primary' onclick='exportICS({{$evenement->id}})'><i class='fas fa-external-link-alt'></i></button></td></tr>")
 
            })
          },
