@@ -64,9 +64,6 @@
   </div>
   @include('layout/popup')
   @include("layout/footer")
-  <script src="/js/global.js"></script>
   <script src="/js/calendar.js"></script>
-  <script src="/js/calendar-list.js"></script>
-  @include('layout/popup')
 </body>
 </html>
