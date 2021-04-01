@@ -1,5 +1,5 @@
 body,html{margin:0;padding: 0;width: 100%;height: 100%;background: #f8fafb;scroll-behavior: smooth;overflow-x: hidden;}
-*{font-size: 12px;font-family: 'Montserrat','open sans', 'lato', 'helvetica', sans-serif;}
+*{font-size: 13px;font-family: 'Montserrat','open sans', 'lato', 'helvetica', sans-serif;}
 
 a{color:black;font-size: 1em;}
 a:hover{color:black;text-decoration: none}
@@ -15,12 +15,12 @@ div.list-events{height: 700px;overflow-y: scroll;}
 .fc-list-event > td{height: 35px;width: 675px;padding: 5px;}
 .fc-list-day{border-top:1px solid #dee2e6;border-bottom:1px solid #dee2e6;}
 #main{position: relative;margin-left: 290px;background-color: transparent;display: block;vertical-align: middle;transition: margin-left .5s;}
-#calendar{background-color: inherit;display: block;margin: auto;background-color: #FEFEFE;padding: 10px;border-radius: 5px;  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);}
+#calendar{background-color: inherit;display: block;margin: auto;background-color: #FEFEFE;padding: 10px;}
 div.navbar-custom {height: 100%;width: 290px; position: fixed;z-index: 10!important;top: 0;left: 0;background-color: #FFF;;overflow-x: hidden;transition: 0.3s;padding-top: 20px;overflow: hidden;border-right: 1px solid #ebeef0}
 div.navbar-custom,.sidelist-item > *{ font-family: 'Montserrat-Bold';color:grey !important;font-size: 1.2em;padding: 5px}
 .sublist-item li > a{font-size: 1em;padding: 5px}
 
-.nav-tabs{width: 145px;margin: auto;}
+.nav-tabs{width: 155px;margin: auto;}
 .dropdown-menu > a {font-size: 1.25em;}
 div.FiltrerPar{border-left:15px solid #534066;}
 li.tag-item{display: inline-block;}
@@ -111,7 +111,7 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
 .disabled_text{display: inline-block;color:red;font-family: "Montserrat-Bold";margin: 0px;}
 
 .tagcloud a{text-transform: uppercase;display: inline-block;padding: 4px 10px;margin-bottom: 7px;margin-right: 4px;border-radius: 4px;color: #000;border: 1px solid #E8E8E8;font-size: 11px;}
-.tagcloud a:hover{color:white;background-color: #ecc140}
+.tagcloud a:hover{color:white;background-color: #ef8c8e}
 .organisme-card{background-color: #E8E8E8;border-radius: 10px}
 .color-block{display: inline-block;height : 30px;width :40px;}
 .popup{display: none;position: absolute;width: 300px;background-color: #FFF;border-radius: 10px;box-shadow: 0px 0px 31px 0px rgba(212,212,212,1);overflow: hidden;z-index: 1000}

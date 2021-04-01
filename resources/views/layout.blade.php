@@ -16,6 +16,45 @@
     <link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/css/all.css' rel='stylesheet'>
     <link rel="stylesheet" href="/fullcalendar-year-view/dist/fullcalendar.css" />
     <link rel="stylesheet" href="/css/main.css" />
+    <style type="text/css">
+      .fc-unthemed td.fc-today {
+        background: #ffeff0;
+      }
+      .custom-control-label {
+        cursor: pointer;
+      }
+      a.fc-event {
+        cursor: pointer;
+      }
+      .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+          color: #ef8c8e;
+          background-color: #fff;
+          border-color: #ef8c8e;
+          border-bottom: none;
+      }
+      .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+          color: #ef8c8e;
+      }
+      #calendar h2 {
+        color: #ef8c8e;
+      }
+            .custom-control-input:checked ~ .custom-control-label::before {
+                border-color: #ef8c8e !important;
+                background-color: #ef8c8e !important;
+            }
+
+            .custom-control-input:active ~ .custom-control-label::before {
+                background-color: #ef8c8e !important;
+                border-color: #ef8c8e !important;
+            }
+
+            .custom-control-input:focus ~ .custom-control-label::before {
+              outline: none !important;
+              -webkit-appearance: none;
+              box-shadow: none !important;
+              border-color: #adb5bd !important;
+            }
+    </style>
 </head>
 <body>
   @include('layout/header')
