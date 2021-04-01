@@ -20,9 +20,10 @@
 <body>
   @include('layout/header')
   <div class="container-fluid">
-      @include('components/flash-message')
-      @yield('content')
+    @include('components/flash-message')
+    @yield('content')
   </div>
+  @include('layout/popup')
   @include("layout/footer")
   <script src="/js/global.js"></script>
   <script src="/js/calendar.js"></script>

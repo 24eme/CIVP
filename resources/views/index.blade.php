@@ -2,9 +2,6 @@
 @section('content')
 @include('partials/_sideNav')
 <div id="main" class="main">
-  <button type="button" class="closebtn" onclick="openNav()" aria-label="Close">
-    <i class="fas fa-chevron-circle-left"></i>
-  </button>
   <nav class="mt-4">
     <div class="col-md-auto float-right">
       <button style="background-color:#E8E8E8;border-color:#E8E8E8" type="button" class="btn btn-warning" data-dismiss="modal"><a href="export">Exporter</a></button>
