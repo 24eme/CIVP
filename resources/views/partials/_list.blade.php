@@ -24,7 +24,7 @@
       <tr class="fc-list-event  fc-event fc-event-start fc-event-end fc-event-past">
         <td class="fc-list-event-time col-md-1">{{ $subevenement->type->name }}</td>
         <td class="fc-list-event-title col-md-6"><span class="fc-list-dot col-md-auto"><i class="fas fa-circle" style="color:{{$evenement->type->color}}"></i></span><a href="javascript:void(0)" class="popupEvent" data-url="{{ route('evenement_popup', $evenement) }}"><strong>{{$evenement->title}}</strong><a></td>
-        <td class="fc-list-event-title col-md-auto">{{$evenement->organisme->nom}}</td>
+        <td class="fc-list-event-title col-md-auto">{{$evenement->strOrganismes()}}</td>
         <td class="fc-list-event-title col-md-auto"><button type="button" class="btn btn-primary" onclick="exportICS({{$evenement->id}})"><i class="fas fa-external-link-alt"></i></button></td>
       </tr>
       @endif
