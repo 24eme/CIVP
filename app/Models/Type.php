@@ -18,18 +18,4 @@ class Type extends Model
         $this->attributes['nom'] = $value;
         $this->attributes['slug'] = Str::slug($value);
     }
-    public function findByLibelle($value)
-    {
-      switch ($value) {
-        case 'Aide':
-          return 1;
-        case 'Evenement':
-          return 2;
-        case 'Obligation':
-          return 3;
-        default:
-          return 2;
-          break;
-      }
-    }
 }

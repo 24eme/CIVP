@@ -13,14 +13,14 @@ use Illuminate\Support\Str;
 class Evenement extends Model
 {
     use HasFactory;
-    protected $fillable = ['type_id', 'organisme_id', 'familles', 'tags', 'title', 'description', 'start', 'end', 'textedeloi', 'liendeclaration','active', 'rrule'];
+    protected $fillable = ['type_id', 'familles', 'tags', 'title', 'description', 'start', 'end', 'textedeloi', 'liendeclaration','active', 'rrule'];
 
     public function type() {
         return $this->belongsTo(Type::class, 'type_id');
     }
 
-    public function organisme() {
-        return $this->belongsTo(Organisme::class, 'organisme_id');
+    public function organismes() {
+        return $this->belongsToMany(Organisme::class);
     }
 
     public function tags() {
@@ -47,8 +47,20 @@ class Evenement extends Model
         return implode(', ', $familles);
     }
 
+    public function strOrganismes() {
+        $organismes = [];
+        foreach($this->organismes as $organisme) {
+          $organismes[] = $organisme->nom;
+        }
+        return implode(', ', $organismes);
+    }
+
     public function saveFamilles($familles) {
       $this->familles()->sync($familles);
+    }
+
+    public function saveOrganismes($organismes) {
+      $this->organismes()->sync($organismes);
     }
 
     public function saveTags($items) {
