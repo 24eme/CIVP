@@ -26,21 +26,26 @@ class IndexController extends Controller
 
     public function listEvenements(Request $request)
     {
-
-      $evenements = DB::table('evenements')
-      ->select('evenements.id', 'evenements.title', 'evenements.start', 'evenements.end','types.name as type','organismes.nom as organisme', 'types.color as color')
-      ->where('evenements.active','=', true)
-      ->join('types', 'types.id', '=', 'evenements.type_id')
-      ->join('organismes', 'organismes.id', '=', 'evenements.organisme_id')
-      ->orderBy('evenements.start', 'asc')
-      ->get();
-      if ($request->output == "json") {
-          return $evenements->toJson();
+      $query = DB::table('evenements')
+      ->select('evenements.id', 'evenements.title', 'evenements.start', 'evenements.end')
+      ->leftJoin('evenement_famille', 'evenements.id', '=', 'evenement_famille.evenement_id')
+      ->leftJoin('evenement_organisme', 'evenements.id', '=', 'evenement_organisme.evenement_id')
+      ->leftJoin('evenement_tag', 'evenements.id', '=', 'evenement_tag.evenement_id')
+      ->where('evenements.active','=', 1);
+      if (isset($request->filters) && isset($request->filters['familles']) && count($request->filters['familles']) > 0) {
+        $query->whereIn('evenement_famille.famille_id', $request->filters['familles']);
       }
-      else if ($request->output == "html"){
-        return view('partials/_list',['evenements'=>$evenements]);
+      if (isset($request->filters) && isset($request->filters['organismes']) && count($request->filters['organismes']) > 0) {
+        $query->whereIn('evenement_organisme.organisme_id', $request->filters['organismes']);
       }
-
+      if (isset($request->filters) && isset($request->filters['tags']) && count($request->filters['tags']) > 0) {
+        $query->whereIn('evenement_tag.tag_id', $request->filters['tags']);
+      }
+      $evenements = $query->orderBy('evenements.start', 'asc')->distinct()->get();
+      if ($request->output == "html"){
+        return view('partials/_list',['evenements'=> $evenements]);
+      }
+      return $evenements->toJson();
     }
 
     public function filterEvenementsByType($filter)
