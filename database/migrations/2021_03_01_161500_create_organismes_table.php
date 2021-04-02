@@ -16,13 +16,22 @@ class CreateOrganismesTable extends Migration
         Schema::create('organismes', function (Blueprint $table) {
           $table->increments('id');
           $table->string('nom')->unique();
-          $table->string('adresse');
-          $table->string('code_postal');
-          $table->string('ville');
-          $table->string('contact');
-          $table->string('telephone');
-          $table->string('email');
+          $table->string('adresse')->nullable();
+          $table->string('code_postal')->nullable();
+          $table->string('ville')->nullable();
+          $table->string('contact')->nullable();
+          $table->string('telephone')->nullable();
+          $table->string('email')->nullable();
+          $table->string('couleur')->nullable();
+          $table->string('logo')->nullable();
           $table->string('slug');
+        });
+
+        Schema::create('evenement_organisme', function (Blueprint $table) {
+          $table->integer('evenement_id')->unsigned()->index();
+          $table->foreign('evenement_id')->references('id')->on('evenements')->onDelete('cascade');
+          $table->integer('organisme_id')->unsigned()->index();
+          $table->foreign('organisme_id')->references('id')->on('organismes')->onDelete('cascade');
         });
     }
 
@@ -33,6 +42,7 @@ class CreateOrganismesTable extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('evenement_organisme');
         Schema::dropIfExists('organismes');
     }
 }

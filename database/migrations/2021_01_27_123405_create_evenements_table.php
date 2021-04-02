@@ -15,14 +15,12 @@ class CreateEvenementsTable extends Migration
     {
         Schema::create('evenements', function (Blueprint $table) {
           $table->increments('id');
+          $table->integer('type_id')->unsigned()->index();
+          $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
           $table->string('title')->index();
           $table->date('start');
           $table->date('end');
           $table->longText('description')->index();
-          $table->integer('type_id')->unsigned()->index();
-          $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
-          $table->integer('organisme_id')->unsigned()->index();
-          $table->foreign('organisme_id')->references('id')->on('organismes')->onDelete('cascade');
           $table->string('textedeloi')->nullable();
           $table->string('liendeclaration')->nullable();
           $table->boolean('active');
