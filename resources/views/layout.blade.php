@@ -55,6 +55,20 @@
               border-color: #adb5bd !important;
             }
     </style>
+    <script type="text/javascript">
+    $(document).ready(function(){
+      var form = $("#formFilters");
+      form.change(function() {
+        form.submit();
+      });
+      form.submit(function(e) {
+        e.preventDefault();
+        var source = form.attr('action')+'?'+form.serialize();
+        $('#calendar').fullCalendar('removeEvents');
+        $('#calendar').fullCalendar('addEventSource', source);
+      });
+    });
+    </script>
 </head>
 <body>
   @include('layout/header')
