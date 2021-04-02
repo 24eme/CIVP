@@ -22,7 +22,8 @@ div.navbar-custom,.sidelist-item > *{ font-family: 'Montserrat-Bold';color:grey 
 
 .nav-tabs{width: 155px;margin: auto;}
 .dropdown-menu > a {font-size: 1.25em;}
-div.FiltrerPar{border-left:15px solid #534066;}
+div.FiltrerPar{border-left:15px solid #ef8c8e;}
+div.FiltrerPar h5{color: #ef8c8e;}
 li.tag-item{display: inline-block;}
 .container-fluid{height: 100%}
 #adminNavigation{background-color: rgb(255, 255, 255);}
