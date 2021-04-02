@@ -59,17 +59,18 @@
         </div>
         <div class="col-md-auto">
           <ul class="tagList p-0">
-            <li class="tag-item"><a href="#" class="tag">{{$evenement->strFamilles()}}</a></li>
+            <li class="tag-item"><a href="#" class="tag">{{$evenement->strTags()}}</a></li>
           </ul>
         </div>
       </div>
-      <div class="organisme-card p-3">
+      @foreach($evenement->organismes as $organisme)
+      <div class="organisme-card p-3 m-1">
       <div class="row">
         <div class="col-md-4">
           <label class="popup-label" for="">Organisme : </label>
         </div>
         <div class="col-md-8">
-          <p>{{$evenement->organisme->nom}}</p>
+          <p>{{$organisme->nom}}</p>
         </div>
       </div>
       <div class="row">
@@ -77,7 +78,7 @@
           <label class="popup-label" for="">Adresse : </label>
         </div>
         <div class="col-md-8">
-          <p>{{$evenement->organisme->adresse}} {{$evenement->organisme->code_postal}} {{$evenement->organisme->ville}}</p>
+          <p>{{$organisme->adresse}} {{$organisme->code_postal}} {{$organisme->ville}}</p>
         </div>
       </div>
       <div class="row">
@@ -85,7 +86,7 @@
           <label class="popup-label" for="">Contact : </label>
         </div>
         <div class="col-md-8">
-          <p>{{$evenement->organisme->contact}}</p>
+          <p>{{$organisme->contact}}</p>
         </div>
       </div>
       <div class="row">
@@ -93,7 +94,7 @@
           <label class="popup-label" for=""><i class="fas fa-phone-alt"></i> Téléphone : </label>
         </div>
         <div class="col-md-8">
-          <p>{{$evenement->organisme->telephone}}</p>
+          <p>{{$organisme->telephone}}</p>
         </div>
       </div>
       <div class="row">
@@ -101,10 +102,11 @@
           <label class="popup-label" for=""><i class="far fa-envelope"></i> Mail : </label>
         </div>
         <div class="col-md-8">
-          <p>{{$evenement->organisme->email}}</p>
+          <p>{{$organisme->email}}</p>
         </div>
       </div>
       </div>
+      @endforeach
     </div>
     <div class="modal-footer">
       <button style="background-color:{{$evenement->type->color}};border-color:{{$evenement->type->color}}" type="button" class="btn btn-warning" data-dismiss="modal"><a href="evenement/export/{{$evenement->id}}">Exporter</a></button>
