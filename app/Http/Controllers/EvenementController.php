@@ -6,6 +6,7 @@ use App\Models\Evenement;
 use App\Models\Organisme;
 use App\Models\Type;
 use App\Models\Famille;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Sabre\VObject;
@@ -19,11 +20,12 @@ class EvenementController extends Controller
      */
     public function index()
     {
-      $evenements = Evenement::all();
+      $evenements = Evenement::all()->sortBy('start');
+      $familles = Famille::all();
       $organismes = Organisme::all();
       $types = Type::all();
-      $familles = Famille::all();
-        return view('evenement/list',['evenements' => $evenements,'organismes' => $organismes, 'types' => $types, 'familles' => $familles]);
+      $tags = Tag::all();
+        return view('evenement/list', ['evenements' => $evenements,'tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'types' => $types]);
     }
 
     /**
