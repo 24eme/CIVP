@@ -38,22 +38,27 @@
       #calendar h2 {
         color: #ef8c8e;
       }
-            .custom-control-input:checked ~ .custom-control-label::before {
-                border-color: #ef8c8e !important;
-                background-color: #ef8c8e !important;
-            }
+      .custom-control-input:checked ~ .custom-control-label::before {
+          border-color: #ef8c8e !important;
+          background-color: #ef8c8e !important;
+      }
 
-            .custom-control-input:active ~ .custom-control-label::before {
-                background-color: #ef8c8e !important;
-                border-color: #ef8c8e !important;
-            }
+      .custom-control-input:active ~ .custom-control-label::before {
+          background-color: #ef8c8e !important;
+          border-color: #ef8c8e !important;
+      }
 
-            .custom-control-input:focus ~ .custom-control-label::before {
-              outline: none !important;
-              -webkit-appearance: none;
-              box-shadow: none !important;
-              border-color: #adb5bd !important;
-            }
+      .custom-control-input:focus ~ .custom-control-label::before {
+        outline: none !important;
+        -webkit-appearance: none;
+        box-shadow: none !important;
+        border-color: #adb5bd !important;
+      }
+      .table .thead-light th {
+        background-color: #ffeff0;
+        color: #ef8c8e;
+        border:none;
+      }
     </style>
     <script type="text/javascript">
     $(document).ready(function(){
