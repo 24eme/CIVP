@@ -51,19 +51,18 @@ class EvenementController extends Controller
     {
         $attributes = request()->validate([
             'type_id'=>'required',
-            'organisme_id'=>'required',
             'title'=>'required',
             'description'=>'required',
             'start'=>'required|date',
             'end'=>'required|date',
             'textedeloi'=>'',
             'liendeclaration'=>'',
-            'active'=>'required|boolean',
-            'rrule'=>''
+            'active'=>''
         ]);
         $evenement = Evenement::create($attributes);
         $evenement->saveTags($request->get('tags'));
         $evenement->saveFamilles($request->get('familles'));
+        $evenement->saveOrganismes($request->get('organismes'));
         return redirect()->route('evenements');
     }
 
@@ -92,19 +91,18 @@ class EvenementController extends Controller
     {
       $attributes = request()->validate([
           'type_id'=>'required',
-          'organisme_id'=>'required',
           'title'=>'required',
           'description'=>'required',
           'start'=>'required|date',
           'end'=>'required|date',
           'textedeloi'=>'',
           'liendeclaration'=>'',
-          'active'=>'required|boolean',
-          'rrule'=>''
+          'active'=>''
       ]);
       $evenement->update($attributes);
       $evenement->saveTags($request->get('tags'));
       $evenement->saveFamilles($request->get('familles'));
+      $evenement->saveOrganismes($request->get('organismes'));
       return redirect()->route('evenements');
     }
 

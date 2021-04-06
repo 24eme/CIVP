@@ -20,31 +20,6 @@
           @enderror
         </div>
         <div class="form-group">
-          <label for="organisme_id">Organisme</label>
-          <select class="form-control @error('organisme_id') is-invalid @enderror" name="organisme_id">
-            @foreach($organismes as $organisme)
-              <option value="{{$organisme->id}}" @if($organisme->id == $evenement->organisme_id) selected="selected" @endif>{{$organisme->nom}}</option>
-            @endforeach
-          </select>
-          @error('organisme_id')
-          <div class="invalid-feedback">{{ $message }}</div>
-          @enderror
-        </div>
-        <div class="form-group">
-          <label for="title">Titre</label>
-          <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ $evenement->title }}" />
-          @error('title')
-          <div class="invalid-feedback">{{ $message }}</div>
-          @enderror
-        </div>
-        <div class="form-group">
-          <label for="description">Description</label>
-          <textarea class="form-control" rows="3" name="description">{{ $evenement->description }}</textarea>
-          @error('description')
-          <div class="invalid-feedback">{{ $message }}</div>
-          @enderror
-        </div>
-        <div class="form-group">
           <label>Familles</label>
           <div>
             @foreach($familles as $famille)
@@ -73,6 +48,34 @@
           @enderror
         </div>
         <div class="form-group">
+          <label for="title">Titre</label>
+          <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ $evenement->title }}" />
+          @error('title')
+          <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea class="form-control" rows="3" name="description">{{ $evenement->description }}</textarea>
+          @error('description')
+          <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+        </div>
+        <div class="form-group">
+          <label>Organismes</label>
+          <div>
+            @foreach($organismes as $organisme)
+            <div class="form-check form-check-inline">
+              <input name="organismes[]" @if($evenement->organismes->contains($organisme->id)) checked="checked" @endif class="form-check-input @error('organismes') is-invalid @enderror" id="organisme-{{ $organisme->id }}" type="checkbox" value="{{ $organisme->id }}">
+              <label class="form-check-label" for="organisme-{{ $organisme->id }}">{{ $organisme->nom }}</label>
+            </div>
+            @endforeach
+            @error('organismes')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+          </div>
+        </div>
+        <div class="form-group">
           <label for="textdeloi">Texte de loi</label>
           <input type="text" class="form-control @error('textdeloi') is-invalid @enderror" name="textdeloi" />
           @error('textdeloi')
@@ -90,6 +93,13 @@
           <label for="tags">Tags</label>
           <input type="text" class="form-control @error('tags') is-invalid @enderror" name="tags" value="{{ $evenement->strTags() }}" />
           @error('tags')
+          <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+        </div>
+        <div class="form-group">
+          <label for="active">Actif?</label>
+          <input type="checkbox" class="form-control @error('active') is-invalid @enderror" name="active" @if($evenement->active) checked="checked" @endif />
+          @error('active')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>

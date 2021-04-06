@@ -18,24 +18,6 @@
           @enderror
         </div>
         <div class="form-group">
-          <label for="organisme_id">Organisme</label>
-          <select class="form-control @error('organisme_id') is-invalid @enderror" name="organisme_id">
-            @foreach($organismes as $organisme)
-              <option value="{{$organisme->id}}">{{$organisme->nom}}</option>
-            @endforeach
-          </select>
-          @error('organisme_id')
-          <div class="invalid-feedback">{{ $message }}</div>
-          @enderror
-        </div>
-        <div class="form-group">
-          <label for="title">Titre</label>
-          <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" />
-          @error('title')
-          <div class="invalid-feedback">{{ $message }}</div>
-          @enderror
-        </div>
-        <div class="form-group">
           <label>Familles</label>
           <div>
             @foreach($familles as $famille)
@@ -50,13 +32,6 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="description">Description</label>
-          <textarea class="form-control" rows="3" name="description"></textarea>
-          @error('description')
-          <div class="invalid-feedback">{{ $message }}</div>
-          @enderror
-        </div>
-        <div class="form-group">
           <label for="start">Date début</label>
           <input type="text" class="form-control @error('start') is-invalid @enderror" name="start" />
           @error('start')
@@ -69,6 +44,34 @@
           @error('end')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
+        </div>
+        <div class="form-group">
+          <label for="title">Titre</label>
+          <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" />
+          @error('title')
+          <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea class="form-control" rows="3" name="description"></textarea>
+          @error('description')
+          <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+        </div>
+        <div class="form-group">
+          <label>Organismes</label>
+          <div>
+            @foreach($organismes as $organisme)
+            <div class="form-check form-check-inline">
+              <input name="organismes[]" class="form-check-input @error('organismes') is-invalid @enderror" id="organisme-{{ $organisme->id }}" type="checkbox" value="{{ $organisme->id }}">
+              <label class="form-check-label" for="organisme-{{ $organisme->id }}">{{ $organisme->nom }}</label>
+            </div>
+            @endforeach
+            @error('organismes')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+          </div>
         </div>
         <div class="form-group">
           <label for="textdeloi">Texte de loi</label>
@@ -88,6 +91,15 @@
           <label for="tags">Tags</label>
           <input type="text" class="form-control @error('tags') is-invalid @enderror" name="tags" />
           @error('tags')
+          <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+        </div>
+        <div class="form-group">
+          <div class="form-check form-check-inline">
+            <input type="checkbox" class="form-check-input @error('active') is-invalid @enderror" name="active" id="active" checked="checked" value="1" />
+            <label for="active">Actif</label>
+          </div>
+          @error('active')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
