@@ -13,7 +13,7 @@ use Illuminate\Support\Str;
 class Evenement extends Model
 {
     use HasFactory;
-    protected $fillable = ['type_id', 'familles', 'tags', 'title', 'description', 'start', 'end', 'textedeloi', 'liendeclaration','active', 'rrule'];
+    protected $fillable = ['type_id', 'organismes', 'familles', 'tags', 'title', 'description', 'start', 'end', 'textedeloi', 'liendeclaration','active', 'rrule'];
 
     public function type() {
         return $this->belongsTo(Type::class, 'type_id');
