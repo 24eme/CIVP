@@ -80,6 +80,14 @@
         var source = form.attr('action')+'?'+form.serialize();
         $('#calendar').fullCalendar('removeEvents');
         $('#calendar').fullCalendar('addEventSource', source);
+        $.ajax({
+           url : form.attr('action')+'?output=html&'+form.serialize(),
+           type : 'GET',
+           dataType : 'html',
+           success : function(result, statut){
+               $("#nav-liste").html(result);
+           }
+        });
       });
     });
     </script>
