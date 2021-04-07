@@ -16,9 +16,6 @@ Route::get('/evenement/{id}', [EvenementController::class,'popup'])->name('evene
 Route::get('/evenement/export/{id}', [EvenementController::class,'export'])->name('export');
 Route::get('/export', [EvenementController::class,'export'])->name('export');
 
-Route::get('/filter/type/{type}', [IndexController::class,'filterEvenementsByType'])->name('filterType');
-Route::get('/filter/organisme/{organisme}', [IndexController::class,'filterEvenementsByOrganisme'])->name('filterOrganisme');
-
 Route::prefix('admin')->group(function () {
   Route::get('/', function () { return redirect()->route('evenements'); });
   Route::post('/importCSV', [CalendarController::class,'importCSV'])->name('importCSV');
