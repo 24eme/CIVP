@@ -108,7 +108,7 @@ class EvenementController extends Controller
 
     public function popup($id) {
       $evenement = Evenement::find($id);
-      return view('components/popup', ['evenement' => $evenement]);
+      return view('partials/popup', ['evenement' => $evenement]);
     }
 
     public function destroy(Evenements $evenements)
