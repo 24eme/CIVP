@@ -62,6 +62,15 @@
     </style>
     <script type="text/javascript">
     $(document).ready(function(){
+      // OUVERTURE POPUP
+      $(".popupEvent").click(function() {
+        var url = $(this).data('url');
+        $.get(url, function(response) {
+          $('#popupEvenement').html(response);
+          $('#popupEvenement').modal('show');
+        });
+      });
+      // FILTRES
       var form = $("#formFilters");
       form.change(function() {
         form.submit();
