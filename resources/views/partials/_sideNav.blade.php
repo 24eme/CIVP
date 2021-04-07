@@ -44,7 +44,7 @@
       @foreach($organismes as $organisme)
         <div class="custom-control custom-switch py-1">
           <input name="filters[organismes][]" value="{{$organisme->id}}" type="checkbox" class="custom-control-input" id="organisme{{$organisme->id}}">
-          <label class="custom-control-label" for="organisme{{$organisme->id}}">{{$organisme->nom}} {{$organisme->couleur}}</label>
+          <label class="custom-control-label" for="organisme{{$organisme->id}}">{{$organisme->nom}}</label>
         </div>
       @endforeach
     </div>
