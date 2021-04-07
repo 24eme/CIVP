@@ -39,13 +39,13 @@
         color: #ef8c8e;
       }
       .custom-control-input:checked ~ .custom-control-label::before {
-          border-color: #ef8c8e !important;
-          background-color: #ef8c8e !important;
+          border-color: #ef8c8e;
+          background-color: #ef8c8e;
       }
 
       .custom-control-input:active ~ .custom-control-label::before {
-          background-color: #ef8c8e !important;
-          border-color: #ef8c8e !important;
+          background-color: #ef8c8e;
+          border-color: #ef8c8e;
       }
 
       .custom-control-input:focus ~ .custom-control-label::before {
