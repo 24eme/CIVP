@@ -55,6 +55,14 @@ class Evenement extends Model
         return implode(', ', $organismes);
     }
 
+    public function htmlOrganismesList() {
+        $organismes = '';
+        foreach($this->organismes as $organisme) {
+          $organismes .= '<i class="fas fa-circle" style="color: '.$organisme->couleur.'"></i>&nbsp;'.$organisme->nom.' ';
+        }
+        return $organismes;
+    }
+
     public function saveFamilles($familles) {
       $this->familles()->sync($familles);
     }
