@@ -20,7 +20,7 @@ class Evenement extends Model
     }
 
     public function organismes() {
-        return $this->belongsToMany(Organisme::class);
+        return $this->belongsToMany(Organisme::class)->orderBy('nom', 'asc');
     }
 
     public function tags() {
