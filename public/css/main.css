@@ -96,9 +96,7 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
 .input-underlined:not(.input-danger) > input:focus + .input-label{color: blue;}
 .input-underlined:not(.input-danger) > input:focus{border-color: blue;}
 
-.modal-header{background-color: transparent ;border-bottom: none}
-.modal-body{padding-left: 2em;}
-.modal-footer{border-top: none}
+
 
 .download_csv{width: 110px;margin: auto;}
 .download_csv div > input { display: none;}
