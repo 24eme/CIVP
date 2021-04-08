@@ -1,4 +1,4 @@
-<div id="sideNavigation" class="container navbar-custom">
+<div id="sideNavigation" class="col-2 navbar-custom h-100">
   <div class="row upper_wrapper mt-3">
     <div class="text-center">
       <a href="/"><img src="{{asset('images/logos/logo-C.png')}}" width=50  alt=""></a>

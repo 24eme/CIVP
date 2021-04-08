@@ -125,7 +125,7 @@
 </head>
 <body>
   @include('layout/header')
-  <div class="container-fluid">
+  <div class="row px-2">
     @include('components/flash-message')
     @yield('content')
   </div>
