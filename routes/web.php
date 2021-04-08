@@ -8,6 +8,7 @@ use App\Http\Controllers\FamilleController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\AdminController;
 
 Route::get('/', function () { return redirect()->route('index'); });
 Route::get('/index', [IndexController::class, 'index'])->name('index');
@@ -17,7 +18,11 @@ Route::get('/evenement/export/{id}', [EvenementController::class,'export'])->nam
 Route::get('/export', [EvenementController::class,'export'])->name('export');
 
 Route::prefix('admin')->group(function () {
-  Route::get('/', function () { return redirect()->route('evenements'); });
+  Route::get('/', [AdminController::class,'login'])->name('login');
+  Route::post('/authenticate', [AdminController::class,'authenticate'])->name('authenticate');
+  Route::get('/authenticated', [AdminController::class,'authenticated'])->name('authenticated');
+  Route::get('/logout', [AdminController::class,'logout'])->name('logout');
+
   Route::post('/importCSV', [CalendarController::class,'importCSV'])->name('importCSV');
 
   Route::get('evenements', [EvenementController::class,'index'])->name('evenements');
