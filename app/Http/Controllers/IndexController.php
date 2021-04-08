@@ -11,6 +11,7 @@ use App\Models\Organisme;
 use App\Models\Type;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
 
 class IndexController extends Controller
 {
@@ -21,7 +22,11 @@ class IndexController extends Controller
       $familles = Famille::all();
       $organismes = Organisme::all();
       $tags = Tag::all();
-      return view('index', ['evenements' => $evenements,'tags' => $tags, 'familles' => $familles, 'organismes' => $organismes]);
+      $user = null;
+      if (Auth::check()) {
+        $user = Auth::user();
+      }
+      return view('index', ['evenements' => $evenements,'tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user]);
     }
 
     public function listEvenements(Request $request)
