@@ -8,10 +8,6 @@
     </div>
   </div>
 
-  @if(Request()->route()->getPrefix())
-    @include('partials/_adminNav')
-  @endif
-
   <form action="{{ route('listEvenements') }}" method="GET" id="formFilters">
 
   <div class="row p-2 mt-3 FiltrerPar">
@@ -82,4 +78,24 @@
       </ul>
     </div>
   </div>
+
+  @if ($user)
+
+
+  <div class="row p-2 mt-3 NavAdmin">
+    <div class="col-md-12 pt-1">
+      <h5>Admin</h5>
+    </div>
+  </div>
+
+  <div class="row p-2 mt-3">
+    <div class="col-md-12 pt-1"><a href="{{ route ('evenement_create') }}">Créer un evenement</a></div>
+  </div>
+  <div class="row p-2 mt-3">
+    <div class="col-md-12 pt-1"><a href="{{ route ('organismes') }}">Organismes</a></div>
+  </div>
+
+  @endif
+
+
 </div>
