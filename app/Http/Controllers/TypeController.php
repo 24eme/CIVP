@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Evenement;
+use App\Models\Organisme;
 use App\Models\Type;
+use App\Models\Famille;
+use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TypeController extends Controller
 {
@@ -14,34 +19,15 @@ class TypeController extends Controller
      */
      public function index()
      {
-           $types = Type::get()->all();
-           return view('type/index', compact('types'));
-     }
-
-     /**
-      * Show the form for creating a new resource.
-      *
-      * @return \Illuminate\Http\Response
-      */
-     public function create()
-     {
-         return view('type/create');
-     }
-
-     /**
-      * Store a newly created resource in storage.
-      *
-      * @param  \Illuminate\Http\Request  $request
-      * @return \Illuminate\Http\Response
-      */
-     public function store(Request $request)
-     {
-       $attributes = request()->validate([
-           'nom'=>'required',
-           'couleur'=>'required',
-       ]);
-       Type::create($attributes);
-       return redirect()->route('types');
+           $types = Type::all();
+           $familles = Famille::all();
+           $organismes = Organisme::all();
+           $tags = Tag::all();
+           $user = null;
+           if (Auth::check()) {
+             $user = Auth::user();
+           }
+           return view('type/index', ['types' => $types, 'tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user]);
      }
 
      /**
@@ -52,7 +38,14 @@ class TypeController extends Controller
       */
      public function edit(Type $type)
      {
-         return view('type/edit', compact('type'));
+         $familles = Famille::all();
+         $organismes = Organisme::all();
+         $tags = Tag::all();
+         $user = null;
+         if (Auth::check()) {
+           $user = Auth::user();
+         }
+         return view('type/edit', ['type' => $type, 'tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user]);
      }
 
      /**
@@ -65,8 +58,7 @@ class TypeController extends Controller
      public function update(Request $request, Type $type)
      {
        $attributes = request()->validate([
-           'nom'=>'required',
-           'couleur'=>'required',
+           'nom'=>'required'
        ]);
        $type->update($attributes);
        return redirect()->route('types');
