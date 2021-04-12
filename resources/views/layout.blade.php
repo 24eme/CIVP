@@ -93,6 +93,11 @@
     </style>
     <script type="text/javascript">
     $(document).ready(function(){
+
+      var ancre = window.location.hash;
+      if (ancre) {
+        $('#nav-tab a[href="'+ancre+'"]').tab('show')
+      }
       // OUVERTURE POPUP
       $(".popupEvent").click(function() {
         var url = $(this).data('url');
@@ -126,7 +131,6 @@
 <body>
   @include('layout/header')
   <div class="row px-2">
-    @include('components/flash-message')
     @yield('content')
   </div>
   @include('layout/popup')
