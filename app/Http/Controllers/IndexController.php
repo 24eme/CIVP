@@ -41,7 +41,11 @@ class IndexController extends Controller
 
     private function getEvenements($filtres = [])
     {
-      $evenements = Evenement::where('active','=', 1);
+      if (Auth::check()) {
+        $evenements = Evenement::whereIn('active', [0,1]);
+      } else {
+        $evenements = Evenement::where('active','=', 1);
+      }
       if (count($filtres) > 0) {
         foreach(['familles', 'organismes', 'tags'] as $filtre) {
           if (isset($filtres[$filtre]) && count($filtres[$filtre]) > 0) {
