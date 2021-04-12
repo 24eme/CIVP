@@ -10,23 +10,10 @@ use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Sabre\VObject;
+use Illuminate\Support\Facades\Auth;
 
 class EvenementController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-      $evenements = Evenement::all()->sortBy('start');
-      $familles = Famille::all();
-      $organismes = Organisme::all();
-      $types = Type::all();
-      $tags = Tag::all();
-        return view('evenement/list', ['evenements' => $evenements,'tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'types' => $types]);
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -35,10 +22,15 @@ class EvenementController extends Controller
      */
     public function create()
     {
-      $organismes = Organisme::all();
-      $types = Type::all();
       $familles = Famille::all();
-      return view('evenement/create', ['organismes' => $organismes, 'types' => $types, 'familles' => $familles]);
+      $organismes = Organisme::all();
+      $tags = Tag::all();
+      $types = Type::all();
+      $user = null;
+      if (Auth::check()) {
+        $user = Auth::user();
+      }
+      return view('evenement/create', ['tags' => $tags, 'familles' => $familles, 'types' => $types, 'organismes' => $organismes, 'user' => $user]);
     }
 
     /**
@@ -56,14 +48,14 @@ class EvenementController extends Controller
             'start'=>'required|date',
             'end'=>'required|date',
             'textedeloi'=>'',
-            'liendeclaration'=>'',
-            'active'=>''
+            'liendeclaration'=>''
         ]);
+        $attributes['active'] = ($request->has('active')&&$request->get('active'))? 1 : 0;
         $evenement = Evenement::create($attributes);
         $evenement->saveTags($request->get('tags'));
         $evenement->saveFamilles($request->get('familles'));
         $evenement->saveOrganismes($request->get('organismes'));
-        return redirect()->route('evenements');
+        return redirect(route('index') . '#nav-liste');
     }
 
     /**
@@ -74,10 +66,15 @@ class EvenementController extends Controller
      */
     public function edit(Evenement $evenement)
     {
-        $organismes = Organisme::all();
-        $types = Type::all();
-        $familles = Famille::all();
-        return view ('evenement/edit', ['organismes' => $organismes, 'types' => $types, 'evenement' => $evenement, 'familles' => $familles]);
+      $familles = Famille::all();
+      $organismes = Organisme::all();
+      $tags = Tag::all();
+      $types = Type::all();
+      $user = null;
+      if (Auth::check()) {
+        $user = Auth::user();
+      }
+      return view('evenement/edit', ['evenement' => $evenement, 'tags' => $tags, 'familles' => $familles, 'types' => $types, 'organismes' => $organismes, 'user' => $user]);
     }
 
     /**
@@ -96,14 +93,15 @@ class EvenementController extends Controller
           'start'=>'required|date',
           'end'=>'required|date',
           'textedeloi'=>'',
-          'liendeclaration'=>'',
-          'active'=>''
+          'liendeclaration'=>''
       ]);
+
+      $attributes['active'] = ($request->has('active')&&$request->get('active'))? 1 : 0;
       $evenement->update($attributes);
       $evenement->saveTags($request->get('tags'));
       $evenement->saveFamilles($request->get('familles'));
       $evenement->saveOrganismes($request->get('organismes'));
-      return redirect()->route('evenements');
+      return redirect(route('index') . '#nav-liste');
     }
 
     public function popup($id) {
