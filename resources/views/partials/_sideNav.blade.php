@@ -72,9 +72,6 @@
     <div class="upper_wrapper" style="margin-left:10px">
       <input id="searchInput" class="input-search" type="text" placeholder="Recherche..." onkeypress="openListGroup()" autocomplete="off" list="events-list" name="" value="" >
       <ul id="ListGroupSearch" class="list-group list-group-custom">
-        @foreach($evenements as $evenement)
-        <a href="/evenement/{{$evenement->id}}"><li class="list-group-item">{{$evenement->title}}</li></a>
-        @endforeach
       </ul>
     </div>
   </div>
@@ -84,15 +81,14 @@
 
   <div class="row p-2 mt-3 NavAdmin">
     <div class="col-md-12 pt-1">
-      <h5>Admin</h5>
+      <h5>Administration</h5>
     </div>
   </div>
-
-  <div class="row p-2 mt-3">
-    <div class="col-md-12 pt-1"><a href="{{ route ('evenement_create') }}">Créer un evenement</a></div>
-  </div>
-  <div class="row p-2 mt-3">
-    <div class="col-md-12 pt-1"><a href="{{ route ('organismes') }}">Organismes</a></div>
+  <div class="BlocAdmin row p-3">
+      <div class="col-md-12 py-1"><a href="{{ route ('evenement_create') }}" class="{{ (Request::is('admin/evenement*') ? 'active' : '') }}"><i class="far fa-calendar-plus"></i> Créer un evenement</a></div>
+      <div class="col-md-12 py-1"><a href="{{ route ('types') }}" class="{{ (Request::is('admin/type*') ? 'active' : '') }}"><i class="fas fa-sitemap"></i> Types d'évènement</a></div>
+      <div class="col-md-12 py-1"><a href="{{ route ('familles') }}" class="{{ (Request::is('admin/famille*') ? 'active' : '') }}"><i class="fas fa-users"></i> Familles viti/vinicoles</a></div>
+      <div class="col-md-12 py-1"><a href="{{ route ('organismes') }}" class="{{ (Request::is('admin/organisme*') ? 'active' : '') }}"><i class="fas fa-university"></i> Organismes destinataires</a></div>
   </div>
 
   @endif
