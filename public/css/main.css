@@ -15,7 +15,7 @@ div.list-events{height: 700px;overflow-y: scroll;}
 .fc-list-event > td{height: 35px;width: 675px;padding: 5px;}
 .fc-list-day{border-top:1px solid #dee2e6;border-bottom:1px solid #dee2e6;}
 #main{position: relative;background-color: transparent;}
-#calendar{background-color: inherit;display: block;margin: auto;background-color: #FEFEFE;padding: 10px;}
+div.mainContent{background-color: inherit;display: block;margin: auto;background-color: #FEFEFE;padding: 10px;}
 div.navbar-custom {position: relative;background-color: #FFF;;padding-top: 20px;border-right: 1px solid #ebeef0;}
 div.navbar-custom,.sidelist-item > *{ font-family: 'Montserrat-Bold';color:grey !important;font-size: 1.2em;}
 .sublist-item li > a{font-size: 1em;padding: 5px}
@@ -24,6 +24,12 @@ div.navbar-custom,.sidelist-item > *{ font-family: 'Montserrat-Bold';color:grey 
 div.NavAdmin {
   background-color: #ef8c8e;
   color: white;
+}
+div.BlocAdmin {
+  background-color: #ffeff0;
+}
+div.BlocAdmin a:hover, div.BlocAdmin a.active {
+  color: #ef8c8e;
 }
 div.FiltrerPar{border-left:15px solid #ef8c8e;}
 div.FiltrerPar h5{color: #ef8c8e;}
