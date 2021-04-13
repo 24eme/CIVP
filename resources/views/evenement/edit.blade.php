@@ -126,6 +126,15 @@
         </div>
       </div>
       <div class="form-group row">
+        <label for="rrule" class="col-2">Règle de récurrence</label>
+        <div class="col-4">
+          <input type="text" class="form-control @error('rrule') is-invalid @enderror" name="rrule" value="{{ $evenement->rrule }}" />
+          @error('rrule')
+          <div class="invalid-feedback">{{ $message }}</div>
+          @enderror
+        </div>
+      </div>
+      <div class="form-group row">
         <label class="col-2">&nbsp;</label>
         <div class="col-4">
           <div class="form-check form-check-inline">
