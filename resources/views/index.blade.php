@@ -1,5 +1,14 @@
 @extends('layout')
 @section('content')
+<style type="text/css">
+@foreach($organismes as $organisme)
+.custom-control-input-{{$organisme->slug}}:checked ~ .custom-control-label-{{$organisme->slug}}::before ,
+.custom-control-input-{{$organisme->slug}}:active ~ .custom-control-label-{{$organisme->slug}}::before {
+    background-color: {{$organisme->couleur}};
+    border-color: {{$organisme->couleur}};
+}
+@endforeach
+</style>
 @include('partials/_sideNav')
 <div id="main" class="main col-10">
   <nav class="mt-4">
@@ -20,15 +29,14 @@
       <a class="nav-link" id="nav-liste-tab" data-toggle="tab" href="#nav-liste" role="tab" aria-controls="nav-liste" aria-selected="false">Liste</a>
     </div>
   </nav>
-
   <div class="tab-content mt-4" id="nav-tabContent">
+    <a type="button" class="btn btn-primary float-right my-3 mx-2" href="{{ route('export') }}">Export Ical</a>
     <div class="tab-pane fade show active" id="nav-calendrier" role="tabpanel" aria-labelledby="nav-calendrier-tab">
       <div id='calendar' class="mainContent"></div>
     </div>
     <div class="tab-pane fade" id="nav-liste" role="tabpanel" aria-labelledby="nav-liste-tab">
       @include('partials/_list')
     </div>
-    <a type="button" class="btn btn-primary float-right my-3 mr-2" href="{{ route('export') }}">Export Ical</a></a>
   </div>
 </div>
 
