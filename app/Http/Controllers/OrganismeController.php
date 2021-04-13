@@ -56,12 +56,15 @@ class OrganismeController extends Controller
     {
       $attributes = request()->validate([
             'nom'=>'required',
-            'adresse'=>'required',
-            'code_postal'=>'required',
-            'contact'=>'required',
-            'ville'=>'required',
-            'telephone'=>'required',
-            'email'=>'required|email',
+            'adresse'=>'',
+            'code_postal'=>'',
+            'contact'=>'',
+            'ville'=>'',
+            'telephone'=>'',
+            'email'=>'',
+            'couleur'=>'',
+            'site'=>'',
+            'logo'=>'',
         ]);
         Organisme::create($attributes);
         return redirect()->route('organismes');
@@ -96,12 +99,15 @@ class OrganismeController extends Controller
     {
       $attributes = request()->validate([
           'nom'=>'required',
-          'adresse'=>'required',
-          'code_postal'=>'required',
-          'contact'=>'required',
-          'ville'=>'required',
-          'telephone'=>'required',
-          'email'=>'required|email',
+          'adresse'=>'',
+          'code_postal'=>'',
+          'contact'=>'',
+          'ville'=>'',
+          'telephone'=>'',
+          'email'=>'',
+          'couleur'=>'',
+          'site'=>'',
+          'logo'=>'',
       ]);
       $organisme->update($attributes);
       return redirect()->route('organismes');
