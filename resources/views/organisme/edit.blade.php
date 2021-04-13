@@ -33,7 +33,7 @@
         <div class="form-group row">
           <label for="adresse" class="col-2">Adresse</label>
           <div class="col-4">
-            <input type="text" class="form-control" name="adresse @error('adresse') is-invalid @enderror" value="{{ $organisme->adresse }}" />
+            <input type="text" class="form-control @error('adresse') is-invalid @enderror"" name="adresse" value="{{ $organisme->adresse }}" />
             @error('adresse')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
@@ -81,6 +81,33 @@
           <div class="col-4">
             <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $organisme->email }}" />
             @error('email')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="site" class="col-2">Site internet</label>
+          <div class="col-4">
+            <input type="text" class="form-control @error('site') is-invalid @enderror" name="site" value="{{ $organisme->site }}" />
+            @error('site')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="logo" class="col-2">Logo</label>
+          <div class="col-4">
+            <input type="text" class="form-control @error('logo') is-invalid @enderror" name="logo" value="{{ $organisme->logo }}" />
+            @error('logo')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="couleur" class="col-2">Couleur</label>
+          <div class="col-4">
+            <input type="text" class="form-control @error('couleur') is-invalid @enderror" name="couleur" value="{{ $organisme->couleur }}" />
+            @error('couleur')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>

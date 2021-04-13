@@ -84,6 +84,33 @@
             @enderror
           </div>
         </div>
+        <div class="form-group row">
+          <label for="site" class="col-2">Site internet</label>
+          <div class="col-4">
+            <input type="text" class="form-control @error('site') is-invalid @enderror" name="site" value="{{ old('site', $post->site ?? '') }}" />
+            @error('site')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="logo" class="col-2">Logo</label>
+          <div class="col-4">
+            <input type="text" class="form-control @error('logo') is-invalid @enderror" name="logo" value="{{ old('logo', $post->logo ?? '') }}" />
+            @error('logo')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="couleur" class="col-2">Couleur</label>
+          <div class="col-4">
+            <input type="text" class="form-control @error('couleur') is-invalid @enderror" name="couleur" value="{{ old('couleur', $post->couleur ?? '') }}" />
+            @error('couleur')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+          </div>
+        </div>
         <div class="row">
           <div class="col-sm-3">
             <a href="{{ route('organismes') }}" class="btn btn-secondary float-left">Retour</a>
