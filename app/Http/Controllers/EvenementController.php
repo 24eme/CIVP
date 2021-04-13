@@ -45,10 +45,11 @@ class EvenementController extends Controller
             'type_id'=>'required',
             'title'=>'required',
             'description'=>'required',
-            'start'=>'required|date',
-            'end'=>'required|date',
+            'start'=>'',
+            'end'=>'',
             'textedeloi'=>'',
-            'liendeclaration'=>''
+            'liendeclaration'=>'',
+            'rrule'=>''
         ]);
         $attributes['active'] = ($request->has('active')&&$request->get('active'))? 1 : 0;
         $evenement = Evenement::create($attributes);
@@ -90,10 +91,11 @@ class EvenementController extends Controller
           'type_id'=>'required',
           'title'=>'required',
           'description'=>'required',
-          'start'=>'required|date',
-          'end'=>'required|date',
+          'start'=>'',
+          'end'=>'',
           'textedeloi'=>'',
-          'liendeclaration'=>''
+          'liendeclaration'=>'',
+          'rrule'=>''
       ]);
 
       $attributes['active'] = ($request->has('active')&&$request->get('active'))? 1 : 0;
