@@ -34,7 +34,7 @@ li.tag-item{display: inline-block;}
 .closebtn{top: -20px;left: -40px;background-color: transparent;border:none;position: absolute;z-index: 100}
 .closebtn > i {color:#d9dcde;font-size: 2em;margin: 10px;transition:all 1s}
 .closebtn > i:hover {color:#424242}
-.input-search{width:270px;height: 40px;margin-left: 10px;border-radius: 5px;border:.8px solid #E8E8E8;color:grey;outline: none;padding: 10px;transition: background 1s}
+.input-search{width:100%;height: 40px;border-radius: 5px;border:.8px solid #E8E8E8;color:grey;outline: none;padding: 10px;transition: background 1s}
 .input-search:hover{background-color: #E8E8E8}
 ul.list-group-custom{position: fixed;width: 280px;visibility: hidden;z-index: 200;max-height: 190px;overflow: hidden;border: 1px solid rgba(0, 0, 0, 0.125)}
 li.list-group-item{color:#424242;border:none}

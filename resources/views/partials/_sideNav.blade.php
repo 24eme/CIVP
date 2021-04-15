@@ -64,12 +64,12 @@
 
   <div class="row p-2 mt-3 FiltrerPar">
     <div class="col-md-12 pt-1">
-      <h5>Rechercher</h5>
+      <h5>Recherche</h5>
     </div>
   </div>
 
   <div class="row p-0 mt-4">
-    <div class="upper_wrapper" style="margin-left:10px">
+    <div class="upper_wrapper col-md-auto" style="margin-left:5px">
       <input id="searchInput" class="input-search" type="text" placeholder="Recherche..." onkeypress="openListGroup()" autocomplete="off" list="events-list" name="" value="" >
       <ul id="ListGroupSearch" class="list-group list-group-custom">
         @foreach($evenements as $evenement)
