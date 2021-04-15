@@ -10,6 +10,9 @@ button:focus{outline: none;border: none}
 
 .alert{z-index: 1000}
 div.list-events{height: 700px;overflow-y: scroll;}
+.fc-time, .fc-title {
+  white-space:normal !important;
+}
 .fc-list-day{height: 35px;width: 675px;background-color: rgba(0, 0, 0, 0.075)}
 .fc-list-day >td {font-weight: bold;color:#44566c;padding: 10px}
 .fc-list-event > td{height: 35px;width: 675px;padding: 5px;}
