@@ -1,10 +1,10 @@
 <div id="sideNavigation" class="col-2 navbar-custom h-100">
   <div class="row upper_wrapper mt-3">
-    <div class="text-center">
+    <div class="col-md-3 ml-2 float-left">
       <a href="/"><img src="{{asset('images/logos/logo-C.png')}}" width=50  alt=""></a>
     </div>
-    <div class="col-md-auto mx-auto text-center">
-      <a href="/"><h2 style="font-size:1em" class="upper-title">Calendrier des déclarations viti/vinicoles</h2></a>
+    <div class="col-md-8 float-left text-center">
+      <a href="/"><h2 style="font-size:1em" class="upper-title">Calendrier des obligations viti/vinicoles</h2></a>
     </div>
   </div>
 
