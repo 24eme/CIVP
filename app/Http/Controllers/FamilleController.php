@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Evenement;
+use App\Models\Organisme;
+use App\Models\Type;
 use App\Models\Famille;
+use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FamilleController extends Controller
 {
@@ -14,35 +19,14 @@ class FamilleController extends Controller
      */
     public function index()
     {
-          $familles = Famille::get()->all();
-          return view('famille/index', compact('familles'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('famille/create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-
-        $attributes = request()->validate([
-            'nom'=>'required',
-            'couleur'=>'required',
-        ]);
-        Famille::create($attributes);
-        return redirect()->route('familles');
+        $familles = Famille::all();
+        $organismes = Organisme::all();
+        $tags = Tag::all();
+        $user = null;
+        if (Auth::check()) {
+          $user = Auth::user();
+        }
+        return view('famille/index', ['tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user]);
     }
 
     /**
@@ -53,7 +37,14 @@ class FamilleController extends Controller
      */
     public function edit(Famille $famille)
     {
-        return view('famille/edit', compact('famille'));
+      $familles = Famille::all();
+      $organismes = Organisme::all();
+      $tags = Tag::all();
+      $user = null;
+      if (Auth::check()) {
+        $user = Auth::user();
+      }
+      return view('famille/edit', ['famille' => $famille, 'tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user]);
     }
 
     /**
@@ -65,10 +56,8 @@ class FamilleController extends Controller
      */
     public function update(Request $request, Famille $famille)
     {
-
         $attributes = request()->validate([
             'nom'=>'required',
-            'couleur'=>'required',
         ]);
         $famille->update($attributes);
         return redirect()->route('familles');

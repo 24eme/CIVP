@@ -18,9 +18,9 @@
         <div class="row">
           <div class="col-md-2">&nbsp;</div>
           <div class="col-md-8">
-            <i class="far fa-calendar-alt"></i>&nbsp;{{ \Carbon\Carbon::parse($evenement->start)->translatedFormat('l d F Y') }}
+            <i class="far fa-calendar-alt"></i>&nbsp;<strong>{{ \Carbon\Carbon::parse($evenement->start)->translatedFormat('l d F Y') }}</strong>
             @if ($evenement->start != $evenement->end)
-            au {{ \Carbon\Carbon::parse($evenement->end)->translatedFormat('l d F Y') }}
+            au <strong>{{ \Carbon\Carbon::parse($evenement->end)->translatedFormat('l d F Y') }}</strong>
             @endif
           </div>
           <div class="col-md-2">&nbsp;</div>
@@ -29,67 +29,43 @@
 
     <div class="modal-body">
       <div class="row">
-        <div class="col-md-10 mx-auto">
-          <p>{{ $evenement->description }}</p>
+        <div class="col-7 row">
+          <div class="col-12">
+            <label class="popup-label" for="">Famille(s) : </label>{{ $evenement->strFamilles() }}
+          </div>
+          <div class="col-12">
+            <p>{!! $evenement->description !!}</p>
+          </div>
+        </div>
+
+        <div class="col-5 row d-inline-block">
+          @foreach($evenement->organismes as $organisme)
+          <div class="organisme-card my-1 p-1 row d-inline-block w-100 ml-4">
+            <div class="col-12 pb-2">
+              <img src="/images/logos/organismes/{{$organisme->logo}}" class="" height="20px" /> <i class="fas fa-circle" style="color: {{ $organisme->couleur }}"></i>&nbsp;<strong>{{$organisme->nom}}</strong>
+            </div>
+            <div class="col-12 pb-2">
+              {{$organisme->adresse}}<br />{{$organisme->code_postal}} {{$organisme->ville}}
+            </div>
+            <div class="col-12 pb-1">
+              <strong>{{$organisme->contact}}</strong>
+            </div>
+            <div class="col-12">
+              <i class="fas fa-phone-alt"></i>&nbsp;{{$organisme->telephone}}
+            </div>
+            <div class="col-12">
+              <i class="far fa-envelope"></i>&nbsp;{{$organisme->email}}
+            </div>
+          </div>
+          @endforeach
         </div>
       </div>
+
       <div class="row">
-        <div class="col-md-2">
-          <label class="popup-label" for="">Famille : </label>
+        <div class="col-1">
+          <label class="popup-label" for="">Tags</label>
         </div>
-        <div class="col-md-10">
-          <p>{{ $evenement->strFamilles() }}</p>
-        </div>
-      </div>
-      @foreach($evenement->organismes as $organisme)
-      <div class="organisme-card p-3 m-1">
-      <div class="row">
-        <div class="col-md-4">
-          <label class="popup-label" for="">Organisme : </label>
-        </div>
-        <div class="col-md-8">
-          <p>{{$organisme->nom}}</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <label class="popup-label" for="">Adresse : </label>
-        </div>
-        <div class="col-md-8">
-          <p>{{$organisme->adresse}} {{$organisme->code_postal}} {{$organisme->ville}}</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <label class="popup-label" for="">Contact : </label>
-        </div>
-        <div class="col-md-8">
-          <p>{{$organisme->contact}}</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <label class="popup-label" for=""><i class="fas fa-phone-alt"></i> Téléphone : </label>
-        </div>
-        <div class="col-md-8">
-          <p>{{$organisme->telephone}}</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <label class="popup-label" for=""><i class="far fa-envelope"></i> Mail : </label>
-        </div>
-        <div class="col-md-8">
-          <p>{{$organisme->email}}</p>
-        </div>
-      </div>
-      </div>
-      @endforeach
-      <div class="row">
-        <div class="col-md-2 mt-2">
-          <label class="popup-label" for="">Tags : </label>
-        </div>
-        <div class="col-md-auto">
+        <div class="col-11 row">
           @foreach($evenement->tags as $tag)
           <div class="btn-group-toggle m-1" data-toggle="buttons">
             <label class="btn btn-sm btn-outline-danger">
@@ -102,8 +78,8 @@
 
     </div>
     <div class="modal-footer">
-      <button style="background-color:{{$evenement->type->color}};border-color:{{$evenement->type->color}}" type="button" class="btn btn-warning" data-dismiss="modal"><a href="evenement/export/{{$evenement->id}}">Exporter</a></button>
-      <button type="button" class="btn btn-warning" data-dismiss="modal">Accéder à la déclaration</button>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="evenement/export/{{$evenement->id}}">Export ical</a></button>
+      <button type="button" class="btn btn-primary" data-dismiss="modal">Accéder à la déclaration</button>
     </div>
   </div>
 </div>

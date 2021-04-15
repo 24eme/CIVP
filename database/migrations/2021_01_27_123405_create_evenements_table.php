@@ -18,8 +18,8 @@ class CreateEvenementsTable extends Migration
           $table->integer('type_id')->unsigned()->index();
           $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
           $table->string('title')->index();
-          $table->date('start');
-          $table->date('end');
+          $table->date('start')->nullable();
+          $table->date('end')->nullable();
           $table->longText('description')->index();
           $table->string('textedeloi')->nullable();
           $table->string('liendeclaration')->nullable();

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Evenement; 
+use App\Models\Evenement;
+use App\Models\Organisme;
 use App\Models\Type;
 use App\Models\Famille;
-use App\Models\Organisme;
+use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrganismeController extends Controller
 {
@@ -17,11 +19,14 @@ class OrganismeController extends Controller
      */
     public function index()
     {
-          $evenements = Evenement::all();
-          $organismes = Organisme::all();
-          $types = Type::all();
-          $familles = Famille::all();
-          return view('organisme/list', ['evenements' => $evenements,'organismes' => $organismes, 'types' => $types, 'familles' => $familles]);
+        $familles = Famille::all();
+        $organismes = Organisme::all();
+        $tags = Tag::all();
+        $user = null;
+        if (Auth::check()) {
+          $user = Auth::user();
+        }
+        return view('organisme/index', ['tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user]);
     }
 
     /**
@@ -31,7 +36,14 @@ class OrganismeController extends Controller
      */
     public function create()
     {
-        return view('organisme/create');
+        $familles = Famille::all();
+        $organismes = Organisme::all();
+        $tags = Tag::all();
+        $user = null;
+        if (Auth::check()) {
+          $user = Auth::user();
+        }
+        return view('organisme/create', ['tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user]);
     }
 
     /**
@@ -44,12 +56,15 @@ class OrganismeController extends Controller
     {
       $attributes = request()->validate([
             'nom'=>'required',
-            'adresse'=>'required',
-            'code_postal'=>'required',
-            'contact'=>'required',
-            'ville'=>'required',
-            'telephone'=>'required',
-            'email'=>'required|email',
+            'adresse'=>'',
+            'code_postal'=>'',
+            'contact'=>'',
+            'ville'=>'',
+            'telephone'=>'',
+            'email'=>'',
+            'couleur'=>'',
+            'site'=>'',
+            'logo'=>'',
         ]);
         Organisme::create($attributes);
         return redirect()->route('organismes');
@@ -63,7 +78,14 @@ class OrganismeController extends Controller
      */
     public function edit(Organisme $organisme)
     {
-        return view('organisme/edit', compact('organisme'));
+        $familles = Famille::all();
+        $organismes = Organisme::all();
+        $tags = Tag::all();
+        $user = null;
+        if (Auth::check()) {
+          $user = Auth::user();
+        }
+        return view('organisme/edit', ['organisme' => $organisme, 'tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user]);
     }
 
     /**
@@ -77,12 +99,15 @@ class OrganismeController extends Controller
     {
       $attributes = request()->validate([
           'nom'=>'required',
-          'adresse'=>'required',
-          'code_postal'=>'required',
-          'contact'=>'required',
-          'ville'=>'required',
-          'telephone'=>'required',
-          'email'=>'required|email',
+          'adresse'=>'',
+          'code_postal'=>'',
+          'contact'=>'',
+          'ville'=>'',
+          'telephone'=>'',
+          'email'=>'',
+          'couleur'=>'',
+          'site'=>'',
+          'logo'=>'',
       ]);
       $organisme->update($attributes);
       return redirect()->route('organismes');

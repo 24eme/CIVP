@@ -12,7 +12,7 @@ class Famille extends Model
     use HasFactory;
     public $timestamps = false;
 
-    protected $fillable = ['nom', 'couleur'];
+    protected $fillable = ['nom'];
 
     public function setNomAttribute($value)
     {

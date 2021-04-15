@@ -17,7 +17,7 @@
   </div>
 
   <div class="row ml-0">
-    <div><h5 class="col-md-12 mt-2 px-0 py-1">Famille</h5></div>
+    <div><h5 class="col-md-12 mt-2 px-0 py-1">Familles</h5></div>
   </div>
 
   <div class="row ml-4">
@@ -32,15 +32,15 @@
   </div>
 
   <div class="row ml-0">
-    <div><h5 class="col-md-12 mt-2 px-0 py-1">Organisme</h5></div>
+    <div><h5 class="col-md-12 mt-2 px-0 py-1">Organismes</h5></div>
   </div>
 
   <div class="row ml-4">
     <div class="col-md-12 mb-0 p-0">
       @foreach($organismes as $organisme)
         <div class="custom-control custom-switch py-1">
-          <input name="filters[organismes][]" value="{{$organisme->id}}" type="checkbox" class="custom-control-input" id="organisme{{$organisme->id}}">
-          <label class="custom-control-label" for="organisme{{$organisme->id}}">{{$organisme->nom}}</label>
+          <input name="filters[organismes][]" value="{{$organisme->id}}" type="checkbox" class="custom-control-input custom-control-input-{{$organisme->slug}}" id="organisme{{$organisme->id}}">
+          <label class="custom-control-label custom-control-label-{{$organisme->slug}}" for="organisme{{$organisme->id}}"><img src="/images/logos/organismes/{{$organisme->logo}}" class="" height="20px" /> {{$organisme->nom}}</label>
         </div>
       @endforeach
     </div>
@@ -72,9 +72,6 @@
     <div class="upper_wrapper col-md-auto" style="margin-left:5px">
       <input id="searchInput" class="input-search" type="text" placeholder="Recherche..." onkeypress="openListGroup()" autocomplete="off" list="events-list" name="" value="" >
       <ul id="ListGroupSearch" class="list-group list-group-custom">
-        @foreach($evenements as $evenement)
-        <a href="/evenement/{{$evenement->id}}"><li class="list-group-item">{{$evenement->title}}</li></a>
-        @endforeach
       </ul>
     </div>
   </div>
@@ -84,15 +81,14 @@
 
   <div class="row p-2 mt-3 NavAdmin">
     <div class="col-md-12 pt-1">
-      <h5>Admin</h5>
+      <h5>Administration</h5>
     </div>
   </div>
-
-  <div class="row p-2 mt-3">
-    <div class="col-md-12 pt-1"><a href="{{ route ('evenement_create') }}">Créer un evenement</a></div>
-  </div>
-  <div class="row p-2 mt-3">
-    <div class="col-md-12 pt-1"><a href="{{ route ('organismes') }}">Organismes</a></div>
+  <div class="BlocAdmin row p-3">
+      <div class="col-md-12 py-1"><a href="{{ route ('evenement_create') }}" class="{{ (Request::is('admin/evenement*') ? 'active' : '') }}"><i class="far fa-calendar-plus"></i> Créer un evenement</a></div>
+      <div class="col-md-12 py-1"><a href="{{ route ('types') }}" class="{{ (Request::is('admin/type*') ? 'active' : '') }}"><i class="fas fa-sitemap"></i> Types d'évènement</a></div>
+      <div class="col-md-12 py-1"><a href="{{ route ('familles') }}" class="{{ (Request::is('admin/famille*') ? 'active' : '') }}"><i class="fas fa-users"></i> Familles viti/vinicoles</a></div>
+      <div class="col-md-12 py-1"><a href="{{ route ('organismes') }}" class="{{ (Request::is('admin/organisme*') ? 'active' : '') }}"><i class="fas fa-university"></i> Organismes destinataires</a></div>
   </div>
 
   @endif
