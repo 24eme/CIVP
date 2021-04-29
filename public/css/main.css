@@ -167,7 +167,119 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
   font-family: "Montserrat-Bold";border-bottom: .6px solid red !important;
 }
 
-#footer{position: relative;min-height: 100px;background-color: rgba(27, 26, 55,0.95);}
+#footer {
+  position: relative;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #18142f;
+  background-size: auto;
+  background-size: cover;
+  text-align: center;
+  display: block;
+}
+#footer .footer-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+#footer .footer-disclaimer {
+    position: relative;
+    bottom: 0;
+    border-top: 1px solid hsla(0,0%,100%,.17);
+    padding-top: 19px;
+}
+#footer .footer-nav {
+    margin: 0;
+    display: inline-block;
+}
+#footer ul {
+    list-style: none;
+    padding-left: 0;
+}
+#footer .footer-nav li {
+    margin: 0 30px;
+}
+#footer .footer-nav li {
+    display: inline-block;
+    margin: 0;
+}
+#footer ul {
+    list-style: none;
+}
+#footer a {
+  color: #9d9ca8;
+}
+#footer .footer-nav a {
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px;
+    font-family: "32c23237",Helvetica,Arial,sans-serif;
+}
+.nav-link {
+    display: block;
+    padding: .5em 1em;
+}
+#footer .footer-icon {
+    margin-bottom: 50px;
+}
+.top-nav {
+    padding: 23px 0 0 0;
+    text-align: center;
+    margin: 0 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.circle-logo, .circle-logo img {
+    width: 53px;
+    height: 53px;
+}
+.breadcrumb {
+    margin-left: 40px;
+    left: 65px;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-bottom: 0;
+}
+.breadcrumb a {
+    overflow: hidden;
+}
+.breadcrumb a, .breadcrumb span {
+    font-size: 12px;
+    margin-right: 10px;
+}
+.breadcrumb a {
+    white-space: nowrap;
+}
+.breadcrumb a, .breadcrumb span {
+    display: inline-block;
+    text-align: left;
+    font-family: "32c23237",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    color: #000;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    padding: 0;
+}
+.breadcrumb a::before, .breadcrumb span::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 4.5px 0 4.5px 9px;
+    border-color: transparent transparent transparent rgba(0,0,0,.3);
+    display: inline-block;
+    margin-right: 14px;
+}
+.top-nav-center {
+    margin-right: auto;
+    margin-left: auto;
+}
 
 
 ::-webkit-scrollbar {width: 0; background: transparent; }
