@@ -29,7 +29,7 @@
       }
       .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
           color: #ef8c8e;
-          background-color: #fff;
+          background-color: #fbf8f1;
           border-color: #ef8c8e;
           border-bottom: none;
       }
@@ -85,6 +85,9 @@
         margin-bottom: 10px;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
+      }
+      #nav-liste .table {
+        background-color: #fff;
       }
     </style>
     <script type="text/javascript">
