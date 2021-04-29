@@ -11,7 +11,7 @@
 </style>
 @include('partials/_sideNav')
 <div id="main" class="main col-10">
-  <nav class="mt-4">
+  <nav>
     <div class="col-md-auto float-right">
       @if($user)
       <div class="btn-group">
