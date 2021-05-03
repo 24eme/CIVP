@@ -4,18 +4,6 @@
 <div id="main" class="main col-10">
   <nav class="mt-4 clearfix">
     <h1 class="h3 col-md-auto float-left">Edition d'un évènement</h1>
-    <div class="col-md-auto float-right">
-      @if($user)
-      <div class="btn-group">
-        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user"></i>&nbsp;{{ $user->name }}
-        </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="{{ route('logout') }}">Déconnexion</a>
-        </div>
-      </div>
-      @endif
-    </div>
   </nav>
 
   <div class="mainContent clearfix">
@@ -51,7 +39,7 @@
       <div class="form-group row">
         <label for="start" class="col-2">Date début</label>
         <div class="col-4">
-          <input type="text" class="form-control @error('start') is-invalid @enderror" name="start" value="{{ $evenement->start }}" />
+          <input type="date" min="2000-01-01" max="2100-12-31" class="form-control @error('start') is-invalid @enderror" name="start" value="{{ $evenement->start }}" />
           @error('start')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
@@ -60,7 +48,7 @@
       <div class="form-group row">
         <label for="end" class="col-2">Date de fin</label>
         <div class="col-4">
-          <input type="text" class="form-control @error('end') is-invalid @enderror" name="end" value="{{ $evenement->end }}" />
+          <input type="date" min="2000-01-01" max="2100-12-31" class="form-control @error('end') is-invalid @enderror" name="end" value="{{ $evenement->end }}" />
           @error('end')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
@@ -78,7 +66,7 @@
       <div class="form-group row">
         <label for="description" class="col-2">Description</label>
         <div class="col-4">
-          <textarea class="form-control" rows="3" name="description">{{ $evenement->description }}</textarea>
+          <textarea id="editor" class="form-control" rows="3" name="description">{{ $evenement->description }}</textarea>
           @error('description')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror

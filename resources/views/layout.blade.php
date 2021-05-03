@@ -11,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="/fullcalendar-year-view/dist/fullcalendar.js"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"></script>
 
 
     <link href='https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.css' rel='stylesheet' />
@@ -29,7 +30,7 @@
       }
       .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
           color: #ef8c8e;
-          background-color: #fbf8f1;
+          background-color: #fff;
           border-color: #ef8c8e;
           border-bottom: none;
       }
@@ -86,7 +87,7 @@
         border-top-left-radius: 0;
         border-top-right-radius: 0;
       }
-      #nav-liste .table {
+      .table {
         background-color: #fff;
       }
     </style>
@@ -123,6 +124,10 @@
                $("#nav-liste").html(result);
            }
         });
+      });
+      tinymce.init({
+        selector: 'textarea#editor',
+        menubar: false
       });
     });
     </script>
