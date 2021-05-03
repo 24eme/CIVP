@@ -30,7 +30,7 @@
     </div>
   </nav>
   <div class="tab-content mt-4" id="nav-tabContent">
-    <a type="button" class="btn btn-primary float-right my-3 mx-2" href="{{ route('export') }}">Export Ical</a>
+    <a type="button" class="btn btn-primary float-right my-3 mx-2" href="{{ route('export') }}"><i class="far fa-calendar-alt"></i> Exporter</a>
     <div class="tab-pane fade show active" id="nav-calendrier" role="tabpanel" aria-labelledby="nav-calendrier-tab">
       <div id='calendar' class="mainContent"></div>
     </div>

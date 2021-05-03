@@ -78,7 +78,7 @@
 
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="evenement/export/{{$evenement->id}}">Export ical</a></button>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="evenement/export/{{$evenement->id}}"><i class="far fa-calendar-alt"></i> Exporter</a></button>
       <button type="button" class="btn btn-primary" data-dismiss="modal">Accéder à la déclaration</button>
     </div>
   </div>
