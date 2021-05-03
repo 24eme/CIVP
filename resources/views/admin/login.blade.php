@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layoutContent')
 @section('content')
 
 <form class="form-signin mt-5" method="post" action="{{ route('authenticate') }}">

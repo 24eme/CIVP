@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layoutContent')
 @section('content')
 
 <div class="form-signin mt-5">
