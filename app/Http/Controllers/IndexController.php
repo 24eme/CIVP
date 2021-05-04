@@ -19,7 +19,7 @@ class IndexController extends Controller
     public function index(Request $request)
     {
       $evenements = $this->getEvenements();
-      $evenementsNonDates = $this->getEvenementsNonDates();
+      $obligationsNonDates = $this->getObligationsNonDates();
       $familles = Famille::all();
       $organismes = Organisme::all();
       $tags = Tag::all();
@@ -27,20 +27,20 @@ class IndexController extends Controller
       if (Auth::check()) {
         $user = Auth::user();
       }
-      return view('index', ['evenementsNonDates' => $evenementsNonDates, 'evenements' => $evenements,'tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user]);
+      return view('index', ['obligationsNonDates' => $obligationsNonDates, 'evenements' => $evenements,'tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user]);
     }
 
     public function listEvenements(Request $request)
     {
       $filtres = (isset($request->filters) && is_array($request->filters))? $request->filters : [];
       $evenements = $this->getEvenements($filtres);
-      $evenementsNonDates = $this->getEvenementsNonDates($filtres);
+      $obligationsNonDates = $this->getObligationsNonDates($filtres);
       $user = null;
       if (Auth::check()) {
         $user = Auth::user();
       }
       if ($request->output == "html"){
-        return view('partials/_list',['evenementsNonDates' => $evenementsNonDates, 'evenements' => $evenements, 'user' => $user]);
+        return view('partials/_list',['obligationsNonDates' => $obligationsNonDates, 'evenements' => $evenements, 'user' => $user]);
       }
       return $evenements->toJson();
     }
@@ -66,7 +66,7 @@ class IndexController extends Controller
     }
 
 
-    private function getEvenementsNonDates($filtres = [])
+    private function getObligationsNonDates($filtres = [])
     {
       if (Auth::check()) {
         $evenements = Evenement::whereIn('active', [0,1]);
