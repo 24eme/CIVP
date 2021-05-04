@@ -51,7 +51,7 @@
       <div class="form-group row">
         <label for="start" class="col-2">Date début</label>
         <div class="col-4">
-          <input type="text" class="form-control @error('start') is-invalid @enderror" name="start" value="{{ $evenement->start }}" />
+          <input type="date" class="form-control @error('start') is-invalid @enderror" name="start" value="{{ $evenement->start }}" />
           @error('start')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
@@ -60,7 +60,7 @@
       <div class="form-group row">
         <label for="end" class="col-2">Date de fin</label>
         <div class="col-4">
-          <input type="text" class="form-control @error('end') is-invalid @enderror" name="end" value="{{ $evenement->end }}" />
+          <input type="date" class="form-control @error('end') is-invalid @enderror" name="end" value="{{ $evenement->end }}" />
           @error('end')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
