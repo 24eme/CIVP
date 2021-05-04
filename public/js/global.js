@@ -3,8 +3,13 @@ var removedEvents = new Array()
 var removed = new Array()
 var deactivated = []
 var searched = []
-AOS.init();
 
+function PopUp(id){
+  $.get("evenement/"+id, function(response) {
+    $('#popupEvenement').html(response);
+    $('#popupEvenement').modal('show');
+  });
+}
 
 
 $(document).ready(function(){
@@ -194,7 +199,7 @@ function filterEvenement(value,name){
 //   deactivated.pop(obligationAct)
 //   obligationAct.addEvent()
 // }
-function feedList(url) { 
+function feedList(url) {
       $.ajax({
          url : url,
          type : 'GET',

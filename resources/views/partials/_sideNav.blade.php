@@ -1,9 +1,24 @@
 <div id="sideNavigation" class="col-2 navbar-custom h-100">
 
+  @if ($user)
+
+  <div class="row p-2 NavAdmin">
+    <div class="col-md-12 pt-1">
+      <h5>Administration</h5>
+    </div>
+  </div>
+  <div class="BlocAdmin row p-3 mb-3 ">
+      <div class="col-md-12 py-1"><a href="{{ route ('evenement_create') }}" class="{{ (Request::is('admin/evenement*') ? 'active' : '') }}"><i class="far fa-calendar-plus"></i> Créer un evenement</a></div>
+      <div class="col-md-12 py-1"><a href="{{ route ('types') }}" class="{{ (Request::is('admin/type*') ? 'active' : '') }}"><i class="fas fa-sitemap"></i> Types d'évènement</a></div>
+      <div class="col-md-12 py-1"><a href="{{ route ('familles') }}" class="{{ (Request::is('admin/famille*') ? 'active' : '') }}"><i class="fas fa-users"></i> Familles viti/vinicoles</a></div>
+      <div class="col-md-12 py-1"><a href="{{ route ('organismes') }}" class="{{ (Request::is('admin/organisme*') ? 'active' : '') }}"><i class="fas fa-university"></i> Organismes destinataires</a></div>
+  </div>
+
+  @endif
 
   <form action="{{ route('listEvenements') }}" method="GET" id="formFilters">
 
-  <div class="row p-2 mt-3 FiltrerPar">
+  <div class="row p-2 FiltrerPar">
     <div class="col-md-12 pt-1">
       <h5>Filtrer par</h5>
     </div>
@@ -53,23 +68,6 @@
       </ul>
     </div>
   </div>
-
-  @if ($user)
-
-
-  <div class="row p-2 mt-3 NavAdmin">
-    <div class="col-md-12 pt-1">
-      <h5>Administration</h5>
-    </div>
-  </div>
-  <div class="BlocAdmin row p-3">
-      <div class="col-md-12 py-1"><a href="{{ route ('evenement_create') }}" class="{{ (Request::is('admin/evenement*') ? 'active' : '') }}"><i class="far fa-calendar-plus"></i> Créer un evenement</a></div>
-      <div class="col-md-12 py-1"><a href="{{ route ('types') }}" class="{{ (Request::is('admin/type*') ? 'active' : '') }}"><i class="fas fa-sitemap"></i> Types d'évènement</a></div>
-      <div class="col-md-12 py-1"><a href="{{ route ('familles') }}" class="{{ (Request::is('admin/famille*') ? 'active' : '') }}"><i class="fas fa-users"></i> Familles viti/vinicoles</a></div>
-      <div class="col-md-12 py-1"><a href="{{ route ('organismes') }}" class="{{ (Request::is('admin/organisme*') ? 'active' : '') }}"><i class="fas fa-university"></i> Organismes destinataires</a></div>
-  </div>
-
-  @endif
 
 
 </div>

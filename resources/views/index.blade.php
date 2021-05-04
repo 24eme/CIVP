@@ -12,18 +12,6 @@
 @include('partials/_sideNav')
 <div id="main" class="main col-10">
   <nav>
-    <div class="col-md-auto float-right">
-      @if($user)
-      <div class="btn-group">
-        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user"></i>&nbsp;{{ $user->name }}
-        </button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="{{ route('logout') }}">Déconnexion</a>
-        </div>
-      </div>
-      @endif
-    </div>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
       <a class="nav-link active" id="nav-calendrier-tab" data-toggle="tab" href="#nav-calendrier" role="tab" aria-controls="nav-calendrier" aria-selected="true">Calendrier</a>
       <a class="nav-link" id="nav-liste-tab" data-toggle="tab" href="#nav-liste" role="tab" aria-controls="nav-liste" aria-selected="false">Liste</a>
@@ -63,7 +51,22 @@
     </div>
     <div class="tab-pane fade" id="nav-liste" role="tabpanel" aria-labelledby="nav-liste-tab">
       @include('partials/_list')
+    @if (count($obligationsNonDates)>0)
+    <div>
+      <h2 class="h4 my-4">Obligations non datées</h2>
+      <table class="table table-hover">
+          @foreach($obligationsNonDates as $obligation)
+            <tr class="row m-0">
+              <td class="col-1">&nbsp</td>
+              <td class="col-5">@if (!$obligation->active) <i class="fas fa-circle" style="color: red"></i> @endif<a href="javascript:void(0)" class="popupEvent" data-url="{{ route('evenement_popup', $obligation) }}"><strong>{{$obligation->title}}</strong><a></td>
+              <td class="col-5">{!! $obligation->htmlOrganismesList() !!}</td>
+              <td class="col-1">@if ($user) <a href="{{ route('evenement_edit', $obligation) }}"><i class="far fa-edit">&nbsp;</i></a> @endif</td>
+            </tr>
+          @endforeach
+      </table>
     </div>
+        </div>
+    @endif
   </div>
 </div>
 

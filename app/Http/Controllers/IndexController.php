@@ -42,7 +42,7 @@ class IndexController extends Controller
       if ($request->output == "html"){
         return view('partials/_list',['obligationsNonDates' => $obligationsNonDates, 'evenements' => $evenements, 'user' => $user]);
       }
-      return $evenements->toJson();
+      return $evenements->load('organismes')->toJson();
     }
 
     private function getEvenements($filtres = [])
