@@ -95,8 +95,8 @@
         </div>
         <div class="form-group row">
           <label for="logo" class="col-2">Logo</label>
-          <div class="col-4">
-            <input type="text" class="form-control @error('logo') is-invalid @enderror" name="logo" value="{{ old('logo', $post->logo ?? '') }}" />
+          <div class="col-3">
+            <input type="file" class="form-control @error('logo') is-invalid @enderror" name="logo" value="{{ old('logo', $post->logo ?? '') }}" accept="image/png, image/jpeg" />
             @error('logo')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
@@ -104,8 +104,8 @@
         </div>
         <div class="form-group row">
           <label for="couleur" class="col-2">Couleur</label>
-          <div class="col-4">
-            <input type="text" class="form-control @error('couleur') is-invalid @enderror" name="couleur" value="{{ old('couleur', $post->couleur ?? '') }}" />
+          <div class="col-1">
+            <input type="color" class="form-control @error('couleur') is-invalid @enderror" name="couleur" value="{{ old('couleur', $post->couleur ?? '') }}" />
             @error('couleur')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
