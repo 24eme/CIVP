@@ -1,7 +1,7 @@
 <div class="modal-dialog modal-lg">
   <div class="modal-content">
 
-    <div class="modal-header" style="display:inline-block;">
+    <div class="modal-header" style="display:inline-block;border-bottom:none;">
         <div class="row">
           <div class="col-md-2 text-center">
               <button class="btn btn-md btn-block" style="background-color: {{$evenement->type->color}}">{{$evenement->type->name}}</button>
@@ -76,10 +76,15 @@
         </div>
       </div>
 
+      <div class="row mt-2">
+        <div class="col-md-12">
+          <p>Cette obligation est régulée et soumise à la loi.<a href="{{$evenement->textedeloi}}" style="color:blue;">En savoir plus</a></p>
+        </div>
+      </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="evenement/export/{{$evenement->id}}"><i class="far fa-calendar-alt"></i> Exporter</a></button>
-      <button type="button" class="btn btn-primary" data-dismiss="modal">Accéder à la déclaration</button>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="evenement/export/{{$evenement->id}}"><i class="far fa-calendar-check"></i> Exporter</a></button>
+      <button type="button" class="btn btn-primary"><a href="{{$evenement->liendeclaration}}"><i class="fas fa-external-link-alt"></i></i>Accéder à la déclaration</a></button>
     </div>
   </div>
 </div>
