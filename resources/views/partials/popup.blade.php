@@ -10,6 +10,11 @@
             <h4 class="modal-title">{{ $evenement->title }}</h4>
           </div>
           <div class="col-md-2 text-right">
+            @if(Auth::check())
+              @if (Auth::user()->isAdmin() == 1)
+                <a href="{{ route('evenement_edit', $evenement) }}"><i class="far fa-edit"></i></a>
+              @endif
+            @endif
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <i class="fas fa-times"></i>
             </button>
@@ -25,6 +30,7 @@
           </div>
           <div class="col-md-2">&nbsp;</div>
         </div>
+
     </div>
 
     <div class="modal-body">
@@ -81,10 +87,12 @@
           <p>Cette obligation est régulée et soumise à la loi.<a href="{{$evenement->textedeloi}}" style="color:blue;">En savoir plus</a></p>
         </div>
       </div>
+
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="evenement/export/{{$evenement->id}}"><i class="far fa-calendar-check"></i> Exporter</a></button>
       <button type="button" class="btn btn-primary"><a href="{{$evenement->liendeclaration}}"><i class="fas fa-external-link-alt"></i></i>Accéder à la déclaration</a></button>
+
     </div>
   </div>
 </div>
