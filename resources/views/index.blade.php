@@ -54,7 +54,7 @@
               <div class="card">
                 <div class="card-body">
                   <h5 class="card-title">{{$obligation->title}}</h5>
-                  <a href="#" class="btn btn-primary" onclick="$('#popupEvenement').modal('show');">En savoir plus</a>
+                  <a href="javascript:void(0)" class="btn btn-primary popupEvent" data-url="{{ route('evenement_popup', $obligation) }}">En savoir plus</a>
                 </div>
               </div>
             </div>
