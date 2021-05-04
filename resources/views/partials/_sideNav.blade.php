@@ -25,21 +25,6 @@
   </div>
 
   <div class="row ml-0">
-    <div><h5 class="col-md-12 mt-2 px-0 py-1">Organismes</h5></div>
-  </div>
-
-  <div class="row ml-4">
-    <div class="col-md-12 mb-0 p-0">
-      @foreach($organismes as $organisme)
-        <div class="custom-control custom-switch py-1">
-          <input name="filters[organismes][]" value="{{$organisme->id}}" type="checkbox" class="custom-control-input custom-control-input-{{$organisme->slug}}" id="organisme{{$organisme->id}}">
-          <label class="custom-control-label custom-control-label-{{$organisme->slug}}" for="organisme{{$organisme->id}}"><img src="/images/logos/organismes/{{$organisme->logo}}" class="" height="20px" /> {{$organisme->nom}}</label>
-        </div>
-      @endforeach
-    </div>
-  </div>
-
-  <div class="row ml-0">
     <div><h5 class="col-md-12 mt-2 px-0 py-1">Tags</h5></div>
   </div>
 
