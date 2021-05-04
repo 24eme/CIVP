@@ -4,7 +4,7 @@
     @foreach($evenements as $evenement)
     @if(!in_array($evenement->start, $done))
       <tr class="thead-light">
-          <th colspan="4">{{ \Carbon\Carbon::parse($evenement->start)->translatedFormat('d F Y') }}</th>
+          <th colspan="4" style="font-weight:bold;">{{ \Carbon\Carbon::parse($evenement->start)->translatedFormat('d F Y') }}</th>
       </tr>
     @endif
     @php(array_push($done, $evenement->start))
@@ -22,9 +22,9 @@
     @foreach($obligationsNonDates as $obligation)
       <tr class="row m-0">
         <td class="col-1">&nbsp</td>
-        <td class="col-5">@if (!$obligation->active) <i class="fas fa-circle" style="color: red"></i> @endif<a href="javascript:void(0)" class="popupEvent" data-url="{{ route('evenement_popup', $evenement) }}"><strong>{{$obligation->title}}</strong><a></td>
+        <td class="col-5">@if (!$obligation->active) <i class="fas fa-circle" style="color: red"></i> @endif<a href="javascript:void(0)" class="popupEvent" data-url="{{ route('evenement_popup', $obligation) }}"><strong>{{$obligation->title}}</strong><a></td>
         <td class="col-5">{!! $obligation->htmlOrganismesList() !!}</td>
-        <td class="col-1">@if ($user) <a href="{{ route('evenement_edit', $evenement) }}"><i class="far fa-edit">&nbsp;</i></a> @endif</td>
+        <td class="col-1">@if ($user) <a href="{{ route('evenement_edit', $obligation) }}"><i class="far fa-edit">&nbsp;</i></a> @endif</td>
       </tr>
     @endforeach
 </table>
