@@ -33,6 +33,19 @@
     <a type="button" class="btn btn-primary float-right my-3 mx-2" href="{{ route('export') }}"><i class="far fa-calendar-alt"></i> Exporter</a>
     <div class="tab-pane fade show active" id="nav-calendrier" role="tabpanel" aria-labelledby="nav-calendrier-tab">
       <div id='calendar' class="mainContent"></div>
+        <h2 class="p-3">Obligations non-datées</h2>
+        <div class="row">
+          @foreach($obligationsNonDates as $obligation)
+            <div class="col-sm-3">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">{{$obligation->title}}</h5>
+                  <a href="#" class="btn btn-primary" onclick="$('#popupEvenement').modal('show');">En savoir plus</a>
+                </div>
+              </div>
+            </div>
+          @endforeach
+        </div>
     </div>
     <div class="tab-pane fade" id="nav-liste" role="tabpanel" aria-labelledby="nav-liste-tab">
       @include('partials/_list')
