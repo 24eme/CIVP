@@ -106,6 +106,23 @@
           $('#popupEvenement').modal('show');
         });
       });
+      // IMG checkbox
+      $(".image-checkbox").each(function () {
+        if ($("#"+$(this).attr('for')).attr("checked")) {
+          $(this).addClass('image-checkbox-checked');
+        }
+        else {
+          $(this).removeClass('image-checkbox-checked');
+        }
+      });
+
+      $(".image-checkbox").click(function (e) {
+        $(this).toggleClass('image-checkbox-checked');
+        var cb = $("#"+$(this).attr('for'));
+        cb.prop("checked", !cb.prop("checked"));
+        e.preventDefault();
+        $("#formFilters").submit();
+      });
       // FILTRES
       var form = $("#formFilters");
       form.change(function() {
