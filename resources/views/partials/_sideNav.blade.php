@@ -24,6 +24,12 @@
     </div>
   </div>
 
+  <div class="d-none">
+    @foreach($organismes as $organisme)
+    <input name="filters[organismes][]" value="{{$organisme->id}}" type="checkbox" id="organisme{{$organisme->id}}" />
+    @endforeach
+  </div>
+
   <div class="row ml-0">
     <div><h5 class="col-md-12 mt-2 px-0 py-1">Familles</h5></div>
   </div>
