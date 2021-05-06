@@ -2,10 +2,8 @@
 @section('content')
 <style type="text/css">
 @foreach($organismes as $organisme)
-.custom-control-input-{{$organisme->slug}}:checked ~ .custom-control-label-{{$organisme->slug}}::before ,
-.custom-control-input-{{$organisme->slug}}:active ~ .custom-control-label-{{$organisme->slug}}::before {
-    background-color: {{$organisme->couleur}};
-    border-color: {{$organisme->couleur}};
+#image-{{$organisme->slug}} .image-checkbox-checked {
+  border-color: {{$organisme->couleur}} !important;
 }
 @endforeach
 </style>

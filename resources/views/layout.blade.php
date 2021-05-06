@@ -90,6 +90,22 @@
       .table {
         background-color: #fff;
       }
+      .image-checkbox {
+      	cursor: pointer;
+      	box-sizing: border-box;
+      	-moz-box-sizing: border-box;
+      	-webkit-box-sizing: border-box;
+      	border: 4px solid transparent;
+      	margin-bottom: 0;
+      	outline: 0;
+      }
+      .image-checkbox input[type="checkbox"] {
+      	display: none;
+      }
+
+      .image-checkbox-checked {
+      	border-color: #4783B0;
+      }
     </style>
     <script type="text/javascript">
     $(document).ready(function(){
