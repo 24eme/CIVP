@@ -33,16 +33,18 @@ class IndexController extends Controller
     public function listEvenements(Request $request)
     {
       $filtres = (isset($request->filters) && is_array($request->filters))? $request->filters : [];
-      $evenements = $this->getEvenements($filtres);
-      $obligationsNonDates = $this->getObligationsNonDates($filtres);
+      $filteredOrganismes = (isset($request->filters['organismes']) && is_array($request->filters['organismes']))? $request->filters['organismes'] : [];
       $user = null;
       if (Auth::check()) {
         $user = Auth::user();
       }
-      if ($request->output == "html"){
-        return view('partials/_list',['obligationsNonDates' => $obligationsNonDates, 'evenements' => $evenements, 'user' => $user]);
+      if ($request->dates){
+        $evenements = $this->getByOrganismes($this->getObligations($filtres), $filteredOrganismes);
+        return ($request->output == "html")? view('partials/_list',['evenements' => $evenements, 'user' => $user]) : json_encode($evenements);
+      } else {
+        $obligationsNonDates = $this->getByOrganismes($this->getObligationsNonDates($filtres), $filteredOrganismes);
+        return ($request->output == "html")? view('partials/_listNonDates',['obligationsNonDates' => $obligationsNonDates, 'user' => $user]) : json_encode($obligationsNonDates);
       }
-      return $evenements->load('organismes')->toJson();
     }
 
     private function getByOrganismes($obligations, $filteredOrganismes = [])

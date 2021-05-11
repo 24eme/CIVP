@@ -11,15 +11,15 @@
       contentHeight: 650,
       dayMaxEvents: true,
       displayEventEnd: true,
-      events:'evenement/list?output=json',
+      events:'evenement/list?output=json&dates=1',
       firstDay: 1,
       fixedWeekCount: false,
       defaultView: 'year',
       buttonText: {month: 'Mois', year: 'Année'},
       eventClick: function(item){
-        $.get("evenement/"+item.id, function(response) {
+        $.get("evenement/"+item.id+"/organisme/"+item.organisme_id, function(response) {
           $('#popupEvenement').html(response);
-          $('#popupEvenement').modal('show');
+          $('#popupEvenement').modal({backdrop: true, keyboard: true});
         });
       }
     });
