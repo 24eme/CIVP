@@ -69,17 +69,31 @@ class IndexController extends Controller
       return $result;
     }
 
+    private function getObligations($filtres = [])
+    {
+      return $this->findObligations($filtres, false);
+    }
 
     private function getObligationsNonDates($filtres = [])
+    {
+      return $this->findObligations($filtres, true);
+    }
+
+    private function findObligations($filtres = [], $nonDates = false)
     {
       if (Auth::check()) {
         $evenements = Evenement::whereIn('active', [0,1]);
       } else {
         $evenements = Evenement::where('active','=', 1);
       }
-      $evenements->where(function($sq) {
-        $sq->whereNull('start')->orWhereNull('end');
-      });
+      if ($nonDates) {
+        $evenements->where(function($sq) {
+          $sq->whereNull('start')->orWhereNull('end');
+        });
+      } else {
+        $evenements->whereNotNull('start');
+        $evenements->whereNotNull('end');
+      }
       if (count($filtres) > 0) {
         foreach(['familles', 'organismes', 'tags'] as $filtre) {
           if (isset($filtres[$filtre]) && count($filtres[$filtre]) > 0) {
@@ -88,6 +102,6 @@ class IndexController extends Controller
           }
         }
       }
-      return $evenements->get();
+      return $evenements->orderBy('start', 'asc')->orderBy('end', 'asc')->get();
     }
 }
