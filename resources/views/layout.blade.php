@@ -115,11 +115,11 @@
         $('#nav-tab a[href="'+ancre+'"]').tab('show')
       }
       // OUVERTURE POPUP
-      $(".popupEvent").click(function() {
+      $("#main").on("click", ".popupEvent", function() {
         var url = $(this).data('url');
         $.get(url, function(response) {
           $('#popupEvenement').html(response);
-          $('#popupEvenement').modal('show');
+          $('#popupEvenement').modal({backdrop: true, keyboard: true});
         });
       });
       // IMG checkbox

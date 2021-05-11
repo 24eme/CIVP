@@ -4,26 +4,12 @@ var removed = new Array()
 var deactivated = []
 var searched = []
 
-function PopUp(id){
-  $.get("evenement/"+id, function(response) {
-    $('#popupEvenement').html(response);
-    $('#popupEvenement').modal('show');
-  });
-}
-
 
 $(document).ready(function(){
   $("input.filter-type").each(function (index, element) {
     if (getCookie(element.id) == "false") {$(element).prop('checked',false)}else{$(element).prop('checked',true)}
   })
 
-  $(".popupEvent").click(function() {
-    var url = $(this).data('url');
-    $.get(url, function(response) {
-      $('#popupEvenement').html(response);
-      $('#popupEvenement').modal('show');
-    });
-  });
 })
 
 function setCookie(name,value,days) {
