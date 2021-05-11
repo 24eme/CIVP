@@ -36,14 +36,13 @@ div.list-events{
 .fc-list-event > td{height: 35px;width: 675px;padding: 5px;}
 .fc-list-day{border-top:1px solid #dee2e6;border-bottom:1px solid #dee2e6;}
 #main{position: relative;background-color: transparent;}
-div.mainContent{background-color: inherit;display: block;margin: auto;background-color: #fff;padding: 10px;  border-radius: 5px;box-shadow: 0px 1px 5px 0px rgba(232,232,232,1);}
-div.navbar-custom {position: relative;background-color: #fff;border-right: 1px solid #ebeef0;margin-top: 4.2rem;}
-div.navbar-custom,.sidelist-item > *{ font-family: 'Montserrat-Bold';color:grey !important;font-size: 1.2em;}
+div.mainContent{background-color: inherit;display: block;margin: auto;background-color: #fff;padding: 10px;}
+div.navbar-custom {position: relative;background-color: #fff;margin-top: 2.7rem;}
+div.navbar-custom,.sidelist-item > *{ font-family: 'Montserrat-Bold';font-size: 1.2em;}
 .sublist-item li > a{font-size: 1em;padding: 5px}
 
-.nav-tabs{
-  width: 155px;
-  margin: auto;
+.nav-tabs a.active{
+  margin-bottom: -1px !important;
 }
 div.NavAdmin {
   background-color: #ef8c8e;

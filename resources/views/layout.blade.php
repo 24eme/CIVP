@@ -54,8 +54,9 @@
       }
       .table .thead-light th {
         background-color: #ffeff0;
-        color: #ef8c8e;
+        color: #c9787a;
         border:none;
+        font-size: 14px;
       }
       .form-signin {
         width: 100%;
@@ -105,6 +106,9 @@
 
       .image-checkbox-checked {
       	border-color: #4783B0;
+      }
+      #organismes-filter {
+        margin-bottom: -52px;
       }
     </style>
     <script type="text/javascript">
