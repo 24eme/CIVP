@@ -46,7 +46,7 @@
   </div>
 
   <div class="row ml-0">
-    <div><h5 class="col-md-12 mt-2 px-0 py-1">Tags</h5></div>
+    <div><h5 class="col-md-12 mt-2 px-0 py-1">Mots-Clés</h5></div>
   </div>
 
   <div class="row ml-4">
