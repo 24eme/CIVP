@@ -23,6 +23,10 @@ class Evenement extends Model
         return $this->belongsToMany(Organisme::class)->orderBy('nom', 'asc');
     }
 
+    public function organisme($id) {
+        return $this->belongsToMany(Organisme::class)->find($id);
+    }
+
     public function tags() {
       return $this->belongsToMany(Tag::class);
     }
