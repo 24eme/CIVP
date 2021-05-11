@@ -18,8 +18,8 @@ class IndexController extends Controller
 
     public function index(Request $request)
     {
-      $evenements = $this->getEvenements();
-      $obligationsNonDates = $this->getObligationsNonDates();
+      $evenements = $this->getByOrganismes($this->getObligations());
+      $obligationsNonDates = $this->getByOrganismes($this->getObligationsNonDates());
       $familles = Famille::all();
       $organismes = Organisme::all();
       $tags = Tag::all();
@@ -45,24 +45,28 @@ class IndexController extends Controller
       return $evenements->load('organismes')->toJson();
     }
 
-    private function getEvenements($filtres = [])
+    private function getByOrganismes($obligations, $filteredOrganismes = [])
     {
-      if (Auth::check()) {
-        $evenements = Evenement::whereIn('active', [0,1]);
-      } else {
-        $evenements = Evenement::where('active','=', 1);
-      }
-      $evenements->whereNotNull('start');
-      $evenements->whereNotNull('end');
-      if (count($filtres) > 0) {
-        foreach(['familles', 'organismes', 'tags'] as $filtre) {
-          if (isset($filtres[$filtre]) && count($filtres[$filtre]) > 0) {
-            $ids = $filtres[$filtre];
-            $evenements->whereHas($filtre, function (Builder $query) use ($ids) { $query->whereIn('id', $ids);});
+      $result = [];
+      foreach($obligations as $obligation) {
+        foreach($obligation->organismes as $organisme) {
+          if ($filteredOrganismes && !in_array($organisme->id, $filteredOrganismes)) {
+            continue;
           }
+          $result[] = [
+            'id' => $obligation->id,
+            'start' => $obligation->start,
+            'end' => $obligation->end,
+            'title' => $obligation->title,
+            'active' => $obligation->active,
+            'organisme_id' => $organisme->id,
+            'organisme' => $organisme->nom,
+            'color' => $organisme->couleur,
+            'textColor' => $organisme->getCouleurFont()
+          ];
         }
       }
-      return $evenements->orderBy('start', 'asc')->orderBy('end', 'asc')->get();
+      return $result;
     }
 
 
