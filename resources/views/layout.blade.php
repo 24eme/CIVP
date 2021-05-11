@@ -150,7 +150,7 @@
       });
       form.submit(function(e) {
         e.preventDefault();
-        var source = form.attr('action')+'?output=json&dates=1&'+form.serialize();
+        var source = form.attr('action')+'?output=json&dates=1&calendar=1&'+form.serialize();
         $('#calendar').fullCalendar('removeEvents');
         $('#calendar').fullCalendar('addEventSource', source);
         $.ajax({

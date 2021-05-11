@@ -11,7 +11,7 @@
       contentHeight: 650,
       dayMaxEvents: true,
       displayEventEnd: true,
-      events:'evenement/list?output=json&dates=1',
+      events:'evenement/list?output=json&dates=1&calendar=1',
       firstDay: 1,
       fixedWeekCount: false,
       defaultView: 'year',
