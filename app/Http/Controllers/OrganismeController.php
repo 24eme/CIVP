@@ -109,6 +109,12 @@ class OrganismeController extends Controller
           'site'=>'',
           'logo'=>'',
       ]);
+
+      if($request->file('logo')) {
+        $attributes['logo'] = 'images/logos/organismes/'.$attributes['logo']->getClientOriginalName();
+        $file = request()->file('logo');
+        $file->storeAs('logos/organismes',$file->getClientOriginalName(), ['disk' => 'image']);
+      }
       $organisme->update($attributes);
       return redirect()->route('organismes');
     }

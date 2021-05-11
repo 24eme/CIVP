@@ -3,7 +3,7 @@
 @include('partials/_sideNav')
 <div id="main" class="main col-10">
   <nav class="mt-4 clearfix">
-    <h1 class="h3 col-md-auto float-left">Organismes destinaires</h1>
+    <h1 class="h3 col-md-auto float-left">Organismes destinataires</h1>
   </nav>
 
   <div class="mainContent clearfix">
@@ -30,7 +30,7 @@
             {{$organisme->id}}
           </td>
           <td>
-            <img src="/images/logos/organismes/{{$organisme->logo}}" class="" height="25px" />
+            <img src="{{ asset($organisme->logo) }}" class="" height="25px" />
           </td>
           <td align="left">
             <i class="fas fa-circle" style="color: {{ $organisme->couleur }}"></i>&nbsp;<strong>{{$organisme->nom}}</strong>

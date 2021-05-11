@@ -7,7 +7,7 @@
   </nav>
 
   <div class="mainContent clearfix">
-    <form method="post" action="{{ route('organisme_edit', $organisme) }}">
+    <form method="post" action="{{ route('organisme_edit', $organisme) }}" enctype='multipart/form-data' ">
       @csrf
         <div class="form-group row">
           <label for="nom" class="col-2">Nom de l'organisme</label>
@@ -83,9 +83,9 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="logo" class="col-2">Logo</label>
+          <label for="logo" class="col-2">Logo</label><img class="ml-3" src="{{ asset($organisme->logo) }}" width=30 height=30 alt="{{ asset($organisme->logo) }}">
           <div class="col-3">
-            <input type="file" class="form-control @error('logo') is-invalid @enderror" name="logo" value="{{ $organisme->logo }}" accept="image/png, image/jpeg"/>
+            <input type="file" class="form-control @error('logo') is-invalid @enderror" name="logo" value="{{ asset($organisme->logo) }}" accept="image/png, image/jpeg"/>
             @error('logo')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
