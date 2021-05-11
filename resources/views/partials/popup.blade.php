@@ -4,7 +4,7 @@
     <div class="modal-header" style="display:inline-block;border-bottom:none;">
         <div class="row">
           <div class="col-md-2 text-center">
-              <button class="btn btn-md btn-block" style="background-color: {{$evenement->type->color}}">{{$evenement->type->name}}</button>
+              <button class="btn btn-md btn-block btn-outline-secondary">{{$evenement->type->name}}</button>
           </div>
           <div class="col-md-8">
             <h4 class="modal-title">{{ $evenement->title }}</h4>
@@ -67,7 +67,7 @@
 
       <div class="row">
         <div class="col-1">
-          <label class="popup-label" for="">Tags</label>
+          <label class="popup-label" for="">Mots-Clés</label>
         </div>
         <div class="col-11 row">
           @foreach($evenement->tags as $tag)
@@ -80,18 +80,18 @@
         </div>
       </div>
 
-@if(isset($evenement->liendeclaration))
+@if($evenement->textedeloi)
       <div class="row mt-2">
         <div class="col-md-12">
-          <p>Cette obligation est régulée et soumise à la loi.<a href="{{$evenement->textedeloi}}" style="color:blue;">En savoir plus</a></p>
+          <p class="primary-link">Cette obligation est régulée et soumise à la loi : <a href="{{$evenement->textedeloi}}" target="_blank">En savoir plus</a></p>
         </div>
       </div>
 @endif
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="evenement/export/{{$evenement->id}}"><i class="far fa-calendar-check"></i> Exporter</a></button>
-@if(isset($evenement->liendeclaration))
-      <button type="button" class="btn btn-primary"><a href="{{$evenement->liendeclaration}}"><i class="fas fa-external-link-alt"></i></i>Accéder à la déclaration</a></button>
+@if($evenement->liendeclaration)
+      <button type="button" class="btn btn-primary"><a href="{{$evenement->liendeclaration}}"><i class="fas fa-external-link-alt"></i> Accéder à la déclaration</a></button>
 @endif
     </div>
   </div>
