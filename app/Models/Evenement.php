@@ -104,6 +104,69 @@ class Evenement extends Model
       $this->tags()->sync(array_unique($toSync));
     }
 
+    public function getByOrganismesAndRrule($filteredOrganismes) {
+      $result = array();
+      foreach($this->organismes as $organisme) {
+        if ($filteredOrganismes && !in_array($organisme->id, $filteredOrganismes)) {
+          continue;
+        }
+        $result = $result + Evenement::getInfosByOrganisme($this, $organisme);
+        if ($this->rrule) {
+          $result = $result + $this->getReccurences($organisme);
+        }
+      }
+      return $result;
+    }
+
+    private function getReccurences($organisme) {
+      if(!in_array($this->rrule, array('mensuel', 'semestriel', 'annuel'))) {
+        return array();
+      }
+      if (!$this->end||!$this->start) {
+        return array();
+      }
+      $result = array();
+      $fin = new \DateTime();
+      $fin->modify('+5 years');
+      $start = new \DateTime($this->start);
+      $end = new \DateTime($this->end);
+      while($end->format('Ymd') < $fin->format('Ymd')) {
+        $evt = clone $this;
+        if ($this->rrule == 'mensuel') {
+          $start->modify('+1 month');
+          $end->modify('+1 month');
+        }
+        if ($this->rrule == 'semestriel') {
+          $start->modify('+6 months');
+          $end->modify('+6 months');
+        }
+        if ($this->rrule == 'annuel') {
+            $start->modify('+1 year');
+            $end->modify('+1 year');
+        }
+        $evt->start = $start->format('Y-m-d');
+        $evt->end = $end->format('Y-m-d');
+        $result = $result + Evenement::getInfosByOrganisme($evt, $organisme);
+        unset($evt);
+      }
+      return $result;
+    }
+
+    public static function getInfosByOrganisme($evenement, $organisme) {
+      $key = str_replace('-','',$evenement->start).'_'.$organisme->id.'_'.$evenement->id;
+      return array($key => array(
+          'id' => $evenement->id,
+          'start' => $evenement->start,
+          'end' => $evenement->end,
+          'title' => $evenement->title,
+          'active' => $evenement->active,
+          'organisme_id' => $organisme->id,
+          'organisme' => $organisme->nom,
+          'color' => $organisme->couleur,
+          'textColor' => $organisme->getCouleurFont()
+      ));
+    }
+
     public function setRrule($dstart,$freq,$interval)
     {
       // DTSTART:20210301T103000Z\nRRULE:FREQ=MONTHLY;INTERVAL=2;UNTIL=20220601

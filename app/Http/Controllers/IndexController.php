@@ -49,25 +49,12 @@ class IndexController extends Controller
 
     private function getByOrganismes($obligations, $filteredOrganismes = [])
     {
-      $result = [];
+      $result = array();
       foreach($obligations as $obligation) {
-        foreach($obligation->organismes as $organisme) {
-          if ($filteredOrganismes && !in_array($organisme->id, $filteredOrganismes)) {
-            continue;
-          }
-          $result[] = [
-            'id' => $obligation->id,
-            'start' => $obligation->start,
-            'end' => $obligation->end,
-            'title' => $obligation->title,
-            'active' => $obligation->active,
-            'organisme_id' => $organisme->id,
-            'organisme' => $organisme->nom,
-            'color' => $organisme->couleur,
-            'textColor' => $organisme->getCouleurFont()
-          ];
-        }
+        $result = $result + $obligation->getByOrganismesAndRrule($filteredOrganismes);
       }
+      ksort($result);
+      $result = array_values($result);
       return $result;
     }
 
