@@ -80,17 +80,19 @@
         </div>
       </div>
 
+@if(isset($evenement->liendeclaration))
       <div class="row mt-2">
         <div class="col-md-12">
           <p>Cette obligation est régulée et soumise à la loi.<a href="{{$evenement->textedeloi}}" style="color:blue;">En savoir plus</a></p>
         </div>
       </div>
-
+@endif
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="evenement/export/{{$evenement->id}}"><i class="far fa-calendar-check"></i> Exporter</a></button>
+@if(isset($evenement->liendeclaration))
       <button type="button" class="btn btn-primary"><a href="{{$evenement->liendeclaration}}"><i class="fas fa-external-link-alt"></i></i>Accéder à la déclaration</a></button>
-
+@endif
     </div>
   </div>
 </div>
