@@ -106,7 +106,10 @@
 
       .image-checkbox-checked {
       	border-color: #4783B0;
-      } 
+      }
+      #organismes-filter {
+        margin-bottom: -52px;
+      }
     </style>
     <script type="text/javascript">
 
