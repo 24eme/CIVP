@@ -108,6 +108,7 @@
       }
     </style>
     <script type="text/javascript">
+
     $(document).ready(function(){
 
       var ancre = window.location.hash;
@@ -162,7 +163,18 @@
         selector: 'textarea#editor',
         menubar: false
       });
+      $(".custom-control-input").each(function (index, element) {
+        if (getCookie(element.id) == "false") {
+          $(element).prop('checked',false)
+        }else{
+          $(element).prop('checked',true)
+        }
+      })
+      $(".custom-control-input").click(function (element) { 
+        setCookie(this.id,this.checked)
+      });
     });
+
     </script>
 </head>
 <body>

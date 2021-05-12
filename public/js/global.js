@@ -26,6 +26,7 @@ $(document).ready(function(){
   });
 })
 
+// IMPORTANT POUR COOKIE
 function setCookie(name,value,days) {
     var expires = "";
     if (days) {
@@ -45,6 +46,9 @@ function getCookie(name) {
     }
     return null;
 }
+
+// FIN cookie
+
 function openNav() {
 
   if ($("#sideNavigation") != null && $("#sideNavigation").css('width') == "290px") {
