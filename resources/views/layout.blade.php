@@ -106,10 +106,7 @@
 
       .image-checkbox-checked {
       	border-color: #4783B0;
-      }
-      #organismes-filter {
-        margin-bottom: -52px;
-      }
+      } 
     </style>
     <script type="text/javascript">
 
@@ -182,7 +179,7 @@
           $(element).prop('checked',true)
         }
       })
-      $(".custom-control-input").click(function (element) { 
+      $(".custom-control-input").click(function (element) {
         setCookie(this.id,this.checked)
       });
     });
