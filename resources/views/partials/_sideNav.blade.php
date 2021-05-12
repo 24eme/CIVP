@@ -69,9 +69,7 @@
 
   <div class="row p-0 mt-4">
     <div class="upper_wrapper col-md-auto" style="margin-left:5px">
-      <input id="searchInput" class="input-search" type="text" placeholder="Recherche..." onkeypress="openListGroup()" autocomplete="off" list="events-list" name="" value="" >
-      <ul id="ListGroupSearch" class="list-group list-group-custom">
-      </ul>
+      <input class="input-search" type="text" placeholder="Recherche..." autocomplete="off" name="query" value="" />
     </div>
   </div>
 
