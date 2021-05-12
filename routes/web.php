@@ -13,7 +13,7 @@ use App\Http\Controllers\AdminController;
 Route::get('/', function () { return redirect()->route('index'); });
 Route::get('/index', [IndexController::class, 'index'])->name('index');
 Route::get('/evenement/list', [IndexController::class, 'listEvenements'])->name('listEvenements');;
-Route::get('/evenement/{id}', [EvenementController::class,'popup'])->name('evenement_popup');
+Route::get('/evenement/{id}/organisme/{organisme_id}', [EvenementController::class,'popup'])->name('evenement_popup');
 Route::get('/evenement/export/{id}', [EvenementController::class,'export'])->name('export');
 Route::get('/export', [EvenementController::class,'export'])->name('export');
 
@@ -33,7 +33,7 @@ Route::prefix('admin')->group(function () {
   Route::post('organisme/create', [OrganismeController::class,'store']);
   Route::get('organisme/edit/{organisme}', [OrganismeController::class,'edit'])->name('organisme_edit');
   Route::post('organisme/edit/{organisme}', [OrganismeController::class,'update']);
-  
+
   Route::get('types', [TypeController::class,'index'])->name('types');
   Route::get('type/edit/{type}', [TypeController::class,'edit'])->name('type_edit');
   Route::post('type/edit/{type}', [TypeController::class,'update']);

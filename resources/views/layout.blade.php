@@ -54,8 +54,9 @@
       }
       .table .thead-light th {
         background-color: #ffeff0;
-        color: #ef8c8e;
+        color: #c9787a;
         border:none;
+        font-size: 14px;
       }
       .form-signin {
         width: 100%;
@@ -106,6 +107,9 @@
       .image-checkbox-checked {
       	border-color: #4783B0;
       }
+      #organismes-filter {
+        margin-bottom: -52px;
+      }
     </style>
     <script type="text/javascript">
 
@@ -116,11 +120,11 @@
         $('#nav-tab a[href="'+ancre+'"]').tab('show')
       }
       // OUVERTURE POPUP
-      $(".popupEvent").click(function() {
+      $("#main").on("click", ".popupEvent", function() {
         var url = $(this).data('url');
         $.get(url, function(response) {
           $('#popupEvenement').html(response);
-          $('#popupEvenement').modal('show');
+          $('#popupEvenement').modal({backdrop: true, keyboard: true});
         });
       });
       // IMG checkbox
@@ -147,15 +151,23 @@
       });
       form.submit(function(e) {
         e.preventDefault();
-        var source = form.attr('action')+'?'+form.serialize();
+        var source = form.attr('action')+'?output=json&dates=1&calendar=1&'+form.serialize();
         $('#calendar').fullCalendar('removeEvents');
         $('#calendar').fullCalendar('addEventSource', source);
         $.ajax({
-           url : form.attr('action')+'?output=html&'+form.serialize(),
+           url : form.attr('action')+'?output=html&dates=1&'+form.serialize(),
            type : 'GET',
            dataType : 'html',
            success : function(result, statut){
                $("#nav-liste").html(result);
+           }
+        });
+        $.ajax({
+           url : form.attr('action')+'?output=html&dates=0&'+form.serialize(),
+           type : 'GET',
+           dataType : 'html',
+           success : function(result, statut){
+               $("#nav-listenondates").html(result);
            }
         });
       });

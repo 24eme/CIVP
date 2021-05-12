@@ -114,9 +114,14 @@
         </div>
       </div>
       <div class="form-group row">
-        <label for="rrule" class="col-2">Règle de récurrence</label>
+        <label for="rrule" class="col-2">Récurrence <small>(sur 5 ans)</small></label>
         <div class="col-4">
-          <input type="text" class="form-control @error('rrule') is-invalid @enderror" name="rrule" value="{{ $evenement->rrule }}" />
+          <select class="form-control @error('rrule') is-invalid @enderror" name="rrule">
+              <option value="">Aucune</option>
+              <option value="mensuel"@if($evenement->rrule == 'mensuel') selected="selected" @endif>Tous les mois</option>
+              <option value="semestriel"@if($evenement->rrule == 'semestriel') selected="selected" @endif>Tous les 6 mois</option>
+              <option value="annuel"@if($evenement->rrule == 'annuel') selected="selected" @endif>Tous les ans</option>
+          </select>
           @error('rrule')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror

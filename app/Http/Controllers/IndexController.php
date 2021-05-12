@@ -18,8 +18,8 @@ class IndexController extends Controller
 
     public function index(Request $request)
     {
-      $evenements = $this->getEvenements();
-      $obligationsNonDates = $this->getObligationsNonDates();
+      $evenements = $this->getByOrganismes($this->getObligations());
+      $obligationsNonDates = $this->getByOrganismes($this->getObligationsNonDates());
       $familles = Famille::all();
       $organismes = Organisme::all();
       $tags = Tag::all();
@@ -33,27 +33,56 @@ class IndexController extends Controller
     public function listEvenements(Request $request)
     {
       $filtres = (isset($request->filters) && is_array($request->filters))? $request->filters : [];
-      $evenements = $this->getEvenements($filtres);
-      $obligationsNonDates = $this->getObligationsNonDates($filtres);
+      $filteredOrganismes = (isset($request->filters['organismes']) && is_array($request->filters['organismes']))? $request->filters['organismes'] : [];
       $user = null;
       if (Auth::check()) {
         $user = Auth::user();
       }
-      if ($request->output == "html"){
-        return view('partials/_list',['obligationsNonDates' => $obligationsNonDates, 'evenements' => $evenements, 'user' => $user]);
+      if ($request->dates){
+        $evenements = $this->getByOrganismes($this->getObligations($filtres), $filteredOrganismes);
+        return ($request->output == "html")? view('partials/_list',['evenements' => $evenements, 'user' => $user]) : json_encode($evenements);
+      } else {
+        $obligationsNonDates = $this->getByOrganismes($this->getObligationsNonDates($filtres), $filteredOrganismes);
+        return ($request->output == "html")? view('partials/_listNonDates',['obligationsNonDates' => $obligationsNonDates, 'user' => $user]) : json_encode($obligationsNonDates);
       }
-      return $evenements->load('organismes')->toJson();
     }
 
-    private function getEvenements($filtres = [])
+    private function getByOrganismes($obligations, $filteredOrganismes = [])
+    {
+      $result = array();
+      foreach($obligations as $obligation) {
+        $result = $result + $obligation->getByOrganismesAndRrule($filteredOrganismes);
+      }
+      ksort($result);
+      $result = array_values($result);
+      return $result;
+    }
+
+    private function getObligations($filtres = [])
+    {
+      return $this->findObligations($filtres, false);
+    }
+
+    private function getObligationsNonDates($filtres = [])
+    {
+      return $this->findObligations($filtres, true);
+    }
+
+    private function findObligations($filtres = [], $nonDates = false)
     {
       if (Auth::check()) {
         $evenements = Evenement::whereIn('active', [0,1]);
       } else {
         $evenements = Evenement::where('active','=', 1);
       }
-      $evenements->whereNotNull('start');
-      $evenements->whereNotNull('end');
+      if ($nonDates) {
+        $evenements->where(function($sq) {
+          $sq->whereNull('start')->orWhereNull('end');
+        });
+      } else {
+        $evenements->whereNotNull('start');
+        $evenements->whereNotNull('end');
+      }
       if (count($filtres) > 0) {
         foreach(['familles', 'organismes', 'tags'] as $filtre) {
           if (isset($filtres[$filtre]) && count($filtres[$filtre]) > 0) {
@@ -63,27 +92,5 @@ class IndexController extends Controller
         }
       }
       return $evenements->orderBy('start', 'asc')->orderBy('end', 'asc')->get();
-    }
-
-
-    private function getObligationsNonDates($filtres = [])
-    {
-      if (Auth::check()) {
-        $evenements = Evenement::whereIn('active', [0,1]);
-      } else {
-        $evenements = Evenement::where('active','=', 1);
-      }
-      $evenements->where(function($sq) {
-        $sq->whereNull('start')->orWhereNull('end');
-      });
-      if (count($filtres) > 0) {
-        foreach(['familles', 'organismes', 'tags'] as $filtre) {
-          if (isset($filtres[$filtre]) && count($filtres[$filtre]) > 0) {
-            $ids = $filtres[$filtre];
-            $evenements->whereHas($filtre, function (Builder $query) use ($ids) { $query->whereIn('id', $ids);});
-          }
-        }
-      }
-      return $evenements->get();
     }
 }

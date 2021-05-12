@@ -22,4 +22,8 @@ class Organisme extends Model
     public function evenements() {
       return $this->belongsToMany(Evenement::class);
     }
+
+    public function getCouleurFont() {
+      return '#ffffff';
+    }
 }

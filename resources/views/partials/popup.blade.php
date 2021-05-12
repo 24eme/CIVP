@@ -4,7 +4,7 @@
     <div class="modal-header" style="display:inline-block;border-bottom:none;">
         <div class="row">
           <div class="col-md-2 text-center">
-              <button class="btn btn-md btn-block" style="background-color: {{$evenement->type->color}}">{{$evenement->type->name}}</button>
+              <button class="btn btn-md btn-block btn-outline-secondary">{{$evenement->type->name}}</button>
           </div>
           <div class="col-md-8">
             <h4 class="modal-title">{{ $evenement->title }}</h4>
@@ -45,31 +45,29 @@
         </div>
 
         <div class="col-5 row d-inline-block">
-          @foreach($evenement->organismes as $organisme)
           <div class="organisme-card my-1 p-1 row d-inline-block w-100 ml-4">
             <div class="col-12 pb-2">
-              <img src="/images/logos/organismes/{{$organisme->logo}}" class="" height="20px" /> <i class="fas fa-circle" style="color: {{ $organisme->couleur }}"></i>&nbsp;<strong>{{$organisme->nom}}</strong>
+              <img src="/images/logos/organismes/{{$evenement->organisme($organisme_id)->logo}}" class="" height="20px" /> <i class="fas fa-circle" style="color: {{ $evenement->organisme($organisme_id)->couleur }}"></i>&nbsp;<strong>{{$evenement->organisme($organisme_id)->nom}}</strong>
             </div>
             <div class="col-12 pb-2">
-              {{$organisme->adresse}}<br />{{$organisme->code_postal}} {{$organisme->ville}}
+              {{$evenement->organisme($organisme_id)->adresse}}<br />{{$evenement->organisme($organisme_id)->code_postal}} {{$evenement->organisme($organisme_id)->ville}}
             </div>
             <div class="col-12 pb-1">
-              <strong>{{$organisme->contact}}</strong>
+              <strong>{{$evenement->organisme($organisme_id)->contact}}</strong>
             </div>
             <div class="col-12">
-              <i class="fas fa-phone-alt"></i>&nbsp;{{$organisme->telephone}}
+              <i class="fas fa-phone-alt"></i>&nbsp;{{$evenement->organisme($organisme_id)->telephone}}
             </div>
             <div class="col-12">
-              <i class="far fa-envelope"></i>&nbsp;{{$organisme->email}}
+              <i class="far fa-envelope"></i>&nbsp;{{$evenement->organisme($organisme_id)->email}}
             </div>
           </div>
-          @endforeach
         </div>
       </div>
 
       <div class="row">
         <div class="col-1">
-          <label class="popup-label" for="">Tags</label>
+          <label class="popup-label" for="">Mots-Clés</label>
         </div>
         <div class="col-11 row">
           @foreach($evenement->tags as $tag)
@@ -82,18 +80,18 @@
         </div>
       </div>
 
-@if(isset($evenement->liendeclaration))
+@if($evenement->textedeloi)
       <div class="row mt-2">
         <div class="col-md-12">
-          <p>Cette obligation est régulée et soumise à la loi.<a href="{{$evenement->textedeloi}}" style="color:blue;">En savoir plus</a></p>
+          <p class="primary-link">Cette obligation est régulée et soumise à la loi : <a href="{{$evenement->textedeloi}}" target="_blank">En savoir plus</a></p>
         </div>
       </div>
 @endif
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-secondary" data-dismiss="modal"><a href="evenement/export/{{$evenement->id}}"><i class="far fa-calendar-check"></i> Exporter</a></button>
-@if(isset($evenement->liendeclaration))
-      <button type="button" class="btn btn-primary"><a href="{{$evenement->liendeclaration}}"><i class="fas fa-external-link-alt"></i></i>Accéder à la déclaration</a></button>
+@if($evenement->liendeclaration)
+      <button type="button" class="btn btn-primary"><a href="{{$evenement->liendeclaration}}"><i class="fas fa-external-link-alt"></i> Accéder à la déclaration</a></button>
 @endif
     </div>
   </div>
