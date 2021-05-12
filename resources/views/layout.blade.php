@@ -176,17 +176,16 @@
         menubar: false
       });
       $(".custom-control-input").each(function (index, element) {
-        if (getCookie(element.id) == "false") {
-          $(element).prop('checked',false)
-        }else{
+        if (getCookie(element.id) == "true") {
           $(element).prop('checked',true)
+        }else{
+          $(element).prop('checked',false)
         }
       })
       $(".custom-control-input").click(function (element) {
         setCookie(this.id,this.checked)
       });
     });
-
     </script>
 </head>
 <body>
