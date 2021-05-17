@@ -8,6 +8,7 @@
     </div>
   </div>
   <div class="BlocAdmin row p-3 mb-3 ">
+      <div class="col-md-12 py-1"><a href="{{ route ('index') }}"><i class="fas fa-undo"></i> Retour au calendrier</a></div>
       <div class="col-md-12 py-1"><a href="{{ route ('evenement_create') }}" class="{{ (Request::is('admin/evenement*') ? 'active' : '') }}"><i class="far fa-calendar-plus"></i> Créer un evenement</a></div>
       <div class="col-md-12 py-1"><a href="{{ route ('types') }}" class="{{ (Request::is('admin/type*') ? 'active' : '') }}"><i class="fas fa-sitemap"></i> Types d'évènement</a></div>
       <div class="col-md-12 py-1"><a href="{{ route ('familles') }}" class="{{ (Request::is('admin/famille*') ? 'active' : '') }}"><i class="fas fa-users"></i> Familles viti/vinicoles</a></div>
