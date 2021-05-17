@@ -21,6 +21,9 @@
           $('#popupEvenement').html(response);
           $('#popupEvenement').modal({backdrop: true, keyboard: true});
         });
+      },
+			eventRender: function (event, element) {
+          element.find('.fc-title, .fc-list-item-title').html(event.title);
       }
     });
   });

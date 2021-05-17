@@ -158,13 +158,23 @@ class Evenement extends Model
           'id' => $evenement->id,
           'start' => $evenement->start,
           'end' => $evenement->end,
-          'title' => $evenement->title,
+          'simpleTitle' => $evenement->title,
+          'title' => $evenement->getTitleWithOrganismesGommettes(),
+          'organismes' => $evenement->htmlOrganismesList(),
           'active' => $evenement->active,
-          'organisme_id' => $organisme->id,
-          'organisme' => $organisme->nom,
-          'color' => $organisme->couleur,
-          'textColor' => $organisme->getCouleurFont()
+          'color' => '#eeeeee',
+          'textColor' => '#000000',
+          'borderColor' => '#adb5bd'
       ));
+    }
+
+    public function getTitleWithOrganismesGommettes() {
+        $html = '';
+        foreach($this->organismes as $organisme) {
+          $html .= '<i class="fas fa-circle" style="color: '.$organisme->couleur.'" title="'.$organisme->nom.'"></i> ';
+        }
+        $html .= $this->title;
+        return $html;
     }
 
     public function setRrule($dstart,$freq,$interval)
