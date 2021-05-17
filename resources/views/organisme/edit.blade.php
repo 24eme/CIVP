@@ -83,7 +83,7 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="logo" class="col-2">Logo</label><img class="ml-3" src="{{ asset($organisme->logo) }}" width=30 height=30 alt="{{ asset($organisme->logo) }}">
+          <label for="logo" class="col-2">Logo</label><img class="ml-3" src="/images/logos/organismes/{{ $organisme->logo }}" height="30px" alt="{{ $organisme->logo }}">
           <div class="col-3">
             <input type="file" class="form-control @error('logo') is-invalid @enderror" name="logo" value="{{ asset($organisme->logo) }}" accept="image/png, image/jpeg"/>
             @error('logo')
