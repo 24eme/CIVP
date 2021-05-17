@@ -22,16 +22,17 @@
 
 
   <div class="row">
-    <div id="organismes-filter" class="col-12 text-center">
+    <div id="organismes-filter" class="col-12 text-center pt-3">
     <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Filtrer par organisme :
+    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Filtrer par organisme
     </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <div class="dropdown-menu dropdown-menu-center" aria-labelledby="dropdownMenuButton">
       @foreach($organismes as $organisme)
       <div id="image-{{$organisme->slug}}" class="d-inline">
-        <label class="image-checkbox mx-2 p-1" for="organisme{{$organisme->id}}">
+        <label class="image-checkbox mx-2 p-1 text-center" for="organisme{{$organisme->id}}">
           <a class="dropdown-item"><img src="/images/logos/organismes/{{$organisme->logo}}" class="img-responsive" height="45px" title="{{$organisme->nom}}" /></a>
+          <i class="fas fa-circle" style="color: {{$organisme->couleur}}"></i>&nbsp;{{$organisme->nom}}
         </label>
       </div>
       @endforeach
