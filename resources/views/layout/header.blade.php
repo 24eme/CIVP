@@ -10,7 +10,7 @@
     <div class="col-md-auto float-right">
       @if($user)
       <div class="btn-group">
-        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <i class="fas fa-user"></i>&nbsp;{{ $user->name }}
         </button>
         <div class="dropdown-menu">
