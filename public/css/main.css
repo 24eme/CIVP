@@ -484,7 +484,7 @@ a.fc-event {
     color: #ef8c8e;
 }
 #calendar h2 {
-  color: #E8E8E8;
+  color: #ef8c8e;
 }
 .custom-control-input:checked ~ .custom-control-label::before ,
 .custom-control-input:active ~ .custom-control-label::before {
@@ -584,4 +584,22 @@ a.fc-event {
 @font-face {
   font-family: "Montserrat-Light";
   src: url("fonts/Montserrat/Montserrat-ExtraLight.ttf");
+}
+
+.dropdown-menu-center {
+  right: auto !important;
+  left: 50% !important;
+  top: 100% !important;
+  -webkit-transform: translate(-50%, 0) !important;
+  -o-transform: translate(-50%, 0) !important;
+  transform: translate(-50%, 0) !important;
+}
+
+.fc th {
+  padding: 5px 0;
+  background-color: #ffeff0;
+}
+
+.fc th span {
+  font-size: 15px;
 }
