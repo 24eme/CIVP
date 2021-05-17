@@ -21,7 +21,14 @@
           $('#popupEvenement').html(response);
           $('#popupEvenement').modal({backdrop: true, keyboard: true});
         });
-      }
+      },
+			eventMouseover:function(item,$el){
+				$($el.currentTarget).tooltip({
+					title:" du " + item.start.toISOString() + " au " +item.end.toISOString(),
+					html: true
+				});
+				console.log($el.currentTarget)
+			},
     });
   });
 
