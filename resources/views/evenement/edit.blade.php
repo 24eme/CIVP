@@ -119,6 +119,7 @@
           <select class="form-control @error('rrule') is-invalid @enderror" name="rrule">
               <option value="">Aucune</option>
               <option value="mensuel"@if($evenement->rrule == 'mensuel') selected="selected" @endif>Tous les mois</option>
+              <option value="semestriel"@if($evenement->rrule == 'trimestriel') selected="selected" @endif>Tous les 3 mois</option>
               <option value="semestriel"@if($evenement->rrule == 'semestriel') selected="selected" @endif>Tous les 6 mois</option>
               <option value="annuel"@if($evenement->rrule == 'annuel') selected="selected" @endif>Tous les ans</option>
           </select>

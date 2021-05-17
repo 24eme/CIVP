@@ -119,6 +119,7 @@
             <select class="form-control @error('rrule') is-invalid @enderror" name="rrule">
                 <option value="">Aucune</option>
                 <option value="mensuel">Tous les mois</option>
+                <option value="semestriel">Tous les 3 mois</option>
                 <option value="semestriel">Tous les 6 mois</option>
                 <option value="annuel">Tous les ans</option>
             </select>

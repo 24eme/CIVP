@@ -106,21 +106,9 @@ class Evenement extends Model
 
     public function getwithReccurences() {
       $result = array();
-      foreach($this->organismes as $organisme) {
-        if ($filteredOrganismes && !in_array($organisme->id, $filteredOrganismes)) {
-          continue;
-        }
-        $result = $result + Evenement::getInfosByOrganisme($this, $organisme);
-        if ($this->rrule) {
-          $result = $result + $this->getReccurences($organisme);
-        }
-      }
-      return $result;
-    }
-
-    private function getReccurences($organisme) {
-      if(!in_array($this->rrule, array('mensuel', 'semestriel', 'annuel'))) {
-        return array();
+      $result = $result + Evenement::getInfos($this);
+      if(!in_array($this->rrule, array('mensuel', 'trimestriel', 'semestriel', 'annuel'))) {
+        return $result;
       }
       if (!$this->end||!$this->start) {
         return $result;
@@ -134,6 +122,10 @@ class Evenement extends Model
         if ($this->rrule == 'mensuel') {
           $start->modify('+1 month');
           $end->modify('+1 month');
+        }
+        if ($this->rrule == 'trimestriel') {
+          $start->modify('+3 months');
+          $end->modify('+3 months');
         }
         if ($this->rrule == 'semestriel') {
           $start->modify('+6 months');
