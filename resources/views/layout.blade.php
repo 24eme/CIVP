@@ -14,7 +14,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="/fullcalendar-year-view/dist/fullcalendar.js"></script>
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"></script>
-    
+
     <link href='https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.css' rel='stylesheet' />
     <link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/css/all.css' rel='stylesheet'>
     <link rel="stylesheet" href="/fullcalendar-year-view/dist/fullcalendar.css" />
@@ -28,7 +28,7 @@
   </div>
   @include('layout/popup')
   @include("layout/footer")
-  <script src="/js/calendar.js"></script>
-  <script src="/js/global.js"></script>
+  <script src="/js/calendar.js?cache=202105171830"></script>
+  <script src="/js/global.js?cache=202105171830"></script>
 </body>
 </html>
