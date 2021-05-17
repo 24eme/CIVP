@@ -23,9 +23,14 @@
         });
       },
 			eventRender: function (event, element) {
-          element.find('.fc-title, .fc-list-item-title').html(event.title);
+					var ds = new Date(event.start);
+					var de = new Date(event.end);
+					var dss = ds.getDate().toString().padStart(2, '0') + '/' + (1 + ds.getMonth()).toString().padStart(2, '0') + '/' + ds.getFullYear();
+					var des = de.getDate().toString().padStart(2, '0') + '/' + (1 + de.getMonth()).toString().padStart(2, '0') + '/' + de.getFullYear();
+					var title = "Du "+dss+" au "+des;
+          element.find('.fc-title, .fc-list-item-title').html('<span title="'+title+'">' + event.title + '</span>');
       }
-    });
+		 });
   });
 
 })(jQuery);

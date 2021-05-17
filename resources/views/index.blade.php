@@ -23,15 +23,23 @@
 
   <div class="row">
     <div id="organismes-filter" class="col-12 text-center">
+    <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Filtrer par organisme :
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       @foreach($organismes as $organisme)
       <div id="image-{{$organisme->slug}}" class="d-inline">
         <label class="image-checkbox mx-2 p-1" for="organisme{{$organisme->id}}">
-          <img src="/images/logos/organismes/{{$organisme->logo}}" class="img-responsive" height="45px" title="{{$organisme->nom}}" />
+          <a class="dropdown-item"><img src="/images/logos/organismes/{{$organisme->logo}}" class="img-responsive" height="45px" title="{{$organisme->nom}}" /></a>
         </label>
       </div>
       @endforeach
     </div>
+    </div>
+    </div>
   </div>
+
     <a type="button" class="btn btn-primary float-right my-3 mx-2" href="{{ route('export') }}" style="z-index:4;position:relative;"><i class="far fa-calendar-alt"></i> Exporter</a>
     <div class="tab-pane fade show active" id="nav-calendrier" role="tabpanel" aria-labelledby="nav-calendrier-tab">
       <div id='calendar' class="mainContent"></div>

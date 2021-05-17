@@ -423,7 +423,7 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
     height: 53px;
 }
 .breadcrumb {
-    margin-left: 40px;
+    margin-left: 20px;
     left: 65px;
     background: none;
     border: none;
@@ -446,7 +446,7 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
     font-family: "32c23237",Helvetica,Arial,sans-serif;
     font-weight: 700;
     color: #000;
-    letter-spacing: .5px;
+    letter-spacing: .9px;
     text-transform: uppercase;
     padding: 0;
 }
@@ -465,6 +465,97 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
     margin-left: auto;
 }
 
+.fc-unthemed td.fc-today {
+  background: #ffeff0;
+}
+.custom-control-label {
+  cursor: pointer;
+}
+a.fc-event {
+  cursor: pointer;
+}
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    color: #ef8c8e;
+    background-color: #fff;
+    border-color: #ef8c8e;
+    border-bottom: none;
+}
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+    color: #ef8c8e;
+}
+#calendar h2 {
+  color: #E8E8E8;
+}
+.custom-control-input:checked ~ .custom-control-label::before ,
+.custom-control-input:active ~ .custom-control-label::before {
+    background-color: #ef8c8e;
+    border-color: #ef8c8e;
+}
+
+.custom-control-input:focus ~ .custom-control-label::before {
+  outline: none !important;
+  -webkit-appearance: none;
+  box-shadow: none !important;
+  border-color: #adb5bd !important;
+}
+.table .thead-light th {
+  background-color: #ffeff0;
+  color: #c9787a;
+  border:none;
+  font-size: 14px;
+}
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  text-align: center;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.table {
+  background-color: #fff;
+}
+.image-checkbox {
+  cursor: pointer;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: 4px solid transparent;
+  margin-bottom: 0;
+  outline: 0;
+}
+.image-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.image-checkbox-checked {
+  border-color: #4783B0;
+}
+#organismes-filter {
+  margin-bottom: -52px;
+}
 
 ::-webkit-scrollbar {width: 0; background: transparent; }
 @media (max-width: 767px){

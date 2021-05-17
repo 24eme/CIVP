@@ -114,7 +114,7 @@
         </div>
       </div>
       <div class="form-group row">
-        <label for="rrule" class="col-2">Récurrence <small>(sur 5 ans)</small></label>
+        <label for="rrule" class="col-2">Récurrence <small>(sur 1 année glissante)</small></label>
         <div class="col-4">
           <select class="form-control @error('rrule') is-invalid @enderror" name="rrule">
               <option value="">Aucune</option>
