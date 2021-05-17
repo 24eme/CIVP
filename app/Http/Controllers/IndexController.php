@@ -18,8 +18,8 @@ class IndexController extends Controller
 
     public function index(Request $request)
     {
-      $evenements = $this->getByOrganismes($this->getObligations());
-      $obligationsNonDates = $this->getByOrganismes($this->getObligationsNonDates());
+      $evenements = $this->getwithReccurences($this->getObligations());
+      $obligationsNonDates = $this->getwithReccurences($this->getObligationsNonDates());
       $familles = Famille::all();
       $organismes = Organisme::all();
       $tags = Tag::all();
@@ -33,25 +33,24 @@ class IndexController extends Controller
     public function listEvenements(Request $request)
     {
       $filtres = (isset($request->filters) && is_array($request->filters))? $request->filters : [];
-      $filteredOrganismes = (isset($request->filters['organismes']) && is_array($request->filters['organismes']))? $request->filters['organismes'] : [];
       $user = null;
       if (Auth::check()) {
         $user = Auth::user();
       }
       if ($request->dates){
-        $evenements = $this->getByOrganismes($this->getObligations($filtres), $filteredOrganismes);
+        $evenements = $this->getwithReccurences($this->getObligations($filtres));
         return ($request->output == "html")? view('partials/_list',['evenements' => $evenements, 'user' => $user]) : json_encode($evenements);
       } else {
-        $obligationsNonDates = $this->getByOrganismes($this->getObligationsNonDates($filtres), $filteredOrganismes);
+        $obligationsNonDates = $this->getwithReccurences($this->getObligationsNonDates($filtres));
         return ($request->output == "html")? view('partials/_listNonDates',['obligationsNonDates' => $obligationsNonDates, 'user' => $user]) : json_encode($obligationsNonDates);
       }
     }
 
-    private function getByOrganismes($obligations, $filteredOrganismes = [])
+    private function getwithReccurences($obligations)
     {
       $result = array();
       foreach($obligations as $obligation) {
-        $result = $result + $obligation->getByOrganismesAndRrule($filteredOrganismes);
+        $result = $result + $obligation->getwithReccurences();
       }
       ksort($result);
       $result = array_values($result);

@@ -104,7 +104,7 @@ class Evenement extends Model
       $this->tags()->sync(array_unique($toSync));
     }
 
-    public function getByOrganismesAndRrule($filteredOrganismes) {
+    public function getwithReccurences() {
       $result = array();
       foreach($this->organismes as $organisme) {
         if ($filteredOrganismes && !in_array($organisme->id, $filteredOrganismes)) {
@@ -123,9 +123,8 @@ class Evenement extends Model
         return array();
       }
       if (!$this->end||!$this->start) {
-        return array();
+        return $result;
       }
-      $result = array();
       $fin = new \DateTime();
       $fin->modify('+5 years');
       $start = new \DateTime($this->start);
@@ -146,14 +145,14 @@ class Evenement extends Model
         }
         $evt->start = $start->format('Y-m-d');
         $evt->end = $end->format('Y-m-d');
-        $result = $result + Evenement::getInfosByOrganisme($evt, $organisme);
+        $result = $result + Evenement::getInfos($evt);
         unset($evt);
       }
       return $result;
     }
 
-    public static function getInfosByOrganisme($evenement, $organisme) {
-      $key = str_replace('-','',$evenement->start).'_'.$organisme->id.'_'.$evenement->id;
+    public static function getInfos($evenement) {
+      $key = str_replace('-','',$evenement->start).'_'.$evenement->id;
       return array($key => array(
           'id' => $evenement->id,
           'start' => $evenement->start,
