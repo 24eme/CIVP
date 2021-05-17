@@ -10,7 +10,7 @@
     <form method="post" action="{{ route('type_edit', $type) }}">
       @csrf
       <div class="form-group row">
-        <label for="name" class="col-2">Nom du type d'évènement</label>
+        <label for="name" class="col-2">Nom du type de déclaration</label>
         <div class="col-sm-4">
           <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $type->name }}" />
           @error('name')

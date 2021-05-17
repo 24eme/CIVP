@@ -3,7 +3,7 @@
 @include('partials/_sideNav')
 <div id="main" class="main col-10">
   <nav class="mt-4 clearfix">
-    <h1 class="h3 col-md-auto float-left">Types d'évènement</h1>
+    <h1 class="h3 col-md-auto float-left">Types de déclaration</h1>
   </nav>
 
   <div class="mainContent clearfix">

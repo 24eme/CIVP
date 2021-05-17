@@ -3,14 +3,14 @@
 @include('partials/_sideNav')
 <div id="main" class="main col-10">
   <nav class="mt-4 clearfix">
-    <h1 class="h3 col-md-auto float-left">Edition d'un évènement</h1>
+    <h1 class="h3 col-md-auto float-left">Edition d'une déclaration</h1>
   </nav>
 
   <div class="mainContent clearfix">
   <form method="post" action="{{ route('evenement_edit', $evenement) }}">
     @csrf
       <div class="form-group row">
-        <label for="type_id" class="col-2">Edition d'évènement</label>
+        <label for="type_id" class="col-2">Edition d'une déclaration</label>
         <div class="col-4">
           <select class="form-control @error('type_id') is-invalid @enderror" name="type_id">
             @foreach($types as $type)

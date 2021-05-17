@@ -14,7 +14,7 @@
   <nav>
     <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
       <a class="nav-link active" id="nav-calendrier-tab" data-toggle="tab" href="#nav-calendrier" role="tab" aria-controls="nav-calendrier" aria-selected="true"><i class="far fa-calendar-alt"></i> Calendrier</a>
-      <a class="nav-link" id="nav-liste-tab" data-toggle="tab" href="#nav-liste" role="tab" aria-controls="nav-liste" aria-selected="false"><i class="fas fa-list-ul"></i> Liste</a>
+      <a class="nav-link" id="nav-liste-tab" data-toggle="tab" href="#nav-liste" role="tab" aria-controls="nav-liste" aria-selected="false"><i class="fas fa-list-ul"></i> Liste des déclarations</a>
     </div>
   </nav>
 
