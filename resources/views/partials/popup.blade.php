@@ -45,23 +45,25 @@
         </div>
 
         <div class="col-5 row d-inline-block">
+          @foreach($evenement->organismes as $organisme)
           <div class="organisme-card my-1 p-1 row d-inline-block w-100 ml-4">
             <div class="col-12 pb-2">
-              <img src="/images/logos/organismes/{{$evenement->organisme($organisme_id)->logo}}" class="" height="20px" /> <i class="fas fa-circle" style="color: {{ $evenement->organisme($organisme_id)->couleur }}"></i>&nbsp;<strong>{{$evenement->organisme($organisme_id)->nom}}</strong>
+              <img src="/images/logos/organismes/{{$organisme->logo}}" class="" height="20px" /> <i class="fas fa-circle" style="color: {{ $organisme->couleur }}"></i>&nbsp;<strong>{{$organisme->nom}}</strong>
             </div>
             <div class="col-12 pb-2">
-              {{$evenement->organisme($organisme_id)->adresse}}<br />{{$evenement->organisme($organisme_id)->code_postal}} {{$evenement->organisme($organisme_id)->ville}}
+              {{$organisme->adresse}}<br />{{$organisme->code_postal}} {{$organisme->ville}}
             </div>
             <div class="col-12 pb-1">
-              <strong>{{$evenement->organisme($organisme_id)->contact}}</strong>
+              <strong>{{$organisme->contact}}</strong>
             </div>
             <div class="col-12">
-              <i class="fas fa-phone-alt"></i>&nbsp;{{$evenement->organisme($organisme_id)->telephone}}
+              <i class="fas fa-phone-alt"></i>&nbsp;{{$organisme->telephone}}
             </div>
             <div class="col-12">
-              <i class="far fa-envelope"></i>&nbsp;{{$evenement->organisme($organisme_id)->email}}
+              <i class="far fa-envelope"></i>&nbsp;{{$organisme->email}}
             </div>
           </div>
+          @endforeach
         </div>
       </div>
 

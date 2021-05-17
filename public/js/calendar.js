@@ -17,7 +17,7 @@
       defaultView: 'year',
       buttonText: {month: 'Mois', year: 'Année'},
       eventClick: function(item){
-        $.get("evenement/"+item.id+"/organisme/"+item.organisme_id, function(response) {
+        $.get("evenement/"+item.id, function(response) {
           $('#popupEvenement').html(response);
           $('#popupEvenement').modal({backdrop: true, keyboard: true});
         });

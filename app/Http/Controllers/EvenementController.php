@@ -106,9 +106,9 @@ class EvenementController extends Controller
       return redirect(route('index') . '#nav-liste');
     }
 
-    public function popup($id, $organisme_id) {
+    public function popup($id) {
       $evenement = Evenement::find($id);
-      return view('partials/popup', ['evenement' => $evenement, 'organisme_id' => $organisme_id]);
+      return view('partials/popup', ['evenement' => $evenement]);
     }
 
     public function destroy(Evenements $evenements)

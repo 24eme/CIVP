@@ -13,7 +13,7 @@ use App\Http\Controllers\AdminController;
 Route::get('/', function () { return redirect()->route('index'); });
 Route::get('/index', [IndexController::class, 'index'])->name('index');
 Route::get('/evenement/list', [IndexController::class, 'listEvenements'])->name('listEvenements');;
-Route::get('/evenement/{id}/organisme/{organisme_id}', [EvenementController::class,'popup'])->name('evenement_popup');
+Route::get('/evenement/{id}', [EvenementController::class,'popup'])->name('evenement_popup');
 Route::get('/evenement/export/{id}', [EvenementController::class,'exportEvenement'])->name('export');
 Route::get('/export', [EvenementController::class,'export'])->name('export');
 
