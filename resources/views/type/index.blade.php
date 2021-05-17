@@ -30,7 +30,7 @@
             <strong>{{$type->name}}</strong>
           </td>
           <td>
-            <a href="{{ route('type_edit', $type) }}"><i class="far fa-edit">&nbsp;</i></a>
+            <a href="{{ route('type_edit', $type) }}"><i class="far fa-edit">&nbsp;</i>Modifier</a>
           </td>
           </tr>
           @endforeach

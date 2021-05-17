@@ -12,7 +12,7 @@
           <div class="col-md-2 text-right">
             @if(Auth::check())
               @if (Auth::user()->isAdmin() == 1)
-                <a href="{{ route('evenement_edit', $evenement) }}"><i class="far fa-edit"></i></a>
+                <a href="{{ route('evenement_edit', $evenement) }}"><i class="far fa-edit">&nbsp;</i>Modifier</a>
               @endif
             @endif
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">

@@ -30,7 +30,7 @@
             <strong>{{$famille->nom}}</strong>
           </td>
           <td>
-            <a href="{{ route('famille_edit', $famille) }}"><i class="far fa-edit">&nbsp;</i></a>
+            <a href="{{ route('famille_edit', $famille) }}"><i class="far fa-edit">&nbsp;</i>Modifier</a>
           </td>
           </tr>
           @endforeach
