@@ -446,7 +446,6 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
     font-family: "32c23237",Helvetica,Arial,sans-serif;
     font-weight: 700;
     color: #000;
-    letter-spacing: .9px;
     text-transform: uppercase;
     padding: 0;
 }

@@ -92,4 +92,13 @@ class IndexController extends Controller
       }
       return $evenements->orderBy('start', 'asc')->orderBy('end', 'asc')->get();
     }
+
+    public function mentions(Request $request)
+    {
+      $user = null;
+      if (Auth::check()) {
+        $user = Auth::user();
+      }
+      return view('mentions', ['user' => $user]);
+    }
 }

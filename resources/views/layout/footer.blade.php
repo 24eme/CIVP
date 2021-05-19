@@ -11,7 +11,7 @@
         <a class="nav-link" id="nav-link-contact" href="https://www.vinsdeprovence.com/contact">Contact</a>
       </li>
       <li class="nav-item" id="nav-item-mentions-legales" role="menuitem">
-        <a class="nav-link" id="nav-link-mentions-legales" href="#">Mentions légales</a>
+        <a class="nav-link" id="nav-link-mentions-legales" href="{{ route('mentions') }}">Mentions légales</a>
       </li>
     </ul>
   </div>
