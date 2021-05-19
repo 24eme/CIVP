@@ -34,6 +34,7 @@
             @error('familles')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
+            <p class="text-right primary-link"><a href="{{ route('familles') }}">Gérer les familles</a></p>
           </div>
         </div>
         <div class="form-group row">
@@ -84,6 +85,7 @@
             @error('organismes')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
+            <p class="text-right primary-link"><a href="{{ route('organismes') }}">Gérer les organismes</a></p>
           </div>
         </div>
         <div class="form-group row">
