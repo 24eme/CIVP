@@ -21,6 +21,12 @@ $(document).ready(function(){
       $(this).removeClass('image-checkbox-checked');
     }
   });
+  // Agenda header click
+  $("#calendar").on("click", "th.fc-widget-header", function() {
+    if ($(this).data('date')) {
+      moveToMonth($(this).data('date'));
+    }
+  });
 
   $(".image-checkbox").click(function (e) {
     $(this).toggleClass('image-checkbox-checked');
@@ -72,6 +78,12 @@ $(document).ready(function(){
   });
 });
 
+
+function moveToMonth(date){
+    var toDate = new Date(date);
+    $('#calendar').fullCalendar( 'changeView', 'month' );
+    $('#calendar').fullCalendar( 'gotoDate', toDate );
+}
 
 // IMPORTANT POUR COOKIE
 function setCookie(name,value,days) {

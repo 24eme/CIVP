@@ -603,3 +603,6 @@ a.fc-event {
 .fc th span {
   font-size: 15px;
 }
+th.fc-widget-header {
+  cursor: pointer;
+}
