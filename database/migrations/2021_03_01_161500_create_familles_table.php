@@ -16,6 +16,7 @@ class CreateFamillesTable extends Migration
         Schema::create('familles', function (Blueprint $table) {
           $table->increments('id');
           $table->string('nom');
+          $table->longText('description')->nullable();
           $table->string('couleur')->nullable();
           $table->string('slug');
         });
