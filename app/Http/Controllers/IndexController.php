@@ -18,8 +18,9 @@ class IndexController extends Controller
 
     public function index(Request $request)
     {
-      $evenements = $this->getwithReccurences($this->getObligations());
-      $obligationsNonDates = $this->getwithReccurences($this->getObligationsNonDates());
+      $filtres = (isset($request->filters) && is_array($request->filters))? $request->filters : [];
+      $evenements = $this->getwithReccurences($this->getObligations($filtres));
+      $obligationsNonDates = $this->getwithReccurences($this->getObligationsNonDates($filtres));
       $familles = Famille::all();
       $organismes = Organisme::all();
       $tags = Tag::all();
@@ -69,10 +70,11 @@ class IndexController extends Controller
 
     private function findObligations($filtres = [], $nonDates = false)
     {
+      $evenements = Evenement::with('familles')->with('organismes')->with('tags');
       if (Auth::check()) {
-        $evenements = Evenement::whereIn('active', [0,1]);
+        $evenements->whereIn('active', [0,1]);
       } else {
-        $evenements = Evenement::where('active','=', 1);
+        $evenements->where('active','=', 1);
       }
       if ($nonDates) {
         $evenements->where(function($sq) {
@@ -87,6 +89,21 @@ class IndexController extends Controller
           if (isset($filtres[$filtre]) && count($filtres[$filtre]) > 0) {
             $ids = $filtres[$filtre];
             $evenements->whereHas($filtre, function (Builder $query) use ($ids) { $query->whereIn('id', $ids);});
+          }
+        }
+        if (isset($filtres['query']) && $filtres['query']) {
+          $keywords = explode(' ', $filtres['query']);
+          foreach ($keywords as $keyword) {
+            if (strlen($keyword) <= 2) {
+              continue;
+            }
+            $evenements->Where(function (Builder $query) use($keyword) {
+                $query->orWhere('title', 'like', "%{$keyword}%")
+                ->orWhere('description', 'like', "%{$keyword}%")
+                ->orWhereHas('familles', function(Builder $query) use ($keyword) { $query->where('nom', 'like', "%{$keyword}%"); })
+                ->orWhereHas('organismes', function(Builder $query) use ($keyword) { $query->where('nom', 'like', "%{$keyword}%"); })
+                ->orWhereHas('tags', function(Builder $query) use ($keyword) { $query->where('nom', 'like', "%{$keyword}%"); });
+            });
           }
         }
       }

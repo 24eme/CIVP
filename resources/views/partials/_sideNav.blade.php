@@ -60,19 +60,22 @@
       @endforeach
   </div>
 
-  </form>
-
   <div class="row p-2 mt-3 FiltrerPar">
     <div class="col-md-12 pt-1">
       <h5>Recherche</h5>
     </div>
   </div>
 
-  <div class="row p-0 mt-4">
-    <div class="upper_wrapper col-md-auto" style="margin-left:5px">
-      <input class="input-search" type="text" placeholder="Recherche..." autocomplete="off" name="query" value="" />
+  <div class="row p-0 my-4 ml-4">
+    <div class="input-group">
+      <input class="form-control input-search" type="text" placeholder="Termes de recherche..." autocomplete="off" name="filters[query]" value="" />
+      <div class="input-group-append">
+        <button class="btn btn-outline-danger" type="button"><i class="fas fa-search"></i></button>
+      </div>
     </div>
   </div>
+
+  </form>
 
 
 </div>
