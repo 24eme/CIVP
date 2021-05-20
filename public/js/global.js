@@ -27,6 +27,9 @@ $(document).ready(function(){
       moveToMonth($(this).data('date'));
     }
   });
+  // tooltip
+  $('.titlize').tooltip();
+
 
   $(".image-checkbox").click(function (e) {
     $(this).toggleClass('image-checkbox-checked');
