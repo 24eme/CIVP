@@ -8,7 +8,7 @@
         right: 'month,year'
       },
       locale: 'fr',
-      contentHeight: 650,
+      height: 'auto',
       dayMaxEvents: true,
       displayEventEnd: true,
       events:'evenement/list?output=json&dates=1&calendar=1',
