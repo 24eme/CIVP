@@ -58,6 +58,7 @@ class FamilleController extends Controller
     {
         $attributes = request()->validate([
             'nom'=>'required',
+            'description'=>''
         ]);
         $famille->update($attributes);
         return redirect()->route('familles');

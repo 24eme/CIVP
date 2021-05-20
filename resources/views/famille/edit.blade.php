@@ -31,6 +31,15 @@
             @enderror
           </div>
         </div>
+        <div class="form-group row">
+          <label for="description" class="col-2">Description</label>
+          <div class="col-4">
+            <textarea class="form-control" rows="3" name="description">{{ $famille->description }}</textarea>
+            @error('description')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+          </div>
+        </div>
         <div class="row">
           <div class="col-sm-3">
             <a href="{{ route('familles') }}" class="btn btn-secondary float-left">Retour</a>

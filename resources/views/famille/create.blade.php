@@ -11,13 +11,15 @@
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
         </div>
-          <div class="form-group">
-            <label for="couleur">Couleur</label>
-            <input type="text" class="form-control @error('couleur') is-invalid @enderror" name="couleur" />
-            @error('couleur')
+        <div class="form-group row">
+          <label for="description" class="col-2">Description</label>
+          <div class="col-4">
+            <textarea class="form-control" rows="3" name="description"></textarea>
+            @error('description')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
           </div>
+        </div>
         <button type="submit" class="btn btn-primary float-right">Submit</button>
     </form>
 </div>
