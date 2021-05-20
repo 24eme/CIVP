@@ -40,7 +40,7 @@
       @foreach($familles as $famille)
         <div class="custom-control custom-switch py-1">
           <input name="filters[familles][]" value="{{$famille->id}}" type="checkbox" class="custom-control-input" id="famille{{$famille->id}}">
-          <label class="custom-control-label" for="famille{{$famille->id}}">{{$famille->nom}}</label>
+          <label class="custom-control-label" for="famille{{$famille->id}}">{{$famille->nom}} <i class="fas fa-info-circle text-muted small titlize" data-toggle="tooltip" data-placement="right" title="{{$famille->description}}"></i></label>
         </div>
       @endforeach
     </div>
