@@ -66,14 +66,18 @@
     </div>
   </div>
 
-  <div class="row p-0 my-4 ml-4">
+  <div class="row p-0 mt-4 ml-4">
     <div class="input-group">
-      <input class="form-control input-search" type="text" placeholder="Termes de recherche..." autocomplete="off" name="filters[query]" value="" />
+      <input class="form-control input-search" type="text" placeholder="Termes de recherche..." autocomplete="off" name="filters[query]" onkeypress="return event.keyCode!=13" value="@if(isset($filtres['query']) && $filtres['query']) {{ $filtres['query'] }} @endif" />
       <div class="input-group-append">
         <button class="btn btn-outline-danger" type="button"><i class="fas fa-search"></i></button>
       </div>
     </div>
   </div>
+
+  <p class="primary-link text-right">
+    <a href="{{ route('reinit') }}">[x] Réinitialiser les filtres</a>
+  </p>
 
   </form>
 

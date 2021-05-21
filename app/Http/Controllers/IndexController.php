@@ -122,4 +122,10 @@ class IndexController extends Controller
       }
       return view('mentions', ['user' => $user]);
     }
+
+    public function reinitFilters(Request $request)
+    {
+      setcookie('calendrier-filtres');
+      return redirect(route('index'));
+    }
 }

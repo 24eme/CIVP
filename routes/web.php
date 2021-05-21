@@ -17,6 +17,7 @@ Route::get('/evenement/{id}', [EvenementController::class,'popup'])->name('evene
 Route::get('/evenement/export/{id}', [EvenementController::class,'exportEvenement'])->name('export');
 Route::get('/export', [EvenementController::class,'export'])->name('export');
 Route::get('/mentions-legales', [IndexController::class,'mentions'])->name('mentions');
+Route::get('/reinit-filtres', [IndexController::class,'reinitFilters'])->name('reinit');
 
 
 Route::prefix('admin')->group(function () {
