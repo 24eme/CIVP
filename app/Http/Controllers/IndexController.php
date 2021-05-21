@@ -97,18 +97,18 @@ class IndexController extends Controller
         }
         if (isset($filtres['query']) && $filtres['query']) {
           $keywords = explode(' ', $filtres['query']);
-          foreach ($keywords as $keyword) {
-            if (strlen($keyword) <= 2) {
-              continue;
-            }
-            $evenements->Where(function (Builder $query) use($keyword) {
+            $evenements->Where(function (Builder $query) use($keywords) {
+              foreach ($keywords as $keyword) {
+                if (strlen($keyword) <= 2) {
+                  continue;
+                }
                 $query->orWhere('title', 'like', "%{$keyword}%")
-                ->orWhere('description', 'like', "%{$keyword}%")
+                ->orWhere('description', 'like', "{$keyword}%")
                 ->orWhereHas('familles', function(Builder $query) use ($keyword) { $query->where('nom', 'like', "%{$keyword}%"); })
                 ->orWhereHas('organismes', function(Builder $query) use ($keyword) { $query->where('nom', 'like', "%{$keyword}%"); })
                 ->orWhereHas('tags', function(Builder $query) use ($keyword) { $query->where('nom', 'like', "%{$keyword}%"); });
+              }
             });
-          }
         }
       }
       return $evenements->orderBy('start', 'asc')->orderBy('end', 'asc')->get();
