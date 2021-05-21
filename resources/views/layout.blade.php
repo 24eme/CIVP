@@ -28,7 +28,7 @@
   </div>
   @include('layout/popup')
   @include("layout/footer")
-  <script src="/js/global.js?cache=202105171830"></script>
-  <script src="/js/calendar.js?cache=202105171830"></script>
+  <script src="/js/global.js?cache=202105211910"></script>
+  <script src="/js/calendar.js?cache=202105211910"></script>
 </body>
 </html>
