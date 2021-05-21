@@ -25,9 +25,9 @@
     </div>
   </div>
 
-  <div class="d-none">
+  <div class="d-none" id="organismesChoices">
     @foreach($organismes as $organisme)
-    <input name="filters[organismes][]" value="{{$organisme->id}}" type="checkbox" id="organisme{{$organisme->id}}" />
+    <input name="filters[organismes][]" value="{{$organisme->id}}" type="checkbox" id="organisme{{$organisme->id}}" @if(isset($filtres['organismes']) && in_array($organisme->id, $filtres['organismes'])) checked="checked" @endif />
     @endforeach
   </div>
 
@@ -39,7 +39,7 @@
     <div class="col-md-12 mb-0 p-0">
       @foreach($familles as $famille)
         <div class="custom-control custom-switch py-1">
-          <input name="filters[familles][]" value="{{$famille->id}}" type="checkbox" class="custom-control-input" id="famille{{$famille->id}}">
+          <input name="filters[familles][]" value="{{$famille->id}}" type="checkbox" class="custom-control-input" id="famille{{$famille->id}}" @if(isset($filtres['familles']) && in_array($famille->id, $filtres['familles'])) checked="checked" @endif />
           <label class="custom-control-label" for="famille{{$famille->id}}">{{$famille->nom}} <i class="fas fa-info-circle text-muted small titlize" data-toggle="tooltip" data-placement="right" title="{{$famille->description}}"></i></label>
         </div>
       @endforeach
@@ -53,8 +53,8 @@
   <div class="row ml-4">
       @foreach($tags as $tag)
       <div class="btn-group-toggle m-1" data-toggle="buttons">
-        <label class="btn btn-sm btn-outline-danger">
-          <input name="filters[tags][]" value="{{$tag->id}}" type="checkbox"> {{$tag->nom}}
+        <label class="btn btn-sm btn-outline-danger @if(isset($filtres['tags']) && in_array($tag->id, $filtres['tags'])) active @endif">
+          <input name="filters[tags][]" value="{{$tag->id}}" type="checkbox" @if(isset($filtres['tags']) && in_array($tag->id, $filtres['tags'])) checked="checked" @endif /> {{$tag->nom}}
         </label>
       </div>
       @endforeach
