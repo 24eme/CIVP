@@ -306,7 +306,7 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
 
 .tagcloud a{text-transform: uppercase;display: inline-block;padding: 4px 10px;margin-bottom: 7px;margin-right: 4px;border-radius: 4px;color: #000;border: 1px solid #E8E8E8;font-size: 11px;}
 .tagcloud a:hover{color:white;background-color: #ef8c8e}
-.organisme-card{background-color: #E8E8E8;border-radius: 10px}
+.organisme-card{background-color: #dddddd;}
 .color-block{display: inline-block;height : 30px;width :40px;}
 .popup{display: none;position: absolute;width: 300px;background-color: #FFF;border-radius: 10px;box-shadow: 0px 0px 31px 0px rgba(212,212,212,1);overflow: hidden;z-index: 1000}
 .popup-label{font-weight: bold;}
@@ -604,4 +604,19 @@ a.fc-event {
 }
 th.fc-widget-header {
   cursor: pointer;
+}
+
+.btn-outline-danger:hover {
+  background-color: #e27f81 !important;
+  border-color: #e27f81 !important;
+  color: #fff !important;
+}
+.btn-outline-danger {
+    color: #e27f81 !important;
+    border-color: #e27f81 !important;
+}
+.btn-outline-danger:not(:disabled):not(.disabled):active, .btn-outline-danger:not(:disabled):not(.disabled).active, .show > .btn-outline-danger.dropdown-toggle {
+    background-color: #e27f81 !important;
+    border-color: #e27f81 !important;
+    color: #fff !important;
 }
