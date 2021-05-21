@@ -64,21 +64,14 @@ $(document).ready(function(){
            $("#nav-listenondates").html(result);
        }
     });
+    setCookie('calendrier-filtres', form.serialize());
+    updateCompteurOrganismes();
   });
   tinymce.init({
     selector: 'textarea#editor',
     menubar: false
   });
-  $(".custom-control-input").each(function (index, element) {
-    if (getCookie(element.id) == "true") {
-      $(element).prop('checked',true)
-    }else{
-      $(element).prop('checked',false)
-    }
-  })
-  $(".custom-control-input").click(function (element) {
-    setCookie(this.id,this.checked)
-  });
+  updateCompteurOrganismes();
 });
 
 
@@ -89,22 +82,9 @@ function moveToMonth(date){
 }
 
 // IMPORTANT POUR COOKIE
-function setCookie(name,value,days) {
-    var expires = "";
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days*24*60*60*1000));
-        expires = "; expires=" + date.toUTCString();
-    }
+function setCookie(name, value) {
+    var date = new Date();
+    date.setTime(date.getTime() + (365*24*60*60*1000));
+    expires = "; expires=" + date.toUTCString();
     document.cookie = name + "=" + (value)  + expires + "; path=/";
-}
-function getCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0;i < ca.length;i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1,c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-    }
-    return null;
 }

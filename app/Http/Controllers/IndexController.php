@@ -19,6 +19,10 @@ class IndexController extends Controller
     public function index(Request $request)
     {
       $filtres = (isset($request->filters) && is_array($request->filters))? $request->filters : [];
+      if (!$filtres && isset($_COOKIE['calendrier-filtres'])) {
+        parse_str($_COOKIE['calendrier-filtres'], $filtres);
+        $filtres = $filtres['filters'];
+      }
       $evenements = $this->getwithReccurences($this->getObligations($filtres));
       $obligationsNonDates = $this->getwithReccurences($this->getObligationsNonDates($filtres));
       $familles = Famille::all();
@@ -28,7 +32,7 @@ class IndexController extends Controller
       if (Auth::check()) {
         $user = Auth::user();
       }
-      return view('index', ['obligationsNonDates' => $obligationsNonDates, 'evenements' => $evenements,'tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user]);
+      return view('index', ['obligationsNonDates' => $obligationsNonDates, 'evenements' => $evenements,'tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user, 'filtres' => $filtres]);
     }
 
     public function listEvenements(Request $request)
@@ -40,10 +44,10 @@ class IndexController extends Controller
       }
       if ($request->dates){
         $evenements = $this->getwithReccurences($this->getObligations($filtres));
-        return ($request->output == "html")? view('partials/_list',['evenements' => $evenements, 'user' => $user]) : json_encode($evenements);
+        return ($request->output == "html")? view('partials/_list',['evenements' => $evenements, 'user' => $user, 'filtres' => $filtres]) : json_encode($evenements);
       } else {
         $obligationsNonDates = $this->getwithReccurences($this->getObligationsNonDates($filtres));
-        return ($request->output == "html")? view('partials/_listNonDates',['obligationsNonDates' => $obligationsNonDates, 'user' => $user]) : json_encode($obligationsNonDates);
+        return ($request->output == "html")? view('partials/_listNonDates',['obligationsNonDates' => $obligationsNonDates, 'user' => $user, 'filtres' => $filtres]) : json_encode($obligationsNonDates);
       }
     }
 
