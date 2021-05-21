@@ -27,7 +27,7 @@
     <div id="organismes-filter" class="col-12 text-center pt-3">
     <div class="dropdown">
     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      Filtrer par organisme
+      Filtrer par organisme <span id="counterOrga"></span>
     </button>
     <div class="dropdown-menu dropdown-menu-center" aria-labelledby="dropdownMenuButton">
       @foreach($organismes as $organisme)

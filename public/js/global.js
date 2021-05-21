@@ -75,6 +75,13 @@ $(document).ready(function(){
   updateCompteurOrganismes();
 });
 
+function updateCompteurOrganismes() {
+  var nb = $( "#organismesChoices input:checked" ).length;
+  if (nb > 0)
+    $("#counterOrga").text('('+nb+')');
+  else
+    $("#counterOrga").text('');
+}
 
 function moveToMonth(date){
     var toDate = new Date(date);
