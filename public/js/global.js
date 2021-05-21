@@ -47,6 +47,7 @@ $(document).ready(function(){
     e.preventDefault();
     var source = form.attr('action')+'?output=json&dates=1&calendar=1&'+form.serialize();
     $('#calendar').fullCalendar('removeEvents');
+    $('#calendar').fullCalendar('removeEventSources');
     $('#calendar').fullCalendar('addEventSource', source);
     $.ajax({
        url : form.attr('action')+'?output=html&dates=1&'+form.serialize(),

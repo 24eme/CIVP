@@ -11,7 +11,12 @@
       height: 'auto',
       dayMaxEvents: true,
       displayEventEnd: true,
-      events:'evenement/list?output=json&dates=1&calendar=1',
+			eventSources: [
+					{
+							url: $("#formFilters").attr('action')+'?output=json&dates=1&calendar=1&'+$("#formFilters").serialize(),
+							type: 'GET'
+					}
+			],
       firstDay: 1,
       fixedWeekCount: false,
       defaultView: 'year',
