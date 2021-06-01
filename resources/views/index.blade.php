@@ -19,10 +19,6 @@
   </nav>
 
   <div class="tab-content mt-4" id="nav-tabContent">
-
-  <p class="m-0 small text-center">
-  Les informations relatives aux différentes déclarations ne sont données qu'à titre indicatif et ne sauraient être considérées comme constituant une garantie de l'exhaustivité et de la conformité des obligations déclaratives présentées à travers ce service en ligne.<br />Le Conseil Interprofessionnel des Vins de Provence (CIVP), éditeur de ce service, ne pourra en aucun cas être tenu responsable des préjudices ou dommages liés à l'utilisation des informations disponibles sur son site, qu’il s’agisse ou non d'une négligence de sa part.
-  </p>
   <div class="row">
     <div id="organismes-filter" class="col-12 text-center pt-3">
     <div class="dropdown">
@@ -53,6 +49,9 @@
     <div id="nav-listenondates">
       @include('partials/_listNonDates')
     </div>
+    <p class="m-0 pb-4">
+    <i class="fas fa-info-circle"></i> Les informations relatives aux différentes déclarations ne sont données qu'à titre indicatif et ne sauraient être considérées comme constituant une garantie de l'exhaustivité et de la conformité des obligations déclaratives présentées à travers ce service en ligne.<br />Le Conseil Interprofessionnel des Vins de Provence (CIVP), éditeur de ce service, ne pourra en aucun cas être tenu responsable des préjudices ou dommages liés à l'utilisation des informations disponibles sur son site, qu’il s’agisse ou non d'une négligence de sa part.
+    </p>
   </div>
 
 </div>
