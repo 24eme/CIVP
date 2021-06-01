@@ -6,6 +6,7 @@
       <a href="/">déclarations viti/vinicoles</a>
     </div>
     <div class="top-nav-center">
+      <strong>Calendrier des déclarations viti-vinicoles mis à disposition par le Conseil Interprofessionnel des Vins de Provence</strong>
     </div>
     <div class="col-md-auto float-right">
       @if($user)
