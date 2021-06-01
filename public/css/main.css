@@ -620,3 +620,6 @@ th.fc-widget-header {
     border-color: #e27f81 !important;
     color: #fff !important;
 }
+#sideNavigation {
+  background-color: #f6f6f6;
+}
