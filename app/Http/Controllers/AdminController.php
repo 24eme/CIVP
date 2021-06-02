@@ -14,7 +14,7 @@ class AdminController extends Controller
         $remember = ($request->remember)? true : false;
         if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
-            return redirect()->intended('index');
+            return redirect()->route('index');
         }
         return redirect()->route('login')->withErrors([
             'email' => 'Identifiants non connus',
