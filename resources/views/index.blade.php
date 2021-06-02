@@ -19,6 +19,8 @@
   </nav>
 
   <div class="tab-content mt-4" id="nav-tabContent">
+  <p id="filtersInfos">
+  </p>
   <div class="row">
     <div id="organismes-filter" class="col-12 text-center pt-3">
       @foreach($organismesVisibles as $organisme)
