@@ -38,9 +38,9 @@
     <br /><br />
     Conformément aux dispositions de la loi n° 78-17 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés, vous disposez d’un droit d’accès, de modification, de rectification et de suppression des données qui vous concernent.<br />Pour demander une modification, rectification ou suppression des données vous concernant, il vous suffit d’envoyer un courrier par voie électronique ou postale au CIVP en justifiant de votre identité.
     <br /><br />
-    Le service ... est un logiciel libre diffusé sous licence AGPL. Le projet est disponible depuis github.com/24eme/CIVP
+    Le service calendrier-vitivini.vinsdeprovence.com est un logiciel libre diffusé sous licence AGPL. Le projet est disponible depuis github.com/24eme/CIVP
     <br /><br />
-    Le service ... est hébergé par la société 24eme pour le compte du CIVP.
+    Le service calendrier-vitivini.vinsdeprovence.com est hébergé par la société 24eme pour le compte du CIVP.
   </p>
 
 </div>
