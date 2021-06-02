@@ -13,6 +13,9 @@
       <li class="nav-item" id="nav-item-mentions-legales" role="menuitem">
         <a class="nav-link" id="nav-link-mentions-legales" href="{{ route('mentions') }}">Mentions légales</a>
       </li>
+      <li class="nav-item" id="nav-item-admin" role="menuitem">
+        <a class="nav-link" id="nav-link-admin" href="{{ route('login') }}"><i class="fas fa-user-lock"></i> Administration</a>
+      </li>
     </ul>
   </div>
   <div class="footer-disclaimer">
