@@ -21,21 +21,28 @@
   <div class="tab-content mt-4" id="nav-tabContent">
   <div class="row">
     <div id="organismes-filter" class="col-12 text-center pt-3">
-    <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-      Filtrer par organisme <span id="counterOrga"></span>
-    </button>
-    <div class="dropdown-menu dropdown-menu-center" aria-labelledby="dropdownMenuButton">
-      @foreach($organismes as $organisme)
+      @foreach($organismesVisibles as $organisme)
       <div id="image-{{$organisme->slug}}" class="d-inline">
         <label class="image-checkbox mx-2 p-1 text-center" for="organisme{{$organisme->id}}">
-          <a class="dropdown-item"><img src="/images/logos/organismes/{{$organisme->logo}}" class="img-responsive" height="45px" title="{{$organisme->nom}}" /></a>
-          <i class="fas fa-circle" style="color: {{$organisme->couleur}}"></i>&nbsp;{{$organisme->nom}}
+          <i class="fas fa-circle" style="color: {{$organisme->couleur}}"></i>&nbsp;<img src="/images/logos/organismes/{{$organisme->logo}}" class="img-responsive" height="45px" title="{{$organisme->nom}}" />
         </label>
       </div>
       @endforeach
-    </div>
-    </div>
+      <div class="dropdown d-inline">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <i class="fas fa-plus"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-center mt-4" aria-labelledby="dropdownMenuButton">
+          @foreach($organismesCaches as $organisme)
+          <div id="image-{{$organisme->slug}}" class="d-inline">
+            <label class="image-checkbox mx-2 p-1 text-center" for="organisme{{$organisme->id}}">
+              <a class="dropdown-item"><img src="/images/logos/organismes/{{$organisme->logo}}" class="img-responsive" height="45px" title="{{$organisme->nom}}" /></a>
+              <i class="fas fa-circle" style="color: {{$organisme->couleur}}"></i>&nbsp;{{$organisme->nom}}
+            </label>
+          </div>
+          @endforeach
+        </div>
+      </div>
     </div>
   </div>
 

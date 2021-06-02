@@ -26,13 +26,15 @@ class IndexController extends Controller
       $evenements = $this->getwithReccurences($this->getObligations($filtres));
       $obligationsNonDates = $this->getwithReccurences($this->getObligationsNonDates($filtres));
       $familles = Famille::all();
+      $organismesVisibles = Organisme::where('visible_filtre', 1)->get();
+      $organismesCaches = Organisme::where('visible_filtre', 0)->get();
       $organismes = Organisme::all();
       $tags = Tag::all();
       $user = null;
       if (Auth::check()) {
         $user = Auth::user();
       }
-      return view('index', ['obligationsNonDates' => $obligationsNonDates, 'evenements' => $evenements,'tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user, 'filtres' => $filtres]);
+      return view('index', ['organismesCaches' => $organismesCaches, 'organismesVisibles' => $organismesVisibles, 'obligationsNonDates' => $obligationsNonDates, 'evenements' => $evenements,'tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user, 'filtres' => $filtres]);
     }
 
     public function listEvenements(Request $request)
