@@ -99,6 +99,18 @@
             @enderror
           </div>
         </div>
+        <div class="form-group row">
+          <label class="col-2">&nbsp;</label>
+          <div class="col-4">
+            <div class="form-check form-check-inline">
+              <input type="checkbox" class="form-check-input @error('visible_filtre') is-invalid @enderror" name="visible_filtre" id="visible_filtre" value="1" />
+              <label for="visible_filtre">Visible dans les filtres</label>
+            </div>
+            @error('visible_filtre')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+          </div>
+        </div>
         <div class="row">
           <div class="col-sm-3">
             <a href="{{ route('organismes') }}" class="btn btn-secondary float-left">Retour</a>

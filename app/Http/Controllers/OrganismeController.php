@@ -66,6 +66,7 @@ class OrganismeController extends Controller
             'site'=>'',
             'logo'=>'',
         ]);
+        $attributes['visible_filtre'] = ($request->has('visible_filtre')&&$request->get('visible_filtre'))? 1 : 0;
         Organisme::create($attributes);
         return redirect()->route('organismes');
     }
@@ -109,7 +110,7 @@ class OrganismeController extends Controller
           'site'=>'',
           'logo'=>'',
       ]);
-
+      $attributes['visible_filtre'] = ($request->has('visible_filtre')&&$request->get('visible_filtre'))? 1 : 0;
       if($request->file('logo')) {
         $attributes['logo'] = 'images/logos/organismes/'.$attributes['logo']->getClientOriginalName();
         $file = request()->file('logo');

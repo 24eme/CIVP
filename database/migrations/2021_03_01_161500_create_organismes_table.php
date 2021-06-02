@@ -25,6 +25,7 @@ class CreateOrganismesTable extends Migration
           $table->string('couleur')->nullable();
           $table->string('logo')->nullable();
           $table->string('site')->nullable();
+          $table->boolean('visible_filter');
           $table->string('slug');
         });
 

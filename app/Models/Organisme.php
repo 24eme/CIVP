@@ -11,7 +11,7 @@ class Organisme extends Model
     use HasFactory;
     public $timestamps = false;
 
-    protected $fillable = ['nom', 'adresse', 'code_postal', 'ville', 'contact', 'telephone', 'email', 'site', 'couleur', 'logo'];
+    protected $fillable = ['nom', 'adresse', 'code_postal', 'ville', 'contact', 'telephone', 'email', 'site', 'couleur', 'logo', 'visible_filtre'];
 
     public function setNomAttribute($value)
     {
