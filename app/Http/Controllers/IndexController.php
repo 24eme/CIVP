@@ -25,6 +25,7 @@ class IndexController extends Controller
         parse_str($_COOKIE['calendrier-filtres'], $filtres);
         $filtres = $filtres['filters'];
       }
+      $strFilters = $this->makeStrFilters($filtres);
       $evenements = $this->getwithReccurences($this->getObligations($filtres));
       $obligationsNonDates = $this->getwithReccurences($this->getObligationsNonDates($filtres));
       $familles = Famille::all();
