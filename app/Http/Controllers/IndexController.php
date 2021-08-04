@@ -12,6 +12,8 @@ use App\Models\Type;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Sabre\VObject;
 
 class IndexController extends Controller
 {
@@ -34,7 +36,53 @@ class IndexController extends Controller
       if (Auth::check()) {
         $user = Auth::user();
       }
-      return view('index', ['organismesCaches' => $organismesCaches, 'organismesVisibles' => $organismesVisibles, 'obligationsNonDates' => $obligationsNonDates, 'evenements' => $evenements,'tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user, 'filtres' => $filtres]);
+      return view('index', ['strFilters' => $strFilters, 'organismesCaches' => $organismesCaches, 'organismesVisibles' => $organismesVisibles, 'obligationsNonDates' => $obligationsNonDates, 'evenements' => $evenements,'tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user, 'filtres' => $filtres]);
+    }
+
+    private function makeStrFilters($filters) {
+      $result = '';
+      if (isset($filters['organismes'])  && !empty($filters['organismes'])) {
+        $result .= '<li><u>Organisme(s)</u> : '.implode(', ', Organisme::whereIn('id', $filters['organismes'])->pluck('nom')->all()).'</li>';
+      }
+      if (isset($filters['familles'])  && !empty($filters['familles'])) {
+        $result .= '<li><u>Famille(s)</u> : '.implode(', ', Famille::whereIn('id', $filters['familles'])->pluck('nom')->all()).'</li>';
+      }
+      if (isset($filters['tags'])  && !empty($filters['tags'])) {
+        $result .= '<li><u>Tag(s)</u> : '.implode(', ', Tag::whereIn('id', $filters['tags'])->pluck('nom')->all()).'</li>';
+      }
+      if (isset($filters['query'])  && !empty($filters['query'])) {
+        $result .= '<li><u>Recherche</u> : '.$filters['query'].'</li>';
+      }
+      return ($result)? '<ul class="mb-0 pl-3">'.$result.'</ul>': null;
+    }
+
+    public function export(){
+      if (isset($_COOKIE['calendrier-filtres'])) {
+        parse_str($_COOKIE['calendrier-filtres'], $filtres);
+        $filtres = $filtres['filters'];
+      }
+      $evenements = $this->getwithReccurences($this->getObligations($filtres));
+      $vcalendar = new VObject\Component\VCalendar();
+      foreach ($evenements as $evenement) {
+        $vevent = $vcalendar->add('VEVENT', [
+            'SUMMARY' => $evenement['simpleTitle'],
+            'DTSTART' => new \DateTime($evenement['start']),
+            'DTEND' => new \DateTime($evenement['end']),
+        ]);
+        $vcalendar->add($vevent);
+      }
+      File::put('calendrier-vitivini.vinsdeprovence.com.ics',$vcalendar->serialize());
+      return response()->download('calendrier-vitivini.vinsdeprovence.com.ics');
+    }
+
+    public function filtersInfos(Request $request)
+    {
+      $filtres = null;
+      if (isset($_COOKIE['calendrier-filtres'])) {
+        parse_str($_COOKIE['calendrier-filtres'], $filtres);
+        $filtres = $filtres['filters'];
+      }
+      return $this->makeStrFilters($filtres);
     }
 
     public function listEvenements(Request $request)
