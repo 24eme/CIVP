@@ -67,7 +67,7 @@
       <div class="form-group row">
         <label for="description" class="col-2">Description</label>
         <div class="col-4">
-          <textarea id="editor" class="form-control" rows="3" name="description">{{ $evenement->description }}</textarea>
+          <textarea id="editor" class="form-control @error('description') is-invalid @enderror" rows="3" name="description">{{ $evenement->description }}</textarea>
           @error('description')
           <div class="invalid-feedback">{{ $message }}</div>
           @enderror
@@ -121,7 +121,7 @@
           <select class="form-control @error('rrule') is-invalid @enderror" name="rrule">
               <option value="">Aucune</option>
               <option value="mensuel"@if($evenement->rrule == 'mensuel') selected="selected" @endif>Tous les mois</option>
-              <option value="semestriel"@if($evenement->rrule == 'trimestriel') selected="selected" @endif>Tous les 3 mois</option>
+              <option value="trimestriel"@if($evenement->rrule == 'trimestriel') selected="selected" @endif>Tous les 3 mois</option>
               <option value="semestriel"@if($evenement->rrule == 'semestriel') selected="selected" @endif>Tous les 6 mois</option>
               <option value="annuel"@if($evenement->rrule == 'annuel') selected="selected" @endif>Tous les ans</option>
           </select>
