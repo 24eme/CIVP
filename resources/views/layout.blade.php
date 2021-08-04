@@ -6,17 +6,16 @@
     <title>Calendrier des déclarations viti/vinicoles</title>
     <link rel="shortcut icon" href="{{ asset('images/logos/logo-P.svg') }}" >
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="/js/lib/jquery.3-5-1.min.js"></script>
+    <script src="/js/lib/popper.2-9-3.js"></script>
+    <script src="/js/lib/moment.2-29-1.js"></script>
+    <script src="/js/lib/popper.1-12-9.js"></script>
+    <script src="/js/lib/bootstrap.4-0-0.min.js"></script>
     <script src="/fullcalendar-year-view/dist/fullcalendar.js"></script>
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"></script>
+    <script src="/js/lib/tinymce.5-8-2.min.js"></script>
 
-    <link href='https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.css' rel='stylesheet' />
-    <link href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/css/all.css' rel='stylesheet'>
+    <link href='/css/lib/bootstrap.4-5-0.css' rel='stylesheet' />
+    <link href='/css/lib/fontawesome-free.5-13-1.css' rel='stylesheet'>
     <link rel="stylesheet" href="/fullcalendar-year-view/dist/fullcalendar.css" />
     <link rel="stylesheet" href="/css/main.css" />
 
