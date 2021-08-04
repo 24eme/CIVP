@@ -70,7 +70,10 @@ $(document).ready(function(){
   });
   tinymce.init({
     selector: 'textarea#editor',
-    menubar: false
+    menubar: false,
+    plugins: ['link', 'autolink', 'lists'],
+    toolbar: 'bold italic underline | styleselect link | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent',
+    link_assume_external_targets: true
   });
 });
 
