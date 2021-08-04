@@ -66,21 +66,28 @@ $(document).ready(function(){
        }
     });
     setCookie('calendrier-filtres', form.serialize());
-    updateCompteurOrganismes();
+    updateFiltersInfos();
   });
   tinymce.init({
     selector: 'textarea#editor',
     menubar: false
   });
-  updateCompteurOrganismes();
 });
 
-function updateCompteurOrganismes() {
-  var nb = $( "#organismesChoices input:checked" ).length;
-  if (nb > 0)
-    $("#counterOrga").text('('+nb+')');
-  else
-    $("#counterOrga").text('');
+function updateFiltersInfos() {
+  $.ajax({
+     url : '/filtres/infos',
+     type : 'GET',
+     dataType : 'html',
+     success : function(result, statut){
+         $("#filtersResult").html(result);
+         if (result) {
+           $("#filtersInfos").show();
+         } else {
+           $("#filtersInfos").hide();
+         }
+     }
+  });
 }
 
 function moveToMonth(date){
