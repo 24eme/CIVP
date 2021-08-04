@@ -11,10 +11,11 @@ use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\AdminController;
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
-Route::get('/evenement/list', [IndexController::class, 'listEvenements'])->name('listEvenements');;
+Route::get('/evenement/list', [IndexController::class, 'listEvenements'])->name('listEvenements');
+Route::get('/filtres/infos', [IndexController::class, 'filtersInfos'])->name('filtersInfos');
 Route::get('/evenement/{id}', [EvenementController::class,'popup'])->name('evenement_popup');
 Route::get('/evenement/export/{id}', [EvenementController::class,'exportEvenement'])->name('export');
-Route::get('/export', [EvenementController::class,'export'])->name('export');
+Route::get('/export', [IndexController::class,'export'])->name('export');
 Route::get('/mentions-legales', [IndexController::class,'mentions'])->name('mentions');
 Route::get('/reinit-filtres', [IndexController::class,'reinitFilters'])->name('reinit');
 
