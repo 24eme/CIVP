@@ -19,8 +19,18 @@
   </nav>
 
   <div class="tab-content mt-4" id="nav-tabContent">
-  <p id="filtersInfos">
+
+
+  <p id="filtersInfos" class="mb-1"@if($strFilters == '') style="display:none;" @endif>
+    <strong class="primary-link">
+      Filtres actifs <a href="{{ route('reinit') }}" class="small font-weight-bold">[x] Réinitialiser les filtres</a> :
+    </strong>
   </p>
+  <div id="filtersResult">
+  {!! $strFilters !!}
+  </div>
+
+
   <div class="row">
     <div id="organismes-filter" class="col-12 text-center pt-3">
       @foreach($organismesVisibles as $organisme)
@@ -58,7 +68,7 @@
     <div id="nav-listenondates">
       @include('partials/_listNonDates')
     </div>
-    <p class="m-0 pb-4">
+    <p class="m-0 py-4">
     <i class="fas fa-info-circle"></i> Les informations relatives aux différentes déclarations ne sont données qu'à titre indicatif et ne sauraient être considérées comme constituant une garantie de l'exhaustivité et de la conformité des obligations déclaratives présentées à travers ce service en ligne.<br />Le Conseil Interprofessionnel des Vins de Provence (CIVP), éditeur de ce service, ne pourra en aucun cas être tenu responsable des préjudices ou dommages liés à l'utilisation des informations disponibles sur son site, qu’il s’agisse ou non d'une négligence de sa part.
     </p>
   </div>
