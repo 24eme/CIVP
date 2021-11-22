@@ -3,11 +3,13 @@
       <a href="/"><img src="{{asset('images/logos/logo-P.svg')}}"  alt="" /></a>
     </div>
     <div class="breadcrumb">
-      <a href="/">déclarations viti/vinicoles</a>
+      <a href="/">déclarations viti/vinicoles<br /><small class="pl-4 ml-1" title="Conseil Interprofessionnel des Vins de Provence">misent à disposition par le CIVP</small></a>
     </div>
+
     <div class="top-nav-center">
-      <strong>Calendrier des déclarations viti-vinicoles mis à disposition par le Conseil Interprofessionnel des Vins de Provence</strong>
+
     </div>
+
     <div class="col-md-auto float-right">
       @if($user)
       <div class="btn-group">
