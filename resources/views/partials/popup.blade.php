@@ -23,9 +23,14 @@
         <div class="row">
           <div class="col-md-2">&nbsp;</div>
           <div class="col-md-8">
-            <i class="far fa-calendar-alt"></i>&nbsp;<strong>{{ \Carbon\Carbon::parse($evenement->start)->translatedFormat('l d F Y') }}</strong>
-            @if ($evenement->start != $evenement->end)
-            au <strong>{{ \Carbon\Carbon::parse($evenement->end)->translatedFormat('l d F Y') }}</strong>
+              <i class="far fa-calendar-alt"></i>&nbsp;
+            @if ($evenement->rrule != null)
+                Déclaration récurrente
+            @else
+                <strong>{{ \Carbon\Carbon::parse($evenement->start)->translatedFormat('l d F Y') }}</strong>
+                @if ($evenement->start != $evenement->end)
+                au <strong>{{ \Carbon\Carbon::parse($evenement->end)->translatedFormat('l d F Y') }}</strong>
+                @endif
             @endif
           </div>
           <div class="col-md-2">&nbsp;</div>
