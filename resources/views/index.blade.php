@@ -23,7 +23,7 @@
 
   <p id="filtersInfos" class="mb-1"@if($strFilters == '') style="display:none;" @endif>
     <strong class="primary-link">
-      Filtres actifs <a href="{{ route('reinit') }}" class="small font-weight-bold">[x] Réinitialiser les filtres</a> :
+      Filtres actifs <a href="{{ route('reinit') }}" class="small font-weight-bold">[x] Voir toutes les déclarations</a> :
     </strong>
   </p>
   <div id="filtersResult">

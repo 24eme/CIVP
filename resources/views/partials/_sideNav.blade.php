@@ -76,7 +76,7 @@
   </div>
 
   <p class="primary-link text-right">
-    <a href="{{ route('reinit') }}">[x] Réinitialiser les filtres</a>
+    <a href="{{ route('reinit') }}">[x] Voir toutes les déclarations</a>
   </p>
 
   </form>

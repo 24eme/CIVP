@@ -107,7 +107,7 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="tags" class="col-2">Tags <small>(séparés par des virgules)</small></label>
+          <label for="tags" class="col-2">Mots-Clés <small>(séparés par des virgules)</small></label>
           <div class="col-4">
             <input type="text" class="form-control @error('tags') is-invalid @enderror" name="tags" value="{{ old('tags', $post->tags ?? '') }}" />
             @error('tags')
