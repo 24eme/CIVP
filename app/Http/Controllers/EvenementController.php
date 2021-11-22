@@ -56,7 +56,7 @@ class EvenementController extends Controller
         $evenement->saveTags($request->get('tags'));
         $evenement->saveFamilles($request->get('familles'));
         $evenement->saveOrganismes($request->get('organismes'));
-        return redirect(route('index') . '#nav-liste');
+        return redirect(route('index'));
     }
 
     /**
@@ -103,7 +103,7 @@ class EvenementController extends Controller
       $evenement->saveTags($request->get('tags'));
       $evenement->saveFamilles($request->get('familles'));
       $evenement->saveOrganismes($request->get('organismes'));
-      return redirect(route('index') . '#nav-liste');
+      return redirect(route('index'));
     }
 
     public function popup($id) {

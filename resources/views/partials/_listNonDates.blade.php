@@ -1,5 +1,4 @@
 @if (count($obligationsNonDates)>0)
-<h2 class="h4 my-4">Déclarations non datées</h2>
 <table class="table table-hover">
     @foreach($obligationsNonDates as $obligation)
       <tr class="row m-0">

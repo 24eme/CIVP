@@ -144,7 +144,7 @@
         </div>
         <div class="row">
           <div class="col-sm-3">
-            <a href="{{ route('index') }}#nav-liste" class="btn btn-secondary float-left">Retour</a>
+            <a href="{{ route('index') }}" class="btn btn-secondary float-left">Retour</a>
           </div>
           <div class="col-sm-3">
             <button type="submit" class="btn btn-primary float-right"><i class="fas fa-check"></i>&nbsp;Valider</button>

@@ -1,5 +1,4 @@
 @php($done = [])
-<h2 class="h4 my-4">Déclarations datées</h2>
 <table class="table table-hover pt-4">
     @foreach($evenements as $evenement)
     @if(!in_array($evenement['start'], $done))

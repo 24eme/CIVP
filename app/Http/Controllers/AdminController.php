@@ -37,7 +37,7 @@ class AdminController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect(route('index') . '#nav-liste');
+        return redirect(route('index'));
     }
 
     public function login(Request $request)

@@ -13,8 +13,8 @@
 
   <nav>
     <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
-      <a class="nav-link active" id="nav-calendrier-tab" data-toggle="tab" href="#nav-calendrier" role="tab" aria-controls="nav-calendrier" aria-selected="true"><i class="far fa-calendar-alt"></i> Calendrier</a>
-      <a class="nav-link" id="nav-liste-tab" data-toggle="tab" href="#nav-liste" role="tab" aria-controls="nav-liste" aria-selected="false"><i class="fas fa-list-ul"></i> Liste des déclarations</a>
+      <a class="nav-link active" id="nav-calendrier-tab" data-toggle="tab" href="#nav-calendrier" role="tab" aria-controls="nav-calendrier" aria-selected="true"><i class="far fa-calendar-alt"></i> Déclarations datées</a>
+      <a class="nav-link" id="nav-liste-tab" data-toggle="tab" href="#nav-listenondates" role="tab" aria-controls="nav-listenondates" aria-selected="false"><i class="fas fa-list-ul"></i> Déclarations non datées</a>
     </div>
   </nav>
 
@@ -61,12 +61,13 @@
     <a type="button" class="btn btn-primary float-right my-3 mx-2" href="{{ route('export') }}" style="z-index:4;position:relative;" title="Exporter les déclarations dans mon calendrier personnel"><i class="far fa-calendar-alt"></i> Exporter</a>
     <div class="tab-pane fade show active" id="nav-calendrier" role="tabpanel" aria-labelledby="nav-calendrier-tab">
       <div id='calendar' class="mainContent"></div>
+      <h2 class="h4 my-4" data-toggle="collapse" href="#nav-liste" role="button" aria-expanded="false">Voir la liste des déclarations datées <span class="fas fa-chevron-down"></span></h2>
+      <div id="nav-liste" class="collapse">
+        @include('partials/_list')
+      </div>
     </div>
-    <div class="tab-pane fade" id="nav-liste" role="tabpanel" aria-labelledby="nav-liste-tab">
-      @include('partials/_list')
-    </div>
-    <div id="nav-listenondates">
-      @include('partials/_listNonDates')
+    <div class="tab-pane fade" id="nav-listenondates" role="tabpanel" aria-labelledby="nav-liste-tab">
+        @include('partials/_listNonDates')
     </div>
     <p class="m-0 py-4">
     <i class="fas fa-info-circle"></i> Les informations relatives aux différentes déclarations ne sont données qu'à titre indicatif et ne sauraient être considérées comme constituant une garantie de l'exhaustivité et de la conformité des obligations déclaratives présentées à travers ce service en ligne.<br />Le Conseil Interprofessionnel des Vins de Provence (CIVP), éditeur de ce service, ne pourra en aucun cas être tenu responsable des préjudices ou dommages liés à l'utilisation des informations disponibles sur son site, qu’il s’agisse ou non d'une négligence de sa part.
