@@ -35,8 +35,8 @@
     <div id="organismes-filter" class="col-12 text-center pt-3">
       @foreach($organismesVisibles as $organisme)
       <div id="image-{{$organisme->slug}}" class="d-inline">
-        <label class="image-checkbox mx-2 p-1 text-center" for="organisme{{$organisme->id}}">
-          <i class="fas fa-circle" style="color: {{$organisme->couleur}}"></i>&nbsp;<img src="/images/logos/organismes/{{$organisme->logo}}" class="img-responsive" height="45px" title="{{$organisme->nom}}" />
+        <label class="image-checkbox p-1 text-center" for="organisme{{$organisme->id}}">
+          <i class="fas fa-circle" style="color: {{$organisme->couleur}}"></i>&nbsp;<img src="/images/logos/organismes/{{$organisme->logo}}" class="img-responsive" height="55px" title="{{$organisme->nom}}" />
         </label>
       </div>
       @endforeach
@@ -48,7 +48,7 @@
           @foreach($organismesCaches as $organisme)
           <div id="image-{{$organisme->slug}}" class="d-inline">
             <label class="image-checkbox mx-2 p-1 text-center" for="organisme{{$organisme->id}}">
-              <a class="dropdown-item"><img src="/images/logos/organismes/{{$organisme->logo}}" class="img-responsive" height="45px" title="{{$organisme->nom}}" /></a>
+              <a class="dropdown-item"><img src="/images/logos/organismes/{{$organisme->logo}}" class="img-responsive" height="55px" title="{{$organisme->nom}}" /></a>
               <i class="fas fa-circle" style="color: {{$organisme->couleur}}"></i>&nbsp;{{$organisme->nom}}
             </label>
           </div>
@@ -58,7 +58,7 @@
     </div>
   </div>
 
-    <a type="button" class="btn btn-primary float-right my-3 mx-2" href="{{ route('export') }}" style="z-index:4;position:relative;" title="Exporter les déclarations dans mon calendrier personnel"><i class="far fa-calendar-alt"></i> Exporter</a>
+    <a type="button" class="btn btn-primary float-right mt-3 mb-5 mx-2" href="{{ route('export') }}" style="z-index:4;position:relative;" title="Exporter les déclarations dans mon calendrier personnel"><i class="far fa-calendar-alt"></i> Exporter</a>
     <div class="tab-pane fade show active" id="nav-calendrier" role="tabpanel" aria-labelledby="nav-calendrier-tab">
       <div id='calendar' class="mainContent"></div>
       <h2 class="h4 my-4" data-toggle="collapse" href="#nav-liste" role="button" aria-expanded="false">Voir la liste des déclarations datées <span class="fas fa-chevron-down"></span></h2>

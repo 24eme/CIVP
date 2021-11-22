@@ -406,6 +406,7 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
 .nav-link {
     display: block;
     padding: .5em 1em;
+    font-size: 1.4em;
 }
 #footer .footer-icon {
     margin-bottom: 50px;
@@ -479,7 +480,6 @@ a.fc-event {
     border-color: #ef8c8e;
     border-bottom: none;
     font-weight: bolder;
-    font-size: 1.15em;
 }
 .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
     color: #ef8c8e;
