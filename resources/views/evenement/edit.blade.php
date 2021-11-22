@@ -146,7 +146,10 @@
         <div class="col-sm-2">
           <a href="{{ route('index') }}" class="btn btn-secondary float-left">Retour</a>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-2 text-center text-muted">
+            <a href="{{ route('evenement_delete', $evenement) }}" onclick="return confirm('Etes vous sûr de vouloir supprimer cette déclaration ?')">[x] Supprimer</a>
+        </div>
+        <div class="col-sm-2">
           <button type="submit" class="btn btn-primary float-right"><i class="fas fa-check"></i>&nbsp;Valider</button>
         </div>
       </div>

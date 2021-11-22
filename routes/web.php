@@ -30,6 +30,7 @@ Route::prefix('admin')->group(function () {
   Route::post('evenement/create', [EvenementController::class,'store']);
   Route::get('evenement/edit/{evenement}', [EvenementController::class,'edit'])->name('evenement_edit');
   Route::post('evenement/edit/{evenement}', [EvenementController::class,'update']);
+  Route::get('evenement/delete/{evenement}', [EvenementController::class,'delete'])->name('evenement_delete');
 
   Route::get('organismes', [OrganismeController::class,'index'])->name('organismes');
   Route::get('organisme/create', [OrganismeController::class,'create'])->name('organisme_create');

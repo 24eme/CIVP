@@ -111,9 +111,10 @@ class EvenementController extends Controller
       return view('partials/popup', ['evenement' => $evenement]);
     }
 
-    public function destroy(Evenements $evenements)
+    public function delete(Evenement $evenement)
     {
-        //
+        $evenement->delete();
+        return redirect(route('index'));
     }
 
     public function exportEvenement($id){
