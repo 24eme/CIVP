@@ -22,7 +22,8 @@
       defaultView: 'year',
       buttonText: {month: 'Mois', year: 'Année'},
       eventClick: function(item){
-        $.get("evenement/"+item.id, function(response) {
+          var dates = '?s='+item.start._i+'&e='+item.end._i;
+        $.get("evenement/"+item.id+dates, function(response) {
           $('#popupEvenement').html(response);
           $('#popupEvenement').modal({backdrop: true, keyboard: true});
         });

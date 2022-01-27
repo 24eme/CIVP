@@ -106,9 +106,9 @@ class EvenementController extends Controller
       return redirect(route('index'));
     }
 
-    public function popup($id) {
+    public function popup(Request $request, $id) {
       $evenement = Evenement::find($id);
-      return view('partials/popup', ['evenement' => $evenement]);
+      return view('partials/popup', ['evenement' => $evenement, 's' => $request->get('s'), 'e' => $request->get('e')]);
     }
 
     public function delete(Evenement $evenement)
@@ -117,14 +117,14 @@ class EvenementController extends Controller
         return redirect(route('index'));
     }
 
-    public function exportEvenement($id){
+    public function exportEvenement(Request $request, $id){
 
       $evenement = Evenement::find($id);
       $vcalendar = new VObject\Component\VCalendar([
       'VEVENT' => [
           'SUMMARY' => $evenement->title,
-          'DTSTART' => new \DateTime($evenement->start),
-          'DTEND'   => new \DateTime($evenement->end)
+          'DTSTART' => new \DateTime($request->get('s')),
+          'DTEND'   => new \DateTime($request->get('e'))
       ]
       ]);
       File::put('declaration-'.$evenement->id.'.ics',$vcalendar->serialize());
