@@ -61,6 +61,8 @@ class IndexController extends Controller
       if (isset($_COOKIE['calendrier-filtres'])) {
         parse_str($_COOKIE['calendrier-filtres'], $filtres);
         $filtres = $filtres['filters'];
+      } else {
+            $filtres = [];
       }
       $evenements = $this->getwithReccurences($this->getObligations($filtres));
       $vcalendar = new VObject\Component\VCalendar();
