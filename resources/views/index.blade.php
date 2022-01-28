@@ -13,8 +13,8 @@
 
   <nav>
     <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist">
-      <a class="nav-link active" id="nav-calendrier-tab" data-toggle="tab" href="#nav-calendrier" role="tab" aria-controls="nav-calendrier" aria-selected="true"><i class="far fa-calendar-alt"></i> Déclarations datées</a>
-      <a class="nav-link" id="nav-liste-tab" data-toggle="tab" href="#nav-listenondates" role="tab" aria-controls="nav-listenondates" aria-selected="false"><i class="fas fa-list-ul"></i> Déclarations non datées</a>
+      <a class="nav-link active" id="nav-calendrier-tab" data-toggle="tab" href="#nav-calendrier" role="tab" aria-controls="nav-calendrier" aria-selected="true"><i class="far fa-calendar-alt"></i> DÉCLARATIONS DATÉES</a>
+      <a class="nav-link" id="nav-liste-tab" data-toggle="tab" href="#nav-listenondates" role="tab" aria-controls="nav-listenondates" aria-selected="false"><i class="fas fa-list-ul"></i> déclarations non datées</a>
     </div>
   </nav>
 
