@@ -71,9 +71,10 @@ $(document).ready(function(){
   tinymce.init({
     selector: 'textarea#editor',
     menubar: false,
-    plugins: ['link', 'autolink', 'lists'],
+    plugins: ['link', 'autolink', 'lists', 'paste'],
     toolbar: 'bold italic underline | styleselect link | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent',
-    link_assume_external_targets: true
+    link_assume_external_targets: true,
+    paste_as_text: true
   });
 });
 
