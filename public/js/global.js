@@ -4,6 +4,9 @@ $(document).ready(function(){
   if (ancre) {
     $('#nav-tab a[href="'+ancre+'"]').tab('show')
   }
+
+  needSwitchTab();
+
   // OUVERTURE POPUP
   $("#main").on("click", ".popupEvent", function() {
     var url = $(this).data('url');
@@ -42,6 +45,7 @@ $(document).ready(function(){
   var form = $("#formFilters");
   form.change(function() {
     form.submit();
+    needSwitchTab();
   });
   form.submit(function(e) {
     e.preventDefault();
@@ -77,6 +81,22 @@ $(document).ready(function(){
     paste_as_text: true
   });
 });
+
+function needSwitchTab() {
+    var form = $("#formFilters");
+    $.ajax({
+       url : form.attr('action')+'?output=1&dates=1&'+form.serialize(),
+       type : 'GET',
+       dataType : 'html',
+       success : function(result, statut){
+           if (JSON.parse(result).length == 0) {
+               $('#nav-tab a[href="#nav-listenondates"]').tab('show');
+           } else {
+               $('#nav-tab a[href="#nav-calendrier"]').tab('show');
+           }
+       }
+    });
+}
 
 function updateFiltersInfos() {
   $.ajax({
