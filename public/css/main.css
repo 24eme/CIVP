@@ -9,10 +9,10 @@ a:hover{
   color:black;
   text-decoration: none;
 }
-.primary-link a, .modal-body p a {
+.primary-link a, .modal-body a {
   color:#ef8c8e;
 }
-.primary-link a:hover, .modal-body p a:hover {
+.primary-link a:hover, .modal-body a:hover {
   text-decoration: underline;
 }
 li{

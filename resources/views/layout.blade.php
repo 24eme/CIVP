@@ -17,7 +17,7 @@
     <link href='/css/lib/bootstrap.4-5-0.css' rel='stylesheet' />
     <link href='/css/lib/fontawesome-free.5-13-1.css' rel='stylesheet'>
     <link rel="stylesheet" href="/fullcalendar-year-view/dist/fullcalendar.css" />
-    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/main.css?20220324" />
 
 </head>
 <body>
