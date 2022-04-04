@@ -628,3 +628,6 @@ th.fc-widget-header {
 #sideNavigation {
   background-color: #f6f6f6;
 }
+#filtersInfos {
+border: 1px dashed #dee2e6;
+}

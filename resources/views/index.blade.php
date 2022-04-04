@@ -21,14 +21,17 @@
   <div class="tab-content mt-4" id="nav-tabContent">
 
 
-  <p id="filtersInfos" class="mb-1"@if($strFilters == '') style="display:none;" @endif>
+<div id="filtersInfos" class="mb-1 p-2"@if($strFilters == '') style="display:none;" @endif>
     <strong class="primary-link">
-      Filtres actifs <a href="{{ route('reinit') }}" class="small font-weight-bold">[x] Voir toutes les déclarations</a> :
+      <i class="fas fa-exclamation-triangle"></i> Filtres actifs :
     </strong>
-  </p>
-  <div id="filtersResult">
-  {!! $strFilters !!}
-  </div>
+    <div id="filtersResult">
+    {!! $strFilters !!}
+    </div>
+    <p class="primary-link mt-2 mb-0">
+      <a href="{{ route('reinit') }}" class="font-weight-bold">[x] Voir toutes les déclarations</a>
+    </p>
+</div>
 
 
   <div class="row">
