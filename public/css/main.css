@@ -554,9 +554,6 @@ a.fc-event {
 .image-checkbox-checked {
   border-color: #4783B0;
 }
-#organismes-filter {
-  margin-bottom: -52px;
-}
 
 ::-webkit-scrollbar {width: 0; background: transparent; }
 @media (max-width: 767px){
