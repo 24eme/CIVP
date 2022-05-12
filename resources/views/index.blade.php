@@ -61,7 +61,7 @@
     </div>
   </div>
 
-    <a type="button" class="btn btn-primary float-right mt-3 mb-5 mx-2" href="{{ route('export') }}" style="z-index:4;position:relative;" title="Exporter les déclarations dans mon calendrier personnel"><i class="far fa-calendar-alt"></i> Exporter</a>
+    <a type="button" class="btn btn-primary float-right mt-3 mb-5 mx-2" href="{{ route('export') }}" style="z-index:4;position:relative;" title="Exporter les déclarations dans mon calendrier personnel"><i class="far fa-calendar-alt"></i> Ajouter à mon Agenda</a>
     <div class="tab-pane fade show active" id="nav-calendrier" role="tabpanel" aria-labelledby="nav-calendrier-tab">
       <div id='calendar' class="mainContent"></div>
       <h2 class="h4 my-4" data-toggle="collapse" href="#nav-liste" role="button" aria-expanded="false">Voir la liste des déclarations datées <span class="fas fa-chevron-down"></span></h2>
