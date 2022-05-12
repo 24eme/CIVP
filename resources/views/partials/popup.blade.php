@@ -73,17 +73,17 @@
             @endif
             @if($organisme->telephone)
             <div class="col-12">
-              <i class="fas fa-phone-alt"></i>&nbsp;{{$organisme->telephone}}
+              <i class="fas fa-phone-alt"></i>&nbsp;<a href="tel:{{$organisme->email}}">{{$organisme->telephone}}</a>
             </div>
             @endif
             @if($organisme->email)
             <div class="col-12">
-              <i class="far fa-envelope"></i>&nbsp;{{$organisme->email}}
+              <i class="far fa-envelope"></i>&nbsp;<a href="mailto:{{$organisme->email}}">{{$organisme->email}}</a>
             </div>
             @endif
             @if($organisme->site)
             <div class="col-12">
-              <i class="far fa-globe"></i>&nbsp;{{$organisme->site}}
+              <i class="fa-solid fa-globe"></i>&nbsp;<a href="https://{{$organisme->site}}">{{$organisme->site}}</a>
             </div>
             @endif
           </div>
