@@ -116,7 +116,7 @@
 @endif
     </div>
     <div class="modal-footer d-inline-block">
-      <a href="evenement/export/{{$evenement->id}}?s={{ $s }}&e={{ $e }}" class="btn btn-primary float-left" title="Exporter la déclaration dans mon calendrier personnel"><i class="far fa-calendar-alt"></i> Exporter</a>
+      <a href="evenement/export/{{$evenement->id}}?s={{ $s }}&e={{ $e }}" class="btn btn-primary float-left" title="Exporter la déclaration dans mon calendrier personnel"><i class="far fa-calendar-alt"></i> Ajouter à mon Agenda</a>
 @if($evenement->liendeclaration)
       <a href="{{$evenement->liendeclaration}}" target="_blank" class="btn btn-outline-danger float-right"><i class="fas fa-external-link-alt"></i> Accéder à la déclaration</a>
 @endif
