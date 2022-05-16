@@ -83,7 +83,7 @@
             @endif
             @if($organisme->site)
             <div class="col-12">
-              <i class="fa-solid fa-globe"></i>&nbsp;<a href="https://{{$organisme->site}}">{{$organisme->site}}</a>
+              <i class="fas fa-globe"></i>&nbsp;<a href="{{$organisme->site}}">{{$organisme->site}}</a>
             </div>
             @endif
           </div>
