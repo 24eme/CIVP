@@ -19,11 +19,11 @@ Route::get('/export', [IndexController::class,'export'])->name('export');
 Route::get('/mentions-legales', [IndexController::class,'mentions'])->name('mentions');
 Route::get('/reinit-filtres', [IndexController::class,'reinitFilters'])->name('reinit');
 
+Route::get('/admin', [AdminController::class,'login'])->name('login');
+Route::post('/admin/authenticate', [AdminController::class,'authenticate'])->name('authenticate');
+Route::get('/admin/authenticated', [AdminController::class,'authenticated'])->name('authenticated');
 
-Route::prefix('admin')->group(function () {
-  Route::get('/', [AdminController::class,'login'])->name('login');
-  Route::post('/authenticate', [AdminController::class,'authenticate'])->name('authenticate');
-  Route::get('/authenticated', [AdminController::class,'authenticated'])->name('authenticated');
+Route::prefix('admin')->middleware('auth')->group(function () {
   Route::get('/logout', [AdminController::class,'logout'])->name('logout');
 
   Route::get('evenement/create', [EvenementController::class,'create'])->name('evenement_create');
