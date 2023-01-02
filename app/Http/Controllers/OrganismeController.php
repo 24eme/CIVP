@@ -121,9 +121,10 @@ class OrganismeController extends Controller
       ]);
       $attributes['visible_filtre'] = ($request->has('visible_filtre')&&$request->get('visible_filtre'))? 1 : 0;
       if($request->file('logo')) {
-        $attributes['logo'] = 'images/logos/organismes/'.$attributes['logo']->getClientOriginalName();
-        $file = request()->file('logo');
-        $file->storeAs('logos/organismes',$file->getClientOriginalName(), ['disk' => 'image']);
+        $n = Str::of($request->nom)->slug('-');
+        $file = $request->file('logo');
+        $filename = $file->storeAs('logos/organismes', $n.'.'.$file->extension(), 'image');
+        $attributes['logo'] = basename($filename);
       }
       $organisme->update($attributes);
       return redirect()->route('organismes');
