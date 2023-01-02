@@ -43,6 +43,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
   Route::post('type/edit/{type}', [TypeController::class,'update']);
 
   Route::get('familles', [FamilleController::class,'index'])->name('familles');
+  Route::get('famille/create', [FamilleController::class, 'create'])->name('famille_create');
+  Route::post('famille/create', [FamilleController::class, 'store']);
   Route::get('famille/edit/{famille}', [FamilleController::class,'edit'])->name('famille_edit');
   Route::post('famille/edit/{famille}', [FamilleController::class,'update']);
 

@@ -24,6 +24,33 @@ class FamilleController extends Controller
     }
 
     /**
+     * Show the form for creating a new Famille
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('famille/create', []);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+      $attributes = request()->validate([
+            'nom'=>'required',
+            'description'=>'',
+        ]);
+
+        Famille::create($attributes);
+        return redirect()->route('familles');
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Famille  $famille
