@@ -20,14 +20,8 @@ class OrganismeController extends Controller
      */
     public function index()
     {
-        $familles = Famille::all();
         $organismes = Organisme::all();
-        $tags = Tag::all();
-        $user = null;
-        if (Auth::check()) {
-          $user = Auth::user();
-        }
-        return view('organisme/index', ['tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user]);
+        return view('organisme/index', ['organismes' => $organismes]);
     }
 
     /**
@@ -37,14 +31,7 @@ class OrganismeController extends Controller
      */
     public function create()
     {
-        $familles = Famille::all();
-        $organismes = Organisme::all();
-        $tags = Tag::all();
-        $user = null;
-        if (Auth::check()) {
-          $user = Auth::user();
-        }
-        return view('organisme/create', ['tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user]);
+        return view('organisme/create', []);
     }
 
     /**
@@ -88,14 +75,7 @@ class OrganismeController extends Controller
      */
     public function edit(Organisme $organisme)
     {
-        $familles = Famille::all();
-        $organismes = Organisme::all();
-        $tags = Tag::all();
-        $user = null;
-        if (Auth::check()) {
-          $user = Auth::user();
-        }
-        return view('organisme/edit', ['organisme' => $organisme, 'tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user]);
+        return view('organisme/edit', ['organisme' => $organisme]);
     }
 
     /**
