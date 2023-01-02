@@ -18,6 +18,7 @@
         "sabre/vobject": "~4.1"
     },
     "require-dev": {
+        "doctrine/dbal": "^3.5",
         "facade/ignition": "^2.5",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.2",
