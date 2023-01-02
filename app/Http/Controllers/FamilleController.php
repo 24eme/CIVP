@@ -20,13 +20,7 @@ class FamilleController extends Controller
     public function index()
     {
         $familles = Famille::all();
-        $organismes = Organisme::all();
-        $tags = Tag::all();
-        $user = null;
-        if (Auth::check()) {
-          $user = Auth::user();
-        }
-        return view('famille/index', ['tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user]);
+        return view('famille/index', ['familles' => $familles]);
     }
 
     /**
@@ -37,14 +31,7 @@ class FamilleController extends Controller
      */
     public function edit(Famille $famille)
     {
-      $familles = Famille::all();
-      $organismes = Organisme::all();
-      $tags = Tag::all();
-      $user = null;
-      if (Auth::check()) {
-        $user = Auth::user();
-      }
-      return view('famille/edit', ['famille' => $famille, 'tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user]);
+      return view('famille/edit', ['famille' => $famille]);
     }
 
     /**
