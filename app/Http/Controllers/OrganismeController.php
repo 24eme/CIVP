@@ -9,6 +9,7 @@ use App\Models\Famille;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class OrganismeController extends Controller
 {
@@ -64,9 +65,17 @@ class OrganismeController extends Controller
             'email'=>'',
             'couleur'=>'',
             'site'=>'',
-            'logo'=>'',
+            'logo'=>'image',
         ]);
+
         $attributes['visible_filtre'] = ($request->has('visible_filtre')&&$request->get('visible_filtre'))? 1 : 0;
+
+        if ($request->has('logo')) {
+            $n = (Str::of($request->nom)->slug('-'));
+            $filename = $request->file('logo')->storeAs('logos/organismes', basename($n).'.'.$request->file('logo')->extension(), 'image');
+            $attributes['logo'] = basename($filename);
+        }
+
         Organisme::create($attributes);
         return redirect()->route('organismes');
     }
