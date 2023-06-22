@@ -81,6 +81,11 @@
               <i class="far fa-envelope"></i>&nbsp;{{$organisme->email}}
             </div>
             @endif
+            @if($organisme->site)
+            <div class="col-12">
+              <i class="fas fa-globe"></i>&nbsp;{{$organisme->site}}
+            </div>
+            @endif
           </div>
           @endforeach
         </div>
