@@ -51,7 +51,7 @@
   </div>
 
   <div class="row ml-4">
-      @foreach($tags as $tag)
+      @foreach($tags->sortBy('slug') as $tag)
       <div class="btn-group-toggle m-1" data-toggle="buttons">
         <label class="btn btn-sm btn-outline-danger @if(isset($filtres['tags']) && in_array($tag->id, $filtres['tags'])) active @endif">
           <input name="filters[tags][]" value="{{$tag->id}}" type="checkbox" @if(isset($filtres['tags']) && in_array($tag->id, $filtres['tags'])) checked="checked" @endif /> {{$tag->nom}}

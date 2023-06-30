@@ -32,7 +32,7 @@ class IndexController extends Controller
       $organismesVisibles = Organisme::where('visible_filtre', 1)->get();
       $organismesCaches = Organisme::where('visible_filtre', 0)->get();
       $organismes = Organisme::all();
-      $tags = Tag::orderBy('slug', 'asc')->get();
+      $tags = Tag::orderBy('slug')->get();
       $user = null;
       if (Auth::check()) {
         $user = Auth::user();
