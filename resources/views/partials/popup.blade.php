@@ -83,7 +83,8 @@
             @endif
             @if($organisme->site)
             <div class="col-12">
-              <i class="fas fa-globe"></i>&nbsp;{{$organisme->site}}
+              <i class="fas fa-globe"></i>
+              <a href="{{$organisme->site}}">{{ $organisme->site }}</a>
             </div>
             @endif
           </div>
