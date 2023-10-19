@@ -7,7 +7,7 @@
   </nav>
 
   <div class="mainContent clearfix">
-    <form method="post" action="{{ route('organisme_create') }}">
+    <form method="post" action="{{ route('organisme_create') }}" enctype="multipart/form-data">
       @csrf
         <div class="form-group row">
           <label for="nom" class="col-2">Nom de l'organisme</label>

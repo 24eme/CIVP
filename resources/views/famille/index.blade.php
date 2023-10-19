@@ -4,6 +4,7 @@
 <div id="main" class="main col-10">
   <nav class="mt-4 clearfix">
     <h1 class="h3 col-md-auto float-left">Familles viti/vinicoles</h1>
+    <a href="{{ route('famille_create') }}" class="btn btn-primary float-right"><i class="fas fa-plus">&nbsp;Ajouter une famille</i></a>
   </nav>
 
   <div class="mainContent clearfix">
