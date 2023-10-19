@@ -74,8 +74,8 @@ class IndexController extends Controller
         ]);
         $vcalendar->add($vevent);
       }
-      File::put('calendrier-vitivini.vinsdeprovence.com.ics',$vcalendar->serialize());
-      return response()->download('calendrier-vitivini.vinsdeprovence.com.ics');
+      File::put(storage_path('calendrier-vitivini.vinsdeprovence.com.ics'),$vcalendar->serialize());
+      return response()->download(storage_path('calendrier-vitivini.vinsdeprovence.com.ics'));
     }
 
     public function filtersInfos(Request $request)

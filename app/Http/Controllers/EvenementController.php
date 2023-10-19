@@ -127,7 +127,7 @@ class EvenementController extends Controller
           'DTEND'   => new \DateTime($request->get('e'))
       ]
       ]);
-      File::put('declaration-'.$evenement->id.'.ics',$vcalendar->serialize());
-      return response()->download('declaration-'.$evenement->id.'.ics');
+      File::put(storage_path('declaration-'.$evenement->id.'.ics'),$vcalendar->serialize());
+      return response()->download(storage_path('declaration-'.$evenement->id.'.ics'));
     }
 }
