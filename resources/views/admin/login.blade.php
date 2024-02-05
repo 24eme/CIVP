@@ -3,7 +3,7 @@
 
 <form class="form-signin mt-5" method="post" action="{{ route('authenticate') }}">
   @csrf
-  <img class="mb-4" src="{{asset('images/logos/logo-P.png')}}" alt="" width="72" height="72">
+  <img class="mb-4" src="{{asset('images/logos/logo-P.svg')}}" alt="" width="72" height="72">
   <h1 class="h3 mb-3 font-weight-normal">Administration</h1>
   <div class="form-group mb-3">
     <label for="email" class="sr-only">Email</label>

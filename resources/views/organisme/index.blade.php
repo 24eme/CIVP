@@ -32,7 +32,9 @@
             {{$organisme->id}}
           </td>
           <td>
-            <img src="/images/logos/organismes/{{ $organisme->logo }}" class="" height="30px" />
+            @if ($organisme->logo)
+                <img src="/images/logos/organismes/{{ $organisme->logo }}" class="" height="30px" />
+            @endif
           </td>
           <td align="left">
             <i class="fas fa-circle" style="color: {{ $organisme->couleur }}"></i>&nbsp;<strong>{{$organisme->nom}}</strong>

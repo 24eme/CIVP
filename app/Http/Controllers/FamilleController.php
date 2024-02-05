@@ -20,13 +20,34 @@ class FamilleController extends Controller
     public function index()
     {
         $familles = Famille::all();
-        $organismes = Organisme::all();
-        $tags = Tag::all();
-        $user = null;
-        if (Auth::check()) {
-          $user = Auth::user();
-        }
-        return view('famille/index', ['tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user]);
+        return view('famille/index', ['familles' => $familles]);
+    }
+
+    /**
+     * Show the form for creating a new Famille
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('famille/create', []);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+      $attributes = request()->validate([
+            'nom'=>'required',
+            'description'=>'',
+        ]);
+
+        Famille::create($attributes);
+        return redirect()->route('familles');
     }
 
     /**
@@ -37,14 +58,7 @@ class FamilleController extends Controller
      */
     public function edit(Famille $famille)
     {
-      $familles = Famille::all();
-      $organismes = Organisme::all();
-      $tags = Tag::all();
-      $user = null;
-      if (Auth::check()) {
-        $user = Auth::user();
-      }
-      return view('famille/edit', ['famille' => $famille, 'tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user]);
+      return view('famille/edit', ['famille' => $famille]);
     }
 
     /**

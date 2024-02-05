@@ -20,14 +20,7 @@ class TypeController extends Controller
      public function index()
      {
            $types = Type::all();
-           $familles = Famille::all();
-           $organismes = Organisme::all();
-           $tags = Tag::all();
-           $user = null;
-           if (Auth::check()) {
-             $user = Auth::user();
-           }
-           return view('type/index', ['types' => $types, 'tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user]);
+           return view('type/index', ['types' => $types]);
      }
 
      /**
@@ -38,14 +31,7 @@ class TypeController extends Controller
       */
      public function edit(Type $type)
      {
-         $familles = Famille::all();
-         $organismes = Organisme::all();
-         $tags = Tag::all();
-         $user = null;
-         if (Auth::check()) {
-           $user = Auth::user();
-         }
-         return view('type/edit', ['type' => $type, 'tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user]);
+         return view('type/edit', ['type' => $type]);
      }
 
      /**

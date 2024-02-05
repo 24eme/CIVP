@@ -1,15 +1,23 @@
-@extends('admin/layout')
-
+@extends('layout')
 @section('content')
-<div class="container mt-5">
+@include('partials/_sideNav')
+
+<div id="main" class="main col-10">
+  <nav class="mt-4 clearfix">
+    <h1 class="h3 col-md-auto float-left">Création d'une famille</h1>
+  </nav>
+
+  <div class="mainContent clearfix">
     <form method="post" action="{{ route('famille_create') }}">
       @csrf
-        <div class="form-group">
-          <label for="nom">Nom de la famille</label>
-          <input type="text" class="form-control @error('nom') is-invalid @enderror" name="nom" value="{{ old('nom', $post->nom ?? '') }}" />
-          @error('nom')
-          <div class="invalid-feedback">{{ $message }}</div>
-          @enderror
+        <div class="form-group row">
+          <label for="nom" class="col-2">Nom de la famille</label>
+          <div class="col-4">
+            <input type="text" class="form-control @error('nom') is-invalid @enderror" name="nom" value="{{ old('nom', $post->nom ?? '') }}" />
+            @error('nom')
+            <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
+          </div>
         </div>
         <div class="form-group row">
           <label for="description" class="col-2">Description</label>
@@ -20,7 +28,15 @@
             @enderror
           </div>
         </div>
-        <button type="submit" class="btn btn-primary float-right">Submit</button>
+
+        <div class="row">
+          <div class="col-sm-3">
+            <a href="{{ route('familles') }}" class="btn btn-secondary float-left">Retour</a>
+          </div>
+          <div class="col-sm-3">
+            <button type="submit" class="btn btn-primary float-right"><i class="fas fa-check"></i>&nbsp;Valider</button>
+          </div>
+        </div>
     </form>
 </div>
 

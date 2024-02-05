@@ -412,7 +412,6 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
     margin-bottom: 50px;
 }
 .top-nav {
-    padding: 23px 0 0 0;
     text-align: center;
     margin: 0 22px;
     display: flex;
@@ -420,8 +419,8 @@ input:checked + .slider:before {-webkit-transform: translateX(26px);-ms-transfor
     justify-content: space-between;
 }
 .circle-logo, .circle-logo img {
-    width: 53px;
-    height: 53px;
+    width: 100px;
+    height: 100px;
 }
 .breadcrumb {
     margin-left: 20px;

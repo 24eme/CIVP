@@ -1,6 +1,6 @@
 <footer id="footer" class="text-center">
-  <div class="py-4 footer-icon">
-    <a href="/"><img src="{{asset('images/logos/civp.png')}}" height=60  alt=""></a>
+  <div class="footer-icon">
+    <a href="/"><img src="{{asset('images/logos/civp.png')}}" height=200  alt=""></a>
   </div>
   <div class="footer-links container">
     <ul class="footer-nav" role="menubar">

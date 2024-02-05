@@ -9,6 +9,7 @@ use App\Models\Famille;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class OrganismeController extends Controller
 {
@@ -19,14 +20,8 @@ class OrganismeController extends Controller
      */
     public function index()
     {
-        $familles = Famille::all();
         $organismes = Organisme::all();
-        $tags = Tag::all();
-        $user = null;
-        if (Auth::check()) {
-          $user = Auth::user();
-        }
-        return view('organisme/index', ['tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user]);
+        return view('organisme/index', ['organismes' => $organismes]);
     }
 
     /**
@@ -36,14 +31,7 @@ class OrganismeController extends Controller
      */
     public function create()
     {
-        $familles = Famille::all();
-        $organismes = Organisme::all();
-        $tags = Tag::all();
-        $user = null;
-        if (Auth::check()) {
-          $user = Auth::user();
-        }
-        return view('organisme/create', ['tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user]);
+        return view('organisme/create', []);
     }
 
     /**
@@ -64,9 +52,17 @@ class OrganismeController extends Controller
             'email'=>'',
             'couleur'=>'',
             'site'=>'',
-            'logo'=>'',
+            'logo'=>'image',
         ]);
+
         $attributes['visible_filtre'] = ($request->has('visible_filtre')&&$request->get('visible_filtre'))? 1 : 0;
+
+        if ($request->has('logo')) {
+            $n = (Str::of($request->nom)->slug('-'));
+            $filename = $request->file('logo')->storeAs('logos/organismes', basename($n).'.'.$request->file('logo')->extension(), 'image');
+            $attributes['logo'] = basename($filename);
+        }
+
         Organisme::create($attributes);
         return redirect()->route('organismes');
     }
@@ -79,14 +75,7 @@ class OrganismeController extends Controller
      */
     public function edit(Organisme $organisme)
     {
-        $familles = Famille::all();
-        $organismes = Organisme::all();
-        $tags = Tag::all();
-        $user = null;
-        if (Auth::check()) {
-          $user = Auth::user();
-        }
-        return view('organisme/edit', ['organisme' => $organisme, 'tags' => $tags, 'familles' => $familles, 'organismes' => $organismes, 'user' => $user]);
+        return view('organisme/edit', ['organisme' => $organisme]);
     }
 
     /**
@@ -112,9 +101,10 @@ class OrganismeController extends Controller
       ]);
       $attributes['visible_filtre'] = ($request->has('visible_filtre')&&$request->get('visible_filtre'))? 1 : 0;
       if($request->file('logo')) {
-        $attributes['logo'] = 'images/logos/organismes/'.$attributes['logo']->getClientOriginalName();
-        $file = request()->file('logo');
-        $file->storeAs('logos/organismes',$file->getClientOriginalName(), ['disk' => 'image']);
+        $n = Str::of($request->nom)->slug('-');
+        $file = $request->file('logo');
+        $filename = $file->storeAs('logos/organismes', $n.'.'.$file->extension(), 'image');
+        $attributes['logo'] = basename($filename);
       }
       $organisme->update($attributes);
       return redirect()->route('organismes');
